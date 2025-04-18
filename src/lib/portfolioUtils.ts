@@ -60,3 +60,44 @@ export const fetchPortfolioBrands = async (): Promise<PortfolioItem[]> => {
     return [];
   }
 };
+
+// Function to fetch a specific portfolio brand by name
+export const fetchPortfolioBrandByName = async (name: string): Promise<SanityPortfolioBrand | null> => {
+  try {
+    // Convert the name to a format that matches how we'd create a slug
+    const normalizedName = name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+
+    // Query for the brand with a matching slug
+    const brands = await fetchSanityData<SanityPortfolioBrand[]>(
+      `*[_type == "portfolioBrand" && slug.current == "${normalizedName}"][0]`
+    );
+
+    if (brands) {
+      return brands;
+    }
+
+    // If no match by slug, try matching by name (case insensitive)
+    const brandsByName = await fetchSanityData<SanityPortfolioBrand[]>(
+      `*[_type == "portfolioBrand" && lower(name) == "${name.toLowerCase()}"][0]`
+    );
+
+    return brandsByName || null;
+  } catch (error) {
+    console.error(`Error fetching portfolio brand by name ${name}:`, error);
+    return null;
+  }
+};
+
+// Function to get the Sanity image URL for a brand
+export const getPortfolioBrandImageUrl = (brand: SanityPortfolioBrand | null): string => {
+  if (!brand || !brand.image || !brand.image.asset || !brand.image.asset._ref) {
+    return '';
+  }
+
+  // Extract the image ID from the reference
+  const ref = brand.image.asset._ref;
+  const [, id, dimensions, extension] = ref.split('-');
+
+  // Construct the CDN URL directly
+  return `https://cdn.sanity.io/images/tyzs5imn/production/${id}-${dimensions}.${extension}`;
+};

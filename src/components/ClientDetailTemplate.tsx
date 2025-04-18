@@ -49,7 +49,7 @@ const ClientDetailTemplate: React.FC<ClientDetailTemplateProps> = ({
               )}
               <Link
                 to="/portfolio"
-                className="inline-flex items-center text-[#f4cfd9] hover:text-[#f4cfd9]/80 transition-colors"
+                className="inline-flex items-center text-black hover:text-gray-700 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Portfolio
