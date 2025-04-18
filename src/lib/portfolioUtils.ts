@@ -30,8 +30,12 @@ export const convertSanityPortfolioBrands = (brands: SanityPortfolioBrand[]): Po
       imageUrl = `https://cdn.sanity.io/images/tyzs5imn/production/${id}-${dimensions}.${extension}`;
     }
 
+    // Create a URL-friendly ID from the brand name
+    const urlFriendlyId = brand.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+
     return {
-      id: brand._id,
+      id: urlFriendlyId, // Use URL-friendly ID that matches our routes
+      _id: brand._id, // Keep the original ID for reference
       title: brand.name,
       features: brand.features,
       imgSrc: imageUrl,

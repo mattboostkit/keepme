@@ -102,7 +102,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
             displayedItems.map((item) => (
               <div key={item.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow group overflow-hidden relative flex flex-col">
                 {/* Make the entire card clickable with an overlay link */}
-                <Link to="/portfolio" className="absolute inset-0 z-10">
+                <Link to={`/portfolio/${item.id}`} className="absolute inset-0 z-10">
                   <span className="sr-only">View {item.title}</span>
                 </Link>
 
@@ -125,7 +125,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                   )}
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <Link to="/portfolio" className="relative z-20 block" onClick={(e) => e.stopPropagation()}>
+                  <Link to={`/portfolio/${item.id}`} className="relative z-20 block" onClick={(e) => e.stopPropagation()}>
                     <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">
                       {item.title}
                     </h3>
@@ -134,7 +134,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                     {item.features.join(', ')}
                   </p>
                   <Link
-                    to="/portfolio"
+                    to={`/portfolio/${item.id}`}
                     className="bg-[#f4cfd9] text-white px-5 py-2 rounded-full hover:bg-[#f4cfd9]/80 transition-colors inline-flex items-center relative z-20 mt-auto self-start"
                     onClick={(e) => e.stopPropagation()}
                   >

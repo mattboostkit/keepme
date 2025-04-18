@@ -30,6 +30,15 @@ import PrivacyPolicy from './pages/PrivacyPolicy'; // Import Privacy Policy page
 import TermsAndConditions from './pages/TermsAndConditions'; // Import Terms and Conditions page
 import QualityPolicy from './pages/QualityPolicy'; // Import Quality Policy page
 import ImageTestPage from './pages/ImageTest'; // Import Image Test page
+// Import client pages
+import {
+  RojaParfumsPage,
+  OrmondeJaynePage,
+  HouseOfVisionPage,
+  BoadiceaPage,
+  BDXYPage,
+  StephaneHumbertLucasPage
+} from './pages/clients';
 
 function App() {
   return (
@@ -70,6 +79,13 @@ function App() {
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/quality-policy" element={<QualityPolicy />} />
           <Route path="/image-test" element={<ImageTestPage />} />
+          {/* Client Detail Routes */}
+          <Route path="/portfolio/roja-parfums" element={<RojaParfumsPage />} />
+          <Route path="/portfolio/ormonde-jayne" element={<OrmondeJaynePage />} />
+          <Route path="/portfolio/house-of-vision" element={<HouseOfVisionPage />} />
+          <Route path="/portfolio/boadicea" element={<BoadiceaPage />} />
+          <Route path="/portfolio/bdxy" element={<BDXYPage />} />
+          <Route path="/portfolio/stephane-humbert-lucas" element={<StephaneHumbertLucasPage />} />
         </Routes>
       </main>
       <Footer />
