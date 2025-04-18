@@ -234,8 +234,8 @@ function About() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1613591723536-55b66e0095c0?auto=format&fit=crop&q=80"
-                alt="Perfume laboratory"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/00ead275773abba703c8272d4f0998e7a2292731-850x1085.webp"
+                alt="KeepMe perfume bottles"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
