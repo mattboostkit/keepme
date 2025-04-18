@@ -38,8 +38,8 @@ function Services() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80"
-                alt="Perfume manufacturing process"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/d4beeb28634e5c79b343e100faceafde1efb533c-1226x958.webp"
+                alt="KeepMe fragrance bottles and packaging"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
