@@ -93,8 +93,8 @@ function Glass() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1601295773358-3c337b2c5b33?auto=format&fit=crop&q=80"
-                alt="Luxury glass perfume bottles"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/59313bd50e9799ef00ea9c463cc5854043e98d95-1400x900.jpg"
+                alt="KeepMe luxury glass perfume bottles"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
