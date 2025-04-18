@@ -1,17 +1,28 @@
-// React import removed - not needed in modern React
 import { ArrowRight } from 'lucide-react';
-
-// Define the portfolio items data with client information
-const portfolioItems = [
-  { title: "Roja Parfums", subtitle: "Fragrance", imgSrc: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Roja Parfums fragrance products" },
-  { title: "Ormonde Jayne", subtitle: "Luxury Packaging", imgSrc: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Ormonde Jayne luxury packaging" },
-  { title: "Horatio", subtitle: "Luxury Packaging", imgSrc: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Horatio luxury packaging" },
-  { title: "Boadacea", subtitle: "Vials", imgSrc: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Boadacea vials" },
-  { title: "BDXY", subtitle: "Candles", imgSrc: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "BDXY candles" },
-  { title: "Stephane Humbert Lucas", subtitle: "Shields & Caps", imgSrc: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Stephane Humbert Lucas shields and caps" },
-];
+import FilterablePortfolio from '../components/FilterablePortfolio';
+import { fetchPortfolioBrands } from '../lib/portfolioUtils';
+import { useState, useEffect } from 'react';
 
 function PortfolioPage() {
+  const [portfolioBrands, setPortfolioBrands] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch portfolio brands from Sanity
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const portfolioResult = await fetchPortfolioBrands();
+        setPortfolioBrands(portfolioResult);
+      } catch (error) {
+        console.error('Error fetching portfolio brands:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="pt-24">
       {/* Hero Section */}
@@ -60,39 +71,33 @@ function PortfolioPage() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      {portfolioBrands.length > 0 ? (
+        <FilterablePortfolio
+          title="Featured Clients"
+          subtitle="We're proud to partner with these prestigious brands to create exceptional products."
+          items={portfolioBrands}
+          showFilters={true}
+          backgroundColor="bg-white"
+        />
+      ) : (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
               Featured <span className="text-[#f4cfd9]">Clients</span>
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 mb-8">
               We're proud to partner with these prestigious brands to create exceptional products.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Increased gap */}
-            {portfolioItems.map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-md overflow-hidden group relative">
-                <div className="h-64 overflow-hidden">
-                  <img
-                    src={item.imgSrc}
-                    alt={item.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors">{item.title}</h3>
-                  <p className="text-gray-600 mb-4">{item.subtitle}</p>
-                  <a href="#" className="bg-[#f4cfd9] text-white px-5 py-2 rounded-full hover:bg-[#f4cfd9]/80 transition-colors inline-flex items-center">
-                    <span>View Details</span>
-                    <ArrowRight className="h-4 w-4 ml-2" />
-                  </a>
-                </div>
+            {loading ? (
+              <div className="flex justify-center items-center py-16">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f4cfd9]"></div>
               </div>
-            ))}
+            ) : (
+              <p>No portfolio brands found. Please add some in Sanity Studio.</p>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }

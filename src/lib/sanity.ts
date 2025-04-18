@@ -17,9 +17,9 @@ const builder = imageUrlBuilder(client);
  * Generate an optimized image URL from a Sanity image reference
  * @param source Sanity image reference
  * @returns Image URL builder with chainable methods
- * 
+ *
  * Example usage:
- * <img 
+ * <img
  *   src={urlFor(image)
  *     .width(800)
  *     .height(600)
@@ -31,13 +31,17 @@ const builder = imageUrlBuilder(client);
  */
 export const urlFor = (source: SanityImageSource | undefined | null) => {
   if (!source) {
+    console.warn('No image source provided to urlFor');
     // Return a placeholder URL or empty string
     return {
-      url: () => '',
-      width: () => ({ height: () => ({ url: () => '', format: () => ({ quality: () => ({ url: () => '' }) }) }) })
+      url: () => 'https://via.placeholder.com/800x600?text=No+Image+Source',
+      width: () => ({ height: () => ({ url: () => 'https://via.placeholder.com/800x600?text=No+Image+Source', format: () => ({ quality: () => ({ url: () => 'https://via.placeholder.com/800x600?text=No+Image+Source' }) }) }) })
     };
   }
-  
+
+  console.log('Building image URL for source:', source);
   // Default to WebP format for better compression
-  return builder.image(source).format('webp');
+  const imageBuilder = builder.image(source).format('webp');
+  console.log('Image builder created:', imageBuilder);
+  return imageBuilder;
 };

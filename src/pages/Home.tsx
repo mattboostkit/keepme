@@ -22,6 +22,9 @@ import { fetchSanityData } from '../lib/sanityUtils';
 import { urlFor } from '../lib/sanity';
 import Testimonials from '../components/Testimonials'; // Import the Testimonials component
 import ClientLogos from '../components/ClientLogos'; // Import the ClientLogos component
+// Import the FilterablePortfolio component
+import FilterablePortfolio from '../components/FilterablePortfolio';
+import { fetchPortfolioBrands } from '../lib/portfolioUtils';
 
 // Define the Service interface
 interface Service {
@@ -40,12 +43,13 @@ interface ServiceImage {
 }
 
 function Home() { // Component name is Home
-  // State for service images and about section
+  // State for service images, about section, and portfolio brands
   const [serviceImages, setServiceImages] = useState<ServiceImage[]>([]);
   const [aboutData, setAboutData] = useState<any>(null);
+  const [portfolioBrands, setPortfolioBrands] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch service images and about section data from Sanity
+  // Fetch service images, about section data, and portfolio brands from Sanity
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -57,6 +61,12 @@ function Home() { // Component name is Home
         // Fetch about section data
         const aboutResult = await fetchSanityData('*[_type == "aboutSection"][0]');
         setAboutData(aboutResult);
+
+        // Fetch portfolio brands
+        console.log('Fetching portfolio brands...');
+        const portfolioResult = await fetchPortfolioBrands();
+        console.log('Portfolio brands result:', portfolioResult);
+        setPortfolioBrands(portfolioResult);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -271,7 +281,12 @@ function Home() { // Component name is Home
               }
 
               return (
-                <div key={service.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow group overflow-hidden flex flex-col">
+                <div key={service.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow group overflow-hidden flex flex-col relative">
+                  {/* Make the entire card clickable with an overlay link */}
+                  <Link to={`/${service.slug}`} className="absolute inset-0 z-10">
+                    <span className="sr-only">Learn more about {service.title}</span>
+                  </Link>
+
                   {/* Service image section with hover zoom effect */}
                   <div className="w-full h-80 bg-gray-200 flex items-center justify-center overflow-hidden">
                     {/* If we have a matching service image from Sanity, display it */}
@@ -288,18 +303,22 @@ function Home() { // Component name is Home
                     )}
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
-                    <div className="bg-[#f4cfd9]/20 p-3 rounded-xl inline-block mb-4 self-start group-hover:bg-[#f4cfd9] transition-colors">
+                    <div className="bg-[#f4cfd9]/20 p-3 rounded-xl inline-block mb-4 self-start group-hover:bg-[#f4cfd9] transition-colors relative z-20">
                       <IconComponent className="h-7 w-7 text-[#f4cfd9] group-hover:text-white transition-colors" />
                     </div>
-                    <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors">
-                      <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                    <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">{service.title}</h3>
                     </Link>
                     <p className="text-gray-600 mb-4 text-sm flex-grow">
                       {service.shortDescription}
                     </p>
-                    <Link to={`/${service.slug}`} className="text-[#f4cfd9] font-medium flex items-center mt-auto text-sm">
-                      Learn more
-                      <ChevronRight className="h-4 w-4 ml-1" />
+                    <Link
+                      to={`/${service.slug}`}
+                      className="bg-[#f4cfd9] text-white px-5 py-2 rounded-full hover:bg-[#f4cfd9]/80 transition-colors inline-flex items-center mt-auto self-start relative z-20"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span>Learn more</span>
+                      <ArrowRight className="h-4 w-4 ml-2" />
                     </Link>
                   </div>
                 </div>
@@ -310,134 +329,34 @@ function Home() { // Component name is Home
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      {portfolioBrands.length > 0 ? (
+        <FilterablePortfolio
+          title="Our Portfolio"
+          subtitle="Discover our partnerships with prestigious fragrance houses and luxury brands. We're proud to work with some of the most distinguished names in the industry."
+          items={portfolioBrands}
+          maxItems={6}
+          showFilters={true}
+          backgroundColor="bg-gray-50"
+        />
+      ) : (
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
               Our <span className="text-[#f4cfd9]">Portfolio</span>
             </h2>
-            <p className="text-lg text-gray-600">
-              Discover our partnerships with prestigious fragrance houses and luxury brands. We're proud to work with some of the most distinguished names in the industry.
+            <p className="text-lg text-gray-600 mb-8">
+              Discover our partnerships with prestigious fragrance houses and luxury brands.
             </p>
+            {loading ? (
+              <div className="flex justify-center items-center py-16">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f4cfd9]"></div>
+              </div>
+            ) : (
+              <p>No portfolio brands found. Please add some in Sanity Studio.</p>
+            )}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden group relative">
-              <div className="h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Luxury perfume bottle"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <Link to="/portfolio" className="block">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">Roja Parfums</h3>
-                </Link>
-                <p className="text-gray-600 mb-4">Fragrance</p>
-                <Link to="/portfolio" className="bg-[#f4cfd9] text-gray-800 px-5 py-2 rounded-full hover:bg-[#ebbdc7] transition-colors inline-flex items-center">
-                  <span>View Details</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Link>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden group relative">
-              <div className="h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Modern perfume bottle design"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <Link to="/portfolio" className="block">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">Ormonde Jayne</h3>
-                </Link>
-                <p className="text-gray-600 mb-4">Luxury Packaging</p>
-                <Link to="/portfolio" className="bg-[#f4cfd9] text-gray-800 px-5 py-2 rounded-full hover:bg-[#ebbdc7] transition-colors inline-flex items-center">
-                  <span>View Details</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Link>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden group relative">
-              <div className="h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Artisan perfume collection"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <Link to="/portfolio" className="block">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">Horatio</h3>
-                </Link>
-                <p className="text-gray-600 mb-4">Luxury Packaging</p>
-                <Link to="/portfolio" className="bg-[#f4cfd9] text-gray-800 px-5 py-2 rounded-full hover:bg-[#ebbdc7] transition-colors inline-flex items-center">
-                  <span>View Details</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Link>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden group relative">
-              <div className="h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Premium perfume packaging"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <Link to="/portfolio" className="block">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">Boadacea</h3>
-                </Link>
-                <p className="text-gray-600 mb-4">Vials</p>
-                <Link to="/portfolio" className="bg-[#f4cfd9] text-gray-800 px-5 py-2 rounded-full hover:bg-[#ebbdc7] transition-colors inline-flex items-center">
-                  <span>View Details</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Link>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden group relative">
-              <div className="h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Luxury perfume gift set"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <Link to="/portfolio" className="block">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">BDXY</h3>
-                </Link>
-                <p className="text-gray-600 mb-4">Candles</p>
-                <Link to="/portfolio" className="bg-[#f4cfd9] text-gray-800 px-5 py-2 rounded-full hover:bg-[#ebbdc7] transition-colors inline-flex items-center">
-                  <span>View Details</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Link>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden group relative">
-              <div className="h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Eco-friendly perfume packaging"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <Link to="/portfolio" className="block">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">Stephane Humbert Lucas</h3>
-                </Link>
-                <p className="text-gray-600 mb-4">Shields & Caps</p>
-                <Link to="/portfolio" className="bg-[#f4cfd9] text-gray-800 px-5 py-2 rounded-full hover:bg-[#ebbdc7] transition-colors inline-flex items-center">
-                  <span>View Details</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Our Reach Section */}
       <section id="reach" className="py-20 bg-white"> {/* Using bg-white, adjust if needed */}
