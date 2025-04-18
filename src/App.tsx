@@ -29,6 +29,7 @@ import TestimonialsDemo from './pages/TestimonialsDemo'; // Import Testimonials 
 import PrivacyPolicy from './pages/PrivacyPolicy'; // Import Privacy Policy page
 import TermsAndConditions from './pages/TermsAndConditions'; // Import Terms and Conditions page
 import QualityPolicy from './pages/QualityPolicy'; // Import Quality Policy page
+import ImageTestPage from './pages/ImageTest'; // Import Image Test page
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/quality-policy" element={<QualityPolicy />} />
+          <Route path="/image-test" element={<ImageTestPage />} />
         </Routes>
       </main>
       <Footer />
