@@ -1,21 +1,30 @@
 import { ArrowRight } from 'lucide-react';
 import FilterablePortfolio from '../components/FilterablePortfolio';
-import { fetchPortfolioBrands } from '../lib/portfolioUtils';
+import { fetchPortfolioBrands, fetchPortfolioBrandByName, getPortfolioBrandImageUrl } from '../lib/portfolioUtils';
 import { useState, useEffect } from 'react';
 
 function PortfolioPage() {
   const [portfolioBrands, setPortfolioBrands] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [heroImage, setHeroImage] = useState<string>('');
 
-  // Fetch portfolio brands from Sanity
+  // Fetch portfolio brands and Boadicea image from Sanity
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        // Fetch portfolio brands
         const portfolioResult = await fetchPortfolioBrands();
         setPortfolioBrands(portfolioResult);
+
+        // Fetch Boadicea image for hero section
+        const boadiceaData = await fetchPortfolioBrandByName('Boadicea');
+        if (boadiceaData) {
+          const imageUrl = getPortfolioBrandImageUrl(boadiceaData);
+          setHeroImage(imageUrl);
+        }
       } catch (error) {
-        console.error('Error fetching portfolio brands:', error);
+        console.error('Error fetching portfolio data:', error);
       } finally {
         setLoading(false);
       }
@@ -50,7 +59,7 @@ function PortfolioPage() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80"
+                src={heroImage || "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80"}
                 alt="Luxury perfume bottles"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
