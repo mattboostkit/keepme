@@ -37,9 +37,9 @@ const ClientDetailTemplate: React.FC<ClientDetailTemplateProps> = ({
                   <h3 className="text-lg font-bold mb-3">Products & Services:</h3>
                   <div className="flex flex-wrap gap-2">
                     {clientFeatures.map((feature, index) => (
-                      <span 
-                        key={index} 
-                        className="bg-[#f4cfd9]/20 text-[#f4cfd9] px-4 py-2 rounded-full text-sm font-medium"
+                      <span
+                        key={index}
+                        className="bg-[#f4cfd9] text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm"
                       >
                         {feature}
                       </span>
@@ -47,8 +47,8 @@ const ClientDetailTemplate: React.FC<ClientDetailTemplateProps> = ({
                   </div>
                 </div>
               )}
-              <Link 
-                to="/portfolio" 
+              <Link
+                to="/portfolio"
                 className="inline-flex items-center text-[#f4cfd9] hover:text-[#f4cfd9]/80 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
@@ -57,10 +57,10 @@ const ClientDetailTemplate: React.FC<ClientDetailTemplateProps> = ({
             </div>
             <div className="w-full md:w-1/2">
               {clientImage ? (
-                <img 
-                  src={clientImage} 
-                  alt={`${clientName} showcase`} 
-                  className="w-full h-auto rounded-2xl shadow-lg"
+                <img
+                  src={clientImage}
+                  alt={`${clientName} showcase`}
+                  className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
                 />
               ) : (
                 <div className="w-full h-80 bg-gray-200 rounded-2xl flex items-center justify-center">
@@ -81,7 +81,7 @@ const ClientDetailTemplate: React.FC<ClientDetailTemplateProps> = ({
             <div className="text-center py-12">
               <h2 className="text-2xl font-bold mb-4">Coming Soon</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                We're currently working on detailed content for this client showcase. 
+                We're currently working on detailed content for this client showcase.
                 Please check back soon for more information about our partnership with {clientName}.
               </p>
             </div>
@@ -96,8 +96,8 @@ const ClientDetailTemplate: React.FC<ClientDetailTemplateProps> = ({
             Explore More <span className="text-[#f4cfd9]">Clients</span>
           </h2>
           <div className="text-center">
-            <Link 
-              to="/portfolio" 
+            <Link
+              to="/portfolio"
               className="bg-[#f4cfd9] text-white px-6 py-3 rounded-full hover:bg-[#f4cfd9]/80 transition-colors inline-flex items-center"
             >
               View All Clients
