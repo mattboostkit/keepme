@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="600" fill="#f4cfd9" />
+  
+  <!-- Generic profile silhouette -->
+  <circle cx="300" cy="200" r="120" fill="#ffffff" />
+  <path d="M300 340C203.5 340 125 418.5 125 515V600H475V515C475 418.5 396.5 340 300 340Z" fill="#ffffff" />
+</svg>

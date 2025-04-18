@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favicon Test</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="shortcut icon" href="favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .favicon-test {
+      margin-bottom: 30px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+    h1 {
+      color: #333;
+    }
+    h2 {
+      color: #666;
+    }
+    code {
+      background-color: #f5f5f5;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Favicon Test Page</h1>
+  <p>This page tests all the favicon files in this directory.</p>
+
+  <div class="favicon-test">
+    <h2>favicon.ico</h2>
+    <p>This is the classic favicon file that should contain multiple sizes (16x16, 32x32).</p>
+    <p>HTML: <code>&lt;link rel="shortcut icon" href="favicon.ico"&gt;</code></p>
+    <img src="favicon.ico" alt="favicon.ico">
+  </div>
+
+  <div class="favicon-test">
+    <h2>favicon.svg</h2>
+    <p>This is a scalable vector version of the favicon.</p>
+    <p>HTML: <code>&lt;link rel="icon" type="image/svg+xml" href="favicon.svg"&gt;</code></p>
+    <img src="favicon.svg" alt="favicon.svg" style="max-width: 100px;">
+  </div>
+
+  <div class="favicon-test">
+    <h2>favicon-96x96.png</h2>
+    <p>This is a 96x96 pixel PNG version of the favicon.</p>
+    <p>HTML: <code>&lt;link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"&gt;</code></p>
+    <img src="favicon-96x96.png" alt="favicon-96x96.png">
+  </div>
+
+  <div class="favicon-test">
+    <h2>apple-touch-icon.png</h2>
+    <p>This is used for iOS devices when adding the site to the home screen.</p>
+    <p>HTML: <code>&lt;link rel="apple-touch-icon" href="apple-touch-icon.png"&gt;</code></p>
+    <img src="apple-touch-icon.png" alt="apple-touch-icon.png">
+  </div>
+
+  <div class="favicon-test">
+    <h2>web-app-manifest-192x192.png</h2>
+    <p>This is used for Android devices and PWAs.</p>
+    <p>Referenced in: <code>site.webmanifest</code></p>
+    <img src="web-app-manifest-192x192.png" alt="web-app-manifest-192x192.png">
+  </div>
+
+  <div class="favicon-test">
+    <h2>web-app-manifest-512x512.png</h2>
+    <p>This is a larger version used for Android devices and PWAs.</p>
+    <p>Referenced in: <code>site.webmanifest</code></p>
+    <img src="web-app-manifest-512x512.png" alt="web-app-manifest-512x512.png">
+  </div>
+
+  <p><a href="/">Return to main site</a></p>
+</body>
+</html>
