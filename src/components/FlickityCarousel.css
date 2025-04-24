@@ -1,0 +1,51 @@
+/* Custom styles for Flickity carousel */
+
+.carousel {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.carousel-cell {
+  margin-right: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Remove outline on focus */
+.flickity-enabled:focus {
+  outline: none;
+}
+
+/* Custom styles for our services carousel */
+.services-carousel .carousel-cell {
+  width: 280px;
+}
+
+/* Make sure the carousel doesn't show scrollbars */
+.flickity-viewport {
+  overflow: visible;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .services-carousel .carousel-cell {
+    width: 240px;
+  }
+}
+
+/* Ensure the carousel cells have proper spacing */
+.services-carousel .carousel-cell:first-child {
+  margin-left: 0;
+}
+
+/* Add a subtle gradient to indicate more content */
+.carousel-gradient-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 80px;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+  z-index: 2;
+  pointer-events: none;
+}

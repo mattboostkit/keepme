@@ -25,6 +25,8 @@ import ClientLogos from '../components/ClientLogos'; // Import the ClientLogos c
 // Import the FilterablePortfolio component
 import FilterablePortfolio from '../components/FilterablePortfolio';
 import { fetchPortfolioBrands } from '../lib/portfolioUtils';
+import FlickityCarousel from '../components/FlickityCarousel'; // Import the FlickityCarousel component
+import '../components/FlickityCarousel.css'; // Import the FlickityCarousel styles
 
 // Define the Service interface
 interface Service {
@@ -217,85 +219,99 @@ function Home() { // Component name is Home
         </div>
       </section>
 
-      {/* Services Section - Horizontal Scrolling */}
-      <section id="services" className="py-20">
+      {/* Services Section - Using Flickity for smooth scrolling */}
+      <section id="services" className="py-20 relative">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Services
+              Our <span className="text-[#f4cfd9]">Services</span>
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-10">
               We offer a full range of services from bespoke design and production, to
               supplying stock items and components for cosmetic and fragrance products.
             </p>
 
             {/* Loading indicator */}
-            {loading && (
-              <div className="flex justify-center items-center py-8">
+            {loading ? (
+              <div className="flex justify-center items-center py-16">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f4cfd9]"></div>
+              </div>
+            ) : (
+              <div className="relative">
+                {/* Flickity Carousel */}
+                <FlickityCarousel
+                  className="services-carousel"
+                  options={{
+                    freeScroll: true,
+                    contain: true,
+                    prevNextButtons: false,
+                    pageDots: false,
+                    cellAlign: 'left',
+                    draggable: true,
+                    friction: 0.2,
+                    selectedAttraction: 0.01
+                  }}
+                >
+                  {services.map((service) => {
+                    // Get the icon component based on the icon name in the service
+                    let IconComponent;
+                    switch (service.icon) {
+                      case 'Droplets': IconComponent = Droplets; break;
+                      case 'GlassWater': IconComponent = GlassWater; break;
+                      case 'Palette': IconComponent = Palette; break;
+                      case 'Home': IconComponent = HomeIcon; break;
+                      case 'Package': IconComponent = Package; break;
+                      case 'Gift': IconComponent = Gift; break;
+                      case 'Truck': IconComponent = Truck; break;
+                      default: IconComponent = Droplets; // Default icon
+                    }
+
+                    return (
+                      <div key={service.id} className="group relative w-full h-full">
+                        {/* Make the entire card clickable with an overlay link */}
+                        <Link to={`/${service.slug}`} className="absolute inset-0 z-10">
+                          <span className="sr-only">Learn more about {service.title}</span>
+                        </Link>
+
+                        {/* Service image */}
+                        <div className="w-full h-64 overflow-hidden mb-4">
+                          {serviceImages.find(img => img.title === service.title)?.image ? (
+                            <img
+                              src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(400).height(400).url()}
+                              alt={serviceImages.find(img => img.title === service.title)?.image.alt || `${service.title} image`}
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                          ) : (
+                            <div className="flex items-center justify-center h-full w-full bg-gray-200">
+                              <IconComponent className="h-12 w-12 text-gray-400" />
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Service title and description */}
+                        <div>
+                          <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
+                            <h3 className="text-lg font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors">{service.title}</h3>
+                          </Link>
+                          <p className="text-gray-600 text-sm">
+                            {service.shortDescription.length > 80
+                              ? `${service.shortDescription.substring(0, 80)}...`
+                              : service.shortDescription}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </FlickityCarousel>
+
+                {/* Gradient mask to indicate more content */}
+                <div className="carousel-gradient-mask hidden md:block"></div>
               </div>
             )}
 
-            {/* Horizontal scrolling container */}
-            <div className="overflow-x-auto pb-6 -mx-6 px-6">
-              <div className="flex space-x-6 min-w-max">
-                {/* Service Cards */}
-                {services.map((service) => {
-                  // Get the icon component based on the icon name in the service
-                  let IconComponent;
-                  switch (service.icon) {
-                    case 'Droplets': IconComponent = Droplets; break;
-                    case 'GlassWater': IconComponent = GlassWater; break;
-                    case 'Palette': IconComponent = Palette; break;
-                    case 'Home': IconComponent = HomeIcon; break;
-                    case 'Package': IconComponent = Package; break;
-                    case 'Gift': IconComponent = Gift; break;
-                    case 'Truck': IconComponent = Truck; break;
-                    default: IconComponent = Droplets; // Default icon
-                  }
-
-                  return (
-                    <div key={service.id} className="w-64 flex-shrink-0 group relative">
-                      {/* Make the entire card clickable with an overlay link */}
-                      <Link to={`/${service.slug}`} className="absolute inset-0 z-10">
-                        <span className="sr-only">Learn more about {service.title}</span>
-                      </Link>
-
-                      {/* Service image */}
-                      <div className="w-full h-64 overflow-hidden mb-4">
-                        {serviceImages.find(img => img.title === service.title)?.image ? (
-                          <img
-                            src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(400).height(400).url()}
-                            alt={serviceImages.find(img => img.title === service.title)?.image.alt || `${service.title} image`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          />
-                        ) : (
-                          <div className="flex items-center justify-center h-full w-full bg-gray-200">
-                            <IconComponent className="h-12 w-12 text-gray-400" />
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Service title and description */}
-                      <div>
-                        <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
-                          <h3 className="text-lg font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors">{service.title}</h3>
-                        </Link>
-                        <p className="text-gray-600 text-sm">
-                          {service.shortDescription.length > 100
-                            ? `${service.shortDescription.substring(0, 100)}...`
-                            : service.shortDescription}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* Scroll indicator */}
-            <div className="hidden md:flex justify-end mt-4 text-sm text-gray-500">
-              <span>Scroll to see more →</span>
+            <div className="flex justify-center md:justify-end mt-6 text-sm text-gray-500">
+              <span>← Drag to explore our services →</span>
             </div>
           </div>
         </div>
