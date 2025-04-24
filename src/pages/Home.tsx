@@ -159,13 +159,10 @@ function Home() { // Component name is Home
                 Your end-to-end partner in fragrance and packaging. We specialise in perfume production,
                 from components to filling, assembly, and delivery.
               </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center"> {/* Centered buttons */}
+              <div className="flex justify-center"> {/* Centered button */}
                 <Link to="/services" className="bg-[#f4cfd9] text-gray-800 px-8 py-3 rounded-full hover:bg-[#ebbdc7] transition-colors flex items-center justify-center">
                   Discover Our Services
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-                <Link to="/contact" className="border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-gray-800 transition-colors flex justify-center"> {/* Adjusted border/text color */}
-                  Contact Us
                 </Link>
               </div>
             </div>
@@ -214,32 +211,7 @@ function Home() { // Component name is Home
               <p className="text-lg text-gray-600 leading-relaxed">
                 {aboutData?.description || 'We design and manufacture an extensive range of expertly created products from signature scents to home fragrances, each meticulously crafted from the finest raw materials. Beautifully designed packaging showcases each bespoke product, tailored to complement and enhance your brand.'}
               </p>
-              <div className="grid grid-cols-2 gap-4 pt-4">
-                <div className="flex items-center space-x-3">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <PenTool className="h-5 w-5 text-[#f4cfd9]" />
-                  </div>
-                  <p className="font-medium">Precision Formulation</p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <Droplets className="h-5 w-5 text-[#f4cfd9]" />
-                  </div>
-                  <p className="font-medium">Finest Raw Materials</p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <PackageCheck className="h-5 w-5 text-[#f4cfd9]" />
-                  </div>
-                  <p className="font-medium">Consistent Quality Control</p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <Users className="h-5 w-5 text-[#f4cfd9]" />
-                  </div>
-                  <p className="font-medium">Specialist Partner Support</p>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -303,23 +275,12 @@ function Home() { // Component name is Home
                     )}
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
-                    <div className="bg-[#f4cfd9]/20 p-3 rounded-xl inline-block mb-4 self-start group-hover:bg-[#f4cfd9] transition-colors relative z-20">
-                      <IconComponent className="h-7 w-7 text-[#f4cfd9] group-hover:text-white transition-colors" />
-                    </div>
                     <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
                       <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">{service.title}</h3>
                     </Link>
-                    <p className="text-gray-600 mb-4 text-sm flex-grow">
+                    <p className="text-gray-600 text-sm flex-grow">
                       {service.shortDescription}
                     </p>
-                    <Link
-                      to={`/${service.slug}`}
-                      className="bg-[#f4cfd9] text-white px-5 py-2 rounded-full hover:bg-[#f4cfd9]/80 transition-colors inline-flex items-center mt-auto self-start relative z-20"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <span>Learn more</span>
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </Link>
                   </div>
                 </div>
               );
