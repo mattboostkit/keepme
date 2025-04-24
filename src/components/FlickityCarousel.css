@@ -18,7 +18,7 @@
 
 /* Custom styles for our services carousel */
 .services-carousel .carousel-cell {
-  width: 280px;
+  width: 320px;
 }
 
 /* Make sure the carousel doesn't show scrollbars */
@@ -26,10 +26,18 @@
   overflow: visible;
 }
 
+/* Fix for white overlay - ensure background is transparent */
+.flickity-viewport,
+.flickity-slider,
+.carousel,
+.carousel-cell {
+  background: transparent !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .services-carousel .carousel-cell {
-    width: 240px;
+    width: 280px;
   }
 }
 
@@ -48,4 +56,9 @@
   background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
   z-index: 2;
   pointer-events: none;
+}
+
+/* Services section background */
+.services-section {
+  background-color: #f9f5e7;
 }

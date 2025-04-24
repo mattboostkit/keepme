@@ -220,7 +220,7 @@ function Home() { // Component name is Home
       </section>
 
       {/* Services Section - Using Flickity for smooth scrolling */}
-      <section id="services" className="py-20 relative">
+      <section id="services" className="py-20 relative services-section">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
@@ -266,19 +266,24 @@ function Home() { // Component name is Home
                       default: IconComponent = Droplets; // Default icon
                     }
 
+                    // Change "Cosmetic Componentry" to "Skincare Componentry"
+                    const displayTitle = service.title === "Cosmetic Componentry"
+                      ? "Skincare Componentry"
+                      : service.title;
+
                     return (
                       <div key={service.id} className="group relative w-full h-full">
                         {/* Make the entire card clickable with an overlay link */}
                         <Link to={`/${service.slug}`} className="absolute inset-0 z-10">
-                          <span className="sr-only">Learn more about {service.title}</span>
+                          <span className="sr-only">Learn more about {displayTitle}</span>
                         </Link>
 
-                        {/* Service image */}
-                        <div className="w-full h-64 overflow-hidden mb-4">
+                        {/* Service image - increased height */}
+                        <div className="w-full h-72 overflow-hidden mb-4 rounded-lg">
                           {serviceImages.find(img => img.title === service.title)?.image ? (
                             <img
-                              src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(400).height(400).url()}
-                              alt={serviceImages.find(img => img.title === service.title)?.image.alt || `${service.title} image`}
+                              src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(600).height(500).url()}
+                              alt={serviceImages.find(img => img.title === service.title)?.image.alt || `${displayTitle} image`}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                           ) : (
@@ -291,7 +296,7 @@ function Home() { // Component name is Home
                         {/* Service title and description */}
                         <div>
                           <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
-                            <h3 className="text-lg font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors">{service.title}</h3>
+                            <h3 className="text-lg font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors">{displayTitle}</h3>
                           </Link>
                           <p className="text-gray-600 text-sm">
                             {service.shortDescription.length > 80
