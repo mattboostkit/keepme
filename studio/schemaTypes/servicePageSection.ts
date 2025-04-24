@@ -24,7 +24,7 @@ export default {
         list: [
           { title: 'Fragrance Creation', value: 'Fragrance Creation' },
           { title: 'Fragrance Componentry', value: 'Fragrance Componentry' },
-          { title: 'Cosmetic Componentry', value: 'Cosmetic Componentry' },
+          { title: 'Skincare Componentry', value: 'Skincare Componentry' },
           { title: 'Home Fragrance', value: 'Home Fragrance' },
           { title: 'Luxury Packaging', value: 'Luxury Packaging' },
           { title: 'Gifts With Purchase', value: 'Gifts With Purchase' },
