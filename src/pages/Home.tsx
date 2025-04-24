@@ -2,8 +2,8 @@
 import {
   Star,         // Needed for About section
   Droplets,     // For Fragrance service + About section
-  Users,        // Needed for About section
-  ChevronRight, // Needed for Service card links
+  // Users,        // Removed - Unused import
+  // ChevronRight, // Removed - Unused import
   ArrowRight,   // Needed for Hero button
   GlassWater,   // For Fragrance Componentry service
   Home as HomeIcon, // Alias Home icon to avoid conflict with component name
@@ -11,8 +11,8 @@ import {
   Package,      // For Luxury Packaging service
   Gift,         // For Gifts With Purchase service
   Truck,        // For Delivery & Logistics service
-  PenTool,      // Needed for About section
-  PackageCheck  // Needed for About section
+  // PenTool,      // Removed - Unused import
+  // PackageCheck  // Removed - Unused import
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import WorldMap from '../components/ui/WorldMap'; // Import the WorldMap component
@@ -22,11 +22,22 @@ import { fetchSanityData } from '../lib/sanityUtils';
 import { urlFor } from '../lib/sanity';
 import Testimonials from '../components/Testimonials'; // Import the Testimonials component
 import ClientLogos from '../components/ClientLogos'; // Import the ClientLogos component
-// Import the FilterablePortfolio component
-import FilterablePortfolio from '../components/FilterablePortfolio';
+// Import the FilterablePortfolio component and its type
+import FilterablePortfolio, { PortfolioItem } from '../components/FilterablePortfolio';
+// Import fetchPortfolioBrands utility
 import { fetchPortfolioBrands } from '../lib/portfolioUtils';
 import FlickityCarousel from '../components/FlickityCarousel'; // Import the FlickityCarousel component
 import '../components/FlickityCarousel.css'; // Import the FlickityCarousel styles
+
+// Define Sanity Image Reference type
+interface SanityImageReference {
+  _type: 'image';
+  asset: {
+    _ref: string;
+    _type: 'reference';
+  };
+  alt?: string;
+}
 
 // Define the Service interface
 interface Service {
@@ -41,14 +52,26 @@ interface Service {
 interface ServiceImage {
   _id: string;
   title: string;
-  image: any; // Sanity image reference
+  image: SanityImageReference; // Use specific type
 }
+
+// Define About Section Data interface
+interface AboutSectionData {
+  _type: 'aboutSection';
+  title?: string;
+  description?: string;
+  image?: SanityImageReference;
+  yearsOfExperience?: string;
+}
+
+// PortfolioBrand interface removed as it seems incorrect/redundant
+
 
 function Home() { // Component name is Home
   // State for service images, about section, and portfolio brands
   const [serviceImages, setServiceImages] = useState<ServiceImage[]>([]);
-  const [aboutData, setAboutData] = useState<any>(null);
-  const [portfolioBrands, setPortfolioBrands] = useState<any[]>([]);
+  const [aboutData, setAboutData] = useState<AboutSectionData | null>(null); // Use specific type
+  const [portfolioBrands, setPortfolioBrands] = useState<PortfolioItem[]>([]); // Use PortfolioItem type
   const [loading, setLoading] = useState(true);
 
   // Fetch service images, about section data, and portfolio brands from Sanity
@@ -61,7 +84,7 @@ function Home() { // Component name is Home
         setServiceImages(serviceImagesResult);
 
         // Fetch about section data
-        const aboutResult = await fetchSanityData('*[_type == "aboutSection"][0]');
+        const aboutResult = await fetchSanityData<AboutSectionData>('*[_type == "aboutSection"][0]'); // Add type hint
         setAboutData(aboutResult);
 
         // Fetch portfolio brands
@@ -134,7 +157,7 @@ function Home() { // Component name is Home
       {/* Hero Section - Updated with Full Width Background */}
       <section
         id="home"
-        className="relative flex items-center justify-center text-center text-white min-h-[60vh] md:min-h-[70vh] py-24 md:py-32 bg-cover bg-center bg-no-repeat"
+        className="relative flex items-center justify-center text-center text-white min-h-[60vh] md:min-h-[70vh] pt-16 pb-24 md:pt-20 md:pb-32 bg-cover bg-center bg-no-repeat" // Adjusted top padding
         style={{ backgroundImage: `url(${heroImageUrl})` }}
       >
         {/* Overlay for text contrast */}

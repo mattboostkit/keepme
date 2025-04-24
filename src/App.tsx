@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fffded] to-[#eed9b2] text-gray-900 flex flex-col"> {/* Applied gradient to entire app */}
       <Header />
-      <main className="flex-grow pt-32"> {/* Increased pt to 32 (8rem) to fully offset fixed header */}
+      <main className="flex-grow pt-24"> {/* Reverted pt back to 24 */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
