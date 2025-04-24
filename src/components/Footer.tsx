@@ -19,15 +19,20 @@ function Footer() {
           </div>
           <div>
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              <li><Link to="/" className="text-white hover:text-white/80 transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-white hover:text-white/80 transition-colors">About</Link></li>
-              <li><Link to="/services" className="text-white hover:text-white/80 transition-colors">Services</Link></li>
-              <li><Link to="/glass" className="text-white hover:text-white/80 transition-colors">Glass</Link></li>
-              <li><Link to="/tools" className="text-white hover:text-white/80 transition-colors">Tools</Link></li>
-              <li><Link to="/portfolio" className="text-white hover:text-white/80 transition-colors">Portfolio</Link></li> {/* Add Portfolio link */}
-              <li><Link to="/blog" className="text-white hover:text-white/80 transition-colors">Blog</Link></li>
-            </ul>
+            <div className="grid grid-cols-2 gap-4">
+              <ul className="space-y-3">
+                <li><Link to="/" className="text-white hover:text-white/80 transition-colors">Home</Link></li>
+                <li><Link to="/about" className="text-white hover:text-white/80 transition-colors">About</Link></li>
+                <li><Link to="/services" className="text-white hover:text-white/80 transition-colors">Services</Link></li>
+                <li><Link to="/glass" className="text-white hover:text-white/80 transition-colors">Glass</Link></li>
+              </ul>
+              <ul className="space-y-3">
+                <li><Link to="/tools" className="text-white hover:text-white/80 transition-colors">Tools</Link></li>
+                <li><Link to="/portfolio" className="text-white hover:text-white/80 transition-colors">Portfolio</Link></li>
+                <li><Link to="/blog" className="text-white hover:text-white/80 transition-colors">Blog</Link></li>
+                <li><Link to="/contact" className="text-white hover:text-white/80 transition-colors">Contact</Link></li>
+              </ul>
+            </div>
           </div>
 
           <div>
@@ -52,7 +57,7 @@ function Footer() {
             <ul className="space-y-3 text-white">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />
-                <span>16 Quadrant Court, Dartford<br/>Greenhithe DA9 9AY</span>
+                <span>16 Quadrant Court, Greenhithe<br/>Kent DA9 9AY</span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />
@@ -67,7 +72,7 @@ function Footer() {
         </div>
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white text-sm">
-            © {new Date().getFullYear()} KeepMe Fragrances. All rights reserved.
+            © {new Date().getFullYear()} KeepMe Lifestyle. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link to="/privacy" className="text-white hover:text-white/80 transition-colors">Privacy Policy</Link>

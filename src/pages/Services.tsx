@@ -1,14 +1,5 @@
 // React import removed - not needed in modern React
 import { Link } from 'react-router-dom'; // Import Link
-import {
-  Droplets,
-  Palette,
-  Home,        // Added for Home Fragrance
-  GlassWater,  // Added for Fragrance Componentry
-  Package,     // Added for Luxury Packaging
-  Gift,        // Added for Gifts With Purchase
-  Truck        // Added to fix runtime error
-} from 'lucide-react';
 
 function Services() {
   return (
@@ -25,12 +16,7 @@ function Services() {
                 From concept to delivery, we provide end-to-end fragrance manufacturing solutions tailored to your brand's unique vision.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <Droplets className="h-6 w-6 text-[#f4cfd9]" />
-                  </div>
-                  <h3 className="text-xl font-bold">Full-Service Solutions</h3>
-                </div>
+                <h3 className="text-xl font-bold mb-4">Full-Service Solutions</h3>
                 <p className="text-gray-600">
                   We offer comprehensive services from design and technical drawings, manufacturing of components to logistics and delivery, ensuring a seamless experience for your brand.
                 </p>
@@ -43,25 +29,15 @@ function Services() {
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <Palette className="h-6 w-6 text-[#f4cfd9]" />
-                  </div>
-                  <div>
-                    <p className="text-xl font-bold">Full Service</p>
-                    <p className="text-gray-600">Comprehensive Solutions</p>
-                  </div>
+                <div>
+                  <p className="text-xl font-bold">Full Service</p>
+                  <p className="text-gray-600">Comprehensive Solutions</p>
                 </div>
               </div>
               <div className="absolute -top-8 -right-8 bg-white rounded-xl p-6 shadow-lg hidden md:block">
-                <div className="flex items-center space-x-2">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <Truck className="h-6 w-6 text-[#f4cfd9]" />
-                  </div>
-                  <div>
-                    <p className="text-xl font-bold">Global Reach</p>
-                    <p className="text-gray-600">Worldwide Delivery</p>
-                  </div>
+                <div>
+                  <p className="text-xl font-bold">Global Reach</p>
+                  <p className="text-gray-600">Worldwide Delivery</p>
                 </div>
               </div>
             </div>
@@ -102,9 +78,7 @@ function Services() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-[#f4cfd9] p-4 rounded-xl inline-block mb-6">
-                <GlassWater className="h-6 w-6 text-[#f4cfd9]" />
-              </div>
+
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
                 Fragrance Componentry
               </h2>
@@ -131,9 +105,7 @@ function Services() {
               <img src="https://images.unsplash.com/photo-1602928298849-325cec8771c0?auto=format&fit=crop&q=80" alt="Home Fragrance" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </div>
             <div className="order-1 md:order-2">
-              <div className="text-[#f4cfd9] p-4 rounded-xl inline-block mb-6">
-                <Home className="h-6 w-6 text-[#f4cfd9]" />
-              </div>
+
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
                 Home Fragrance
               </h2>
@@ -154,9 +126,7 @@ function Services() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-[#f4cfd9] p-4 rounded-xl inline-block mb-6">
-                <Package className="h-6 w-6 text-[#f4cfd9]" />
-              </div>
+
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
                 Luxury Packaging
               </h2>
@@ -183,9 +153,7 @@ function Services() {
               <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&q=80" alt="Gifts With Purchase" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </div>
             <div className="order-1 md:order-2">
-              <div className="text-[#f4cfd9] p-4 rounded-xl inline-block mb-6">
-                <Gift className="h-6 w-6 text-[#f4cfd9]" />
-              </div>
+
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
                 Gifts With Purchase
               </h2>
@@ -206,9 +174,7 @@ function Services() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-[#f4cfd9] p-4 rounded-xl inline-block mb-6">
-                <Palette className="h-10 w-10 text-[#f4cfd9]" />
-              </div>
+
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
                 Cosmetic Componentry
               </h2>
@@ -235,9 +201,7 @@ function Services() {
               <img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80" alt="Fragrance Creation" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </div>
             <div className="order-1 md:order-2">
-              <div className="text-[#f4cfd9] p-4 rounded-xl inline-block mb-6">
-                <Droplets className="h-10 w-10 text-[#f4cfd9]" />
-              </div>
+
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
                 Fragrance Creation
               </h2>
@@ -262,7 +226,7 @@ function Services() {
             Ready to Bring Your Fragrance Vision to Life?
           </h2>
           <p className="text-xl text-gray-800 max-w-3xl mx-auto mb-10">
-            Contact us today to discuss your project and discover how our comprehensive services can help you create exceptional fragrances.
+            Contact us today to discuss your project and how our services can help you create exceptional fragrances.
           </p>
           <a
             href="/contact"
