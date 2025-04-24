@@ -94,24 +94,24 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
           <div className="relative overflow-hidden">
             {/* Use different animation speeds based on screen size */}
             <div className="flex md:animate-marquee animate-marquee-mobile whitespace-nowrap">
-              {/* Logos duplicated for seamless scroll effect - increased from 2 to 4 duplicates */}
-              {[...Array(4)].map((_, setIndex) => (
+              {/* Logos duplicated for seamless scroll effect - increased to 8 duplicates for mobile */}
+              {[...Array(8)].map((_, setIndex) => (
                 <React.Fragment key={setIndex}>
                   {logos.map((logo) => (
-                    <div key={`${setIndex}-${logo._id}`} className="flex-shrink-0 w-32 md:w-40 mx-4 md:mx-8 flex items-center justify-center h-20">
+                    <div key={`${setIndex}-${logo._id}`} className="flex-shrink-0 w-28 md:w-40 mx-2 md:mx-8 flex items-center justify-center h-16 md:h-20">
                       {logo.url ? (
                         <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                           <img
-                            src={urlFor(logo.image).width(160).height(80).url()}
+                            src={urlFor(logo.image).width(112).height(56).url()}
                             alt={logo.name}
-                            className="max-h-20 max-w-full object-contain"
+                            className="max-h-16 md:max-h-20 max-w-full object-contain"
                           />
                         </a>
                       ) : (
                         <img
-                          src={urlFor(logo.image).width(160).height(80).url()}
+                          src={urlFor(logo.image).width(112).height(56).url()}
                           alt={logo.name}
-                          className="max-h-20 max-w-full object-contain"
+                          className="max-h-16 md:max-h-20 max-w-full object-contain"
                         />
                       )}
                     </div>
@@ -134,20 +134,20 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
         )}
         <div className="flex flex-wrap justify-center">
           {logos.map((logo) => (
-            <div key={logo._id} className="w-32 md:w-40 mx-4 md:mx-8 mb-8 flex items-center justify-center h-20">
+            <div key={logo._id} className="w-28 md:w-40 mx-2 md:mx-8 mb-8 flex items-center justify-center h-16 md:h-20">
               {logo.url ? (
                 <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                   <img
-                    src={urlFor(logo.image).width(160).height(80).url()}
+                    src={urlFor(logo.image).width(112).height(56).url()}
                     alt={logo.name}
-                    className="max-h-20 max-w-full object-contain"
+                    className="max-h-16 md:max-h-20 max-w-full object-contain"
                   />
                 </a>
               ) : (
                 <img
-                  src={urlFor(logo.image).width(160).height(80).url()}
+                  src={urlFor(logo.image).width(112).height(56).url()}
                   alt={logo.name}
-                  className="max-h-20 max-w-full object-contain"
+                  className="max-h-16 md:max-h-20 max-w-full object-contain"
                 />
               )}
             </div>
