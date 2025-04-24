@@ -6,7 +6,7 @@
 }
 
 .carousel-cell {
-  margin-right: 20px;
+  margin-right: 30px; /* Increased from 20px to 30px for better spacing */
   border-radius: 8px;
   overflow: hidden;
 }
@@ -18,7 +18,7 @@
 
 /* Custom styles for our services carousel */
 .services-carousel .carousel-cell {
-  width: 320px;
+  width: 480px; /* Increased from 320px to 480px (50% larger) */
 }
 
 /* Make sure the carousel doesn't show scrollbars */
@@ -37,7 +37,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .services-carousel .carousel-cell {
-    width: 280px;
+    width: 420px; /* Increased from 280px to 420px (50% larger) */
   }
 }
 

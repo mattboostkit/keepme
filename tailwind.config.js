@@ -4,6 +4,9 @@ export default {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
   	extend: {
+        height: {
+          '108': '27rem', // 432px (50% more than h-72 which is 18rem/288px)
+        },
   		fontFamily: {
   			sans: [
   				'Poppins',

@@ -279,17 +279,17 @@ function Home() { // Component name is Home
                           <span className="sr-only">Learn more about {displayTitle}</span>
                         </Link>
 
-                        {/* Service image - increased height */}
-                        <div className="w-full h-72 overflow-hidden mb-4 rounded-lg">
+                        {/* Service image - increased height by 50% */}
+                        <div className="w-full h-108 overflow-hidden mb-4 rounded-lg">
                           {serviceImages.find(img => img.title === service.title)?.image ? (
                             <img
-                              src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(600).height(500).url()}
+                              src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(900).height(750).url()}
                               alt={serviceImages.find(img => img.title === service.title)?.image.alt || `${displayTitle} image`}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                           ) : (
                             <div className="flex items-center justify-center h-full w-full bg-gray-200">
-                              <IconComponent className="h-12 w-12 text-gray-400" />
+                              <IconComponent className="h-16 w-16 text-gray-400" />
                             </div>
                           )}
                         </div>
@@ -297,11 +297,11 @@ function Home() { // Component name is Home
                         {/* Service title and description */}
                         <div>
                           <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
-                            <h3 className="text-lg font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors">{displayTitle}</h3>
+                            <h3 className="text-xl font-bold mb-3 group-hover:text-[#f4cfd9] transition-colors">{displayTitle}</h3>
                           </Link>
-                          <p className="text-gray-600 text-sm">
-                            {service.shortDescription.length > 80
-                              ? `${service.shortDescription.substring(0, 80)}...`
+                          <p className="text-gray-600 text-base">
+                            {service.shortDescription.length > 120
+                              ? `${service.shortDescription.substring(0, 120)}...`
                               : service.shortDescription}
                           </p>
                         </div>
