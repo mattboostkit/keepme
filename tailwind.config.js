@@ -72,7 +72,7 @@ export default {
   			}
   		},
   		animation: {
-  			marquee: 'marquee 30s linear infinite',
+  			marquee: 'marquee 60s linear infinite',
   			'marquee-fast': 'marquee-fast 15s linear infinite',
   			'marquee-mobile': 'marquee 8s linear infinite'
   		},
