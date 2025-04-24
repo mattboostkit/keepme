@@ -111,10 +111,10 @@ function Home() { // Component name is Home
     },
     {
       id: '3',
-      title: 'Cosmetic Componentry',
+      title: 'Skincare Componentry',
       slug: 'cosmetic-componentry',
       icon: 'Palette',
-      shortDescription: 'High-quality parts for various cosmetic applications, ensuring functionality and aesthetic appeal.'
+      shortDescription: 'High-quality parts for various skincare applications, ensuring functionality and aesthetic appeal.'
     },
     {
       id: '1',
@@ -163,7 +163,7 @@ function Home() { // Component name is Home
               </p>
               <div className="flex justify-center"> {/* Centered button */}
                 <Link to="/services" className="bg-[#f4cfd9] text-gray-800 px-8 py-3 rounded-full hover:bg-[#ebbdc7] transition-colors flex items-center justify-center">
-                  Discover Our Services
+                  Our Services
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </div>

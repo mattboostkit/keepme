@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="bg-[#9CAFAA] text-white py-12">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8"> {/* Changed to 4 columns */}
+        <div className="grid md:grid-cols-3 gap-8"> {/* Changed to 3 columns */}
           <div>
             <div className="flex items-center space-x-2 mb-6">
               <Droplets className="h-8 w-8 text-[#f4cfd9]" />
@@ -35,22 +35,7 @@ function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-xl font-bold mb-6">Newsletter</h3>
-            <p className="text-white mb-4">
-              Subscribe to our newsletter to receive updates and industry insights.
-            </p>
-            <form className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="px-4 py-2 rounded-l-lg w-full focus:outline-none"
-              />
-              <button className="bg-brand-pink text-white px-4 py-2 rounded-r-lg hover:bg-[#ebbdc7] transition-colors">
-                Sign Up
-              </button>
-            </form>
-          </div>
+
           {/* New Contact Us Column */}
           <div>
             <h3 className="text-xl font-bold mb-6">Contact Us</h3>

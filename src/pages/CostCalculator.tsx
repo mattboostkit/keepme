@@ -1,4 +1,5 @@
 import React from 'react';
+import BackButton from '../components/BackButton';
 
 function CostCalculator() {
   return (
@@ -18,6 +19,7 @@ function CostCalculator() {
       {/* Calculator Section (Placeholder) */}
       <section className="py-20">
         <div className="container mx-auto px-6">
+          <BackButton to="/tools" label="Back to Tools" />
           <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-md border border-gray-200">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Project Cost Estimator</h2>
             <p className="text-gray-600">

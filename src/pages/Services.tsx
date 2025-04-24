@@ -60,7 +60,7 @@ function Services() {
                 Gifts With Purchase
               </a>
               <a href="#cosmetic-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-shadow text-gray-700 font-medium">
-                Cosmetic Componentry
+                Skincare Componentry
               </a>
               <a href="#fragrance-creation" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-shadow text-gray-700 font-medium">
                 Fragrance Creation
@@ -176,18 +176,18 @@ function Services() {
             <div>
 
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
-                Cosmetic Componentry
+                Skincare Componentry
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Source high-quality cosmetic parts through our extensive network. We provide a diverse selection of components for various cosmetic applications, focusing on functionality, durability, and the aesthetic details that elevate your product presentation.
+                Source high-quality skincare parts through our extensive network. We provide a diverse selection of components for various skincare applications, focusing on functionality, durability, and the aesthetic details that elevate your product presentation.
               </p>
               {/* Optional: Add bullet points if more detail is available */}
               <Link to="/cosmetic-componentry" className="inline-block mt-6 bg-brand-pink text-white px-6 py-3 rounded-full hover:bg-[#ebbdc7] transition-colors">
-                Learn More about Cosmetic Componentry
+                Learn More about Skincare Componentry
               </Link>
             </div>
             <div>
-              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80" alt="Cosmetic Componentry" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80" alt="Skincare Componentry" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </div>
           </div>
         </div>

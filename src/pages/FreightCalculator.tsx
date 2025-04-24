@@ -1,7 +1,8 @@
 // React import removed - not needed in modern React
 import { useState } from 'react';
-import { Truck, Info, ArrowLeft } from 'lucide-react';
+import { Truck, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 
 function FreightCalculator() {
   // State for form inputs
@@ -11,7 +12,7 @@ function FreightCalculator() {
   const [dimensions, setDimensions] = useState({ length: '', width: '', height: '' });
   const [packageType, setPackageType] = useState('box');
   const [shippingMethod, setShippingMethod] = useState('standard');
-  
+
   // State for calculation results
   const [calculationResult, setCalculationResult] = useState<null | {
     cost: number;
@@ -22,7 +23,7 @@ function FreightCalculator() {
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // This is a placeholder calculation - replace with your actual calculation logic
     // For now, we'll just show a dummy result
     setCalculationResult({
@@ -37,10 +38,7 @@ function FreightCalculator() {
       {/* Hero Section */}
       <section className="py-12 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
         <div className="container mx-auto px-6">
-          <Link to="/tools" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-6">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Tools
-          </Link>
+          <BackButton to="/tools" label="Back to Tools" />
           <div className="flex items-center mb-6">
             <div className="bg-[#f4cfd9]/20 p-3 rounded-full mr-4">
               <Truck className="h-6 w-6 text-[#f4cfd9]" />
@@ -64,7 +62,7 @@ function FreightCalculator() {
             <div>
               <div className="bg-white p-8 rounded-2xl shadow-md">
                 <h2 className="text-2xl font-bold mb-6">Shipping Details</h2>
-                
+
                 <form onSubmit={handleSubmit}>
                   {/* Origin & Destination */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -255,13 +253,13 @@ function FreightCalculator() {
               {calculationResult ? (
                 <div className="bg-white p-8 rounded-2xl shadow-md">
                   <h2 className="text-2xl font-bold mb-6">Shipping Estimate</h2>
-                  
+
                   <div className="mb-8">
                     <div className="flex justify-between items-center p-4 bg-[#f4cfd9]/10 rounded-lg mb-4">
                       <div className="text-lg font-medium">Shipping Cost</div>
                       <div className="text-2xl font-bold">£{calculationResult.cost.toFixed(2)}</div>
                     </div>
-                    
+
                     <div className="grid grid-cols-2 gap-4">
                       <div className="p-4 bg-gray-50 rounded-lg">
                         <div className="text-sm text-gray-500 mb-1">Estimated Delivery</div>
@@ -273,7 +271,7 @@ function FreightCalculator() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="border-t pt-6">
                     <h3 className="font-bold mb-3">Shipping Details</h3>
                     <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
@@ -291,7 +289,7 @@ function FreightCalculator() {
                       <div className="capitalize">{shippingMethod}</div>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 flex justify-between">
                     <button
                       onClick={() => setCalculationResult(null)}
@@ -315,7 +313,7 @@ function FreightCalculator() {
                       Fill in the shipping details to get an estimate of costs and delivery times.
                     </p>
                   </div>
-                  
+
                   <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mb-6">
                     <div className="flex">
                       <div className="flex-shrink-0">
@@ -328,7 +326,7 @@ function FreightCalculator() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4 text-sm text-gray-600">
                     <div className="flex items-start">
                       <div className="bg-gray-100 rounded-full p-1 mr-3 mt-0.5">
@@ -366,37 +364,37 @@ function FreightCalculator() {
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-          
+
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-2">How accurate are the shipping estimates?</h3>
               <p className="text-gray-600">
-                Our shipping estimates are based on current carrier rates and typical transit times. 
-                Actual costs and delivery times may vary based on factors such as customs processing, 
+                Our shipping estimates are based on current carrier rates and typical transit times.
+                Actual costs and delivery times may vary based on factors such as customs processing,
                 weather conditions, and carrier delays.
               </p>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-2">Which shipping carriers do you use?</h3>
               <p className="text-gray-600">
-                We work with a variety of trusted shipping carriers including DHL, FedEx, UPS, and local 
+                We work with a variety of trusted shipping carriers including DHL, FedEx, UPS, and local
                 postal services depending on the destination and shipping method selected.
               </p>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-2">Do you offer shipping insurance?</h3>
               <p className="text-gray-600">
-                Yes, shipping insurance is available for an additional fee. This covers loss or damage 
+                Yes, shipping insurance is available for an additional fee. This covers loss or damage
                 during transit. The insurance cost is not included in the basic shipping estimate.
               </p>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-2">How do I track my shipment?</h3>
               <p className="text-gray-600">
-                Once your order is shipped, you'll receive a tracking number via email. You can use this 
+                Once your order is shipped, you'll receive a tracking number via email. You can use this
                 number to track your package on our website or directly on the carrier's website.
               </p>
             </div>
@@ -409,7 +407,7 @@ function FreightCalculator() {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-2xl font-bold mb-4">Need a Custom Shipping Solution?</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
-            For bulk shipments, specialized handling, or custom logistics solutions, 
+            For bulk shipments, specialized handling, or custom logistics solutions,
             our team is ready to help create a tailored shipping plan for your needs.
           </p>
           <Link

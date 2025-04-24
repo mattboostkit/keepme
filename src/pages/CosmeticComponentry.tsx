@@ -1,12 +1,12 @@
 import React from 'react';
 import ServicePageWithSections from '../components/ServicePageWithSections';
 
-// Dummy FAQ data specific to Cosmetic Componentry
+// Dummy FAQ data specific to Skincare Componentry
 const faqItems = [
-  { question: "What types of cosmetic components do you supply?", answer: "We supply a wide range, including lipstick cases, compacts, palettes, jars, tubes, airless dispensers, and more for various colour cosmetic and skincare applications." },
+  { question: "What types of skincare components do you supply?", answer: "We supply a wide range, including jars, tubes, airless dispensers, droppers, and more specifically designed for skincare applications." },
   { question: "Can you help with material selection?", answer: "Yes, our team can advise on suitable materials (plastics like PP, PET, SAN; glass; aluminium) based on your product formula, budget, and aesthetic goals." },
-  { question: "Do you offer eco-friendly cosmetic packaging?", answer: "We are committed to sustainability and offer options like PCR plastics, refillable systems, mono-material designs, and lightweight packaging." },
-  { question: "What decoration options are available for cosmetic components?", answer: "We offer various decoration techniques, including silk screening, hot stamping, heat transfer labelling, metallisation, and custom colour matching." },
+  { question: "Do you offer eco-friendly skincare packaging?", answer: "We are committed to sustainability and offer options like PCR plastics, refillable systems, mono-material designs, and lightweight packaging." },
+  { question: "What decoration options are available for skincare components?", answer: "We offer various decoration techniques, including silk screening, hot stamping, heat transfer labelling, metallisation, and custom colour matching." },
 ];
 
 function CosmeticComponentry() {
@@ -83,9 +83,9 @@ function CosmeticComponentry() {
 
   return (
     <ServicePageWithSections
-      title="Cosmetic Componentry"
-      description="We supply fully tested, certified beauty products trusted by some of the most well-known cosmetic brands in the UK and Europe. We have a reliable supply chain of jars, tubes, lids, makeup wands, applicators, droppers & spatulas, available to order as standalone products or as part of a bespoke product range."
-      serviceName="Cosmetic Componentry"
+      title="Skincare Componentry"
+      description="We supply fully tested, certified skincare products trusted by some of the most well-known skincare brands in the UK and Europe. We have a reliable supply chain of jars, tubes, lids, applicators, droppers & spatulas, available to order as standalone products or as part of a bespoke product range."
+      serviceName="Skincare Componentry"
       sections={sections}
       faqItems={faqItems}
     />

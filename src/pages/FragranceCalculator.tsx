@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'; // Add useCallback
 import { Droplets, Percent, Package, AlertTriangle, PoundSterling, Info, Calculator } from 'lucide-react';
 import debounce from 'lodash/debounce'; // Import debounce
+import BackButton from '../components/BackButton';
 
 // Helper function to format currency
 const formatCurrency = (value: number): string => {
@@ -155,6 +156,11 @@ function FragranceCalculator() {
   return (
     <div className="pb-16 bg-gray-100 min-h-screen"> {/* Removed pt-28 */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28"> {/* Added pt-28 here */}
+
+        {/* Back Button */}
+        <div className="mb-4">
+          <BackButton to="/tools" label="Back to Tools" />
+        </div>
 
         {/* Header */}
         <div className="flex items-center justify-center mb-10 text-gray-800">
