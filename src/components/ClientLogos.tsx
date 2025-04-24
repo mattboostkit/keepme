@@ -92,12 +92,13 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
             <h2 className="text-2xl font-serif font-bold text-center mb-10">{title}</h2>
           )}
           <div className="relative overflow-hidden">
-            <div className="flex animate-marquee whitespace-nowrap">
-              {/* Logos duplicated for seamless scroll effect */}
-              {[...Array(2)].map((_, setIndex) => (
+            {/* Use different animation speeds based on screen size */}
+            <div className="flex md:animate-marquee animate-marquee-mobile whitespace-nowrap">
+              {/* Logos duplicated for seamless scroll effect - increased from 2 to 4 duplicates */}
+              {[...Array(4)].map((_, setIndex) => (
                 <React.Fragment key={setIndex}>
                   {logos.map((logo) => (
-                    <div key={`${setIndex}-${logo._id}`} className="flex-shrink-0 w-40 mx-8 flex items-center justify-center h-20">
+                    <div key={`${setIndex}-${logo._id}`} className="flex-shrink-0 w-32 md:w-40 mx-4 md:mx-8 flex items-center justify-center h-20">
                       {logo.url ? (
                         <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                           <img
@@ -133,7 +134,7 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
         )}
         <div className="flex flex-wrap justify-center">
           {logos.map((logo) => (
-            <div key={logo._id} className="w-40 mx-8 mb-8 flex items-center justify-center h-20">
+            <div key={logo._id} className="w-32 md:w-40 mx-4 md:mx-8 mb-8 flex items-center justify-center h-20">
               {logo.url ? (
                 <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                   <img
