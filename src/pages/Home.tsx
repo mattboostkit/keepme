@@ -238,7 +238,7 @@ function Home() { // Component name is Home
               </div>
             ) : (
               <div className="relative">
-                {/* Flickity Carousel */}
+                {/* Flickity Carousel with navigation arrows */}
                 <FlickityCarousel
                   className="services-carousel"
                   options={{
@@ -251,6 +251,7 @@ function Home() { // Component name is Home
                     friction: 0.2,
                     selectedAttraction: 0.01
                   }}
+                  showArrows={true}
                 >
                   {services.map((service) => {
                     // Get the icon component based on the icon name in the service
@@ -309,15 +310,9 @@ function Home() { // Component name is Home
                   })}
                 </FlickityCarousel>
 
-                {/* Gradient mask to indicate more content */}
-                <div className="carousel-gradient-mask hidden md:block"></div>
+                {/* No gradient mask needed with arrows */}
               </div>
             )}
-
-            {/* Scroll indicator */}
-            <div className="flex justify-center md:justify-end mt-6 text-sm text-gray-500">
-              <span>← Drag to explore our services →</span>
-            </div>
           </div>
         </div>
       </section>

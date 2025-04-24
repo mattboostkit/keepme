@@ -130,17 +130,9 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                       {item.title}
                     </h3>
                   </Link>
-                  <p className="text-gray-600 mb-4 text-sm flex-grow">
+                  <p className="text-gray-600 text-sm flex-grow">
                     {item.features.join(', ')}
                   </p>
-                  <Link
-                    to={`/portfolio/${item.id}`}
-                    className="bg-[#f4cfd9] text-white px-5 py-2 rounded-full hover:bg-[#f4cfd9]/80 transition-colors inline-flex items-center relative z-20 mt-auto self-start"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <span>View Details</span>
-                    <ArrowRight className="h-4 w-4 ml-2" />
-                  </Link>
                 </div>
               </div>
             ))
