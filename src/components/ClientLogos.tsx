@@ -93,7 +93,7 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
           )}
           <div className="relative overflow-hidden">
             {/* Create a container with double width for seamless looping */}
-            <div className="flex md:animate-slide animate-[slide_40s_linear_infinite] whitespace-nowrap">
+            <div className="flex md:animate-slide animate-[slide_25s_linear_infinite] whitespace-nowrap">
               {/* Create a continuous sequence of logos */}
               <div className="flex animate-none">
                 {logos.map((logo) => (
