@@ -74,7 +74,8 @@ export default {
   		animation: {
   			marquee: 'marquee 60s linear infinite',
   			'marquee-fast': 'marquee-fast 15s linear infinite',
-  			'marquee-mobile': 'marquee 8s linear infinite'
+  			'marquee-mobile': 'marquee 20s linear infinite',
+  			'slide': 'slide 30s linear infinite',
   		},
   		keyframes: {
   			marquee: {
@@ -91,6 +92,14 @@ export default {
   				},
   				'100%': {
   					transform: 'translateX(-100%)'
+  				}
+  			},
+  			'slide': {
+  				'0%': {
+  					transform: 'translateX(0%)'
+  				},
+  				'100%': {
+  					transform: 'translateX(-50%)'
   				}
   			}
   		},
