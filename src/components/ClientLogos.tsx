@@ -92,31 +92,48 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
             <h2 className="text-2xl font-serif font-bold text-center mb-10">{title}</h2>
           )}
           <div className="relative overflow-hidden">
-            {/* Use different animation speeds based on screen size */}
-            <div className="flex md:animate-marquee animate-marquee-mobile whitespace-nowrap">
-              {/* Logos duplicated for seamless scroll effect - increased to 8 duplicates for mobile */}
-              {[...Array(8)].map((_, setIndex) => (
-                <React.Fragment key={setIndex}>
-                  {logos.map((logo) => (
-                    <div key={`${setIndex}-${logo._id}`} className="flex-shrink-0 w-28 md:w-40 mx-2 md:mx-8 flex items-center justify-center h-16 md:h-20">
-                      {logo.url ? (
-                        <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                          <img
-                            src={urlFor(logo.image).width(112).height(56).url()}
-                            alt={logo.name}
-                            className="max-h-16 md:max-h-20 max-w-full object-contain"
-                          />
-                        </a>
-                      ) : (
-                        <img
-                          src={urlFor(logo.image).width(112).height(56).url()}
-                          alt={logo.name}
-                          className="max-h-16 md:max-h-20 max-w-full object-contain"
-                        />
-                      )}
-                    </div>
-                  ))}
-                </React.Fragment>
+            {/* Create two identical containers for seamless looping */}
+            <div className="inline-flex md:animate-marquee animate-marquee-mobile whitespace-nowrap">
+              {/* First set of logos */}
+              {logos.map((logo) => (
+                <div key={`first-${logo._id}`} className="flex-shrink-0 w-28 md:w-40 mx-2 md:mx-8 flex items-center justify-center h-16 md:h-20">
+                  {logo.url ? (
+                    <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                      <img
+                        src={urlFor(logo.image).width(112).height(56).url()}
+                        alt={logo.name}
+                        className="max-h-16 md:max-h-20 max-w-full object-contain"
+                      />
+                    </a>
+                  ) : (
+                    <img
+                      src={urlFor(logo.image).width(112).height(56).url()}
+                      alt={logo.name}
+                      className="max-h-16 md:max-h-20 max-w-full object-contain"
+                    />
+                  )}
+                </div>
+              ))}
+
+              {/* Second set of logos (identical to first set) */}
+              {logos.map((logo) => (
+                <div key={`second-${logo._id}`} className="flex-shrink-0 w-28 md:w-40 mx-2 md:mx-8 flex items-center justify-center h-16 md:h-20">
+                  {logo.url ? (
+                    <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                      <img
+                        src={urlFor(logo.image).width(112).height(56).url()}
+                        alt={logo.name}
+                        className="max-h-16 md:max-h-20 max-w-full object-contain"
+                      />
+                    </a>
+                  ) : (
+                    <img
+                      src={urlFor(logo.image).width(112).height(56).url()}
+                      alt={logo.name}
+                      className="max-h-16 md:max-h-20 max-w-full object-contain"
+                    />
+                  )}
+                </div>
               ))}
             </div>
           </div>
