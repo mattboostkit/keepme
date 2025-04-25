@@ -1,5 +1,6 @@
 // React import removed - not needed in modern React
 import { Mail, Phone, MapPin, Clock, Send, AlertCircle } from 'lucide-react';
+import FaqAccordion from '../components/FaqAccordion';
 
 function Contact() {
   return (
@@ -178,34 +179,35 @@ function Contact() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-bold mb-3">What is the minimum order quantity?</h3>
-              <p className="text-gray-600">
-                Our minimum order quantities vary by product type. For standard fragrances, we typically require a minimum of 1,000 units, while custom formulations may start at 2,500 units.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-bold mb-3">How long does the production process take?</h3>
-              <p className="text-gray-600">
-                Standard production typically takes 6-8 weeks from order confirmation. Custom projects may require 10-12 weeks depending on complexity and required components.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-bold mb-3">Do you offer sampling services?</h3>
-              <p className="text-gray-600">
-                Yes, we provide sampling services for fragrance formulations and component options. Sample fees may apply but are typically credited toward your first order.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-bold mb-3">What regions do you ship to?</h3>
-              <p className="text-gray-600">
-                We ship globally with established logistics networks in Europe, North America, Asia, and the Middle East. Custom shipping arrangements can be made for other regions.
-              </p>
-            </div>
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md">
+            <FaqAccordion 
+              items={[
+                {
+                  question: "What is the minimum order quantity?",
+                  answer: "Our minimum order quantities vary by product type. For standard fragrances, we typically require a minimum of 1,000 units, while custom formulations may start at 2,500 units."
+                },
+                {
+                  question: "How long does the production process take?",
+                  answer: "Standard production typically takes 6-8 weeks from order confirmation. Custom projects may require 10-12 weeks depending on complexity and required components."
+                },
+                {
+                  question: "Do you offer sampling services?",
+                  answer: "Yes, we provide sampling services for fragrance formulations and component options. Sample fees may apply but are typically credited toward your first order."
+                },
+                {
+                  question: "What regions do you ship to?",
+                  answer: "We ship globally with established logistics networks in Europe, North America, Asia, and the Middle East. Custom shipping arrangements can be made for other regions."
+                },
+                {
+                  question: "Do you offer white label services?",
+                  answer: "Yes, we specialize in white label fragrance and cosmetic products. We can create custom formulations with your branding, packaging, and design specifications."
+                },
+                {
+                  question: "Can you help with regulatory compliance?",
+                  answer: "Absolutely. We ensure all our products meet regulatory requirements for their intended markets, including EU, UK, US, and other international standards."
+                }
+              ]}
+            />
           </div>
         </div>
       </section>

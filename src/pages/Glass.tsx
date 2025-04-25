@@ -2,15 +2,7 @@
 // Removed StickyScroll import
 import { Timeline } from '../components/ui/Timeline';
 // Removed unused Image import (and it's incorrect for Vite)
-import {
-  FlaskRound as Flask,
-  Beaker,
-  Layers,
-  CheckCircle,
-  ArrowRight,
-  GlassWater
-  // Removed unused Thermometer, FlaskConical, ShieldCheck
-} from 'lucide-react';
+// All icons removed as requested
 
 // Adapt processContent for the Timeline component
 const timelineData = [
@@ -80,12 +72,7 @@ function Glass() {
                 Exquisite glass components custom-designed for your luxury fragrance products. From stunning bottles to precision caps, we deliver unmatched quality and craftsmanship.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <GlassWater className="h-6 w-6 text-[#f4cfd9]" />
-                  </div>
-                  <h3 className="text-xl font-bold">Expert Glass Crafting</h3>
-                </div>
+                <h3 className="text-xl font-bold mb-4">Expert Glass Crafting</h3>
                 <p className="text-gray-600">
                   Our glass components are crafted with precision and artistry, ensuring each piece meets the highest standards of quality and aesthetic appeal.
                 </p>
@@ -98,25 +85,15 @@ function Glass() {
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <Flask className="h-6 w-6 text-[#f4cfd9]" />
-                  </div>
-                  <div>
-                    <p className="text-xl font-bold">20+ Years</p>
-                    <p className="text-gray-600">Glass Expertise</p>
-                  </div>
+                <div>
+                  <p className="text-xl font-bold">20+ Years</p>
+                  <p className="text-gray-600">Glass Expertise</p>
                 </div>
               </div>
               <div className="absolute -top-8 -right-8 bg-white rounded-xl p-6 shadow-lg hidden md:block">
-                <div className="flex items-center space-x-2">
-                  <div className="bg-[#f4cfd9]/20 p-2 rounded-full">
-                    <Beaker className="h-6 w-6 text-[#f4cfd9]" />
-                  </div>
-                  <div>
-                    <p className="text-xl font-bold">Premium Quality</p>
-                    <p className="text-gray-600">Luxury Materials</p>
-                  </div>
+                <div>
+                  <p className="text-xl font-bold">Premium Quality</p>
+                  <p className="text-gray-600">Luxury Materials</p>
                 </div>
               </div>
             </div>
@@ -138,86 +115,68 @@ function Glass() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6">
-                <Flask className="h-8 w-8 text-[#f4cfd9]" />
-              </div>
+
               <h3 className="text-xl font-bold mb-3">PCR Glass</h3>
               <p className="text-gray-600 mb-4">
                 Sustainably crafted glass made from post-consumer recycled materials. A responsible choice for eco-conscious fragrance brands, offering both quality and environmental impact.
               </p>
               <ul className="space-y-2 mb-6">
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   Sustainable Transparency
                 </li>
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   Refined Recycled Brilliance
                 </li>
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   Low-Impact Luxury
                 </li>
               </ul>
-              <a href="#" className="text-[#f4cfd9] font-medium flex items-center">
+              <a href="#" className="text-[#f4cfd9] font-medium">
                 View PCR Options
-                <ArrowRight className="h-4 w-4 ml-2" />
               </a>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6">
-                <Beaker className="h-8 w-8 text-[#f4cfd9]" />
-              </div>
+
               <h3 className="text-xl font-bold mb-3">Borosilicate Glass</h3>
               <p className="text-gray-600 mb-4">
                 High-performance glass with exceptional thermal resistance and durability. Ideal for fragrances with volatile compounds.
               </p>
               <ul className="space-y-2 mb-6">
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   Thermal shock resistant
                 </li>
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   Chemical durability
                 </li>
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   Lightweight yet strong
                 </li>
               </ul>
-              <a href="#" className="text-[#f4cfd9] font-medium flex items-center">
+              <a href="#" className="text-[#f4cfd9] font-medium">
                 View Borosilicate Options
-                <ArrowRight className="h-4 w-4 ml-2" />
               </a>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6">
-                <Layers className="h-8 w-8 text-[#f4cfd9]" />
-              </div>
+
               <h3 className="text-xl font-bold mb-3">Coloured Glass</h3>
               <p className="text-gray-600 mb-4">
                 Vibrant coloured glass options that add distinctive visual appeal while providing UV protection for sensitive fragrances.
               </p>
               <ul className="space-y-2 mb-6">
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   UV protection
                 </li>
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   Custom colour matching
                 </li>
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle className="h-5 w-5 text-[#f4cfd9] mr-2" />
+                <li className="text-gray-600 pl-4">
                   Gradient and multi-tone options
                 </li>
               </ul>
-              <a href="#" className="text-[#f4cfd9] font-medium flex items-center">
+              <a href="#" className="text-[#f4cfd9] font-medium">
                 View Colour Options
-                <ArrowRight className="h-4 w-4 ml-2" />
               </a>
             </div>
           </div>
@@ -252,22 +211,19 @@ function Glass() {
                 Beyond our standard offerings, we specialise in creating bespoke glass components tailored to your specific vision and requirements.
               </p>
               <div className="space-y-4 mb-8">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-gray-700 mt-0.5" />
+                <div className="pl-4">
                   <div>
                     <h3 className="font-bold text-lg">Custom Shapes & Designs</h3>
                     <p className="text-gray-600">From traditional to avant-garde, we can bring your unique design vision to life.</p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-gray-700 mt-0.5" />
+                <div className="pl-4">
                   <div>
                     <h3 className="font-bold text-lg">Specialty Finishes</h3>
                     <p className="text-gray-600">Frosted, metallic, gradient, and textured finishes for distinctive visual appeal.</p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-gray-700 mt-0.5" />
+                <div className="pl-4">
                   <div>
                     <h3 className="font-bold text-lg">Exclusive Techniques</h3>
                     <p className="text-gray-600">Hand-crafted elements, embedded features, and proprietary manufacturing processes.</p>

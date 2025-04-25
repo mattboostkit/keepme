@@ -204,26 +204,22 @@ function Home() { // Component name is Home
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden h-[400px] shadow-xl">
-                {aboutData && aboutData.image ? (
-                  <img
-                    src={urlFor(aboutData.image).url()}
-                    alt={aboutData.title || "KeepMe product showcase"}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <img
-                    src="https://cdn.sanity.io/images/tyzs5imn/production/d85b8c75d2ed12b35ba152edf9482005fc9e8414-2700x1336.webp"
-                    alt="KeepMe product showcase"
-                    className="w-full h-full object-cover"
-                  />
-                )}
+                {/* Added transition effect for smooth image swap */}
+                <img
+                  src={aboutData && aboutData.image 
+                    ? urlFor(aboutData.image).url() 
+                    : "https://cdn.sanity.io/images/tyzs5imn/production/d85b8c75d2ed12b35ba152edf9482005fc9e8414-2700x1336.webp"}
+                  alt={aboutData?.title || "KeepMe product showcase"}
+                  className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+                  style={{ opacity: loading ? 0.7 : 1 }}
+                />
                 <div className="absolute inset-0 bg-[#f4cfd9]/20"></div>
               </div>
               <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center space-x-2">
                   <Star className="h-8 w-8 text-yellow-500 fill-yellow-500" />
                   <div>
-                    <p className="text-xl font-bold">{aboutData?.yearsOfExperience || '15+'}+ Years</p>
+                    <p className="text-xl font-bold">{aboutData?.yearsOfExperience || '20+'}+ Years</p>
                     <p className="text-gray-600">Of Excellence</p>
                   </div>
                 </div>
@@ -245,7 +241,7 @@ function Home() { // Component name is Home
       {/* Services Section - Using Flickity for smooth scrolling */}
       <section id="services" className="py-20 relative services-section">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto mb-10">
+          <div className="max-w-5xl mx-auto mb-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
               Our <span className="text-[#f4cfd9]">Services</span>
             </h2>
@@ -265,14 +261,16 @@ function Home() { // Component name is Home
                 <FlickityCarousel
                   className="services-carousel"
                   options={{
-                    freeScroll: true,
+                    freeScroll: true, // Enable freeScroll for all devices
                     contain: true,
                     prevNextButtons: false,
                     pageDots: false,
                     cellAlign: 'left',
                     draggable: true,
                     friction: 0.2,
-                    selectedAttraction: 0.01
+                    selectedAttraction: 0.01,
+                    adaptiveHeight: false, // Disable adaptive height to prevent layout shifts
+                    watchCSS: false // Disable CSS breakpoints to ensure consistent behavior
                   }}
                   showArrows={true}
                 >
@@ -296,17 +294,17 @@ function Home() { // Component name is Home
                       : service.title;
 
                     return (
-                      <div key={service.id} className="group relative w-full h-full">
+                      <div key={service.id} className="group relative w-full h-full flex flex-col">
                         {/* Make the entire card clickable with an overlay link */}
                         <Link to={`/${service.slug}`} className="absolute inset-0 z-10">
                           <span className="sr-only">Learn more about {displayTitle}</span>
                         </Link>
 
-                        {/* Service image - increased height by 50% */}
-                        <div className="w-full h-108 overflow-hidden mb-4 rounded-lg">
+                        {/* Service image - increased height for better visibility */}
+                        <div className="w-full h-80 overflow-hidden mb-4 rounded-lg flex-shrink-0">
                           {serviceImages.find(img => img.title === service.title)?.image ? (
                             <img
-                              src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(900).height(750).url()}
+                              src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(1200).height(900).url()}
                               alt={serviceImages.find(img => img.title === service.title)?.image.alt || `${displayTitle} image`}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
@@ -318,13 +316,13 @@ function Home() { // Component name is Home
                         </div>
 
                         {/* Service title and description */}
-                        <div>
+                        <div className="flex-grow">
                           <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
                             <h3 className="text-xl font-bold mb-3 group-hover:text-[#f4cfd9] transition-colors">{displayTitle}</h3>
                           </Link>
-                          <p className="text-gray-600 text-base">
-                            {service.shortDescription.length > 120
-                              ? `${service.shortDescription.substring(0, 120)}...`
+                          <p className="text-gray-600 text-base mb-2">
+                            {service.shortDescription.length > 130
+                              ? `${service.shortDescription.substring(0, 130)}...`
                               : service.shortDescription}
                           </p>
                         </div>

@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import Flickity from 'flickity';
 import 'flickity/css/flickity.css';
 
+// Helper function to check if we're on a mobile device
+const isMobile = (): boolean => window.innerWidth < 768;
+
 interface FlickityCarouselProps {
   children: React.ReactNode;
   options?: Flickity.Options;
@@ -36,14 +39,23 @@ const FlickityCarousel: React.FC<FlickityCarouselProps> = ({
 
   useEffect(() => {
     if (carouselRef.current) {
-      // Initialize Flickity
+      // Initialize Flickity with mobile-specific adjustments
+      const mobileOptions = isMobile() ? {
+        // Mobile-specific options
+        draggable: true,
+        contain: true,
+        freeScroll: true // Enable freeScroll on mobile too for better UX
+      } : {};
+      
       flickityInstance.current = new Flickity(carouselRef.current, {
         // Default options
         cellAlign: 'left',
         contain: true,
         pageDots: false,
         prevNextButtons: false, // We'll use our custom arrows
-        // Override with provided options
+        wrapAround: false, // Disable wrap around for better control
+        // Combine with mobile options and user options
+        ...mobileOptions,
         ...options
       });
 
@@ -66,9 +78,12 @@ const FlickityCarousel: React.FC<FlickityCarouselProps> = ({
         // Listen for scroll events
         flickityInstance.current.on('scroll', () => {
           if (flickityInstance.current) {
-            const scrollProgress = flickityInstance.current.x / flickityInstance.current.maxScrollX;
-            setAtStart(scrollProgress >= 0);
-            setAtEnd(scrollProgress <= -0.99);
+            // Use selectedIndex and cells.length to determine position
+            const flkty = flickityInstance.current;
+            const isAtStart = flkty.selectedIndex === 0;
+            const isAtEnd = flkty.selectedIndex === flkty.cells.length - 1;
+            setAtStart(isAtStart);
+            setAtEnd(isAtEnd);
           }
         });
       }
@@ -81,6 +96,21 @@ const FlickityCarousel: React.FC<FlickityCarouselProps> = ({
       }
     };
   }, [options, showArrows]);
+
+  // Add a resize handler to update carousel behavior on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (flickityInstance.current) {
+        // Reposition cells on resize
+        flickityInstance.current.resize();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div className="relative">

@@ -44,11 +44,15 @@ function Header() {
   return (
     // Wrap header and mobile menu in a relative div for positioning context
     <div className="relative">
-      <header className="fixed w-full bg-white/70 backdrop-blur-sm z-50 py-4 shadow-sm">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          {/* Updated Logo */}
+      <header className="fixed w-full bg-white/70 backdrop-blur-sm z-50 py-2 md:py-4 shadow-sm">
+        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
+          {/* Updated Logo - with responsive sizing */}
           <Link to="/" className="flex items-center">
-            <img src={logoUrl} alt="KeepMe Logo" className="h-[5.5rem] w-auto" /> {/* Adjust height (h-10) as needed */}
+            <img 
+              src={logoUrl} 
+              alt="KeepMe Logo" 
+              className="h-12 sm:h-16 md:h-[5.5rem] w-auto min-w-[80px]" 
+            />
           </Link>
           {/* Desktop Menu */}
           <nav className="hidden md:flex space-x-8">
@@ -81,14 +85,19 @@ function Header() {
             Contact Us
             <ChevronRight className="h-4 w-4 ml-1" />
           </Link>
+          {/* Contact Us button for small screens (but not the smallest) */}
+          <Link to="/contact" className="hidden sm:flex md:hidden items-center bg-[#f4cfd9] text-gray-800 px-4 py-1.5 rounded-full hover:bg-[#ebbdc7] transition-colors text-sm">
+            Contact
+          </Link>
+
           {/* Hamburger Button */}
           <button
             ref={hamburgerRef}
-            className="md:hidden text-gray-800 focus:outline-none"
-            onClick={toggleMobileMenu} // Add onClick handler
+            className="md:hidden text-gray-800 focus:outline-none ml-4 bg-white/80 p-2 rounded-md"
+            onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />} {/* Toggle icon */}
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </header>
@@ -97,7 +106,7 @@ function Header() {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60]"
+          className="md:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5.5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <div className="container mx-auto px-6 flex justify-end mb-2">
             <button

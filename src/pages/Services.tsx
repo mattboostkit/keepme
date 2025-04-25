@@ -1,5 +1,6 @@
 // React import removed - not needed in modern React
 import { Link } from 'react-router-dom'; // Import Link
+import FaqAccordion from '../components/FaqAccordion';
 
 function Services() {
   return (
@@ -217,7 +218,50 @@ function Services() {
         </div>
       </section>
 
-
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
+              Frequently Asked <span className="text-[#f4cfd9]">Questions</span>
+            </h2>
+            <p className="text-gray-600">
+              Find answers to common questions about our fragrance services
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md">
+            <FaqAccordion 
+              items={[
+                {
+                  question: "What makes KeepMe's fragrance services unique?",
+                  answer: "We offer end-to-end solutions from concept to delivery, with expertise in both fragrance creation and packaging. Our global manufacturing network and commitment to quality control at every stage ensures exceptional results."
+                },
+                {
+                  question: "Can you work with my existing fragrance formula?",
+                  answer: "Yes, we can work with your existing formula or help you develop a new one. Our team can analyze, refine, or recreate formulations to meet your specific requirements."
+                },
+                {
+                  question: "Do you offer sustainable and eco-friendly options?",
+                  answer: "Absolutely. We provide a range of sustainable options including eco-friendly packaging materials, refillable designs, and responsibly sourced ingredients. We can help you align your product with modern sustainability standards."
+                },
+                {
+                  question: "What are your minimum order quantities?",
+                  answer: "Our minimum order quantities vary by service type. For standard products, we typically require 1,000-2,500 units, while custom projects may have different requirements based on complexity and specifications."
+                },
+                {
+                  question: "How long does the entire process take from concept to delivery?",
+                  answer: "The timeline varies based on project complexity. A standard project typically takes 8-12 weeks, while more complex custom projects may require 12-16 weeks or more. We'll provide a detailed timeline during our initial consultation."
+                },
+                {
+                  question: "Can you help with regulatory compliance for different markets?",
+                  answer: "Yes, we ensure all our products meet regulatory requirements for their intended markets, including EU, UK, US, and other international standards. Our team stays updated on changing regulations to keep your products compliant."
+                }
+              ]}
+            />
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-brand-pink text-white">

@@ -1,17 +1,5 @@
 // React import removed - not needed in modern React
-import {
-  Star,
-  // Droplets, // Removed - replaced in Values
-  // PackageCheck, // Removed - replaced in Values
-  // PenTool, // Removed - replaced in Values
-  Users,        // Keep for Partnerships value
-  Clock,
-  Linkedin,
-  Factory,
-  Heart,          // Add for Passion value
-  MessagesSquare, // Add for Communication value
-  Handshake       // Add for Trust value
-} from 'lucide-react';
+// All icons removed as requested
 import { Timeline } from '../components/ui/Timeline'; // Import the NEW component
 import { ClickableFeatureSteps } from '../components/ui/ClickableFeatureSteps'; // Import the ClickableFeatureSteps component
 import ClientLogos from '../components/ClientLogos'; // Import the ClientLogos component
@@ -208,9 +196,9 @@ function About() {
 
   // Removed useState and handleTimelineClick
   return (
-    <div className="pt-24">
+    <div>
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
+      <section className="py-12 md:py-20 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -222,10 +210,7 @@ function About() {
                 We're dedicated to crafting perfumes that not only smell exquisite but also tell a unique story.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <div className="flex items-center space-x-4 mb-4">
-                  <Star className="h-8 w-8 text-yellow-500 fill-yellow-500" />
-                  <h3 className="text-xl font-bold">Our Mission</h3>
-                </div>
+                <h3 className="text-xl font-bold mb-4">Our Mission</h3>
                 <p className="text-gray-600">
                   To deliver flawless fragrances through expert craftsmanship, innovative techniques, and a deep
                   commitment to quality that exceeds our clients' expectations.
@@ -239,26 +224,16 @@ function About() {
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="bg-[#fdf2f4] p-2 rounded-full">
-                    <Clock className="h-6 w-6 text-[#f4cfd9]" />
-                  </div>
-                  <div>
-                    <p className="text-xl font-bold">Since 2004</p> {/* Changed from 2010 */}
-                    <p className="text-gray-600">Crafting Excellence</p>
-                  </div>
+                <div>
+                  <p className="text-xl font-bold">Since 2004</p>
+                  <p className="text-gray-600">Crafting Excellence</p>
                 </div>
               </div>
               {/* New Stats Card: 5 Million Units */}
               <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-lg hidden md:block"> {/* Hide on small screens */}
-                <div className="flex items-center space-x-2">
-                  <div className="bg-[#fdf2f4] p-2 rounded-full">
-                    <Factory className="h-6 w-6 text-[#f4cfd9]" />
-                  </div>
-                  <div>
-                    <p className="text-xl font-bold">5M+ Units</p>
-                    <p className="text-gray-600">Produced Per Annum</p>
-                  </div>
+                <div>
+                  <p className="text-xl font-bold">5M+ Units</p>
+                  <p className="text-gray-600">Produced Per Annum</p>
                 </div>
               </div>
             </div>
@@ -329,9 +304,7 @@ function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Value 1: Passion */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6">
-                <Heart className="h-8 w-8 text-[#f4cfd9]" />
-              </div>
+
               <h3 className="text-xl font-bold mb-3">Passion</h3>
               <p className="text-gray-600">
                 We are passionate perfectionists, truly motivated to create and deliver luxury products.
@@ -340,9 +313,7 @@ function About() {
 
             {/* Value 2: Communication */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6">
-                <MessagesSquare className="h-8 w-8 text-[#f4cfd9]" />
-              </div>
+
               <h3 className="text-xl font-bold mb-3">Communication</h3>
               <p className="text-gray-600">
                 Our confident and calm working environment translates to excellent customer communication and collaboration.
@@ -351,9 +322,7 @@ function About() {
 
             {/* Value 3: Trust */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6">
-                <Handshake className="h-8 w-8 text-[#f4cfd9]" />
-              </div>
+
               <h3 className="text-xl font-bold mb-3">Trust</h3>
               <p className="text-gray-600">
                 Honesty and integrity are core values at KeepMe Lifestyle. Respect for colleagues, customers, and stakeholders is vital to establishing a healthy, productive workplace.
@@ -361,9 +330,7 @@ function About() {
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6">
-                <Users className="h-8 w-8 text-[#f4cfd9]" />
-              </div>
+
               <h3 className="text-xl font-bold mb-3">Partnerships</h3>
               <p className="text-gray-600">
                 We build lasting relationships based on trust, transparency, and mutual success.

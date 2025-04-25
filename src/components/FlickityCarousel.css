@@ -2,7 +2,7 @@
 
 .carousel {
   width: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 10px; /* Reduced from 20px to decrease bottom gap */
 }
 
 .carousel-cell {
@@ -19,11 +19,23 @@
 /* Custom styles for our services carousel */
 .services-carousel .carousel-cell {
   width: 480px; /* Increased from 320px to 480px (50% larger) */
+  min-height: 440px; /* Further reduced to decrease bottom gap */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0; /* Removed bottom margin completely */
+  padding: 0 10px 0 0; /* Added right padding for spacing between cells */
 }
 
-/* Make sure the carousel doesn't show scrollbars */
+/* Make sure the carousel scrolls horizontally but doesn't break the layout */
 .flickity-viewport {
-  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible; /* Changed from hidden to visible to prevent text cutoff */
+}
+
+/* Ensure the carousel container has proper positioning */
+.carousel {
+  position: relative;
+  z-index: 1;
 }
 
 /* Fix for white overlay - ensure background is transparent */
@@ -37,7 +49,19 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .services-carousel .carousel-cell {
-    width: 420px; /* Increased from 280px to 420px (50% larger) */
+    width: 320px; /* Reduced from 420px to 320px to fit better on mobile */
+    min-height: 500px; /* Reduced height to decrease bottom gap on mobile */
+  }
+  
+  /* Allow horizontal scrolling but prevent it from breaking the layout */
+  .services-carousel {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Create a container for the carousel that prevents overflow issues */
+  .services-section .container {
+    overflow-x: hidden;
   }
 }
 
@@ -62,6 +86,7 @@
 /* Services section background */
 .services-section {
   background-color: #f9f5e7;
+  padding-bottom: 30px; /* Further reduced padding to decrease bottom gap */
 }
 
 /* Custom navigation arrows */
@@ -104,10 +129,18 @@
 /* Responsive adjustments for arrows */
 @media (max-width: 768px) {
   .carousel-arrow-left {
-    left: 0;
+    left: 5px;
+    z-index: 20;
   }
 
   .carousel-arrow-right {
-    right: 0;
+    right: 5px;
+    z-index: 20;
+  }
+  
+  /* Make arrows smaller on mobile */
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
   }
 }
