@@ -23,12 +23,6 @@ export default {
         hotspot: true // Enables the hotspot functionality for responsive cropping
       },
       description: 'Image for the About section'
-    },
-    {
-      name: 'yearsOfExperience',
-      title: 'Years of Experience',
-      type: 'number',
-      description: 'Number of years of experience to display in the badge'
     }
   ],
   preview: {

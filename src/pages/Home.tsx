@@ -1,6 +1,5 @@
 // React is imported automatically in newer versions of React
 import {
-  Star,         // Needed for About section
   Droplets,     // For Fragrance service + About section
   // Users,        // Removed - Unused import
   // ChevronRight, // Removed - Unused import
@@ -61,7 +60,6 @@ interface AboutSectionData {
   title?: string;
   description?: string;
   image?: SanityImageReference;
-  yearsOfExperience?: string;
 }
 
 // PortfolioBrand interface removed as it seems incorrect/redundant
@@ -216,12 +214,9 @@ function Home() { // Component name is Home
                 <div className="absolute inset-0 bg-[#f4cfd9]/20"></div>
               </div>
               <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <Star className="h-8 w-8 text-yellow-500 fill-yellow-500" />
-                  <div>
-                    <p className="text-xl font-bold">{aboutData?.yearsOfExperience || '20+'}+ Years</p>
-                    <p className="text-gray-600">Of Excellence</p>
-                  </div>
+                <div>
+                  <p className="text-xl font-bold">Manufacturing</p>
+                  <p className="text-gray-600">made simple</p>
                 </div>
               </div>
             </div>

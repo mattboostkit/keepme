@@ -92,10 +92,10 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
             <h2 className="text-2xl font-serif font-bold text-center mb-10">{title}</h2>
           )}
           <div className="relative overflow-hidden">
-            {/* Create a container with double width for seamless looping */}
-            <div className="flex md:animate-slide animate-[slide_25s_linear_infinite] whitespace-nowrap">
-              {/* Create a continuous sequence of logos */}
-              <div className="flex animate-none">
+            {/* Wrapper with hidden overflow */}
+            <div className="inline-flex whitespace-nowrap">
+              {/* First set of logos */}
+              <div className="flex animate-marquee">
                 {logos.map((logo) => (
                   <div key={`logo-${logo._id}`} className="flex-shrink-0 w-28 md:w-40 mx-2 md:mx-8 flex items-center justify-center h-16 md:h-20">
                     {logo.url ? (
@@ -117,8 +117,8 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
                 ))}
               </div>
 
-              {/* Duplicate the sequence for continuous scrolling */}
-              <div className="flex animate-none">
+              {/* Second set of logos (exact duplicate for seamless loop) */}
+              <div className="flex animate-marquee">
                 {logos.map((logo) => (
                   <div key={`logo-dup-${logo._id}`} className="flex-shrink-0 w-28 md:w-40 mx-2 md:mx-8 flex items-center justify-center h-16 md:h-20">
                     {logo.url ? (
