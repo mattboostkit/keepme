@@ -13,7 +13,7 @@ function Footer() {
               <img
                 src={logoWhite}
                 alt="KeepMe Logo"
-                className="h-6 w-auto"
+                className="h-4 w-auto"
                 style={{ aspectRatio: '6222/354' }}
               />
             </div>
