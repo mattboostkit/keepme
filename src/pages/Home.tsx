@@ -148,7 +148,7 @@ function Home() { // Component name is Home
 
   ];
 
-  const heroImageUrl = "https://cdn.sanity.io/images/tyzs5imn/production/d85b8c75d2ed12b35ba152edf9482005fc9e8414-2700x1336.webp";
+  const heroImageUrl = "https://cdn.sanity.io/images/tyzs5imn/production/4f5dce1f245ef6f8bd2ae8129b532b118eae3561-2700x1336.webp";
 
   return (
     <>
