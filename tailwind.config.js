@@ -31,7 +31,14 @@ export default {
   				'900': '#362f78'
   			},
             brand: {
+                // Old color
                 pink: '#f4cfd9',
+                // New color palette
+                background: '#F9DBBD',
+                highlight: '#FFA5AB',
+                card: '#DA627D',
+                button: '#A53860',
+                accent: '#450920',
             },
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

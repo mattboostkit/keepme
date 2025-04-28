@@ -4,12 +4,12 @@ import { Droplets, Mail, Phone, MapPin } from 'lucide-react'; // Removed unused 
 
 function Footer() {
   return (
-    <footer className="bg-[#9CAFAA] text-white py-12">
+    <footer className="bg-brand-accent text-white py-12">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8"> {/* Changed to 3 columns */}
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <Droplets className="h-8 w-8 text-[#f4cfd9]" />
+              <Droplets className="h-8 w-8 text-brand-highlight" />
               <span className="text-2xl font-serif font-bold text-white">KeepMe</span>
             </div>
             <p className="text-white mb-6">

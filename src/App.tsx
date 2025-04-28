@@ -16,7 +16,7 @@ import FreightCalculator from './pages/FreightCalculator'; // Import Freight Cal
 import PortfolioPage from './pages/Portfolio'; // Import Portfolio page
 import FragranceCreation from './pages/FragranceCreation';
 import FragranceComponentry from './pages/FragranceComponentry';
-import CosmeticComponentry from './pages/CosmeticComponentry';
+import SkincareComponentry from './pages/SkincareComponentry';
 import HomeFragrance from './pages/HomeFragrance';
 import LuxuryPackaging from './pages/LuxuryPackaging';
 import GiftsWithPurchase from './pages/GiftsWithPurchase';
@@ -43,7 +43,7 @@ import {
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#fffded] to-[#eed9b2] text-gray-900 flex flex-col"> {/* Applied gradient to entire app */}
+    <div className="min-h-screen bg-brand-background text-gray-900 flex flex-col"> {/* Updated to use new brand background color */}
       <Header />
       <main className="flex-grow pt-16 sm:pt-20 md:pt-24"> {/* Responsive padding for different screen sizes */}
         <Routes>
@@ -62,7 +62,7 @@ function App() {
           {/* Service Detail Routes */}
           <Route path="/fragrance-creation" element={<FragranceCreation />} />
           <Route path="/fragrance-componentry" element={<FragranceComponentry />} />
-          <Route path="/cosmetic-componentry" element={<CosmeticComponentry />} />
+          <Route path="/skincare-componentry" element={<SkincareComponentry />} />
           <Route path="/home-fragrance" element={<HomeFragrance />} />
           <Route path="/luxury-packaging" element={<LuxuryPackaging />} />
           <Route path="/gifts-with-purchase" element={<GiftsWithPurchase />} />

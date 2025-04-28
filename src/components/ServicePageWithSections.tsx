@@ -56,24 +56,26 @@ const ServicePageWithSections: React.FC<ServicePageWithSectionsProps> = ({
   }, [serviceName]);
 
   return (
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold mb-8 text-center">{title}</h1>
-      <p className="text-lg text-gray-700 mb-12 text-center max-w-3xl mx-auto">
-        {description}
-      </p>
+    <div className="pt-12">
+      <div className="container mx-auto px-6">
+        <h1 className="text-4xl font-bold mb-8 text-center">{title}</h1>
+        <p className="text-lg text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+          {description}
+        </p>
 
-      {/* Loading indicator */}
-      {loading && (
-        <div className="flex justify-center items-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f4cfd9]"></div>
-        </div>
-      )}
+        {/* Loading indicator */}
+        {loading && (
+          <div className="flex justify-center items-center py-8">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-card"></div>
+          </div>
+        )}
+      </div>
 
       {/* Render each section */}
       {sections.map((section, index) => {
         // Find the matching image from Sanity
         const sectionImage = sectionImages.find(img => img.sectionName === section.title);
-        
+
         return (
           <ContentSection
             key={index}
@@ -84,15 +86,18 @@ const ServicePageWithSections: React.FC<ServicePageWithSectionsProps> = ({
               : `https://via.placeholder.com/500x500.png?text=${encodeURIComponent(section.title)}`
             }
             imageLeft={section.imageLeft}
+            index={index}
           />
         );
       })}
 
       {/* FAQ Section */}
       {faqItems.length > 0 && (
-        <div className="py-16">
-          <FaqAccordion items={faqItems} />
-        </div>
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <FaqAccordion items={faqItems} />
+          </div>
+        </section>
       )}
     </div>
   );

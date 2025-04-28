@@ -16,7 +16,7 @@ interface TeamMember {
 
 // Define the props for the Team component
 interface TeamProps {
-  title?: string;
+  title?: React.ReactNode;
   subtitle?: string;
   useSanity?: boolean;
   teamMembers?: TeamMember[];
@@ -66,15 +66,19 @@ const Team: React.FC<TeamProps> = ({
         {(title || subtitle) && (
           <div className="text-center max-w-3xl mx-auto mb-16">
             {title && (
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-                {title.split(' ').map((word, index, array) =>
-                  index === array.length - 1 ?
-                    <span key={index}>
-                      <span className="text-[#f4cfd9]">{word}</span>
-                    </span> :
-                    <span key={index}>{word} </span>
-                )}
-              </h2>
+              typeof title === 'string' ? (
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+                  {title.split(' ').map((word, index, array) =>
+                    index === array.length - 1 ?
+                      <span key={index}>
+                        <span className="text-brand-accent">{word}</span>
+                      </span> :
+                      <span key={index}>{word} </span>
+                  )}
+                </h2>
+              ) : (
+                title
+              )
             )}
             {subtitle && (
               <p className="text-lg text-gray-600">

@@ -36,15 +36,15 @@ function FreightCalculator() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-12 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
+      <section className="py-12 bg-brand-background">
         <div className="container mx-auto px-6">
           <BackButton to="/tools" label="Back to Tools" />
           <div className="flex items-center mb-6">
-            <div className="bg-[#f4cfd9]/20 p-3 rounded-full mr-4">
-              <Truck className="h-6 w-6 text-[#f4cfd9]" />
+            <div className="bg-brand-highlight/20 p-3 rounded-full mr-4">
+              <Truck className="h-6 w-6 text-brand-card" />
             </div>
             <h1 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
-              Freight <span className="text-[#f4cfd9]">Calculator</span>
+              Freight <span className="text-brand-accent">Calculator</span>
             </h1>
           </div>
           <p className="text-lg text-gray-600 max-w-3xl">
@@ -114,7 +114,7 @@ function FreightCalculator() {
                     <div className="grid grid-cols-3 gap-4">
                       <div
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'box' ? 'bg-[#f4cfd9]/20 border-[#f4cfd9]' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'box' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                         onClick={() => setPackageType('box')}
                       >
@@ -123,7 +123,7 @@ function FreightCalculator() {
                       </div>
                       <div
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'pallet' ? 'bg-[#f4cfd9]/20 border-[#f4cfd9]' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'pallet' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                         onClick={() => setPackageType('pallet')}
                       >
@@ -132,7 +132,7 @@ function FreightCalculator() {
                       </div>
                       <div
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'envelope' ? 'bg-[#f4cfd9]/20 border-[#f4cfd9]' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'envelope' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                         onClick={() => setPackageType('envelope')}
                       >
@@ -152,7 +152,7 @@ function FreightCalculator() {
                       id="weight"
                       min="0.1"
                       step="0.1"
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#f4cfd9] focus:border-[#f4cfd9]"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-card focus:border-brand-card"
                       value={weight}
                       onChange={(e) => setWeight(e.target.value)}
                       required
@@ -170,7 +170,7 @@ function FreightCalculator() {
                           type="number"
                           min="1"
                           placeholder="Length"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#f4cfd9] focus:border-[#f4cfd9]"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-card focus:border-brand-card"
                           value={dimensions.length}
                           onChange={(e) => setDimensions({ ...dimensions, length: e.target.value })}
                           required
@@ -181,7 +181,7 @@ function FreightCalculator() {
                           type="number"
                           min="1"
                           placeholder="Width"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#f4cfd9] focus:border-[#f4cfd9]"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-card focus:border-brand-card"
                           value={dimensions.width}
                           onChange={(e) => setDimensions({ ...dimensions, width: e.target.value })}
                           required
@@ -192,7 +192,7 @@ function FreightCalculator() {
                           type="number"
                           min="1"
                           placeholder="Height"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#f4cfd9] focus:border-[#f4cfd9]"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-card focus:border-brand-card"
                           value={dimensions.height}
                           onChange={(e) => setDimensions({ ...dimensions, height: e.target.value })}
                           required
@@ -209,7 +209,7 @@ function FreightCalculator() {
                     <div className="grid grid-cols-3 gap-4">
                       <div
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'standard' ? 'bg-[#f4cfd9]/20 border-[#f4cfd9]' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'standard' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                         onClick={() => setShippingMethod('standard')}
                       >
@@ -218,7 +218,7 @@ function FreightCalculator() {
                       </div>
                       <div
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'express' ? 'bg-[#f4cfd9]/20 border-[#f4cfd9]' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'express' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                         onClick={() => setShippingMethod('express')}
                       >
@@ -227,7 +227,7 @@ function FreightCalculator() {
                       </div>
                       <div
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'priority' ? 'bg-[#f4cfd9]/20 border-[#f4cfd9]' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'priority' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                         onClick={() => setShippingMethod('priority')}
                       >
@@ -240,7 +240,7 @@ function FreightCalculator() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-[#f4cfd9] text-gray-800 py-3 px-6 rounded-lg hover:bg-[#ebbdc7] transition-colors font-medium"
+                    className="w-full bg-brand-button text-white py-3 px-6 rounded-lg hover:bg-brand-card transition-colors font-medium"
                   >
                     Calculate Shipping
                   </button>
@@ -255,7 +255,7 @@ function FreightCalculator() {
                   <h2 className="text-2xl font-bold mb-6">Shipping Estimate</h2>
 
                   <div className="mb-8">
-                    <div className="flex justify-between items-center p-4 bg-[#f4cfd9]/10 rounded-lg mb-4">
+                    <div className="flex justify-between items-center p-4 bg-brand-highlight/20 rounded-lg mb-4">
                       <div className="text-lg font-medium">Shipping Cost</div>
                       <div className="text-2xl font-bold">£{calculationResult.cost.toFixed(2)}</div>
                     </div>
@@ -297,7 +297,7 @@ function FreightCalculator() {
                     >
                       Recalculate
                     </button>
-                    <button className="bg-[#f4cfd9] text-gray-800 py-2 px-4 rounded-lg hover:bg-[#ebbdc7] transition-colors font-medium">
+                    <button className="bg-brand-button text-white py-2 px-4 rounded-lg hover:bg-brand-card transition-colors font-medium">
                       Get Quote
                     </button>
                   </div>
@@ -305,8 +305,8 @@ function FreightCalculator() {
               ) : (
                 <div className="bg-white p-8 rounded-2xl shadow-md h-full flex flex-col justify-center">
                   <div className="text-center mb-6">
-                    <div className="bg-[#f4cfd9]/20 p-4 rounded-full inline-flex justify-center items-center mb-4">
-                      <Truck className="h-8 w-8 text-[#f4cfd9]" />
+                    <div className="bg-brand-highlight/20 p-4 rounded-full inline-flex justify-center items-center mb-4">
+                      <Truck className="h-8 w-8 text-brand-card" />
                     </div>
                     <h2 className="text-2xl font-bold mb-2">Shipping Calculator</h2>
                     <p className="text-gray-600">
@@ -403,7 +403,7 @@ function FreightCalculator() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 bg-[#f4cfd9]">
+      <section className="py-12 bg-brand-card">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-2xl font-bold mb-4">Need a Custom Shipping Solution?</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">

@@ -133,7 +133,7 @@ function Home() { // Component name is Home
     {
       id: '3',
       title: 'Skincare Componentry',
-      slug: 'cosmetic-componentry',
+      slug: 'skincare-componentry',
       icon: 'Palette',
       shortDescription: 'High-quality parts for various skincare applications, ensuring functionality and aesthetic appeal.'
     },
@@ -172,7 +172,7 @@ function Home() { // Component name is Home
                     as="span" // Keep as span
                     duration={2} // Adjust duration as needed
                     // Updated shimmer colors for light text on dark background
-                    className="pb-2 [--base-color:#FFFFFF] [--base-gradient-color:#E0E0E0] dark:[--base-color:#FFFFFF] dark:[--base-gradient-color:#E0E0E0]"
+                    className="pb-2 [--base-color:#FFFFFF] [--base-gradient-color:#FFA5AB] dark:[--base-color:#FFFFFF] dark:[--base-gradient-color:#FFA5AB]"
                   >
                     Expertly Crafted
                   </TextShimmer>
@@ -183,7 +183,7 @@ function Home() { // Component name is Home
                 from components to filling, assembly, and delivery.
               </p>
               <div className="flex justify-center"> {/* Centered button */}
-                <Link to="/services" className="bg-[#f4cfd9] text-gray-800 px-8 py-3 rounded-full hover:bg-[#ebbdc7] transition-colors flex items-center justify-center">
+                <Link to="/services" className="bg-brand-button text-white px-8 py-3 rounded-full hover:bg-brand-card transition-colors flex items-center justify-center">
                   Our Services
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -197,21 +197,21 @@ function Home() { // Component name is Home
       <ClientLogos useSanity={true} title="Trusted by Leading Brands" scrolling={true} />
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50">
+      <section id="about" className="py-20 bg-brand-highlight/20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden h-[400px] shadow-xl">
                 {/* Added transition effect for smooth image swap */}
                 <img
-                  src={aboutData && aboutData.image 
-                    ? urlFor(aboutData.image).url() 
+                  src={aboutData && aboutData.image
+                    ? urlFor(aboutData.image).url()
                     : "https://cdn.sanity.io/images/tyzs5imn/production/d85b8c75d2ed12b35ba152edf9482005fc9e8414-2700x1336.webp"}
                   alt={aboutData?.title || "KeepMe product showcase"}
                   className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
                   style={{ opacity: loading ? 0.7 : 1 }}
                 />
-                <div className="absolute inset-0 bg-[#f4cfd9]/20"></div>
+                <div className="absolute inset-0 bg-brand-highlight/20"></div>
               </div>
               <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
@@ -222,7 +222,7 @@ function Home() { // Component name is Home
             </div>
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
-                About <span className="text-[#f4cfd9]">KeepMe</span>
+                About <span className="text-brand-card">KeepMe</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 {aboutData?.description || 'We design and manufacture an extensive range of expertly created products from signature scents to home fragrances, each meticulously crafted from the finest raw materials. Beautifully designed packaging showcases each bespoke product, tailored to complement and enhance your brand.'}
@@ -238,7 +238,7 @@ function Home() { // Component name is Home
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto mb-6">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our <span className="text-[#f4cfd9]">Services</span>
+              Our <span className="text-brand-card">Services</span>
             </h2>
             <p className="text-gray-600 mb-10">
               We offer a full range of services from bespoke design and production, to
@@ -248,7 +248,7 @@ function Home() { // Component name is Home
             {/* Loading indicator */}
             {loading ? (
               <div className="flex justify-center items-center py-16">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f4cfd9]"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-card"></div>
               </div>
             ) : (
               <div className="relative">
@@ -312,8 +312,8 @@ function Home() { // Component name is Home
 
                         {/* Service title and description */}
                         <div className="flex-grow">
-                          <Link to={`/${service.slug}`} className="inline-block hover:text-[#f4cfd9] transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-[#f4cfd9] transition-colors">{displayTitle}</h3>
+                          <Link to={`/${service.slug}`} className="inline-block hover:text-brand-card transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
+                            <h3 className="text-xl font-bold mb-3 group-hover:text-brand-card transition-colors">{displayTitle}</h3>
                           </Link>
                           <p className="text-gray-600 text-base mb-2">
                             {service.shortDescription.length > 130
@@ -341,20 +341,20 @@ function Home() { // Component name is Home
           items={portfolioBrands}
           maxItems={6}
           showFilters={true}
-          backgroundColor="bg-gray-50"
+          backgroundColor="bg-brand-highlight/20"
         />
       ) : (
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-brand-highlight/20">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our <span className="text-[#f4cfd9]">Portfolio</span>
+              Our <span className="text-brand-card">Portfolio</span>
             </h2>
             <p className="text-lg text-gray-600 mb-8">
               Discover our partnerships with prestigious fragrance houses and luxury brands.
             </p>
             {loading ? (
               <div className="flex justify-center items-center py-16">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f4cfd9]"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-card"></div>
               </div>
             ) : (
               <p>No portfolio brands found. Please add some in Sanity Studio.</p>
@@ -368,7 +368,7 @@ function Home() { // Component name is Home
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our <span className="text-[#f4cfd9]">Reach</span>
+              Our <span className="text-brand-card">Reach</span>
             </h2>
             <p className="text-lg text-gray-600">
               We are a global supplier with a trusted worldwide production and distribution network, specialising in high-volume, complex manufacturing and fulfilment projects for a discerning customer base across six continents.
@@ -388,7 +388,7 @@ function Home() { // Component name is Home
               { start: { lat: 51.5074, lng: -0.1278 }, end: { lat: 22.5431, lng: 114.0579 } }, // London to Shenzhen
               { start: { lat: 51.5074, lng: -0.1278 }, end: { lat: -33.8688, lng: 151.2093 } }, // London to Sydney
             ]}
-            lineColor="#f4cfd9" // Use brand-pink for points and lines
+            lineColor="#DA627D" // Use brand-card for points and lines
           />
         </div>
       </section>

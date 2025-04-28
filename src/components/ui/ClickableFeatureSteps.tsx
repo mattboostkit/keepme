@@ -15,7 +15,7 @@ interface Feature {
 interface ClickableFeatureStepsProps {
   features: Feature[]
   className?: string
-  title?: string
+  title?: React.ReactNode
   imageHeight?: string
 }
 
@@ -48,7 +48,7 @@ export function ClickableFeatureSteps({
                   key={i}
                   className={cn(
                     "absolute w-0.5 transition-all duration-500",
-                    i < currentFeature ? "bg-[#f4cfd9]" : "bg-transparent"
+                    i < currentFeature ? "bg-brand-accent" : "bg-transparent"
                   )}
                   style={{
                     top: `${(i * 100) / features.length}%`,
@@ -74,9 +74,9 @@ export function ClickableFeatureSteps({
                   className={cn(
                     "w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border-2",
                     index === currentFeature
-                      ? "bg-[#f4cfd9] border-[#f4cfd9] text-white"
+                      ? "bg-brand-accent border-brand-accent text-white"
                       : index < currentFeature
-                        ? "bg-[#f4cfd9] border-[#f4cfd9] text-white"
+                        ? "bg-brand-accent border-brand-accent text-white"
                         : "bg-muted border-muted-foreground"
                   )}
                 >

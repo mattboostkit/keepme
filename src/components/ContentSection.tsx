@@ -5,6 +5,7 @@ interface ContentSectionProps {
   text: React.ReactNode;
   imageUrl: string;
   imageLeft?: boolean; // Determines image position, defaults to right
+  index?: number; // Section index for alternating backgrounds
 }
 
 const ContentSection: React.FC<ContentSectionProps> = ({
@@ -12,9 +13,13 @@ const ContentSection: React.FC<ContentSectionProps> = ({
   text,
   imageUrl,
   imageLeft = false,
+  index = 0,
 }) => {
+  // Alternate background colors based on index
+  const bgColor = index % 2 === 0 ? "bg-white" : "bg-brand-background";
+
   return (
-    <section className="py-16">
+    <section className={`py-16 ${bgColor}`}>
       <div className="container mx-auto px-6">
         <div className={`grid md:grid-cols-2 gap-12 items-center ${imageLeft ? '' : 'md:grid-flow-col-dense'}`}>
           {/* Text Content */}

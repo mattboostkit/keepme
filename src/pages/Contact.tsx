@@ -6,11 +6,11 @@ function Contact() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
+      <section className="py-16 bg-brand-background">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-              Get in <span className="text-[#f4cfd9]">Touch</span>
+              Get in <span className="text-brand-accent">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               Ready to bring your fragrance vision to life? Contact us today to discuss your project.
@@ -146,7 +146,7 @@ function Contact() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-10">
                 <h3 className="text-xl font-bold mb-6">Our Location</h3>
                 <div className="rounded-xl overflow-hidden h-64 shadow-lg">
@@ -178,9 +178,9 @@ function Contact() {
               Find quick answers to common enquiries about our services
             </p>
           </div>
-          
+
           <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md">
-            <FaqAccordion 
+            <FaqAccordion
               items={[
                 {
                   question: "What is the minimum order quantity?",

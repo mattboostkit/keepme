@@ -51,14 +51,14 @@ const Testimonials: React.FC<TestimonialsProps> = ({
     }
   }, [useSanity]);
   return (
-    <section className="py-20 bg-[#FAEDE7]">
+    <section className="py-20 bg-brand-background">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
             {title.split(' ').map((word, index, array) =>
               index === array.length - 1 ?
                 <span key={index}>
-                  <span className="text-[#f4cfd9]">{word}</span>
+                  <span className="text-brand-card">{word}</span>
                 </span> :
                 <span key={index}>{word} </span>
             )}

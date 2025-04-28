@@ -83,7 +83,7 @@ function About() {
       title: "2004",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Foundation of KeepMe</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Foundation of KeepMe</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             KeepMe was established with a vision to provide high-quality products and creative solutions, backed by exceptional logistical support. From the very beginning, the business focused on delivering end-to-end services that exceeded customer expectations.
           </p>
@@ -94,7 +94,7 @@ function About() {
       title: "2005–2010",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Expanding Services</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Expanding Services</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             During this period, KeepMe broadened its offering to include design, manufacturing and full delivery solutions. With a strong emphasis on creativity, technical excellence, and customer service, KeepMe built a solid foundation for future growth across a diverse range of industries.
           </p>
@@ -105,7 +105,7 @@ function About() {
       title: "2011",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Entering the Fragrance & Lifestyle Market</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Entering the Fragrance & Lifestyle Market</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             Recognising the opportunity to innovate in new sectors, KeepMe moved into the fragrance and lifestyle market. The team began offering bespoke solutions across fragrance, skincare, beauty, cosmetics and wellness, helping brands create standout product experiences.
           </p>
@@ -116,7 +116,7 @@ function About() {
       title: "2015",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Launch of KeepMe Glass</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Launch of KeepMe Glass</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             To further specialise in packaging, KeepMe established KeepMe Glass – a division dedicated to premium glass manufacturing for fragrance bottles, diffusers and candle jars. With a focus on quality, consistency and innovation, KeepMe Glass quickly became a trusted name in high-end packaging solutions.
           </p>
@@ -127,7 +127,7 @@ function About() {
       title: "2018",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Global Manufacturing Expansion</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Global Manufacturing Expansion</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             KeepMe expanded its global footprint, establishing strategic manufacturing capabilities across the UK, Europe, China and India. This global presence enabled the business to offer scalable, cost-effective production while maintaining high quality and speed to market.
           </p>
@@ -138,7 +138,7 @@ function About() {
       title: "2020",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Commitment to Sustainability</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Commitment to Sustainability</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             Sustainability became a core focus in 2020. KeepMe adopted environmentally responsible practices across its operations, including eco-friendly materials, reduced waste processes and more sustainable packaging options—helping clients meet their own green goals.
           </p>
@@ -149,7 +149,7 @@ function About() {
       title: "2022",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Launch of the Lifestyle Lookbook</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Launch of the Lifestyle Lookbook</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             To inspire clients and showcase its full-service offering, KeepMe launched the Lifestyle Lookbook—a curated guide to its fragrance, skincare, wellness and packaging capabilities. This lookbook highlighted KeepMe’s creative direction, market insight, and bespoke product range.
           </p>
@@ -160,7 +160,7 @@ function About() {
       title: "2023",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Recognised as a Leading Private Label Partner</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Recognised as a Leading Private Label Partner</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             KeepMe gained industry-wide recognition as a trusted private label manufacturer. With its unique blend of creative flair, technical expertise, and operational support, KeepMe offered clients a seamless route from concept to shelf.
           </p>
@@ -171,7 +171,7 @@ function About() {
       title: "2024",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Celebrating 20 Years of Innovation</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Celebrating 20 Years of Innovation</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             In 2024, KeepMe proudly celebrated two decades of excellence. From humble beginnings to becoming a globally recognised partner, the anniversary marked a milestone of growth, innovation and unwavering dedication to quality and client success.
           </p>
@@ -182,7 +182,7 @@ function About() {
       title: "Present", // Changed from 2025
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">KeepMe & KeepMe Glass: A Unified Force</h4>
+          <h4 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">KeepMe & KeepMe Glass: A Unified Force</h4>
           <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
             In 2025, KeepMe and KeepMe Glass brought their operations closer than ever before—uniting product development and packaging under one seamless offering. This reintegration created a powerful end-to-end partner for brands in the fragrance and lifestyle sector.
           </p>
@@ -198,12 +198,12 @@ function About() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
+      <section className="py-12 md:py-20 bg-brand-background">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-                About <span className="text-[#f4cfd9]">KeepMe</span>
+                About <span className="text-brand-card">KeepMe</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 At KeepMe, we blend artistry with precision to create exceptional fragrances that captivate the senses.
@@ -247,7 +247,7 @@ function About() {
           <div className="grid md:grid-cols-5 gap-12 items-center">
              <div className="md:col-span-2">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-                Our <span className="text-[#f4cfd9]">Focus</span>
+                Our <span className="text-brand-accent">Focus</span>
               </h2>
             </div>
             <div className="md:col-span-3 space-y-4">
@@ -262,23 +262,28 @@ function About() {
         </div>
       </section>
 
-      {/* Process Flowchart Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Our Process Section */}
+      <section className="py-20 bg-brand-highlight/20">
         <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+              Our <span className="text-brand-accent">Process</span>
+            </h2>
+          </div>
           <ClickableFeatureSteps
             features={processFlowchartData}
-            title="Process Flowchart"
+            title=""
           />
         </div>
       </section>
 
-      {/* Our Story Section */}
+      {/* Our Journey Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             {/* Updated Section Title */}
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              KeepMe Journey: <span className="text-[#f4cfd9]">2004–2025</span>
+              Our <span className="text-brand-accent">Journey</span>
             </h2>
             <p className="text-lg text-gray-600">
               From foundation to a unified force in fragrance and lifestyle
@@ -290,11 +295,11 @@ function About() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-brand-highlight/20">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our <span className="text-[#f4cfd9]">Values</span>
+              Our <span className="text-brand-accent">Values</span>
             </h2>
             <p className="text-lg text-gray-600">
               The principles that guide our work and relationships
@@ -343,7 +348,7 @@ function About() {
       {/* Our Clients Section (Using ClientLogos from Sanity) */}
       <ClientLogos
         useSanity={true}
-        title="Our Clients"
+        title={<h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our <span className="text-brand-accent">Clients</span></h2>}
         scrolling={true}
         backgroundColor="bg-white"
       />
@@ -351,21 +356,21 @@ function About() {
       {/* Team Section (Using Team component from Sanity) */}
       <Team
         useSanity={true}
-        title="Our Team"
+        title={<h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our <span className="text-brand-accent">Team</span></h2>}
         subtitle="Meet the experts behind our innovative solutions"
       />
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
+      <section className="py-20 bg-brand-background">
         <div className="container mx-auto px-6">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Contact <span className="text-[#f4cfd9]">Us</span>
+              Contact <span className="text-brand-accent">Us</span>
             </h2>
             <p className="text-lg text-gray-600">
               Get in touch to discuss your project requirements
             </p>
-            <a href="/contact" className="inline-block mt-8 px-8 py-3 bg-[#f4cfd9] text-white font-bold rounded-full hover:bg-[#f4cfd9]/80 transition-colors">
+            <a href="/contact" className="inline-block mt-8 px-8 py-3 bg-brand-button text-white font-bold rounded-full hover:bg-brand-card transition-colors">
               Contact Us
             </a>
           </div>

@@ -56,7 +56,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
             {title.split(' ').map((word, index, array) =>
               index === array.length - 1 ?
                 <span key={index}>
-                  <span className="text-[#f4cfd9]">{word}</span>
+                  <span className="text-brand-card">{word}</span>
                 </span> :
                 <span key={index}>{word} </span>
             )}
@@ -73,8 +73,8 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
               key="all"
               className={`px-5 py-2 rounded-full transition-colors font-medium ${
                 selectedFeature === null
-                  ? 'bg-[#f4cfd9] text-white'
-                  : 'bg-white text-gray-800 hover:bg-[#f4cfd9] hover:text-white'
+                  ? 'bg-brand-button text-white'
+                  : 'bg-white text-gray-800 hover:bg-brand-button hover:text-white'
               }`}
               onClick={() => setSelectedFeature(null)}
             >
@@ -85,8 +85,8 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                 key={feature}
                 className={`px-5 py-2 rounded-full transition-colors font-medium ${
                   selectedFeature === feature
-                    ? 'bg-[#f4cfd9] text-white'
-                    : 'bg-white text-gray-800 hover:bg-[#f4cfd9] hover:text-white'
+                    ? 'bg-brand-button text-white'
+                    : 'bg-white text-gray-800 hover:bg-brand-button hover:text-white'
                 }`}
                 onClick={() => setSelectedFeature(feature)}
               >
@@ -126,7 +126,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <Link to={`/portfolio/${item.id}`} className="relative z-20 block" onClick={(e) => e.stopPropagation()}>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-[#f4cfd9] transition-colors hover:text-[#f4cfd9] cursor-pointer">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-brand-card transition-colors hover:text-brand-card cursor-pointer">
                       {item.title}
                     </h3>
                   </Link>
@@ -146,7 +146,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
         {/* View All Button - Only show on homepage when maxItems is set */}
         {maxItems && items.length > maxItems && (
           <div className="mt-12 text-center">
-            <Link to="/portfolio" className="bg-[#f4cfd9] text-white px-6 py-3 rounded-full hover:bg-[#f4cfd9]/80 transition-colors inline-flex items-center">
+            <Link to="/portfolio" className="bg-brand-button text-white px-6 py-3 rounded-full hover:bg-brand-card transition-colors inline-flex items-center">
               <span>View All Projects</span>
               <ArrowRight className="h-4 w-4 ml-2" />
             </Link>

@@ -31,7 +31,7 @@ const ReturnToTop = () => {
       <button
         type="button"
         onClick={scrollToTop}
-        className="bg-[#f4cfd9] text-white p-3 rounded-full shadow-lg hover:bg-[#ebbdc7] transition-colors focus:outline-none"
+        className="bg-brand-button text-white p-3 rounded-full shadow-lg hover:bg-brand-card transition-colors focus:outline-none"
         aria-label="Return to top"
       >
         <ArrowUp className="h-6 w-6" />

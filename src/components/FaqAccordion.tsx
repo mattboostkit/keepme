@@ -27,7 +27,6 @@ const FaqAccordion: React.FC<FaqAccordionProps> = ({ items }) => {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Frequently Asked Questions</h3>
       {items.map((item, index) => (
         <div key={index} className="border-b border-gray-200 pb-4 mb-4">
           <button
@@ -37,7 +36,7 @@ const FaqAccordion: React.FC<FaqAccordionProps> = ({ items }) => {
             aria-controls={`faq-answer-${index}`}
           >
             <h4 className="text-lg font-medium text-gray-800">{item.question}</h4>
-            <span className="text-[#f4cfd9]">
+            <span className="text-brand-accent">
               {openItems.includes(index) ? (
                 <ChevronUp className="h-5 w-5" />
               ) : (

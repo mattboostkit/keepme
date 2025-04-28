@@ -25,7 +25,7 @@ const defaultBackgroundColor = "white";
 export function WorldMap({
   dots = [],
   locations = [], // Add locations prop with default
-  lineColor = "#f4cfd9", // Default line color (brand-pink)
+  lineColor = "#DA627D", // Default line color (brand-card)
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });

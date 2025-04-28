@@ -103,13 +103,13 @@ function SanityBlog() {
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-32">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
+      <section className="py-16 bg-brand-background">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-              The KeepMe <span className="text-[#f4cfd9]">Blog</span>
+              The KeepMe <span className="text-brand-accent">Blog</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               Insights, trends, and expertise from the world of fragrance manufacturing
@@ -147,13 +147,13 @@ function SanityBlog() {
               <input
                 type="text"
                 placeholder="Search articles..."
-                className="w-full px-5 py-4 pr-12 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-[#f4cfd9]"
+                className="w-full px-5 py-4 pr-12 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-brand-card"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
               <button
                 type="submit"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#f4cfd9]"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-brand-card"
               >
                 <Search className="h-5 w-5" />
               </button>
@@ -214,7 +214,7 @@ function SanityBlog() {
                 <div className="relative z-20 inline-block">
                   <Link
                     to={`/post/${featuredPost.slug?.current}`}
-                    className="bg-[#f4cfd9] text-white px-5 py-2 rounded-full hover:bg-[#f4cfd9]/80 transition-colors flex items-center"
+                    className="bg-brand-button text-white px-5 py-2 rounded-full hover:bg-brand-card transition-colors flex items-center"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span>Read Article</span>
@@ -279,7 +279,7 @@ function SanityBlog() {
                         </div>
                       )}
                     </div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[#f4cfd9] transition-colors">
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-brand-card transition-colors">
                       {post.title}
                     </h3>
                     {post.excerpt && (
@@ -290,7 +290,7 @@ function SanityBlog() {
                     <div className="relative z-20 inline-block">
                       <Link
                         to={`/post/${post.slug?.current}`}
-                        className="bg-[#f4cfd9] text-white px-5 py-2 rounded-full hover:bg-[#f4cfd9]/80 transition-colors flex items-center"
+                        className="bg-brand-button text-white px-5 py-2 rounded-full hover:bg-brand-card transition-colors flex items-center"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <span>Read More</span>
@@ -308,7 +308,7 @@ function SanityBlog() {
           )}
 
           <div className="mt-12 text-center">
-            <button className="bg-[#f4cfd9] text-white px-5 py-2 rounded-full hover:bg-[#f4cfd9]/80 transition-colors flex items-center mx-auto">
+            <button className="bg-brand-button text-white px-5 py-2 rounded-full hover:bg-brand-card transition-colors flex items-center mx-auto">
               <span>Load More Articles</span>
               <ArrowRight className="h-4 w-4 ml-2" />
             </button>
@@ -317,7 +317,7 @@ function SanityBlog() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 bg-[#f4cfd9] text-white">
+      <section className="py-16 bg-brand-card text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-serif font-bold mb-6">Subscribe to Our Newsletter</h2>
@@ -330,7 +330,7 @@ function SanityBlog() {
                 placeholder="Your email address"
                 className="flex-grow px-5 py-3 rounded-full focus:outline-none text-gray-800"
               />
-              <button className="bg-white text-[#f4cfd9] px-6 py-3 rounded-full hover:bg-gray-100 transition-colors font-medium">
+              <button className="bg-white text-brand-card px-6 py-3 rounded-full hover:bg-gray-100 transition-colors font-medium">
                 Subscribe
               </button>
             </form>

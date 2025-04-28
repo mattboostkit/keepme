@@ -52,13 +52,13 @@
     width: 320px; /* Reduced from 420px to 320px to fit better on mobile */
     min-height: 500px; /* Reduced height to decrease bottom gap on mobile */
   }
-  
+
   /* Allow horizontal scrolling but prevent it from breaking the layout */
   .services-carousel {
     width: 100%;
     max-width: 100%;
   }
-  
+
   /* Create a container for the carousel that prevents overflow issues */
   .services-section .container {
     overflow-x: hidden;
@@ -110,7 +110,7 @@
 }
 
 .carousel-arrow:hover {
-  background-color: #f4cfd9;
+  background-color: #DA627D; /* brand-card */
   color: white;
 }
 
@@ -137,7 +137,7 @@
     right: 5px;
     z-index: 20;
   }
-  
+
   /* Make arrows smaller on mobile */
   .carousel-arrow {
     width: 36px;

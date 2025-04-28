@@ -38,7 +38,7 @@ interface VideoType {
 const SingleVideoPage: React.FC = () => {
   // Get the ID from the URL
   const { id } = useParams<{ id: string }>();
-  
+
   // Use our custom hook to fetch a single video by ID
   const { data: video, loading, error } = useSanityDocumentById<VideoType>(id || '');
 
@@ -47,7 +47,7 @@ const SingleVideoPage: React.FC = () => {
   if (!video) return <div className="p-4">Video not found</div>;
 
   const videoInfo = getVideoId(video.videoUrl);
-  
+
   if (!videoInfo) {
     return <div className="p-4 text-red-500">Invalid video URL</div>;
   }
@@ -62,7 +62,7 @@ const SingleVideoPage: React.FC = () => {
   return (
     <div className="container mx-auto p-4 max-w-4xl">
       <h1 className="text-3xl font-bold mb-4">{video.title}</h1>
-      
+
       <div className="video-container my-8">
         <div className="relative pb-[56.25%] h-0 overflow-hidden max-w-full">
           <iframe
@@ -75,17 +75,17 @@ const SingleVideoPage: React.FC = () => {
           ></iframe>
         </div>
       </div>
-      
+
       {video.description && (
         <div className="prose max-w-none mb-8">
           <p>{video.description}</p>
         </div>
       )}
-      
+
       <div className="mt-8">
-        <a 
+        <a
           href="/videos"
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="px-4 py-2 bg-brand-button text-white rounded-full hover:bg-brand-card transition-colors"
         >
           Back to all videos
         </a>
@@ -106,7 +106,7 @@ const VideosListPage: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-8">Videos</h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {videos.map((video) => (
           <div key={video._id} className="border rounded-lg overflow-hidden shadow-md">
@@ -133,7 +133,7 @@ const VideosListPage: React.FC = () => {
               {video.description && (
                 <p className="text-gray-700 mb-4 line-clamp-2">{video.description}</p>
               )}
-              <a 
+              <a
                 href={`/video/${video._id}`}
                 className="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
               >

@@ -6,10 +6,10 @@ function ToolsLanding() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
+      <section className="py-20 bg-brand-background">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-            Our <span className="text-[#f4cfd9]">Tools</span>
+            Our <span className="text-brand-accent">Tools</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Explore our calculators designed to help you estimate costs and fragrance compositions.
@@ -23,14 +23,14 @@ function ToolsLanding() {
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Cost Calculator Card */}
             <Link to="/tools/cost-calculator" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-[#f4cfd9] transition-colors">
-                <Calculator className="h-8 w-8 text-[#f4cfd9] group-hover:text-white transition-colors" />
+              <div className="bg-brand-highlight/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-card transition-colors">
+                <Calculator className="h-8 w-8 text-brand-card group-hover:text-white transition-colors" />
               </div>
               <h3 className="text-xl font-bold mb-3">Cost Calculator</h3>
               <p className="text-gray-600 mb-4">
                 Estimate the potential costs for your fragrance production project based on various factors.
               </p>
-              <span className="text-[#f4cfd9] font-medium flex items-center">
+              <span className="text-brand-card font-medium flex items-center">
                 Go to Calculator
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </span>
@@ -38,14 +38,14 @@ function ToolsLanding() {
 
             {/* Fragrance Calculator Card */}
             <Link to="/tools/fragrance-calculator" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-[#f4cfd9] transition-colors">
-                <FlaskConical className="h-8 w-8 text-[#f4cfd9] group-hover:text-white transition-colors" />
+              <div className="bg-brand-highlight/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-card transition-colors">
+                <FlaskConical className="h-8 w-8 text-brand-card group-hover:text-white transition-colors" />
               </div>
               <h3 className="text-xl font-bold mb-3">Fragrance Calculator</h3>
               <p className="text-gray-600 mb-4">
                 Experiment with fragrance notes and concentrations (Placeholder for future tool).
               </p>
-              <span className="text-[#f4cfd9] font-medium flex items-center">
+              <span className="text-brand-card font-medium flex items-center">
                 Go to Calculator
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </span>
@@ -53,14 +53,14 @@ function ToolsLanding() {
 
             {/* Freight Calculator Card */}
             <Link to="/tools/freight-calculator" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
-              <div className="bg-[#f4cfd9]/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-[#f4cfd9] transition-colors">
-                <Truck className="h-8 w-8 text-[#f4cfd9] group-hover:text-white transition-colors" />
+              <div className="bg-brand-highlight/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-card transition-colors">
+                <Truck className="h-8 w-8 text-brand-card group-hover:text-white transition-colors" />
               </div>
               <h3 className="text-xl font-bold mb-3">Freight Calculator</h3>
               <p className="text-gray-600 mb-4">
                 Calculate shipping costs and delivery times for your fragrance products to destinations worldwide.
               </p>
-              <span className="text-[#f4cfd9] font-medium flex items-center">
+              <span className="text-brand-card font-medium flex items-center">
                 Go to Calculator
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </span>

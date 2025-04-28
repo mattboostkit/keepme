@@ -10,7 +10,7 @@ const timelineData = [
     title: "Material Selection",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Material Selection</h3>
+        <h3 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Material Selection</h3>
         <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
           We source the highest quality raw materials, ensuring each component meets our strict standards.
         </p>
@@ -22,7 +22,7 @@ const timelineData = [
     title: "Melting & Moulding",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Melting & Moulding</h3>
+        <h3 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Melting & Moulding</h3>
         <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
           Precision heating and moulding techniques create perfectly formed glass components.
         </p>
@@ -34,7 +34,7 @@ const timelineData = [
     title: "Finishing & Decorating",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Finishing & Decorating</h3>
+        <h3 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Finishing & Decorating</h3>
         <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
           Expert finishing techniques and decorative elements add distinctive character to each piece.
         </p>
@@ -46,7 +46,7 @@ const timelineData = [
     title: "Quality Assurance",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-[#f4cfd9] dark:text-[#f4cfd9] mb-2">Quality Assurance</h3>
+        <h3 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Quality Assurance</h3>
         <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
           Rigorous testing ensures each glass component meets our exacting standards before delivery.
         </p>
@@ -61,12 +61,12 @@ function Glass() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-[#fffded] to-[#eed9b2]">
+      <section className="py-20 bg-brand-background">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-                Premium <span className="text-[#f4cfd9]">Glass</span> Solutions
+                Premium <span className="text-brand-card">Glass</span> Solutions
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 Exquisite glass components custom-designed for your luxury fragrance products. From stunning bottles to precision caps, we deliver unmatched quality and craftsmanship.
@@ -106,7 +106,7 @@ function Glass() {
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Premium Glass <span className="text-[#f4cfd9]">Types</span>
+              Premium Glass <span className="text-brand-card">Types</span>
             </h2>
             <p className="text-lg text-gray-600">
               We offer a variety of high-quality glass options to suit your specific fragrance requirements
@@ -131,7 +131,7 @@ function Glass() {
                   Low-Impact Luxury
                 </li>
               </ul>
-              <a href="#" className="text-[#f4cfd9] font-medium">
+              <a href="#" className="text-brand-card font-medium">
                 View PCR Options
               </a>
             </div>
@@ -153,7 +153,7 @@ function Glass() {
                   Lightweight yet strong
                 </li>
               </ul>
-              <a href="#" className="text-[#f4cfd9] font-medium">
+              <a href="#" className="text-brand-card font-medium">
                 View Borosilicate Options
               </a>
             </div>
@@ -175,7 +175,7 @@ function Glass() {
                   Gradient and multi-tone options
                 </li>
               </ul>
-              <a href="#" className="text-[#f4cfd9] font-medium">
+              <a href="#" className="text-brand-card font-medium">
                 View Colour Options
               </a>
             </div>
@@ -184,10 +184,10 @@ function Glass() {
       </section>
 
       {/* Our Process Section - Now using Timeline */}
-      <section className="py-10 bg-background"> {/* Adjusted padding and background */}
+      <section className="py-10 bg-white"> {/* Updated to white background */}
          <div className="container mx-auto px-6 text-center max-w-3xl mb-10">
              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-               Our Glass Manufacturing <span className="text-[#f4cfd9]">Process</span> {/* Adjusted color */}
+               Our Glass Manufacturing <span className="text-brand-accent">Process</span> {/* Updated to brand-accent color */}
              </h2>
              <p className="text-lg text-muted-foreground">
                From raw materials to finished products, our meticulous process ensures exceptional quality
@@ -205,7 +205,7 @@ function Glass() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
-                Custom Glass <span className="text-[#f4cfd9]">Solutions</span>
+                Custom Glass <span className="text-brand-card">Solutions</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 Beyond our standard offerings, we specialise in creating bespoke glass components tailored to your specific vision and requirements.
@@ -230,7 +230,7 @@ function Glass() {
                   </div>
                 </div>
               </div>
-              <button className="bg-brand-pink text-white px-8 py-3 rounded-full hover:bg-[#ebbdc7] transition-colors">
+              <button className="bg-brand-button text-white px-8 py-3 rounded-full hover:bg-brand-card transition-colors">
                 Schedule a Consultation
               </button>
             </div>
@@ -261,18 +261,18 @@ function Glass() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-brand-pink text-white">
+      <section className="py-20 bg-brand-card text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
             Elevate Your Fragrance with Premium Glass
           </h2>
-          <p className="text-xl text-gray-800 max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-white max-w-3xl mx-auto mb-10">
             Contact our glass specialists today to discover how our exceptional glass components can enhance your fragrance products.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="/contact"
-              className="bg-white text-gray-700 px-8 py-3 rounded-full hover:bg-gray-100 transition-colors inline-block font-medium"
+              className="bg-brand-accent text-white px-8 py-3 rounded-full hover:bg-brand-accent/80 transition-colors inline-block font-medium"
             >
               Request a Sample
             </a>
