@@ -1,6 +1,7 @@
 // React import removed - not needed in modern React
 import { Link } from 'react-router-dom';
-import { Droplets, Mail, Phone, MapPin } from 'lucide-react'; // Removed unused social icons
+import { Mail, Phone, MapPin } from 'lucide-react'; // Removed unused social icons
+import logoWhite from '../assets/images/logo_white.webp';
 
 function Footer() {
   return (
@@ -8,9 +9,8 @@ function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8"> {/* Changed to 3 columns */}
           <div>
-            <div className="flex items-center space-x-2 mb-6">
-              <Droplets className="h-8 w-8 text-brand-highlight" />
-              <span className="text-2xl font-serif font-bold text-white">KeepMe</span>
+            <div className="mb-6">
+              <img src={logoWhite} alt="KeepMe Logo" className="h-12 w-auto" />
             </div>
             <p className="text-white mb-6">
               Your end-to-end partner in fragrance and packaging. Specialising in perfume production,
