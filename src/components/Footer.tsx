@@ -10,7 +10,12 @@ function Footer() {
         <div className="grid md:grid-cols-3 gap-8"> {/* Changed to 3 columns */}
           <div>
             <div className="mb-6">
-              <img src={logoWhite} alt="KeepMe Logo" className="h-12 w-auto" />
+              <img
+                src={logoWhite}
+                alt="KeepMe Logo"
+                className="h-6 w-auto"
+                style={{ aspectRatio: '6222/354' }}
+              />
             </div>
             <p className="text-white mb-6">
               Your end-to-end partner in fragrance and packaging. Specialising in perfume production,
