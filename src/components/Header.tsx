@@ -69,7 +69,7 @@ function Header() {
                   <Link to="/fragrance-componentry" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Fragrance Componentry</Link>
                   <Link to="/home-fragrance" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Home Fragrance</Link>
                   <Link to="/luxury-packaging" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Luxury Packaging</Link>
-                  <Link to="/gifts-with-purchase" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Gifts With Purchase</Link>
+                  <Link to="/gift-with-purchase" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Gift With Purchase</Link>
                   <Link to="/skincare-componentry" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Skincare Componentry</Link>
                   <Link to="/fragrance-creation" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Fragrance Creation</Link>
                 </div>
@@ -128,7 +128,7 @@ function Header() {
                 <Link to="/fragrance-componentry" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Componentry</Link>
                 <Link to="/home-fragrance" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Home Fragrance</Link>
                 <Link to="/luxury-packaging" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Luxury Packaging</Link>
-                <Link to="/gifts-with-purchase" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Gifts With Purchase</Link>
+                <Link to="/gift-with-purchase" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Gift With Purchase</Link>
                 <Link to="/skincare-componentry" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Skincare Componentry</Link>
                 <Link to="/fragrance-creation" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Creation</Link>
               </div>

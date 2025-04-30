@@ -57,8 +57,8 @@ function Services() {
               <a href="#luxury-packaging" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
                 Luxury Packaging
               </a>
-              <a href="#gifts-with-purchase" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
-                Gifts With Purchase
+              <a href="#gift-with-purchase" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
+                Gift With Purchase
               </a>
               <a href="#skincare-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
                 Skincare Componentry
@@ -146,24 +146,24 @@ function Services() {
         </div>
       </section>
 
-      {/* 4. Gifts With Purchase Section */}
-      <section id="gifts-with-purchase" className="py-20 bg-brand-highlight/20">
+      {/* 4. Gift With Purchase Section */}
+      <section id="gift-with-purchase" className="py-20 bg-brand-highlight/20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&q=80" alt="Gifts With Purchase" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&q=80" alt="Gift With Purchase" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </div>
             <div className="order-1 md:order-2">
 
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
-                Gifts With Purchase
+                Gift With Purchase
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Boost your marketing campaigns and enhance customer loyalty with compelling Gifts With Purchase (GWP). We design and source attractive, relevant items for fragrance and lifestyle gifting that drive sales and delight your customers.
+                Boost your marketing campaigns and enhance customer loyalty with compelling Gift With Purchase (GWP). We design and source attractive, relevant items for fragrance and lifestyle gifting that drive sales and delight your customers.
               </p>
               {/* Optional: Add bullet points if more detail is available */}
-              <Link to="/gifts-with-purchase" className="inline-block mt-6 bg-brand-button text-white px-6 py-3 rounded-full hover:bg-brand-card transition-colors">
-                Learn More about Gifts With Purchase
+              <Link to="/gift-with-purchase" className="inline-block mt-6 bg-brand-button text-white px-6 py-3 rounded-full hover:bg-brand-card transition-colors">
+                Learn More about Gift With Purchase
               </Link>
             </div>
           </div>

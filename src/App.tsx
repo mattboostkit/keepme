@@ -19,7 +19,7 @@ import FragranceComponentry from './pages/FragranceComponentry';
 import SkincareComponentry from './pages/SkincareComponentry';
 import HomeFragrance from './pages/HomeFragrance';
 import LuxuryPackaging from './pages/LuxuryPackaging';
-import GiftsWithPurchase from './pages/GiftsWithPurchase';
+import GiftWithPurchase from './pages/GiftWithPurchase';
 // DeliveryAndLogistics removed as it's no longer needed
 import SanityPage from './pages/SanityPage'; // Import Sanity pages
 import PostPage from './pages/PostPage';
@@ -65,7 +65,7 @@ function App() {
           <Route path="/skincare-componentry" element={<SkincareComponentry />} />
           <Route path="/home-fragrance" element={<HomeFragrance />} />
           <Route path="/luxury-packaging" element={<LuxuryPackaging />} />
-          <Route path="/gifts-with-purchase" element={<GiftsWithPurchase />} />
+          <Route path="/gift-with-purchase" element={<GiftWithPurchase />} />
           {/* DeliveryAndLogistics route removed as it's no longer needed */}
           {/* Sanity Routes */}
           <Route path="/posts" element={<SanityPage />} />
