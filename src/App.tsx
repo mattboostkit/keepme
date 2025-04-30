@@ -1,5 +1,5 @@
 // React import removed - not needed in modern React
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ReturnToTop from './components/ReturnToTop';
@@ -60,12 +60,21 @@ function App() {
           <Route path="/tools/freight-calculator" element={<FreightCalculator />} />
           <Route path="/portfolio" element={<PortfolioPage />} /> {/* Add Portfolio route */}
           {/* Service Detail Routes */}
-          <Route path="/fragrance-creation" element={<FragranceCreation />} />
-          <Route path="/fragrance-componentry" element={<FragranceComponentry />} />
-          <Route path="/skincare-componentry" element={<SkincareComponentry />} />
-          <Route path="/home-fragrance" element={<HomeFragrance />} />
-          <Route path="/luxury-packaging" element={<LuxuryPackaging />} />
-          <Route path="/gift-with-purchase" element={<GiftWithPurchase />} />
+          <Route path="/services/fragrance-creation" element={<FragranceCreation />} />
+          <Route path="/services/fragrance-componentry" element={<FragranceComponentry />} />
+          <Route path="/services/skincare-componentry" element={<SkincareComponentry />} />
+          <Route path="/services/home-fragrance" element={<HomeFragrance />} />
+          <Route path="/services/luxury-packaging" element={<LuxuryPackaging />} />
+          <Route path="/services/gift-with-purchase" element={<GiftWithPurchase />} />
+
+          {/* Add redirects for old URLs */}
+          <Route path="/fragrance-creation" element={<Navigate to="/services/fragrance-creation" replace />} />
+          <Route path="/fragrance-componentry" element={<Navigate to="/services/fragrance-componentry" replace />} />
+          <Route path="/skincare-componentry" element={<Navigate to="/services/skincare-componentry" replace />} />
+          <Route path="/home-fragrance" element={<Navigate to="/services/home-fragrance" replace />} />
+          <Route path="/luxury-packaging" element={<Navigate to="/services/luxury-packaging" replace />} />
+          <Route path="/gift-with-purchase" element={<Navigate to="/services/gift-with-purchase" replace />} />
+          <Route path="/gifts-with-purchase" element={<Navigate to="/services/gift-with-purchase" replace />} />
           {/* DeliveryAndLogistics route removed as it's no longer needed */}
           {/* Sanity Routes */}
           <Route path="/posts" element={<SanityPage />} />
