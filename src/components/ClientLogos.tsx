@@ -13,7 +13,7 @@ interface Logo {
 
 // Define the props for the ClientLogos component
 interface ClientLogosProps {
-  title?: string;
+  title?: React.ReactNode;
   useSanity?: boolean;
   logos?: Logo[];
   scrolling?: boolean;
@@ -97,20 +97,20 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
               {/* First set of logos */}
               <div className="flex animate-marquee">
                 {logos.map((logo) => (
-                  <div key={`logo-${logo._id}`} className="flex-shrink-0 w-28 md:w-40 mx-2 md:mx-8 flex items-center justify-center h-16 md:h-20">
+                  <div key={`logo-${logo._id}`} className="flex-shrink-0 w-36 md:w-48 mx-1 md:mx-4 flex items-center justify-center h-20 md:h-24">
                     {logo.url ? (
                       <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                         <img
-                          src={urlFor(logo.image).width(112).height(56).url()}
+                          src={urlFor(logo.image).width(160).height(80).url()}
                           alt={logo.name}
-                          className="max-h-16 md:max-h-20 max-w-full object-contain"
+                          className="max-h-20 md:max-h-24 max-w-full object-contain"
                         />
                       </a>
                     ) : (
                       <img
-                        src={urlFor(logo.image).width(112).height(56).url()}
+                        src={urlFor(logo.image).width(160).height(80).url()}
                         alt={logo.name}
-                        className="max-h-16 md:max-h-20 max-w-full object-contain"
+                        className="max-h-20 md:max-h-24 max-w-full object-contain"
                       />
                     )}
                   </div>
@@ -120,20 +120,20 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
               {/* Second set of logos (exact duplicate for seamless loop) */}
               <div className="flex animate-marquee">
                 {logos.map((logo) => (
-                  <div key={`logo-dup-${logo._id}`} className="flex-shrink-0 w-28 md:w-40 mx-2 md:mx-8 flex items-center justify-center h-16 md:h-20">
+                  <div key={`logo-dup-${logo._id}`} className="flex-shrink-0 w-36 md:w-48 mx-1 md:mx-4 flex items-center justify-center h-20 md:h-24">
                     {logo.url ? (
                       <a href={logo.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                         <img
-                          src={urlFor(logo.image).width(112).height(56).url()}
+                          src={urlFor(logo.image).width(160).height(80).url()}
                           alt={logo.name}
-                          className="max-h-16 md:max-h-20 max-w-full object-contain"
+                          className="max-h-20 md:max-h-24 max-w-full object-contain"
                         />
                       </a>
                     ) : (
                       <img
-                        src={urlFor(logo.image).width(112).height(56).url()}
+                        src={urlFor(logo.image).width(160).height(80).url()}
                         alt={logo.name}
-                        className="max-h-16 md:max-h-20 max-w-full object-contain"
+                        className="max-h-20 md:max-h-24 max-w-full object-contain"
                       />
                     )}
                   </div>

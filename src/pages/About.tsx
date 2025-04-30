@@ -6,74 +6,48 @@ import ClientLogos from '../components/ClientLogos'; // Import the ClientLogos c
 import Team from '../components/Team'; // Import the Team component
 
 function About() {
-  // Process flowchart data
+  // Process flowchart data - Updated for accordion style
   const processFlowchartData = [
     {
-      step: 'Step 1',
-      title: 'Initial Enquiry',
-      content: 'Customer initial contact with KeepMe Lifestyle',
-      image: 'https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=2070&auto=format&fit=crop'
+      title: '1. Project Brief',
+      content: 'Get in touch to organise a meeting with one of the UK Team to discuss your Project Brief and Next Steps'
     },
     {
-      step: 'Step 2',
-      title: 'Customer Service',
-      content: 'KeepMe Staff organise meeting',
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop'
+      title: '2. Quoting',
+      content: 'The KeepMe Team will provide a bespoke quotation based on your Project Brief'
     },
     {
-      step: 'Step 3',
-      title: 'Project Brief',
-      content: 'Meeting completed outlining requirements and next steps',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop'
+      title: '3. Creative',
+      content: 'Utilise our Design Services and inhouse Studio to visualise project expectations and briefs'
     },
     {
-      step: 'Step 4',
-      title: 'Sampling',
-      content: 'Prototyping and product specifications agreed',
-      image: 'https://images.unsplash.com/photo-1581092921461-7d65ca45393a?q=80&w=2070&auto=format&fit=crop'
+      title: '4. Prototyping',
+      content: 'Initial Samples created to bring your concept to life for final approval'
     },
     {
-      step: 'Step 5',
-      title: 'Ordering',
-      content: 'Purchase Order placement',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop'
+      title: '5. Manufacturing',
+      content: 'Production commences against agreed timeline'
     },
     {
-      step: 'Step 6',
-      title: 'Manufacture',
-      content: 'Production commences',
-      image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop'
+      title: '6. Quality Control',
+      content: 'QC organised to AQL Standards'
     },
     {
-      step: 'Step 7',
-      title: 'Quality Control',
-      content: 'QC organised to AQL Standards',
-      image: 'https://images.unsplash.com/photo-1598257006458-087169a1f08d?q=80&w=2070&auto=format&fit=crop'
+      title: '7. Shipping',
+      content: 'Goods shipped to filling location for completion'
     },
     {
-      step: 'Step 8',
-      title: 'Shipping',
-      content: 'Goods shipped to filling location for completion',
-      image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop'
+      title: '8. Filling and Assembly',
+      content: 'Product filled and finished product assembled'
     },
     {
-      step: 'Step 9',
-      title: 'Filling and Assembly',
-      content: 'Product filled and finished product assembled',
-      image: 'https://images.unsplash.com/photo-1600267204091-5c1ab8b10c02?q=80&w=2070&auto=format&fit=crop'
+      title: '9. Delivery',
+      content: 'To agreed location'
     },
     {
-      step: 'Step 10',
-      title: 'Delivery',
-      content: 'To agreed location',
-      image: 'https://images.unsplash.com/photo-1621972660772-6a0427a5ec04?q=80&w=2070&auto=format&fit=crop'
-    },
-    {
-      step: 'Step 11',
-      title: 'Review',
-      content: 'Project review with client',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop'
-    },
+      title: '10. Review',
+      content: 'Project review with client'
+    }
   ];
 
   // Adapt timeline data for the new component structure
@@ -205,9 +179,11 @@ function About() {
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
                 About <span className="text-brand-card">KeepMe</span>
               </h1>
+              <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                At KeepMe, we specialise in the creation, manufacture, and delivery of premium fragrance, home, and lifestyle products. Proudly based in the UK, we are a family-run business with over 20 years of industry experience. We work closely with brands, license holders, distributors, and retailers to bring their visions to life — from initial concept through to final product delivery. Whether you need individual components or a retail-ready product, KeepMe is the trusted partner to support your project at every stage.
+              </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                At KeepMe, we blend artistry with precision to create exceptional fragrances that captivate the senses.
-                We're dedicated to crafting perfumes that not only smell exquisite but also tell a unique story.
+                Our dedicated team combines creativity, technical expertise, and quality. We’re all about turning big ideas into beautiful, high-quality products — and making the whole process feel easy and collaborative.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <h3 className="text-xl font-bold mb-4">Our Mission</h3>
@@ -252,7 +228,7 @@ function About() {
             </div>
             <div className="md:col-span-3 space-y-4">
               <p className="text-lg text-gray-600 leading-relaxed">
-                Our focus is delivering high-quality ‘white label’ products and packaging solutions. We specialise in complex manufacturing and fulfilment projects for discerning customers.
+                Delivering high-quality product and packaging solutions. We specialise in complex manufacturing projects for our customers.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Based in the UK, we are supported by regional offices in key global territories. Working directly with our factories, we can control and influence the manufacturing process, employees’ health and safety, and working conditions.

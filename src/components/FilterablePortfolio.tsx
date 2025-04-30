@@ -71,7 +71,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             <button
               key="all"
-              className={`px-5 py-2 rounded-full transition-colors font-medium ${
+              className={`px-5 py-2 rounded-full transition-colors font-medium min-w-32 text-center ${
                 selectedFeature === null
                   ? 'bg-brand-button text-white'
                   : 'bg-white text-gray-800 hover:bg-brand-button hover:text-white'
@@ -83,7 +83,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
             {allFeatures.map((feature) => (
               <button
                 key={feature}
-                className={`px-5 py-2 rounded-full transition-colors font-medium ${
+                className={`px-5 py-2 rounded-full transition-colors font-medium min-w-32 text-center ${
                   selectedFeature === feature
                     ? 'bg-brand-button text-white'
                     : 'bg-white text-gray-800 hover:bg-brand-button hover:text-white'

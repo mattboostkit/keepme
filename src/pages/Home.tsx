@@ -1,17 +1,6 @@
 // React is imported automatically in newer versions of React
 import {
-  Droplets,     // For Fragrance service + About section
-  // Users,        // Removed - Unused import
-  // ChevronRight, // Removed - Unused import
   ArrowRight,   // Needed for Hero button
-  GlassWater,   // For Fragrance Componentry service
-  Home as HomeIcon, // Alias Home icon to avoid conflict with component name
-  Palette,      // For Cosmetic Componentry service
-  Package,      // For Luxury Packaging service
-  Gift,         // For Gifts With Purchase service
-  Truck,        // For Delivery & Logistics service
-  // PenTool,      // Removed - Unused import
-  // PackageCheck  // Removed - Unused import
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import WorldMap from '../components/ui/WorldMap'; // Import the WorldMap component
@@ -25,8 +14,8 @@ import ClientLogos from '../components/ClientLogos'; // Import the ClientLogos c
 import FilterablePortfolio, { PortfolioItem } from '../components/FilterablePortfolio';
 // Import fetchPortfolioBrands utility
 import { fetchPortfolioBrands } from '../lib/portfolioUtils';
-import FlickityCarousel from '../components/FlickityCarousel'; // Import the FlickityCarousel component
-import '../components/FlickityCarousel.css'; // Import the FlickityCarousel styles
+import FlickityCarousel from '../components/FlickityCarousel'; // Re-import FlickityCarousel
+import '../components/FlickityCarousel.css'; // Re-import FlickityCarousel styles
 
 // Define Sanity Image Reference type
 interface SanityImageReference {
@@ -38,20 +27,14 @@ interface SanityImageReference {
   alt?: string;
 }
 
-// Define the Service interface
-interface Service {
-  id: string;
-  title: string;
-  slug: string;
-  icon: string;
-  shortDescription: string;
-}
-
 // Define the ServiceImage interface
 interface ServiceImage {
   _id: string;
   title: string;
   image: SanityImageReference; // Use specific type
+  shortDescription: string;
+  slug: { current: string };
+  displayOrder: number;
 }
 
 // Define About Section Data interface
@@ -61,9 +44,6 @@ interface AboutSectionData {
   description?: string;
   image?: SanityImageReference;
 }
-
-// PortfolioBrand interface removed as it seems incorrect/redundant
-
 
 function Home() { // Component name is Home
   // State for service images, about section, and portfolio brands
@@ -77,8 +57,10 @@ function Home() { // Component name is Home
     const fetchData = async () => {
       try {
         setLoading(true);
-        // Fetch service images
-        const serviceImagesResult = await fetchSanityData<ServiceImage[]>('*[_type == "serviceImage"] | order(_createdAt desc)');
+        // Fetch service images - Updated query to remove icon field and sort
+        const serviceImagesResult = await fetchSanityData<ServiceImage[]>(
+          '*[_type == "serviceImage"]{ _id, title, image, shortDescription, slug, displayOrder } | order(displayOrder asc)'
+        );
         setServiceImages(serviceImagesResult);
 
         // Fetch about section data
@@ -99,54 +81,6 @@ function Home() { // Component name is Home
 
     fetchData();
   }, []);
-
-  // Hardcoded services
-  const services: Service[] = [
-    {
-      id: '2',
-      title: 'Fragrance Componentry',
-      slug: 'fragrance-componentry',
-      icon: 'GlassWater',
-      shortDescription: 'Premium bottles, caps, pumps, and essential components to perfectly house and present your fragrance.'
-    },
-    {
-      id: '4',
-      title: 'Home Fragrance',
-      slug: 'home-fragrance',
-      icon: 'Home',
-      shortDescription: 'Bespoke candles, diffusers, and room sprays to extend your brand\'s reach and create inviting atmospheres.'
-    },
-    {
-      id: '5',
-      title: 'Luxury Packaging',
-      slug: 'luxury-packaging',
-      icon: 'Package',
-      shortDescription: 'Exquisite packaging solutions designed to impress, convey exclusivity, and protect your valuable fragrance.'
-    },
-    {
-      id: '6',
-      title: 'Gifts With Purchase',
-      slug: 'gifts-with-purchase',
-      icon: 'Gift',
-      shortDescription: 'Attractive and relevant gift items for fragrance and lifestyle gifting to enhance loyalty and drive sales.'
-    },
-    {
-      id: '3',
-      title: 'Skincare Componentry',
-      slug: 'skincare-componentry',
-      icon: 'Palette',
-      shortDescription: 'High-quality parts for various skincare applications, ensuring functionality and aesthetic appeal.'
-    },
-    {
-      id: '1',
-      title: 'Fragrance Creation',
-      slug: 'fragrance-creation',
-      icon: 'Droplets',
-      shortDescription: 'Expert creation of unique, captivating scents tailored to your brand, from concept to final masterpiece.'
-    },
-
-
-  ];
 
   const heroImageUrl = "https://cdn.sanity.io/images/tyzs5imn/production/4f5dce1f245ef6f8bd2ae8129b532b118eae3561-2700x1336.webp";
 
@@ -233,103 +167,68 @@ function Home() { // Component name is Home
         </div>
       </section>
 
-      {/* Services Section - Using Flickity for smooth scrolling */}
-      <section id="services" className="py-20 relative services-section">
+      {/* Our Services Section - Restoring Flickity Carousel */}
+      <section id="services" className="py-20 bg-[#f9f5e7] services-section"> 
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto mb-6">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our <span className="text-brand-card">Services</span>
+              Our <span className="text-brand-accent">Services</span> {/* Ensured class is applied */}
             </h2>
-            <p className="text-gray-600 mb-10">
-              We offer a full range of services from bespoke design and production, to
-              supplying stock items and components for cosmetic and fragrance products.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Comprehensive solutions for your fragrance and lifestyle product needs, delivered with expertise and care.
             </p>
-
-            {/* Loading indicator */}
-            {loading ? (
-              <div className="flex justify-center items-center py-16">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-card"></div>
-              </div>
-            ) : (
-              <div className="relative">
-                {/* Flickity Carousel with navigation arrows */}
-                <FlickityCarousel
-                  className="services-carousel"
-                  options={{
-                    freeScroll: true, // Enable freeScroll for all devices
-                    contain: true,
-                    prevNextButtons: false,
-                    pageDots: false,
-                    cellAlign: 'left',
-                    draggable: true,
-                    friction: 0.2,
-                    selectedAttraction: 0.01,
-                    adaptiveHeight: false, // Disable adaptive height to prevent layout shifts
-                    watchCSS: false // Disable CSS breakpoints to ensure consistent behavior
-                  }}
-                  showArrows={true}
-                >
-                  {services.map((service) => {
-                    // Get the icon component based on the icon name in the service
-                    let IconComponent;
-                    switch (service.icon) {
-                      case 'Droplets': IconComponent = Droplets; break;
-                      case 'GlassWater': IconComponent = GlassWater; break;
-                      case 'Palette': IconComponent = Palette; break;
-                      case 'Home': IconComponent = HomeIcon; break;
-                      case 'Package': IconComponent = Package; break;
-                      case 'Gift': IconComponent = Gift; break;
-                      case 'Truck': IconComponent = Truck; break;
-                      default: IconComponent = Droplets; // Default icon
-                    }
-
-                    // Change "Cosmetic Componentry" to "Skincare Componentry"
-                    const displayTitle = service.title === "Cosmetic Componentry"
-                      ? "Skincare Componentry"
-                      : service.title;
-
-                    return (
-                      <div key={service.id} className="group relative w-full h-full flex flex-col">
-                        {/* Make the entire card clickable with an overlay link */}
-                        <Link to={`/${service.slug}`} className="absolute inset-0 z-10">
-                          <span className="sr-only">Learn more about {displayTitle}</span>
-                        </Link>
-
-                        {/* Service image - increased height for better visibility */}
-                        <div className="w-full h-80 overflow-hidden mb-4 rounded-lg flex-shrink-0">
-                          {serviceImages.find(img => img.title === service.title)?.image ? (
-                            <img
-                              src={urlFor(serviceImages.find(img => img.title === service.title)?.image).width(1200).height(900).url()}
-                              alt={serviceImages.find(img => img.title === service.title)?.image.alt || `${displayTitle} image`}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                          ) : (
-                            <div className="flex items-center justify-center h-full w-full bg-gray-200">
-                              <IconComponent className="h-16 w-16 text-gray-400" />
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Service title and description */}
-                        <div className="flex-grow">
-                          <Link to={`/${service.slug}`} className="inline-block hover:text-brand-card transition-colors relative z-20" onClick={(e) => e.stopPropagation()}>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-brand-card transition-colors">{displayTitle}</h3>
-                          </Link>
-                          <p className="text-gray-600 text-base mb-2">
-                            {service.shortDescription.length > 130
-                              ? `${service.shortDescription.substring(0, 130)}...`
-                              : service.shortDescription}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </FlickityCarousel>
-
-                {/* No gradient mask needed with arrows */}
-              </div>
-            )}
           </div>
+
+          {loading ? (
+            <div className="text-center">Loading services...</div>
+          ) : (
+            <FlickityCarousel
+              className="services-carousel" // Class for Flickity styling
+              options={{
+                // Recommended options for horizontal scroll feel
+                freeScroll: true,
+                contain: true,
+                prevNextButtons: true, // Show arrows
+                pageDots: false,     // Hide dots
+                cellAlign: 'left',
+                groupCells: true, // Group cells to show multiple at once if desired, or false/1 to show one partial
+                draggable: true, // Allow dragging only if multiple cells
+                // Add other options as needed from original implementation
+                 friction: 0.2,
+                 selectedAttraction: 0.01,
+                 adaptiveHeight: false,
+                 watchCSS: false
+              }}
+            >
+              {serviceImages.map((service) => (
+                 // Each child of FlickityCarousel is a cell
+                <div key={service._id} className="px-3 pb-4"> {/* Cell container */}
+                  <Link to={`/services/${service.slug.current}`} className="group block h-full">
+                    {/* Image Container - Now acts as the main visual block */}
+                    {service.image?.asset && (
+                      <div className="w-full h-80 overflow-hidden mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
+                         <img
+                           src={urlFor(service.image).width(400).height(600).url()} // Removed .fit('crop')
+                           alt={service.image.alt || `${service.title} image`}
+                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                           loading="lazy"
+                         />
+                       </div>
+                    )}
+                    {/* Text Content - Placed below the image */}
+                    <div className="mt-4"> {/* Add margin-top to separate from image */}
+                       <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-brand-accent transition-colors">{service.title}</h3>
+                       <p className="text-gray-600 text-sm mb-3">{service.shortDescription}</p>
+                       {/* Optional: Keep Learn More link if desired, style appropriately */}
+                       {/* <div className="mt-auto text-brand-accent font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm">
+                         Learn More <ArrowRight className="ml-1 h-4 w-4" />
+                       </div> */}
+                     </div>
+                  </Link>
+                </div>
+              ))}
+            </FlickityCarousel>
+          )}
         </div>
       </section>
 
@@ -337,7 +236,7 @@ function Home() { // Component name is Home
       {portfolioBrands.length > 0 ? (
         <FilterablePortfolio
           title="Our Portfolio"
-          subtitle="Discover our partnerships with prestigious fragrance houses and luxury brands. We're proud to work with some of the most distinguished names in the industry."
+          subtitle="Discover our partnerships with prestigious Niche and Luxury Brands. We're proud to work with some of the most distinguished names in the industry."
           items={portfolioBrands}
           maxItems={6}
           showFilters={true}

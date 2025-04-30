@@ -1,29 +1,27 @@
 "use client"
 
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "../../lib/utils"
 import { Check } from "lucide-react"
 
 interface Feature {
-  step: string
+  step?: string
   title?: string
   content: string
-  image: string
+  image?: string
 }
 
 interface ClickableFeatureStepsProps {
   features: Feature[]
   className?: string
   title?: React.ReactNode
-  imageHeight?: string
 }
 
 export function ClickableFeatureSteps({
   features,
   className,
   title = "How to get Started",
-  imageHeight = "h-[400px]",
 }: ClickableFeatureStepsProps) {
   const [currentFeature, setCurrentFeature] = useState(-1) // Start with no feature selected
 
@@ -39,7 +37,7 @@ export function ClickableFeatureSteps({
           {title}
         </h2>
 
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10">
+        <div className="flex flex-col md:grid md:grid-cols-1 gap-6 md:gap-10">
           <div className="order-2 md:order-1 space-y-8 relative">
             {/* Connecting Line */}
             <div className="absolute left-5 md:left-6 top-0 bottom-0 w-0.5 bg-gray-200">
@@ -89,44 +87,27 @@ export function ClickableFeatureSteps({
 
                 <div className="flex-1">
                   <h3 className="text-xl md:text-2xl font-semibold">
-                    {feature.title || feature.step}
+                    {/* Remove leading number and period from title */} 
+                    {feature.title?.substring(feature.title.indexOf(' ') + 1) || feature.step}
                   </h3>
-                  <p className="text-sm md:text-lg text-gray-600">
-                    {feature.content}
-                  </p>
+                  <AnimatePresence>
+                    {index === currentFeature && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: 'auto', marginTop: '0.5rem' }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-sm md:text-lg text-gray-600">
+                          {feature.content}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </motion.div>
             ))}
-          </div>
-
-          <div
-            className={cn(
-              "order-1 md:order-2 relative h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden rounded-lg"
-            )}
-          >
-            {currentFeature === -1 ? (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-lg">
-                <p className="text-gray-500 text-lg font-medium">Click on a step to view details</p>
-              </div>
-            ) : (
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentFeature}
-                  className="absolute inset-0 rounded-lg overflow-hidden"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  <img
-                    src={features[currentFeature].image}
-                    alt={features[currentFeature].step}
-                    className="w-full h-full object-cover transition-transform transform"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white via-white/50 to-transparent" />
-                </motion.div>
-              </AnimatePresence>
-            )}
           </div>
         </div>
       </div>
