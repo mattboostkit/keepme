@@ -38,7 +38,10 @@ import {
   HouseOfVisionPage,
   BoadiceaPage,
   BDXYPage,
-  StephaneHumbertLucasPage
+  StephaneHumbertLucasPage,
+  HouseOfBrandtPage, // Add import
+  FragranceDuBoisPage, // Add import
+  FlannelsPage // Add import
 } from './pages/clients';
 
 function App() {
@@ -96,6 +99,10 @@ function App() {
           <Route path="/portfolio/boadicea" element={<BoadiceaPage />} />
           <Route path="/portfolio/bdxy" element={<BDXYPage />} />
           <Route path="/portfolio/stephane-humbert-lucas" element={<StephaneHumbertLucasPage />} />
+          {/* Add routes for new client pages */}
+          <Route path="/portfolio/house-of-brandt" element={<HouseOfBrandtPage />} />
+          <Route path="/portfolio/fragrance-du-bois" element={<FragranceDuBoisPage />} />
+          <Route path="/portfolio/flannels" element={<FlannelsPage />} />
         </Routes>
       </main>
       <Footer />

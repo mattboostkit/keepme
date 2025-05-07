@@ -51,11 +51,11 @@ function Header() {
             <img
               src={logoUrl}
               alt="KeepMe Logo"
-              className="h-12 sm:h-16 md:h-[5.5rem] w-auto min-w-[80px]"
+              className="h-12 sm:h-16 md:h-20 lg:h-[5.5rem] w-auto min-w-[80px]"
             />
           </Link>
           {/* Desktop Menu */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8">
             <Link to="/" className="text-gray-800 hover:text-brand-card transition-colors">Home</Link>
             <Link to="/about" className="text-gray-800 hover:text-brand-card transition-colors">About</Link>
 
@@ -81,19 +81,15 @@ function Header() {
             <Link to="/portfolio" className="text-gray-800 hover:text-brand-card transition-colors">Portfolio</Link>
             <Link to="/blog" className="text-gray-800 hover:text-brand-card transition-colors">Blog</Link>
           </nav>
-          <Link to="/contact" className="hidden md:flex items-center bg-brand-button text-white px-5 py-2 rounded-full hover:bg-brand-card transition-colors">
+          <Link to="/contact" className="hidden lg:flex items-center bg-brand-button text-white px-4 py-2 text-sm rounded-full hover:bg-brand-card transition-colors">
             Contact Us
             <ChevronRight className="h-4 w-4 ml-1" />
-          </Link>
-          {/* Contact Us button for small screens (but not the smallest) */}
-          <Link to="/contact" className="hidden sm:flex md:hidden items-center bg-brand-button text-white px-4 py-1.5 rounded-full hover:bg-brand-card transition-colors text-sm">
-            Contact
           </Link>
 
           {/* Hamburger Button */}
           <button
             ref={hamburgerRef}
-            className="md:hidden text-gray-800 focus:outline-none ml-4 bg-white/80 p-2 rounded-md"
+            className="lg:hidden text-gray-800 focus:outline-none ml-4 bg-white/80 p-2 rounded-md"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
@@ -106,7 +102,7 @@ function Header() {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="md:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5.5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="lg:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <div className="container mx-auto px-6 flex justify-end mb-2">
             <button

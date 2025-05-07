@@ -4,6 +4,8 @@ import { fetchPortfolioBrandByName, getPortfolioBrandImageUrl } from '../../lib/
 
 const RojaParfumsPage: React.FC = () => {
   const [clientImage, setClientImage] = useState<string>('');
+  const [clientDescription, setClientDescription] = useState<string>(''); 
+  const [clientFeatures, setClientFeatures] = useState<string[]>([]); 
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -14,9 +16,13 @@ const RojaParfumsPage: React.FC = () => {
         if (brandData) {
           const imageUrl = getPortfolioBrandImageUrl(brandData);
           setClientImage(imageUrl);
+          setClientDescription(brandData.description || 'Description not available.'); 
+          setClientFeatures(brandData.features || []); 
         }
       } catch (error) {
         console.error('Error fetching Roja Parfums data:', error);
+        setClientDescription('Failed to load description.'); 
+        setClientFeatures([]); 
       } finally {
         setLoading(false);
       }
@@ -25,11 +31,19 @@ const RojaParfumsPage: React.FC = () => {
     fetchBrandData();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-brand-accent"></div>
+      </div>
+    );
+  }
+
   return (
     <ClientDetailTemplate
       clientName="Roja Parfums"
-      clientFeatures={['Fragrance Glass', 'Vials', 'Candle Ceramics', 'Luxury Packaging']}
-      clientDescription="Partnering with Roja Parfums to create exquisite fragrance glass, vials, candle ceramics, and luxury packaging that embody their premium brand identity."
+      clientFeatures={clientFeatures} 
+      clientDescription={clientDescription} 
       clientImage={clientImage || "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80"}
     />
   );

@@ -4,6 +4,8 @@ import { fetchPortfolioBrandByName, getPortfolioBrandImageUrl } from '../../lib/
 
 const FlannelsPage: React.FC = () => {
   const [clientImage, setClientImage] = useState<string>('');
+  const [clientDescription, setClientDescription] = useState<string>(''); 
+  const [clientFeatures, setClientFeatures] = useState<string[]>([]); 
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -14,9 +16,13 @@ const FlannelsPage: React.FC = () => {
         if (brandData) {
           const imageUrl = getPortfolioBrandImageUrl(brandData);
           setClientImage(imageUrl);
+          setClientDescription(brandData.description || 'Description not available.'); 
+          setClientFeatures(brandData.features || []); 
         }
       } catch (error) {
         console.error('Error fetching Flannels data:', error);
+        setClientDescription('Failed to load description.'); 
+        setClientFeatures([]); 
       } finally {
         setLoading(false);
       }
@@ -36,9 +42,9 @@ const FlannelsPage: React.FC = () => {
   return (
     <ClientDetailTemplate
       clientName="Flannels"
-      clientFeatures={['Luxury Retail Fragrances', 'In-Store Experience Design', 'Limited Edition Collections']}
-      clientDescription="Working with Flannels to develop exclusive fragrance lines for their discerning clientele."
-      clientImage={clientImage || "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80"} // Fallback image
+      clientFeatures={clientFeatures} 
+      clientDescription={clientDescription} 
+      clientImage={clientImage || "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80"} 
     />
   );
 };

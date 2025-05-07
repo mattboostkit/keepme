@@ -4,6 +4,8 @@ import { fetchPortfolioBrandByName, getPortfolioBrandImageUrl } from '../../lib/
 
 const FragranceDuBoisPage: React.FC = () => {
   const [clientImage, setClientImage] = useState<string>('');
+  const [clientDescription, setClientDescription] = useState<string>(''); 
+  const [clientFeatures, setClientFeatures] = useState<string[]>([]); 
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -14,9 +16,13 @@ const FragranceDuBoisPage: React.FC = () => {
         if (brandData) {
           const imageUrl = getPortfolioBrandImageUrl(brandData);
           setClientImage(imageUrl);
+          setClientDescription(brandData.description || 'Description not available.'); 
+          setClientFeatures(brandData.features || []); 
         }
       } catch (error) {
         console.error('Error fetching Fragrance Du Bois data:', error);
+        setClientDescription('Failed to load description.'); 
+        setClientFeatures([]); 
       } finally {
         setLoading(false);
       }
@@ -36,9 +42,9 @@ const FragranceDuBoisPage: React.FC = () => {
   return (
     <ClientDetailTemplate
       clientName="Fragrance Du Bois"
-      clientFeatures={['Exotic Perfume Oils', 'Custom Bottle Design', 'Global Distribution Support']}
-      clientDescription="Collaborating with Fragrance Du Bois to craft unique scents and present them in stunning, bespoke bottles."
-      clientImage={clientImage || "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80"} // Fallback image
+      clientFeatures={clientFeatures} 
+      clientDescription={clientDescription} 
+      clientImage={clientImage || "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80"} 
     />
   );
 };
