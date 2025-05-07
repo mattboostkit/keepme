@@ -4,6 +4,9 @@ import HouseOfVisionPage from './HouseOfVision';
 import BoadiceaPage from './Boadicea';
 import BDXYPage from './BDXY';
 import StephaneHumbertLucasPage from './StephaneHumbertLucas';
+import HouseOfBrandtPage from './HouseOfBrandtPage';
+import FragranceDuBoisPage from './FragranceDuBoisPage';
+import FlannelsPage from './FlannelsPage';
 
 export {
   RojaParfumsPage,
@@ -11,5 +14,8 @@ export {
   HouseOfVisionPage,
   BoadiceaPage,
   BDXYPage,
-  StephaneHumbertLucasPage
+  StephaneHumbertLucasPage,
+  HouseOfBrandtPage,
+  FragranceDuBoisPage,
+  FlannelsPage
 };
