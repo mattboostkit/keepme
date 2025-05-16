@@ -82,7 +82,7 @@ function Home() { // Component name is Home
     fetchData();
   }, []);
 
-  const heroImageUrl = "https://cdn.sanity.io/images/tyzs5imn/production/4f5dce1f245ef6f8bd2ae8129b532b118eae3561-2700x1336.webp";
+  const heroImageUrl = "https://cdn.sanity.io/images/tyzs5imn/production/7feee1508aeaf269bf3ecdfa7c0c8bc62585b627-2700x1336.webp";
 
   return (
     <>

@@ -44,7 +44,7 @@ function Header() {
   return (
     // Wrap header and mobile menu in a relative div for positioning context
     <div className="relative">
-      <header className="fixed w-full bg-white/70 backdrop-blur-sm z-50 py-2 md:py-4 shadow-sm">
+      <header className="fixed w-full bg-white z-50 py-2 md:py-4 shadow-sm">
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
           {/* Updated Logo - with responsive sizing */}
           <Link to="/" className="flex items-center">
