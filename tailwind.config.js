@@ -32,12 +32,12 @@ content: [
           '900': '#362f78',
         },
         brand: {
-          pink: '#f4cfd9',
-          background: '#F9DBBD',
-          highlight: '#FFA5AB',
-          card: '#DA627D',
-          button: '#A53860',
-          accent: '#450920',
+          pink: '#f4cfd9', // Existing pink, kept for other usages
+          peach: '#F9DBBD',      // New: formerly brand.background
+          'pink-light': '#FFA5AB', // New: formerly brand.highlight
+          rose: '#DA627D',        // New: formerly brand.card
+          mauve: '#A53860',       // New: formerly brand.button
+          plum: '#450920',        // New: formerly brand.accent
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

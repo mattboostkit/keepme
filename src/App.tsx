@@ -9,7 +9,7 @@ import Services from './pages/Services';
 import Glass from './pages/Glass';
 // Blog import removed - using SanityBlog instead
 import Contact from './pages/Contact';
-import ToolsLanding from './pages/ToolsLanding'; // Import new page
+import Tools from './pages/Tools'; // Import new page
 import CostCalculator from './pages/CostCalculator'; // Import new page
 import FragranceCalculator from './pages/FragranceCalculator'; // Import new page
 import FreightCalculator from './pages/FreightCalculator'; // Import Freight Calculator page
@@ -57,7 +57,7 @@ function App() {
           <Route path="/blog" element={<SanityBlog />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add new routes */}
-          <Route path="/tools" element={<ToolsLanding />} />
+          <Route path="/tools" element={<Tools />} />
           <Route path="/tools/cost-calculator" element={<CostCalculator />} />
           <Route path="/tools/fragrance-calculator" element={<FragranceCalculator />} />
           <Route path="/tools/freight-calculator" element={<FreightCalculator />} />

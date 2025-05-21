@@ -2,6 +2,11 @@ import React from 'react';
 import { PortableTextComponents } from '@portabletext/react';
 import { urlFor } from '../lib/sanity';
 
+// Minimal interface for type assertion
+interface ChainableUrl {
+  url: () => string;
+}
+
 // Helper function to extract YouTube or Vimeo video ID
 const getVideoId = (url: string) => {
   // YouTube
@@ -47,7 +52,7 @@ const VideoEmbed: React.FC<{ value: any }> = ({ value }) => {
           title={caption || 'Embedded video'}
         ></iframe>
       </div>
-      {caption && <p className="text-sm text-gray-600 mt-2">{caption}</p>}
+      {caption && <p className="text-sm text-black mt-2">{caption}</p>}
     </div>
   );
 };
@@ -63,13 +68,13 @@ export const portableTextComponents: PortableTextComponents = {
       return (
         <figure className="my-8">
           <img
-            src={urlFor(value).width(800).url()}
+            src={(urlFor(value).width(800) as unknown as ChainableUrl).url()}
             alt={value.alt || 'Image'}
             className="rounded-lg"
             loading="lazy"
           />
           {value.caption && (
-            <figcaption className="text-sm text-gray-600 mt-2">
+            <figcaption className="text-sm text-black mt-2">
               {value.caption}
             </figcaption>
           )}
@@ -79,13 +84,13 @@ export const portableTextComponents: PortableTextComponents = {
     videoEmbed: ({ value }) => <VideoEmbed value={value} />,
   },
   block: {
-    h1: ({ children }) => <h1 className="text-4xl font-bold mt-8 mb-4">{children}</h1>,
-    h2: ({ children }) => <h2 className="text-3xl font-bold mt-8 mb-4">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-2xl font-bold mt-6 mb-3">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-xl font-bold mt-4 mb-2">{children}</h4>,
-    normal: ({ children }) => <p className="mb-4 leading-relaxed">{children}</p>,
+    h1: ({ children }) => <h1 className="text-4xl font-bold mt-8 mb-4 text-black">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-3xl font-bold mt-8 mb-4 text-black">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-2xl font-bold mt-6 mb-3 text-black">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-xl font-bold mt-4 mb-2 text-black">{children}</h4>,
+    normal: ({ children }) => <p className="mb-4 leading-relaxed text-black text-lg">{children}</p>,
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-gray-300 pl-4 italic my-6">
+      <blockquote className="border-l-4 border-brand-rose pl-4 italic my-6 text-black">
         {children}
       </blockquote>
     ),
@@ -97,7 +102,7 @@ export const portableTextComponents: PortableTextComponents = {
         <a
           href={value.href}
           rel={rel}
-          className="text-blue-600 hover:underline"
+          className="text-brand-rose hover:underline"
           target={!value.href.startsWith('/') ? '_blank' : undefined}
         >
           {children}

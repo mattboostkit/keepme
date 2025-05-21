@@ -3,7 +3,7 @@ import {
   ArrowRight,   // Needed for Hero button
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import WorldMap from '../components/ui/WorldMap'; // Import the WorldMap component
+// import WorldMap from '../components/ui/WorldMap'; // Import the WorldMap component (Temporarily commented out)
 import { TextShimmer } from '../components/ui/TextShimmer'; // Import TextShimmer
 import { useState, useEffect } from 'react';
 import { fetchSanityData } from '../lib/sanityUtils';
@@ -93,7 +93,7 @@ function Home() { // Component name is Home
         style={{ backgroundImage: `url(${heroImageUrl})` }}
       >
         {/* Overlay for text contrast */}
-        <div className="absolute inset-0 bg-black/30 z-0"></div>
+        <div className="absolute inset-0 bg-black/40 z-0"></div>
 
         {/* Content Container */}
         <div className="relative z-10 container mx-auto px-6">
@@ -105,8 +105,8 @@ function Home() { // Component name is Home
                   <TextShimmer
                     as="span" // Keep as span
                     duration={2} // Adjust duration as needed
-                    // Updated shimmer colors for light text on dark background
-                    className="pb-2 [--base-color:#FFFFFF] [--base-gradient-color:#FFA5AB] dark:[--base-color:#FFFFFF] dark:[--base-gradient-color:#FFA5AB]"
+                    // Updated shimmer colors for light text on dark background, ensuring brand-pink-light is used
+                    className="pb-2 [--base-color:#FFFFFF] [--base-gradient-color:theme(colors.brand.pink-light)] dark:[--base-color:#FFFFFF] dark:[--base-gradient-color:theme(colors.brand.pink-light)]"
                   >
                     Expertly Crafted
                   </TextShimmer>
@@ -117,7 +117,7 @@ function Home() { // Component name is Home
                 from components to filling, assembly, and delivery.
               </p>
               <div className="flex justify-center"> {/* Centered button */}
-                <Link to="/services" className="bg-brand-button text-white px-8 py-3 rounded-full hover:bg-brand-card transition-colors flex items-center justify-center">
+                <Link to="/services" className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors flex items-center justify-center">
                   Our Services
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -131,7 +131,7 @@ function Home() { // Component name is Home
       <ClientLogos useSanity={true} title="Trusted by Leading Brands" scrolling={true} />
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-brand-highlight/20">
+      <section id="about" className="py-20 bg-brand-pink-light/20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
@@ -145,20 +145,20 @@ function Home() { // Component name is Home
                   className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
                   style={{ opacity: loading ? 0.7 : 1 }}
                 />
-                <div className="absolute inset-0 bg-brand-highlight/20"></div>
+                <div className="absolute inset-0 bg-brand-pink-light/20"></div>
               </div>
               <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
-                  <p className="text-xl font-bold">Manufacturing</p>
-                  <p className="text-gray-600">made simple</p>
+                  <p className="text-xl font-bold text-brand-plum">Manufacturing</p>
+                  <p className="text-brand-mauve">made simple</p>
                 </div>
               </div>
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
-                About <span className="text-brand-card">KeepMe</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum">
+                About <span className="text-brand-rose">KeepMe</span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-brand-mauve leading-relaxed">
                 {aboutData?.description || 'We design and manufacture an extensive range of expertly created products from signature scents to home fragrances, each meticulously crafted from the finest raw materials. Beautifully designed packaging showcases each bespoke product, tailored to complement and enhance your brand.'}
               </p>
 
@@ -168,13 +168,13 @@ function Home() { // Component name is Home
       </section>
 
       {/* Our Services Section - Restoring Flickity Carousel */}
-      <section id="services" className="py-20 bg-[#f9f5e7] services-section"> 
+      <section id="services" className="py-20 bg-white services-section"> 
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our <span className="text-brand-accent">Services</span> {/* Ensured class is applied */}
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
+              Our <span className="text-brand-rose">Services</span> {/* Ensured class is applied */}
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-brand-mauve leading-relaxed max-w-2xl mx-auto">
               Comprehensive solutions for your fragrance and lifestyle product needs, delivered with expertise and care.
             </p>
           </div>
@@ -203,7 +203,7 @@ function Home() { // Component name is Home
               {serviceImages.map((service) => (
                  // Each child of FlickityCarousel is a cell
                 <div key={service._id} className="px-3 pb-4"> {/* Cell container */}
-                  <Link to={`/services/${service.slug.current}`} className="group block h-full">
+                  <Link to={`/services/${service.slug.current}`} className="text-brand-mauve hover:text-brand-rose font-medium flex flex-col group">
                     {/* Image Container - Now acts as the main visual block */}
                     {service.image?.asset && (
                       <div className="w-full h-80 overflow-hidden mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
@@ -217,7 +217,7 @@ function Home() { // Component name is Home
                     )}
                     {/* Text Content - Placed below the image */}
                     <div className="mt-4"> {/* Add margin-top to separate from image */}
-                       <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-brand-accent transition-colors">{service.title}</h3>
+                       <h3 className="text-xl font-bold mb-2 group-hover:text-brand-plum transition-colors">{service.title}</h3>
                        <p className="text-gray-600 text-sm mb-3">{service.shortDescription}</p>
                        {/* Optional: Keep Learn More link if desired, style appropriately */}
                        {/* <div className="mt-auto text-brand-accent font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm">
@@ -228,74 +228,28 @@ function Home() { // Component name is Home
                 </div>
               ))}
             </FlickityCarousel>
-          )}
+          )} {/* Closes 'loading' ternary for services/FlickityCarousel */}
         </div>
       </section>
 
       {/* Portfolio Section */}
-      {portfolioBrands.length > 0 ? (
+      {portfolioBrands.length > 0 && (
         <FilterablePortfolio
           title="Our Portfolio"
           subtitle="Discover our partnerships with prestigious Niche and Luxury Brands. We're proud to work with some of the most distinguished names in the industry."
           items={portfolioBrands}
           maxItems={6}
           showFilters={true}
-          backgroundColor="bg-brand-highlight/20"
+          backgroundColor="bg-white"
         />
-      ) : (
-        <section className="py-20 bg-brand-highlight/20">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our <span className="text-brand-card">Portfolio</span>
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Discover our partnerships with prestigious fragrance houses and luxury brands.
-            </p>
-            {loading ? (
-              <div className="flex justify-center items-center py-16">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-card"></div>
-              </div>
-            ) : (
-              <p>No portfolio brands found. Please add some in Sanity Studio.</p>
-            )}
-          </div>
-        </section>
       )}
-
-      {/* Our Reach Section */}
-      <section id="reach" className="py-20 bg-white"> {/* Using bg-white, adjust if needed */}
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our <span className="text-brand-card">Reach</span>
-            </h2>
-            <p className="text-lg text-gray-600">
-              We are a global supplier with a trusted worldwide production and distribution network, specialising in high-volume, complex manufacturing and fulfilment projects for a discerning customer base across six continents.
-            </p>
-          </div>
-          <WorldMap
-            locations={[ // Keep locations for individual points
-              { name: "London, UK", lat: 51.5074, lng: -0.1278 },
-              { name: "Istanbul, Turkey", lat: 41.0082, lng: 28.9784 },
-              { name: "Trenton, NJ", lat: 40.2206, lng: -74.7597 },
-              { name: "Shenzhen, China", lat: 22.5431, lng: 114.0579 },
-              { name: "Sydney, Australia", lat: -33.8688, lng: 151.2093 },
-            ]}
-            dots={[ // Add dots for lines originating from London
-              { start: { lat: 51.5074, lng: -0.1278 }, end: { lat: 41.0082, lng: 28.9784 } }, // London to Istanbul
-              { start: { lat: 51.5074, lng: -0.1278 }, end: { lat: 40.2206, lng: -74.7597 } }, // London to Trenton (NJ)
-              { start: { lat: 51.5074, lng: -0.1278 }, end: { lat: 22.5431, lng: 114.0579 } }, // London to Shenzhen
-              { start: { lat: 51.5074, lng: -0.1278 }, end: { lat: -33.8688, lng: 151.2093 } }, // London to Sydney
-            ]}
-            lineColor="#DA627D" // Use brand-card for points and lines
-          />
-        </div>
-      </section>
-
-      {/* Testimonials Section - Using Sanity Data */}
-      <Testimonials useSanity={true} />
-    </>
-  );
+      {portfolioBrands.length === 0 && (
+        <p>Portfolio fallback</p>
+      )}
+    {/* Testimonials Section - Using Sanity Data */}
+    <Testimonials useSanity={true} />
+  </>
+);
 }
 
 export default Home;

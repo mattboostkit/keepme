@@ -54,21 +54,21 @@ const Testimonials: React.FC<TestimonialsProps> = ({
     <section className="py-20 bg-brand-background">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
             {title.split(' ').map((word, index, array) =>
               index === array.length - 1 ?
                 <span key={index}>
-                  <span className="text-brand-card">{word}</span>
+                  <span className="text-brand-rose">{word}</span>
                 </span> :
                 <span key={index}>{word} </span>
             )}
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-brand-mauve leading-relaxed">
             {subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {loading ? (
             // Loading skeleton
             Array(3).fill(0).map((_, index) => (

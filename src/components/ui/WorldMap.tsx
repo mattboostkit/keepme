@@ -1,5 +1,5 @@
 // src/components/ui/WorldMap.tsx
-import React, { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import DottedMap from "dotted-map"; // Ensure this is installed
 
@@ -25,9 +25,10 @@ const defaultBackgroundColor = "white";
 export function WorldMap({
   dots = [],
   locations = [], // Add locations prop with default
-  lineColor = "#DA627D", // Default line color (brand-card)
+  lineColor = "#A53860", // Default line color (brand.mauve - dark pink)
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const [hoveredLocation, setHoveredLocation] = useState<Location & { x: number; y: number } | null>(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });
 
   // Generate SVG map data URI
@@ -81,7 +82,7 @@ export function WorldMap({
       <svg
         ref={svgRef}
         viewBox="0 0 800 400" // Match projection dimensions
-        className="w-full h-full absolute inset-0 pointer-events-none select-none"
+        className="w-full h-full absolute inset-0 select-none"
       >
         {/* Gradient Definition */}
         <defs>
@@ -134,7 +135,7 @@ export function WorldMap({
               <g key={`start-${i}`}>
                 <circle cx={startPoint.x} cy={startPoint.y} r="2" fill={lineColor} />
                 <circle cx={startPoint.x} cy={startPoint.y} r="2" fill={lineColor} opacity="0.5">
-                  <animate attributeName="r" from="2" to="8" dur="1.5s" begin={`${i * 0.5}s`} repeatCount="indefinite" />
+                  <animate attributeName="r" from="3" to="12" dur="1.5s" begin={`${i * 0.5}s`} repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.5" to="0" dur="1.5s" begin={`${i * 0.5}s`} repeatCount="indefinite" />
                 </circle>
               </g>
@@ -142,7 +143,7 @@ export function WorldMap({
               <g key={`end-${i}`}>
                 <circle cx={endPoint.x} cy={endPoint.y} r="2" fill={lineColor} />
                 <circle cx={endPoint.x} cy={endPoint.y} r="2" fill={lineColor} opacity="0.5">
-                  <animate attributeName="r" from="2" to="8" dur="1.5s" begin={`${i * 0.5 + 0.5}s`} repeatCount="indefinite" /> {/* Offset end animation slightly */}
+                  <animate attributeName="r" from="3" to="12" dur="1.5s" begin={`${i * 0.5 + 0.5}s`} repeatCount="indefinite" /> {/* Offset end animation slightly */}
                   <animate attributeName="opacity" from="0.5" to="0" dur="1.5s" begin={`${i * 0.5 + 0.5}s`} repeatCount="indefinite" />
                 </circle>
               </g>
@@ -158,16 +159,38 @@ export function WorldMap({
             return null;
           }
           return (
-            <g key={`location-${i}`}>
-              <title>{location.name}</title> {/* Add tooltip */}
+            <g 
+              key={`location-${i}`}
+              onMouseEnter={() => setHoveredLocation({ ...location, x: point.x, y: point.y })}
+              onMouseLeave={() => setHoveredLocation(null)}
+              style={{ cursor: 'pointer' }}
+              pointerEvents="auto"
+            >
+              {/* <title>{location.name}</title> */}{/* Default tooltip can be kept or removed */}
               <circle cx={point.x} cy={point.y} r="2" fill={lineColor} />
               <circle cx={point.x} cy={point.y} r="2" fill={lineColor} opacity="0.5">
-                <animate attributeName="r" from="2" to="8" dur="1.5s" begin={`${i * 0.3}s`} repeatCount="indefinite" /> {/* Stagger animation slightly */}
+                <animate attributeName="r" from="3" to="12" dur="1.5s" begin={`${i * 0.3}s`} repeatCount="indefinite" /> {/* Stagger animation slightly */}
                 <animate attributeName="opacity" from="0.5" to="0" dur="1.5s" begin={`${i * 0.3}s`} repeatCount="indefinite" />
               </circle>
             </g>
           );
         })}
+
+        {/* Display hovered location name */}
+        {hoveredLocation && (
+          <text
+            x={hoveredLocation.x + 10} // Offset from point
+            y={hoveredLocation.y + 4} // Adjust vertical alignment
+            fill="#333333" // Dark text color for visibility
+            fontSize="12"
+            fontWeight="medium"
+            textAnchor="start"
+            className="pointer-events-none select-none" // Prevent text from capturing mouse events
+            style={{ filter: 'drop-shadow(0 0 2px white)' }} // Add a slight white outline for better contrast on dark lines/dots
+          >
+            {hoveredLocation.name}
+          </text>
+        )}
       </svg>
     </div>
   );

@@ -10,8 +10,8 @@ const timelineData = [
     title: "Material Selection",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Material Selection</h3>
-        <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
+        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Material Selection</h3>
+        <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           We source the highest quality raw materials, ensuring each component meets our strict standards.
         </p>
         <img src="https://placehold.co/600x400/EEE/CCC?text=Process+Step+1" alt="Placeholder image for Material Selection" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
@@ -22,8 +22,8 @@ const timelineData = [
     title: "Melting & Moulding",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Melting & Moulding</h3>
-        <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
+        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Melting & Moulding</h3>
+        <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           Precision heating and moulding techniques create perfectly formed glass components.
         </p>
         <img src="https://placehold.co/600x400/EEE/CCC?text=Process+Step+2" alt="Placeholder image for Melting & Moulding" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
@@ -34,8 +34,8 @@ const timelineData = [
     title: "Finishing & Decorating",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Finishing & Decorating</h3>
-        <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
+        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Finishing & Decorating</h3>
+        <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           Expert finishing techniques and decorative elements add distinctive character to each piece.
         </p>
         <img src="https://placehold.co/600x400/EEE/CCC?text=Process+Step+3" alt="Placeholder image for Finishing & Decorating" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
@@ -46,8 +46,8 @@ const timelineData = [
     title: "Quality Assurance",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-brand-card dark:text-brand-card mb-2">Quality Assurance</h3>
-        <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base">
+        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Quality Assurance</h3>
+        <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           Rigorous testing ensures each glass component meets our exacting standards before delivery.
         </p>
         <img src="https://placehold.co/600x400/EEE/CCC?text=Process+Step+4" alt="Placeholder image for Quality Assurance" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
@@ -65,15 +65,15 @@ function Glass() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-                Premium <span className="text-brand-card">Glass</span> Solutions
+              <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
+                Premium <span className="text-brand-rose">Glass</span> Solutions
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              <p className="text-lg text-brand-mauve leading-relaxed mb-8">
                 Exquisite glass components custom-designed for your luxury fragrance products. From stunning bottles to precision caps, we deliver unmatched quality and craftsmanship.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-xl font-bold mb-4">Expert Glass Crafting</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold text-brand-mauve mb-4">Expert Glass Crafting</h3>
+                <p className="text-base text-brand-mauve leading-relaxed">
                   Our glass components are crafted with precision and artistry, ensuring each piece meets the highest standards of quality and aesthetic appeal.
                 </p>
               </div>
@@ -87,13 +87,13 @@ function Glass() {
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
                   <p className="text-xl font-bold">20+ Years</p>
-                  <p className="text-gray-600">Glass Expertise</p>
+                  <p className="text-brand-mauve">Glass Expertise</p>
                 </div>
               </div>
               <div className="absolute -top-8 -right-8 bg-white rounded-xl p-6 shadow-lg hidden md:block">
                 <div>
                   <p className="text-xl font-bold">Premium Quality</p>
-                  <p className="text-gray-600">Luxury Materials</p>
+                  <p className="text-brand-mauve">Luxury Materials</p>
                 </div>
               </div>
             </div>
@@ -105,10 +105,10 @@ function Glass() {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Premium Glass <span className="text-brand-card">Types</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
+              Premium Glass <span className="text-brand-rose">Types</span>
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-brand-mauve leading-relaxed">
               We offer a variety of high-quality glass options to suit your specific fragrance requirements
             </p>
           </div>
@@ -116,66 +116,66 @@ function Glass() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">PCR Glass</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-xl font-semibold text-brand-plum mb-3">PCR Glass</h3>
+              <p className="text-base text-brand-mauve leading-relaxed mb-4">
                 Sustainably crafted glass made from post-consumer recycled materials. A responsible choice for eco-conscious fragrance brands, offering both quality and environmental impact.
               </p>
               <ul className="space-y-2 mb-6">
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   Sustainable Transparency
                 </li>
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   Refined Recycled Brilliance
                 </li>
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   Low-Impact Luxury
                 </li>
               </ul>
-              <a href="#" className="text-brand-card font-medium">
+              <a href="#" className="text-brand-rose font-medium hover:text-brand-plum transition-colors">
                 View PCR Options
               </a>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Borosilicate Glass</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-xl font-semibold text-brand-plum mb-3">Borosilicate Glass</h3>
+              <p className="text-base text-brand-mauve leading-relaxed mb-4">
                 High-performance glass with exceptional thermal resistance and durability. Ideal for fragrances with volatile compounds.
               </p>
               <ul className="space-y-2 mb-6">
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   Thermal shock resistant
                 </li>
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   Chemical durability
                 </li>
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   Lightweight yet strong
                 </li>
               </ul>
-              <a href="#" className="text-brand-card font-medium">
+              <a href="#" className="text-brand-rose font-medium hover:text-brand-plum transition-colors">
                 View Borosilicate Options
               </a>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Coloured Glass</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-xl font-semibold text-brand-plum mb-3">Coloured Glass</h3>
+              <p className="text-base text-brand-mauve leading-relaxed mb-4">
                 Vibrant coloured glass options that add distinctive visual appeal while providing UV protection for sensitive fragrances.
               </p>
               <ul className="space-y-2 mb-6">
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   UV protection
                 </li>
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   Custom colour matching
                 </li>
-                <li className="text-gray-600 pl-4">
+                <li className="text-brand-mauve pl-4">
                   Gradient and multi-tone options
                 </li>
               </ul>
-              <a href="#" className="text-brand-card font-medium">
+              <a href="#" className="text-brand-rose font-medium hover:text-brand-plum transition-colors">
                 View Colour Options
               </a>
             </div>
@@ -186,10 +186,10 @@ function Glass() {
       {/* Our Process Section - Now using Timeline */}
       <section className="py-10 bg-white"> {/* Updated to white background */}
          <div className="container mx-auto px-6 text-center max-w-3xl mb-10">
-             <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-               Our Glass Manufacturing <span className="text-brand-accent">Process</span> {/* Updated to brand-accent color */}
+             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
+               Our Glass Manufacturing <span className="text-brand-rose">Process</span>
              </h2>
-             <p className="text-lg text-muted-foreground">
+             <p className="text-lg text-brand-mauve leading-relaxed">
                From raw materials to finished products, our meticulous process ensures exceptional quality
              </p>
          </div>

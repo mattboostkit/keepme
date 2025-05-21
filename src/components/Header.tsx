@@ -56,32 +56,32 @@ function Header() {
           </Link>
           {/* Desktop Menu */}
           <nav className="hidden lg:flex space-x-8">
-            <Link to="/" className="text-gray-800 hover:text-brand-card transition-colors">Home</Link>
-            <Link to="/about" className="text-gray-800 hover:text-brand-card transition-colors">About</Link>
+            <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors">Home</Link>
+            <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors">About</Link>
 
             {/* Services dropdown */}
             <div className="relative group">
-              <Link to="/services" className="text-gray-800 hover:text-brand-card transition-colors">Services</Link>
+              <Link to="/services" className="text-brand-plum hover:text-brand-rose transition-colors">Services</Link>
 
               {/* Dropdown menu */}
               <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden transform scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-200 origin-top z-50">
                 <div className="py-2">
-                  <Link to="/services/fragrance-componentry" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Fragrance Componentry</Link>
-                  <Link to="/services/home-fragrance" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Home Fragrance</Link>
-                  <Link to="/services/luxury-packaging" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Luxury Packaging</Link>
-                  <Link to="/services/gift-with-purchase" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Gift With Purchase</Link>
-                  <Link to="/services/skincare-componentry" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Skincare Componentry</Link>
-                  <Link to="/services/fragrance-creation" className="block px-4 py-2 text-gray-800 hover:bg-brand-card hover:text-white transition-colors">Fragrance Creation</Link>
+                  <Link to="/services/fragrance-componentry" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Fragrance Componentry</Link>
+                  <Link to="/services/home-fragrance" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Home Fragrance</Link>
+                  <Link to="/services/luxury-packaging" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Luxury Packaging</Link>
+                  <Link to="/services/gift-with-purchase" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Gift With Purchase</Link>
+                  <Link to="/services/skincare-componentry" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Skincare Componentry</Link>
+                  <Link to="/services/fragrance-creation" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Fragrance Creation</Link>
                 </div>
               </div>
             </div>
 
-            <Link to="/glass" className="text-gray-800 hover:text-brand-card transition-colors">Glass</Link>
-            <Link to="/tools" className="text-gray-800 hover:text-brand-card transition-colors">Tools</Link>
-            <Link to="/portfolio" className="text-gray-800 hover:text-brand-card transition-colors">Portfolio</Link>
-            <Link to="/blog" className="text-gray-800 hover:text-brand-card transition-colors">Blog</Link>
+            <Link to="/glass" className="text-brand-plum hover:text-brand-rose transition-colors">Glass</Link>
+            <Link to="/tools" className="text-brand-plum hover:text-brand-rose transition-colors">Tools</Link>
+            <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors">Portfolio</Link>
+            <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors">Blog</Link>
           </nav>
-          <Link to="/contact" className="hidden lg:flex items-center bg-brand-button text-white px-4 py-2 text-sm rounded-full hover:bg-brand-card transition-colors">
+          <Link to="/contact" className="hidden lg:flex items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors">
             Contact Us
             <ChevronRight className="h-4 w-4 ml-1" />
           </Link>
@@ -89,7 +89,7 @@ function Header() {
           {/* Hamburger Button */}
           <button
             ref={hamburgerRef}
-            className="lg:hidden text-gray-800 focus:outline-none ml-4 bg-white/80 p-2 rounded-md"
+            className="lg:hidden text-brand-plum focus:outline-none ml-4 bg-brand-peach p-2 rounded-md"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
@@ -102,39 +102,39 @@ function Header() {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="lg:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="lg:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-brand-peach z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <div className="container mx-auto px-6 flex justify-end mb-2">
             <button
               onClick={closeMobileMenu}
-              className="text-gray-500 hover:text-gray-800 focus:outline-none"
+              className="text-brand-mauve hover:text-brand-plum focus:outline-none"
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />
             </button>
           </div>
           <nav className="container mx-auto px-6 flex flex-col space-y-3">
-            <Link to="/" className="text-gray-800 hover:text-brand-card transition-colors py-1" onClick={closeMobileMenu}>Home</Link>
-            <Link to="/about" className="text-gray-800 hover:text-brand-card transition-colors py-1" onClick={closeMobileMenu}>About</Link>
+            <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Home</Link>
+            <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>About</Link>
 
             {/* Services section */}
             <div className="py-1">
-              <Link to="/services" className="text-gray-800 hover:text-brand-card transition-colors font-medium" onClick={closeMobileMenu}>Services</Link>
-              <div className="pl-4 mt-2 space-y-1 border-l border-gray-200">
-                <Link to="/services/fragrance-componentry" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Componentry</Link>
-                <Link to="/services/home-fragrance" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Home Fragrance</Link>
-                <Link to="/services/luxury-packaging" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Luxury Packaging</Link>
-                <Link to="/services/gift-with-purchase" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Gift With Purchase</Link>
-                <Link to="/services/skincare-componentry" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Skincare Componentry</Link>
-                <Link to="/services/fragrance-creation" className="block text-gray-700 hover:text-brand-card transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Creation</Link>
+              <Link to="/services" className="text-brand-plum hover:text-brand-rose transition-colors font-medium" onClick={closeMobileMenu}>Services</Link>
+              <div className="pl-4 mt-2 space-y-1 border-l border-brand-peach">
+                <Link to="/services/fragrance-componentry" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Componentry</Link>
+                <Link to="/services/home-fragrance" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Home Fragrance</Link>
+                <Link to="/services/luxury-packaging" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Luxury Packaging</Link>
+                <Link to="/services/gift-with-purchase" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Gift With Purchase</Link>
+                <Link to="/services/skincare-componentry" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Skincare Componentry</Link>
+                <Link to="/services/fragrance-creation" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Creation</Link>
               </div>
             </div>
 
-            <Link to="/glass" className="text-gray-800 hover:text-brand-card transition-colors py-1" onClick={closeMobileMenu}>Glass</Link>
-            <Link to="/tools" className="text-gray-800 hover:text-brand-card transition-colors py-1" onClick={closeMobileMenu}>Tools</Link>
-            <Link to="/portfolio" className="text-gray-800 hover:text-brand-card transition-colors py-1" onClick={closeMobileMenu}>Portfolio</Link>
-            <Link to="/blog" className="text-gray-800 hover:text-brand-card transition-colors py-1" onClick={closeMobileMenu}>Blog</Link>
-            <Link to="/contact" className="text-gray-800 hover:text-brand-card transition-colors py-1" onClick={closeMobileMenu}>Contact Us</Link>
+            <Link to="/glass" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Glass</Link>
+            <Link to="/tools" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Tools</Link>
+            <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Portfolio</Link>
+            <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Blog</Link>
+            <Link to="/contact" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Contact Us</Link>
           </nav>
         </div>
       )}

@@ -32,7 +32,7 @@ function Contact() {
                     <input
                       type="text"
                       id="name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9]"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
                       placeholder="John Doe"
                       required
                     />
@@ -42,7 +42,7 @@ function Contact() {
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9]"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
                       placeholder="john@example.com"
                       required
                     />
@@ -53,7 +53,7 @@ function Contact() {
                   <input
                     type="text"
                     id="company"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
                     placeholder="Your Company"
                   />
                 </div>
@@ -62,7 +62,7 @@ function Contact() {
                   <input
                     type="text"
                     id="subject"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
                     placeholder="How can we help?"
                     required
                   />
@@ -72,7 +72,7 @@ function Contact() {
                   <textarea
                     id="message"
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
                     placeholder="Tell us about your project..."
                     required
                   ></textarea>

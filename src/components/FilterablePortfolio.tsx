@@ -52,16 +52,16 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
     <section id="portfolio" className={`py-20 ${backgroundColor}`}>
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
             {title.split(' ').map((word, index, array) =>
               index === array.length - 1 ?
                 <span key={index}>
-                  <span className="text-brand-card">{word}</span>
+                  <span className="text-brand-rose">{word}</span>
                 </span> :
                 <span key={index}>{word} </span>
             )}
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-brand-mauve leading-relaxed">
             {subtitle}
           </p>
         </div>
@@ -73,8 +73,8 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
               key="all"
               className={`px-5 py-2 rounded-full transition-colors font-medium min-w-32 text-center ${
                 selectedFeature === null
-                  ? 'bg-brand-button text-white'
-                  : 'bg-white text-gray-800 hover:bg-brand-button hover:text-white'
+                  ? 'bg-brand-mauve text-white'
+                  : 'bg-brand-pink-light text-brand-plum hover:bg-brand-rose hover:text-white'
               }`}
               onClick={() => setSelectedFeature(null)}
             >
@@ -85,8 +85,8 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                 key={feature}
                 className={`px-5 py-2 rounded-full transition-colors font-medium min-w-32 text-center ${
                   selectedFeature === feature
-                    ? 'bg-brand-button text-white'
-                    : 'bg-white text-gray-800 hover:bg-brand-button hover:text-white'
+                    ? 'bg-brand-mauve text-white'
+                    : 'bg-brand-pink-light text-brand-plum hover:bg-brand-rose hover:text-white'
                 }`}
                 onClick={() => setSelectedFeature(feature)}
               >
@@ -146,7 +146,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
         {/* View All Button - Only show on homepage when maxItems is set */}
         {maxItems && items.length > maxItems && (
           <div className="mt-12 text-center">
-            <Link to="/portfolio" className="bg-brand-button text-white px-6 py-3 rounded-full hover:bg-brand-card transition-colors inline-flex items-center">
+            <Link to="/portfolio" className="bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors inline-flex items-center">
               <span>View All Projects</span>
               <ArrowRight className="h-4 w-4 ml-2" />
             </Link>

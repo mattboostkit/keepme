@@ -43,11 +43,11 @@ function FreightCalculator() {
             <div className="bg-brand-highlight/20 p-3 rounded-full mr-4">
               <Truck className="h-6 w-6 text-brand-card" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum">
               Freight <span className="text-brand-accent">Calculator</span>
             </h1>
           </div>
-          <p className="text-lg text-gray-600 max-w-3xl">
+          <p className="text-lg text-brand-mauve max-w-3xl">
             Calculate shipping costs and delivery times for your fragrance products to destinations worldwide.
             This tool provides estimates based on current shipping rates and typical transit times.
           </p>
@@ -61,18 +61,18 @@ function FreightCalculator() {
             {/* Form Column */}
             <div>
               <div className="bg-white p-8 rounded-2xl shadow-md">
-                <h2 className="text-2xl font-bold mb-6">Shipping Details</h2>
+                <h2 className="text-2xl font-bold mb-6 text-brand-plum">Shipping Details</h2>
 
                 <form onSubmit={handleSubmit}>
                   {/* Origin & Destination */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div>
-                      <label htmlFor="origin" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="origin" className="block text-sm font-medium text-brand-mauve mb-1">
                         Origin Country
                       </label>
                       <select
                         id="origin"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#f4cfd9] focus:border-[#f4cfd9]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-rose focus:border-brand-rose"
                         value={origin}
                         onChange={(e) => setOrigin(e.target.value)}
                         required
@@ -86,12 +86,12 @@ function FreightCalculator() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="destination" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="destination" className="block text-sm font-medium text-brand-mauve mb-1">
                         Destination Country
                       </label>
                       <select
                         id="destination"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#f4cfd9] focus:border-[#f4cfd9]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-rose focus:border-brand-rose"
                         value={destination}
                         onChange={(e) => setDestination(e.target.value)}
                         required
@@ -108,7 +108,7 @@ function FreightCalculator() {
 
                   {/* Package Type */}
                   <div className="mb-6">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-brand-mauve mb-1">
                       Package Type
                     </label>
                     <div className="grid grid-cols-3 gap-4">
@@ -144,7 +144,7 @@ function FreightCalculator() {
 
                   {/* Weight */}
                   <div className="mb-6">
-                    <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="weight" className="block text-sm font-medium text-brand-mauve mb-1">
                       Weight (kg)
                     </label>
                     <input
@@ -152,7 +152,7 @@ function FreightCalculator() {
                       id="weight"
                       min="0.1"
                       step="0.1"
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-card focus:border-brand-card"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-rose focus:border-brand-rose"
                       value={weight}
                       onChange={(e) => setWeight(e.target.value)}
                       required
@@ -161,7 +161,7 @@ function FreightCalculator() {
 
                   {/* Dimensions */}
                   <div className="mb-6">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-brand-mauve mb-1">
                       Dimensions (cm)
                     </label>
                     <div className="grid grid-cols-3 gap-4">
@@ -170,7 +170,7 @@ function FreightCalculator() {
                           type="number"
                           min="1"
                           placeholder="Length"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-card focus:border-brand-card"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-rose focus:border-brand-rose"
                           value={dimensions.length}
                           onChange={(e) => setDimensions({ ...dimensions, length: e.target.value })}
                           required
@@ -181,7 +181,7 @@ function FreightCalculator() {
                           type="number"
                           min="1"
                           placeholder="Width"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-card focus:border-brand-card"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-rose focus:border-brand-rose"
                           value={dimensions.width}
                           onChange={(e) => setDimensions({ ...dimensions, width: e.target.value })}
                           required
@@ -192,7 +192,7 @@ function FreightCalculator() {
                           type="number"
                           min="1"
                           placeholder="Height"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-card focus:border-brand-card"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-brand-rose focus:border-brand-rose"
                           value={dimensions.height}
                           onChange={(e) => setDimensions({ ...dimensions, height: e.target.value })}
                           required
@@ -203,7 +203,7 @@ function FreightCalculator() {
 
                   {/* Shipping Method */}
                   <div className="mb-8">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-brand-mauve mb-1">
                       Shipping Method
                     </label>
                     <div className="grid grid-cols-3 gap-4">
@@ -240,7 +240,7 @@ function FreightCalculator() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-brand-button text-white py-3 px-6 rounded-lg hover:bg-brand-card transition-colors font-medium"
+                    className="w-full bg-brand-mauve text-white py-3 px-6 rounded-full hover:bg-brand-rose transition-colors font-medium"
                   >
                     Calculate Shipping
                   </button>
@@ -252,7 +252,7 @@ function FreightCalculator() {
             <div>
               {calculationResult ? (
                 <div className="bg-white p-8 rounded-2xl shadow-md">
-                  <h2 className="text-2xl font-bold mb-6">Shipping Estimate</h2>
+                  <h2 className="text-2xl font-bold mb-6 text-brand-plum">Shipping Estimate</h2>
 
                   <div className="mb-8">
                     <div className="flex justify-between items-center p-4 bg-brand-highlight/20 rounded-lg mb-4">
@@ -262,11 +262,11 @@ function FreightCalculator() {
 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="text-sm text-gray-500 mb-1">Estimated Delivery</div>
+                        <div className="text-sm text-brand-mauve mb-1">Estimated Delivery</div>
                         <div className="font-medium">{calculationResult.estimatedDays} business days</div>
                       </div>
                       <div className="p-4 bg-gray-50 rounded-lg">
-                        <div className="text-sm text-gray-500 mb-1">Distance</div>
+                        <div className="text-sm text-brand-mauve mb-1">Distance</div>
                         <div className="font-medium">{calculationResult.distance}</div>
                       </div>
                     </div>
@@ -275,17 +275,17 @@ function FreightCalculator() {
                   <div className="border-t pt-6">
                     <h3 className="font-bold mb-3">Shipping Details</h3>
                     <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
-                      <div className="text-gray-500">Origin:</div>
+                      <div className="text-brand-mauve">Origin:</div>
                       <div>{origin}</div>
-                      <div className="text-gray-500">Destination:</div>
+                      <div className="text-brand-mauve">Destination:</div>
                       <div>{destination}</div>
-                      <div className="text-gray-500">Package Type:</div>
+                      <div className="text-brand-mauve">Package Type:</div>
                       <div className="capitalize">{packageType}</div>
-                      <div className="text-gray-500">Weight:</div>
+                      <div className="text-brand-mauve">Weight:</div>
                       <div>{weight} kg</div>
-                      <div className="text-gray-500">Dimensions:</div>
+                      <div className="text-brand-mauve">Dimensions:</div>
                       <div>{dimensions.length} × {dimensions.width} × {dimensions.height} cm</div>
-                      <div className="text-gray-500">Shipping Method:</div>
+                      <div className="text-brand-mauve">Shipping Method:</div>
                       <div className="capitalize">{shippingMethod}</div>
                     </div>
                   </div>
@@ -293,11 +293,11 @@ function FreightCalculator() {
                   <div className="mt-6 flex justify-between">
                     <button
                       onClick={() => setCalculationResult(null)}
-                      className="text-gray-600 hover:text-gray-900"
+                      className="text-brand-mauve hover:text-brand-plum transition-colors"
                     >
                       Recalculate
                     </button>
-                    <button className="bg-brand-button text-white py-2 px-4 rounded-lg hover:bg-brand-card transition-colors font-medium">
+                    <button className="bg-brand-mauve text-white py-2 px-4 rounded-full hover:bg-brand-rose transition-colors font-medium">
                       Get Quote
                     </button>
                   </div>
@@ -308,8 +308,8 @@ function FreightCalculator() {
                     <div className="bg-brand-highlight/20 p-4 rounded-full inline-flex justify-center items-center mb-4">
                       <Truck className="h-8 w-8 text-brand-card" />
                     </div>
-                    <h2 className="text-2xl font-bold mb-2">Shipping Calculator</h2>
-                    <p className="text-gray-600">
+                    <h2 className="text-2xl font-bold mb-2 text-brand-plum">Shipping Calculator</h2>
+                    <p className="text-brand-mauve">
                       Fill in the shipping details to get an estimate of costs and delivery times.
                     </p>
                   </div>
@@ -320,14 +320,14 @@ function FreightCalculator() {
                         <Info className="h-5 w-5 text-blue-400" />
                       </div>
                       <div className="ml-3">
-                        <p className="text-sm text-blue-700">
+                        <p className="text-sm text-blue-900">
                           This calculator provides estimates only. Actual shipping costs and delivery times may vary.
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-4 text-sm text-gray-600">
+                  <div className="space-y-4 text-sm text-brand-mauve">
                     <div className="flex items-start">
                       <div className="bg-gray-100 rounded-full p-1 mr-3 mt-0.5">
                         <div className="w-4 h-4 flex items-center justify-center text-gray-500 font-bold text-xs">1</div>
@@ -368,7 +368,7 @@ function FreightCalculator() {
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-2">How accurate are the shipping estimates?</h3>
-              <p className="text-gray-600">
+              <p className="text-brand-mauve">
                 Our shipping estimates are based on current carrier rates and typical transit times.
                 Actual costs and delivery times may vary based on factors such as customs processing,
                 weather conditions, and carrier delays.
@@ -377,7 +377,7 @@ function FreightCalculator() {
 
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-2">Which shipping carriers do you use?</h3>
-              <p className="text-gray-600">
+              <p className="text-brand-mauve">
                 We work with a variety of trusted shipping carriers including DHL, FedEx, UPS, and local
                 postal services depending on the destination and shipping method selected.
               </p>
@@ -385,7 +385,7 @@ function FreightCalculator() {
 
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-2">Do you offer shipping insurance?</h3>
-              <p className="text-gray-600">
+              <p className="text-brand-mauve">
                 Yes, shipping insurance is available for an additional fee. This covers loss or damage
                 during transit. The insurance cost is not included in the basic shipping estimate.
               </p>
@@ -393,7 +393,7 @@ function FreightCalculator() {
 
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-2">How do I track my shipment?</h3>
-              <p className="text-gray-600">
+              <p className="text-brand-mauve">
                 Once your order is shipped, you'll receive a tracking number via email. You can use this
                 number to track your package on our website or directly on the carrier's website.
               </p>

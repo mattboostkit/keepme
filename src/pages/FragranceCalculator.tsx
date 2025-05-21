@@ -23,7 +23,7 @@ const InputField = ({ id, label, value, onChange, placeholder, icon: Icon, unit 
   unit?: string;
 }) => (
   <div>
-    <label htmlFor={id} className="flex items-center text-sm font-medium text-gray-700 mb-1">
+    <label htmlFor={id} className="flex items-center text-sm font-medium text-brand-mauve mb-1">
       <Icon className="w-4 h-4 mr-1 text-brand-card" />
       {label} {unit && `(${unit})`}
     </label>
@@ -49,9 +49,9 @@ const ResultCard = ({ title, value, isCurrency = false, isHighlighted = false }:
   isCurrency?: boolean;
   isHighlighted?: boolean;
 }) => (
-  <div className={`p-4 rounded-lg ${isHighlighted ? 'bg-brand-highlight/20 border border-brand-card' : 'bg-gray-50'}`}>
-    <p className="text-sm text-gray-600 mb-1">{title}</p>
-    <p className={`text-2xl font-bold ${isHighlighted ? 'text-gray-800' : 'text-gray-900'}`}>
+  <div className={`p-4 rounded-lg ${isHighlighted ? 'bg-brand-highlight/20 border border-brand-card' : 'bg-brand-highlight/10'}`}>
+    <p className="text-sm text-brand-mauve mb-1">{title}</p>
+    <p className={`text-2xl font-bold ${isHighlighted ? 'text-brand-plum' : 'text-brand-plum'}`}>
       {isCurrency ? formatCurrency(value) : formatNumber(value)}
     </p>
   </div>
@@ -154,7 +154,7 @@ function FragranceCalculator() {
   // Component definitions are now outside
 
   return (
-    <div className="pb-16 bg-gray-100 min-h-screen"> {/* Removed pt-28 */}
+    <div className="pb-16 bg-brand-background min-h-screen"> {/* Removed pt-28 */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28"> {/* Added pt-28 here */}
 
         {/* Back Button */}
@@ -164,15 +164,15 @@ function FragranceCalculator() {
 
         {/* Header */}
         <div className="flex items-center justify-center mb-10 text-gray-800">
-           <Droplets className="w-8 h-8 mr-2 text-[#f4cfd9]" />
-           <h1 className="text-3xl font-bold">Fragrance Calculator</h1>
+           <Droplets className="w-8 h-8 mr-2 text-brand-rose" />
+           <h1 className="text-3xl font-bold text-brand-plum">Fragrance Calculator</h1>
         </div>
 
         {/* Calculator Body */}
         <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg"> {/* Removed mb-10 */}
           {/* Input Parameters */}
           <div className="mb-8">
-            <h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+            <h2 className="text-lg font-semibold text-brand-plum mb-4 flex items-center">
               <Calculator className="w-5 h-5 mr-2 text-brand-card" /> Input Parameters
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -191,7 +191,7 @@ function FragranceCalculator() {
 
           {/* Calculation Results */}
           <div>
-            <h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+            <h2 className="text-lg font-semibold text-brand-plum mb-4 flex items-center">
               <Info className="w-5 h-5 mr-2 text-brand-card" /> Calculation Results
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -209,7 +209,7 @@ function FragranceCalculator() {
            <button
              type="button"
              onClick={() => setShowEnquiryForm(!showEnquiryForm)}
-             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-brand-button hover:bg-brand-card focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-card disabled:opacity-50 disabled:cursor-not-allowed"
+             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-brand-mauve hover:bg-brand-rose transition-colors focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
              disabled={!totalCost} // Disable if no valid calculation
            >
              {showEnquiryForm ? 'Hide Enquiry Form' : 'Request Quote / Add Details'}
@@ -226,15 +226,15 @@ function FragranceCalculator() {
 
         {/* How to Use Section */}
         <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-          <h3 className="text-lg font-semibold text-gray-700 mb-4">How to Use This Calculator</h3>
-          <ul className="list-disc list-inside space-y-2 text-sm text-gray-600">
+          <h3 className="text-lg font-semibold text-brand-plum mb-4">How to Use This Calculator</h3>
+          <ul className="list-disc list-inside space-y-2 text-sm text-brand-mauve">
             <li><strong>Volume (ml):</strong> The total volume of the product in millilitres.</li>
             <li><strong>Inclusion Rate (%):</strong> The percentage of fragrance to be included in the product.</li>
             <li><strong>Order Quantity (units):</strong> The number of products you plan to produce.</li>
             <li><strong>Wastage (%):</strong> The estimated percentage of material that might be wasted during production.</li>
             <li><strong>Cost per kg (£):</strong> Your custom price per kilogram of fragrance.</li>
           </ul>
-          <p className="mt-4 text-sm text-gray-600">
+          <p className="mt-4 text-sm text-brand-mauve">
             The calculator will automatically update all values based on your inputs, showing you the cost per millilitre, cost per product, and total cost for your order.
           </p>
         </div>
@@ -302,11 +302,11 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ inputs, outputs }) => {
 
   return (
     <div className="mt-10 bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-brand-highlight/20">
-      <h3 className="text-xl font-semibold text-gray-800 mb-6">Enquiry Details</h3>
+      <h3 className="text-xl font-semibold text-brand-plum mb-6">Enquiry Details</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Display Calculation Summary (Readonly) */}
         <details className="bg-gray-50 p-4 rounded-md border border-gray-200 mb-4">
-           <summary className="text-sm font-medium text-gray-700 cursor-pointer hover:text-brand-card">Show Calculation Summary</summary>
+           <summary className="text-sm font-medium text-brand-mauve cursor-pointer hover:text-brand-rose">Show Calculation Summary</summary>
            <div className="mt-3 text-xs space-y-1 text-gray-600">
              <p>Volume: {inputs.volumeInput} ml</p>
              <p>Inclusion Rate: {inputs.inclusionRateInput}%</p>
@@ -320,34 +320,34 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ inputs, outputs }) => {
 
         {/* Dummy Enquiry Fields */}
         <div>
-          <label htmlFor="fragranceName" className="block text-sm font-medium text-gray-700">Fragrance Name (Optional)</label>
+          <label htmlFor="fragranceName" className="block text-sm font-medium text-brand-mauve">Fragrance Name (Optional)</label>
           <input type="text" id="fragranceName" value={fragranceName} onChange={(e) => setFragranceName(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" />
         </div>
         <div>
-          <label htmlFor="notesDescription" className="block text-sm font-medium text-gray-700">Notes Description / Concept</label>
+          <label htmlFor="notesDescription" className="block text-sm font-medium text-brand-mauve">Notes Description / Concept</label>
           <textarea id="notesDescription" value={notesDescription} onChange={(e) => setNotesDescription(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" placeholder="e.g., Woody base, floral heart, citrus top notes..."></textarea>
         </div>
          <div>
-          <label htmlFor="targetAudience" className="block text-sm font-medium text-gray-700">Target Audience (Optional)</label>
+          <label htmlFor="targetAudience" className="block text-sm font-medium text-brand-mauve">Target Audience (Optional)</label>
           <input type="text" id="targetAudience" value={targetAudience} onChange={(e) => setTargetAudience(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" placeholder="e.g., Young professionals, luxury market..." />
         </div>
          <div>
-          <label htmlFor="additionalInfo" className="block text-sm font-medium text-gray-700">Additional Information</label>
+          <label htmlFor="additionalInfo" className="block text-sm font-medium text-brand-mauve">Additional Information</label>
           <textarea id="additionalInfo" value={additionalInfo} onChange={(e) => setAdditionalInfo(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" placeholder="Any specific requirements, packaging ideas, etc."></textarea>
         </div>
          <hr className="my-4"/>
          <div>
-          <label htmlFor="contactName" className="block text-sm font-medium text-gray-700">Your Name *</label>
+          <label htmlFor="contactName" className="block text-sm font-medium text-brand-mauve">Your Name *</label>
           <input type="text" id="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" />
         </div>
          <div>
-          <label htmlFor="contactEmail" className="block text-sm font-medium text-gray-700">Your Email *</label>
+          <label htmlFor="contactEmail" className="block text-sm font-medium text-brand-mauve">Your Email *</label>
           <input type="email" id="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" />
         </div>
 
         <button
           type="submit"
-          className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-brand-button hover:bg-brand-card focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-card"
+          className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-brand-mauve hover:bg-brand-rose transition-colors focus:outline-none"
         >
           Submit Enquiry (Placeholder)
         </button>

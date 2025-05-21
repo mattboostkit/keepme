@@ -108,10 +108,10 @@ function SanityBlog() {
       <section className="py-16 bg-brand-background">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-              The KeepMe <span className="text-brand-accent">Blog</span>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
+              The KeepMe <span className="text-brand-rose">Blog</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg text-brand-mauve leading-relaxed mb-8">
               Insights, trends, and expertise from the world of fragrance manufacturing
             </p>
 
@@ -126,7 +126,7 @@ function SanityBlog() {
               <div className="flex flex-wrap justify-center gap-3 mb-8">
                 <button
                   key="all"
-                  className={`px-5 py-2 rounded-full transition-colors font-medium ${selectedCategory === null ? 'bg-[#f4cfd9] text-white' : 'bg-white text-gray-800 hover:bg-[#f4cfd9] hover:text-white'}`}
+                  className={`px-5 py-2 rounded-full transition-colors font-medium ${selectedCategory === null ? 'bg-brand-rose text-white' : 'bg-white text-brand-mauve hover:bg-brand-rose hover:text-white'}`}
                   onClick={() => setSelectedCategory(null)}
                 >
                   All Categories
@@ -134,7 +134,7 @@ function SanityBlog() {
                 {categories.map((category) => (
                   <button
                     key={category._id}
-                    className={`px-5 py-2 rounded-full transition-colors font-medium ${selectedCategory === category._id ? 'bg-[#f4cfd9] text-white' : 'bg-white text-gray-800 hover:bg-[#f4cfd9] hover:text-white'}`}
+                    className={`px-5 py-2 rounded-full transition-colors font-medium ${selectedCategory === category._id ? 'bg-brand-rose text-white' : 'bg-white text-brand-mauve hover:bg-brand-rose hover:text-white'}`}
                     onClick={() => setSelectedCategory(category._id)}
                   >
                     {category.title}
@@ -147,13 +147,13 @@ function SanityBlog() {
               <input
                 type="text"
                 placeholder="Search articles..."
-                className="w-full px-5 py-4 pr-12 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-brand-card"
+                className="w-full px-5 py-4 pr-12 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-brand-rose"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
               <button
                 type="submit"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-brand-card"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-brand-rose"
               >
                 <Search className="h-5 w-5" />
               </button>
@@ -234,7 +234,7 @@ function SanityBlog() {
       {/* Latest Articles */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">
+          <h2 className="text-3xl font-serif font-bold text-brand-plum mb-8">
             {selectedCategory ?
               `${categories?.find(cat => cat._id === selectedCategory)?.title || 'Category'} Articles` :
               'Latest Articles'}
@@ -261,44 +261,44 @@ function SanityBlog() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (
-                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                      <div className="w-full h-full bg-gray-300 flex items-center justify-center">
                         <span className="text-gray-500">No image available</span>
                       </div>
-                    )}
-                  </div>
-                  <div className="p-6 relative">
-                    <div className="flex items-center space-x-4 text-gray-500 mb-4">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        <span className="text-xs">{formatDate(post.publishedAt)}</span>
-                      </div>
-                      {post.readingTime && (
-                        <div className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1" />
-                          <span className="text-xs">{post.readingTime} min read</span>
-                        </div>
                       )}
                     </div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-brand-card transition-colors">
-                      {post.title}
-                    </h3>
-                    {post.excerpt && (
-                      <p className="text-gray-600 mb-4">
-                        {post.excerpt}
-                      </p>
-                    )}
-                    <div className="relative z-20 inline-block">
-                      <Link
-                        to={`/post/${post.slug?.current}`}
-                        className="bg-brand-button text-white px-5 py-2 rounded-full hover:bg-brand-card transition-colors flex items-center"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <span>Read More</span>
-                        <ArrowRight className="h-4 w-4 ml-2" />
-                      </Link>
+                    <div className="p-6 relative">
+                      <div className="flex items-center space-x-4 text-brand-mauve mb-4">
+                        <div className="flex items-center">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          <span className="text-xs">{formatDate(post.publishedAt)}</span>
+                        </div>
+                        {post.readingTime && (
+                          <div className="flex items-center">
+                            <Clock className="h-4 w-4 mr-1" />
+                            <span className="text-xs">{post.readingTime} min read</span>
+                          </div>
+                        )}
+                      </div>
+                      <h3 className="text-xl font-serif font-semibold text-brand-plum group-hover:text-brand-rose transition-colors mb-3">
+                        {post.title}
+                      </h3>
+                      {post.excerpt && (
+                        <p className="text-brand-mauve text-sm leading-relaxed mb-4 line-clamp-3">
+                          {post.excerpt}
+                        </p>
+                      )}
+                      <div className="relative z-20 inline-block">
+                        <Link
+                          to={`/post/${post.slug?.current}`}
+                          className="text-brand-rose font-medium group-hover:underline flex items-center"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <span>Read Full Article</span>
+                          <ArrowRight className="h-4 w-4 ml-2" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
               ))}
             </div>
           ) : (

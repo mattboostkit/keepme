@@ -68,7 +68,11 @@
     @apply bg-background text-foreground font-normal;
     font-weight: 400; /* Poppins Regular for body text */
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 300; /* Poppins Light for all headings */
+  h1, h4, h5, h6 {
+    font-weight: 300; /* Poppins Light for these headings */
+  }
+  h2, h3 {
+    font-weight: 300; /* Poppins Light for these headings */
+    @apply text-brand-mauve; /* Apply brand-mauve color */
   }
 }
