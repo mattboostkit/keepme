@@ -175,7 +175,7 @@ function Home() { // Component name is Home
               Our <span className="text-brand-rose">Services</span> {/* Ensured class is applied */}
             </h2>
             <p className="text-lg text-brand-mauve leading-relaxed max-w-2xl mx-auto">
-              Comprehensive solutions for your fragrance and lifestyle product needs, delivered with expertise and care.
+              We combine creativity with technical expertise to support our clients' projects from concept to completion.
             </p>
           </div>
 

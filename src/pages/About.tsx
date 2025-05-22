@@ -95,20 +95,31 @@ function About() {
       title: "2004",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Foundation of KeepMe</h4>
+          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Where It All Began</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
-            KeepMe was established with a vision to provide high-quality products and creative solutions, backed by exceptional logistical support. From the very beginning, the business focused on delivering end-to-end services that exceeded customer expectations.
+            Kevin and Steve Anderson opened the doors to what would become a trusted name in Branded Merchandise. Operating from our London office with a vision to support brands and distributors, KeepMe Promotions was founded. Utilising a network of newly established suppliers, the foundation was simple but powerful: strong relationships, reliable service, and a deep understanding of how merchandise could elevate brand presence.
           </p>
         </div>
       ),
     },
     {
-      title: "2005–2010",
+      title: "2005-2008",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Expanding Services</h4>
+          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Integration and Expansion</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
-            During this period, KeepMe broadened its offering to include design, manufacturing and full delivery solutions. With a strong emphasis on creativity, technical excellence, and customer service, KeepMe built a solid foundation for future growth across a diverse range of industries.
+            This period marked a defining time as KeepMe. We integrated our businesses with our Shenzhen Operation, and we’re proud to say: we still enjoy this relationship today. Here we laid the foundations for a robust, ethical supply chain, with audited factories and fully transparent practices.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "2009–2010",
+      content: (
+        <div>
+          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Enhancing our Services</h4>
+          <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
+            KeepMe broaden our offering to include design, manufacturing and full service solutions. With a strong emphasis on creativity, technical excellence, and customer service, KeepMe built a solid foundation for future growth across a diverse range of industries. New team members supported our growing client demands in sales, logistics, and account management.
           </p>
         </div>
       ),
@@ -117,7 +128,7 @@ function About() {
       title: "2011",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Entering the Fragrance & Lifestyle Market</h4>
+          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Entering the Fragrance &amp; Lifestyle Market</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             Recognising the opportunity to innovate in new sectors, KeepMe moved into the fragrance and lifestyle market. The team began offering bespoke solutions across fragrance, skincare, beauty, cosmetics and wellness, helping brands create standout product experiences.
           </p>
@@ -125,40 +136,18 @@ function About() {
       ),
     },
     {
-      title: "2015",
-      content: (
-        <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Launch of KeepMe Glass</h4>
-          <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
-            To further specialise in packaging, KeepMe established KeepMe Glass – a division dedicated to premium glass manufacturing for fragrance bottles, diffusers and candle jars. With a focus on quality, consistency and innovation, KeepMe Glass quickly became a trusted name in high-end packaging solutions.
-          </p>
-        </div>
-      ),
-    },
-    {
-      title: "2018",
+      title: "2011-2018",
       content: (
         <div>
           <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Global Manufacturing Expansion</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
-            KeepMe expanded its global footprint, establishing strategic manufacturing capabilities across the UK, Europe, China and India. This global presence enabled the business to offer scalable, cost-effective production while maintaining high quality and speed to market.
+            KeepMe expanded its global footprint, establishing strategic manufacturing capabilities across the UK, Europe and China. This global presence enabled the business to offer scalable, cost-effective production while maintaining high quality and speed to market.
           </p>
         </div>
       ),
     },
     {
       title: "2020",
-      content: (
-        <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Commitment to Sustainability</h4>
-          <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
-            Sustainability became a core focus in 2020. KeepMe adopted environmentally responsible practices across its operations, including eco-friendly materials, reduced waste processes and more sustainable packaging options—helping clients meet their own green goals.
-          </p>
-        </div>
-      ),
-    },
-    {
-      title: "2022",
       content: (
         <div>
           <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Launch of the Lifestyle Lookbook</h4>
@@ -169,12 +158,23 @@ function About() {
       ),
     },
     {
+      title: "2021",
+      content: (
+        <div>
+          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Commitment to Sustainability</h4>
+          <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
+            Sustainability became a core focus. KeepMe Lifestyle adopted environmentally responsible practices across its operations, including eco-friendly materials, reduced waste processes and more sustainable packaging options—helping clients meet their own green goals.
+          </p>
+        </div>
+      ),
+    },
+    {
       title: "2023",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Recognised as a Leading Private Label Partner</h4>
+          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Launch of KeepMe Glass</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
-            KeepMe gained industry-wide recognition as a trusted private label manufacturer. With its unique blend of creative flair, technical expertise, and operational support, KeepMe offered clients a seamless route from concept to shelf.
+            To further specialise in packaging, KeepMe established KeepMe Glass – a division dedicated to premium glass manufacturing for fragrance bottles, diffusers and candle jars. With a focus on quality, consistency and innovation, KeepMe Glass quickly became a trusted name in high-end packaging solutions.
           </p>
         </div>
       ),
@@ -185,22 +185,26 @@ function About() {
         <div>
           <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Celebrating 20 Years of Innovation</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
-            In 2024, KeepMe proudly celebrated two decades of excellence. From humble beginnings to becoming a globally recognised partner, the anniversary marked a milestone of growth, innovation and unwavering dedication to quality and client success.
+            In 2024, KeepMe proudly celebrated two decades of excellence. From humble beginnings to becoming a globally recognised partner, the anniversary marked a milestone of growth, innovation and unwavering dedication to quality and client success, offering clients a seamless route from concept to shelf.
           </p>
         </div>
       ),
     },
     {
-      title: "Present", // Changed from 2025
+      title: "Present",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">KeepMe & KeepMe Glass: A Unified Force</h4>
+          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">KeepMe Lifestyle &amp; KeepMe Glass: A Unified Force</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             In 2025, KeepMe and KeepMe Glass brought their operations closer than ever before—uniting product development and packaging under one seamless offering. This reintegration created a powerful end-to-end partner for brands in the fragrance and lifestyle sector.
           </p>
-          <p className="text-gray-600 dark:text-neutral-300 text-sm md:text-base mt-2">
+          <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed mt-2">
             By combining bespoke product creation with premium packaging and global fulfilment, KeepMe now offers a single point of contact for brands seeking speed, consistency, and innovation. This strategic alignment enhances quality control, sustainability, and creative collaboration—ensuring that clients receive a truly connected, full-service experience from concept to delivery.
           </p>
+          <ul className="list-disc pl-5 mt-2 text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
+            <li>Established a reliable global supplier network, focusing on quality, integrity, and sustainability.</li>
+            <li>Built internal processes to support seamless integration, improved lead times, and consistent product quality.</li>
+          </ul>
         </div>
       ),
     },
@@ -218,16 +222,15 @@ function About() {
                 About <span className="text-brand-rose">KeepMe</span>
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-12">
-                At KeepMe, we specialise in the creation, manufacture, and delivery of premium fragrance, home, and lifestyle products. Proudly based in the UK, we are a family-run business with over 20 years of industry experience. We work closely with brands, license holders, distributors, and retailers to bring their visions to life — from initial concept through to final product delivery. Whether you need individual components or a retail-ready product, KeepMe is the trusted partner to support your project at every stage.
+                We specialise in the creation, manufacture, and delivery of premium fragrance, home, and lifestyle products. Based in the UK, we are a family-run business with over 20 years of industry experience. We work closely with brands, license holders, distributors, and retailers to bring their visions to life — from initial concept through to final product delivery. Whether you need individual components or a retail-ready product, KeepMe is the trusted partner to support your project at every stage.
               </p>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
-                Our dedicated team combines creativity, technical expertise, and quality. We’re all about turning big ideas into beautiful, high-quality products — and making the whole process feel easy and collaborative.
+                We’re all about turning big ideas into high-quality products - and making the whole process feel easy and collaborative.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Ethos</span> Is Simple</h2>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Mission</span></h2>
                 <p className="text-lg text-brand-mauve leading-relaxed">
-                  To deliver flawless fragrances through expert craftsmanship, innovative techniques, and a deep
-                  commitment to quality that exceeds our clients' expectations.
+                  We’re all about turning big ideas into high-quality products — and making the whole process feel easy and collaborative.
                 </p>
               </div>
             </div>
@@ -311,7 +314,7 @@ function About() {
             {/* Updated Section Title */}
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Journey</span></h2>
             <p className="text-lg text-brand-mauve leading-relaxed">
-              From foundation to a unified force in fragrance and lifestyle
+              How KeepMe Lifestyle established itself as a key supplier in the fragrance and lifestyle sector
             </p>
           </div>
           {/* Use the NEW Aceternity-style Timeline Component */}
