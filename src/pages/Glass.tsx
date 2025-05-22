@@ -7,26 +7,54 @@ import { Timeline } from '../components/ui/Timeline';
 // Adapt processContent for the Timeline component
 const timelineData = [
   {
-    title: "Material Selection",
+    title: "Raw Materials",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Material Selection</h3>
+        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Raw Materials</h3>
         <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
-          We source the highest quality raw materials, ensuring each component meets our strict standards.
+          Sourcing and mixing high-quality raw materials such as silica sand, soda ash, limestone, and other additives required for glass production. Our facility uses state of the art technology to carefully mix the raw materials into a precise formula (batch).
         </p>
-        <img src="https://placehold.co/600x400/EEE/CCC?text=Process+Step+1" alt="Placeholder image for Material Selection" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+        <img src="https://cdn.sanity.io/images/tyzs5imn/production/2843ef942571776b77029faa8e5ccb0af285ec1d-3590x4787.webp" alt="Sourcing and mixing raw materials for glass production" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
       </div>
     ),
   },
   {
-    title: "Melting & Moulding",
+    title: "Melting and Forming",
     content: (
       <div>
-        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Melting & Moulding</h3>
+        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Melting and Forming</h3>
         <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
-          Precision heating and moulding techniques create perfectly formed glass components.
+          Heating the batch in a furnace at extremely high temperatures (around 1,500°C / 2,732°F) until it melts into molten glass. The molten glass is then formed using traditional and modern methods including:
         </p>
-        <img src="https://placehold.co/600x400/EEE/CCC?text=Process+Step+2" alt="Placeholder image for Melting & Moulding" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+        <ul className="list-disc list-inside text-brand-mauve dark:text-neutral-300 text-sm md:text-base mt-2">
+          <li>Blow and Blow</li>
+          <li>Press and Blow</li>
+        </ul>
+        <img src="https://cdn.sanity.io/images/tyzs5imn/production/7b8ab701663d19cd36d8fddeaa1dfb1e73d4a5ac-3590x4787.webp" alt="Molten glass being formed" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+      </div>
+    ),
+  },
+  {
+    title: "Annealing",
+    content: (
+      <div>
+        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Annealing</h3>
+        <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
+          Slowly cooling the formed glass bottles in an annealing oven (lehr) to relieve internal stresses and prevent cracking.
+        </p>
+        <img src="https://cdn.sanity.io/images/tyzs5imn/production/d4beeb28634e5c79b343e100faceafde1efb533c-1226x958.webp" alt="Glass bottles in an annealing oven" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+      </div>
+    ),
+  },
+  {
+    title: "Quality Control",
+    content: (
+      <div>
+        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Quality Control</h3>
+        <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
+          Checking bottles for defects such as bubbles, cracks, or irregular shapes using automated systems and manual inspection. The bottles are then packed for shipment to customers or decoration facilities.
+        </p>
+        <img src="https://cdn.sanity.io/images/tyzs5imn/production/d798aba6d18ef671fb30f31153ddbf3a3f79465b-803x850.png" alt="Manual inspection of glass bottles" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
       </div>
     ),
   },
@@ -38,19 +66,7 @@ const timelineData = [
         <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           Expert finishing techniques and decorative elements add distinctive character to each piece.
         </p>
-        <img src="https://placehold.co/600x400/EEE/CCC?text=Process+Step+3" alt="Placeholder image for Finishing & Decorating" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
-      </div>
-    ),
-  },
-  {
-    title: "Quality Assurance",
-    content: (
-      <div>
-        <h3 className="text-lg font-semibold text-brand-plum dark:text-brand-plum mb-2">Quality Assurance</h3>
-        <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
-          Rigorous testing ensures each glass component meets our exacting standards before delivery.
-        </p>
-        <img src="https://placehold.co/600x400/EEE/CCC?text=Process+Step+4" alt="Placeholder image for Quality Assurance" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+        <img src="https://placehold.co/600x400/EEE/CCC?text=Finishing+%26+Decorating" alt="Decorated glass perfume bottles" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
       </div>
     ),
   },
@@ -66,16 +82,19 @@ function Glass() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
-                Premium <span className="text-brand-rose">Glass</span> Solutions
+                Premium Glass Solutions
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
-                Exquisite glass components custom-designed for your luxury fragrance products. From stunning bottles to precision caps, we deliver unmatched quality and craftsmanship.
+                We create custom-designed glass components that define and elevate your fragrance brand.  With a deep understanding of the fragrance industry's aesthetic and functional demands, we deliver exceptional quality, refined detail, and timeless craftsmanship—transforming glass into a powerful expression of identity.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-xl font-semibold text-brand-mauve mb-4">Expert Glass Crafting</h3>
-                <p className="text-base text-brand-mauve leading-relaxed">
-                  Our glass components are crafted with precision and artistry, ensuring each piece meets the highest standards of quality and aesthetic appeal.
-                </p>
+                <h3 className="text-xl font-semibold text-brand-mauve mb-4">Expert Glass Finishing</h3>
+                <ul className="list-disc list-inside text-base text-brand-mauve leading-relaxed space-y-1">
+                  <li>Tailor-made bottle designs</li>
+                  <li>Premium materials and finishes</li>
+                  <li>Innovative forms, textures, and techniques</li>
+                  <li>Reliable production and uncompromising quality</li>
+                </ul>
               </div>
             </div>
             <div className="relative">
@@ -106,85 +125,71 @@ function Glass() {
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
-              Premium Glass <span className="text-brand-rose">Types</span>
+              Premium Glass Decoration
             </h2>
             <p className="text-lg text-brand-mauve leading-relaxed">
-              We offer a variety of high-quality glass options to suit your specific fragrance requirements
+              We offer a variety of high-quality glass finishes to suit your specific fragrance requirements
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-
-              <h3 className="text-xl font-semibold text-brand-plum mb-3">PCR Glass</h3>
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col">
+              <h3 className="text-xl font-semibold text-brand-plum mb-3">Glass Polishing</h3>
               <p className="text-base text-brand-mauve leading-relaxed mb-4">
-                Sustainably crafted glass made from post-consumer recycled materials. A responsible choice for eco-conscious fragrance brands, offering both quality and environmental impact.
+                To achieve the flawless, crystal surfaces that make fragrance bottles truly stand out, we use expert finishing techniques like hand polishing and fire polishing—each delivering an immaculate, high-gloss finish that enhances the beauty and luxury of your glass components.
               </p>
-              <ul className="space-y-2 mb-6">
-                <li className="text-brand-mauve pl-4">
-                  Sustainable Transparency
-                </li>
-                <li className="text-brand-mauve pl-4">
-                  Refined Recycled Brilliance
-                </li>
-                <li className="text-brand-mauve pl-4">
-                  Low-Impact Luxury
-                </li>
-              </ul>
-              <a href="#" className="text-brand-rose font-medium hover:text-brand-plum transition-colors">
-                View PCR Options
-              </a>
+              <p className="text-base text-brand-mauve leading-relaxed mb-4">
+                <strong>Hand Polishing</strong> is a meticulous, artisan process where skilled craftsmen gently refine every curve and edge using fine abrasives and polishing tools. This technique smooths out any minor imperfections and creates a perfectly even surface with a subtle, elegant sheen. The result is glass that feels as exquisite to touch as it looks, elevating the tactile experience of your fragrance bottle.
+              </p>
+              <p className="text-base text-brand-mauve leading-relaxed mb-4">
+                <strong>Fire Polishing</strong> involves carefully reheating the glass surface to a precise temperature, allowing the outer layer to soften and naturally smooth out under expert control. This process enhances clarity, reduces surface irregularities, and produces a brilliant, mirror-like gloss. Fire polishing gives the glass an exceptionally pure and luminous appearance, capturing light beautifully and highlighting the bottle’s design details.
+              </p>
+              <p className="text-base text-brand-mauve leading-relaxed mt-auto">
+                Together, these finishing techniques ensure your fragrance bottles have an impeccable, polished look—reflecting the premium quality and craftsmanship your brand deserves.
+              </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-
-              <h3 className="text-xl font-semibold text-brand-plum mb-3">Borosilicate Glass</h3>
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col">
+              <h3 className="text-xl font-semibold text-brand-plum mb-3">Glass Printing and Decoration Techniques</h3>
               <p className="text-base text-brand-mauve leading-relaxed mb-4">
-                High-performance glass with exceptional thermal resistance and durability. Ideal for fragrances with volatile compounds.
+                To bring your fragrance bottles to life with captivating detail and unique branding, we offer a range of expert decoration techniques—each carefully designed to enhance the visual impact and luxury feel of your glass components.
               </p>
-              <ul className="space-y-2 mb-6">
-                <li className="text-brand-mauve pl-4">
-                  Thermal shock resistant
-                </li>
-                <li className="text-brand-mauve pl-4">
-                  Chemical durability
-                </li>
-                <li className="text-brand-mauve pl-4">
-                  Lightweight yet strong
-                </li>
-              </ul>
-              <a href="#" className="text-brand-rose font-medium hover:text-brand-plum transition-colors">
-                View Borosilicate Options
-              </a>
+              <div className="space-y-3 mb-4 text-sm text-brand-mauve leading-relaxed">
+                <p><strong>Printing & Silkscreen:</strong> Our precision printing and silkscreen processes allow for vibrant, high-definition graphics and logos directly applied to the glass surface. Whether bold colours or delicate details, these techniques ensure sharp, lasting imagery that reinforces your brand identity.</p>
+                <p><strong>Spraying & Graduated Finishes:</strong> Create stunning visual effects with sprayed coatings and graduated (ombre) finishes that transition smoothly in color or texture. These finishes add depth, sophistication, and an element of surprise, giving your bottles a truly bespoke look.</p>
+                <p><strong>Foiling:</strong> Add a touch of glamour with metallic foiling, applying shimmering gold, silver, or custom colours that catch the light and elevate the bottle’s elegance. Foiling can highlight logos, borders, or decorative patterns with a luxurious shine.</p>
+                <p><strong>Laser Etching:</strong> For a subtle, tactile effect, laser etching engraves precise designs onto the glass surface without color. This technique produces a refined matte finish that’s perfect for intricate logos or patterns, adding a sense of craftsmanship and exclusivity.</p>
+                <p><strong>Embossing & Debossing:</strong> Add dimension and texture by raising (embossing) or recessing (debossing) your design elements into the glass. These tactile finishes enhance grip and invite touch, creating a memorable sensory experience and an unmistakable premium look.</p>
+              </div>
+              <p className="text-base text-brand-mauve leading-relaxed mt-auto">
+                Each technique can be tailored and combined to create truly unique bottles that reflect your brand’s personality and stand out on the shelf. <a href="/portfolio" className="text-brand-rose font-semibold hover:underline">Browse our Portfolio</a> to see some of the results.
+              </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-
-              <h3 className="text-xl font-semibold text-brand-plum mb-3">Coloured Glass</h3>
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col">
+              <h3 className="text-xl font-semibold text-brand-plum mb-3">Electroplating</h3>
               <p className="text-base text-brand-mauve leading-relaxed mb-4">
-                Vibrant coloured glass options that add distinctive visual appeal while providing UV protection for sensitive fragrances.
+                A sophisticated finishing technique that applies a thin, metallic coating onto the surface of fragrance glass, creating a striking and durable decorative effect. This process involves depositing metal layers—such as gold, silver, or chrome—through an electrochemical bath, resulting in a flawless, mirror-like surface that instantly elevates the bottle’s aesthetic.
               </p>
-              <ul className="space-y-2 mb-6">
-                <li className="text-brand-mauve pl-4">
-                  UV protection
-                </li>
-                <li className="text-brand-mauve pl-4">
-                  Custom colour matching
-                </li>
-                <li className="text-brand-mauve pl-4">
-                  Gradient and multi-tone options
-                </li>
+              <h4 className="text-md font-semibold text-brand-rose mt-3 mb-2">Benefits of Electroplating:</h4>
+              <ul className="list-disc list-inside text-sm text-brand-mauve leading-relaxed space-y-1 mb-4">
+                <li>Enhanced Elegance: The metallic sheen adds a premium, high-end look that captures light beautifully and gives your bottles a luxurious, reflective finish.</li>
+                <li>Durability: Electroplated coatings are highly resistant to scratches, tarnishing, and corrosion, ensuring your fragrance bottles maintain their pristine appearance over time.</li>
+                <li>Customization: Choose from a variety of metal tones and finishes—from bright chrome to warm gold—to perfectly complement your brand’s style and packaging design.</li>
+                <li>Versatility: Electroplating can be applied to full surfaces or selective areas, allowing intricate patterns, logos, or accents that create unique, eye-catching details.</li>
               </ul>
-              <a href="#" className="text-brand-rose font-medium hover:text-brand-plum transition-colors">
-                View Colour Options
-              </a>
+              <p className="text-base text-brand-mauve leading-relaxed mt-auto">
+                The result is a fragrance bottle that not only looks exquisite but also stands out for its quality and craftsmanship—making a lasting impression on customers and enhancing brand prestige.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Our Process Section - Now using Timeline */}
-      <section className="py-10 bg-white"> {/* Updated to white background */}
+      {/* Placeholder for imagery/video of the manufacturing process */}
+      {/* <!-- TODO: Add imagery or video of the manufacturing process here --> */}
+      <section className="py-20 bg-white"> {/* Updated to white background and consistent padding */}
          <div className="container mx-auto px-6 text-center max-w-3xl mb-10">
              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
                Our Glass Manufacturing <span className="text-brand-rose">Process</span>
@@ -200,7 +205,7 @@ function Glass() {
       </section>
 
       {/* Custom Solutions Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -219,7 +224,7 @@ function Glass() {
                 </div>
                 <div className="pl-4">
                   <div>
-                    <h3 className="font-bold text-lg">Specialty Finishes</h3>
+                    <h3 className="font-bold text-lg">Speciality Finishes</h3>
                     <p className="text-gray-600">Frosted, metallic, gradient, and textured finishes for distinctive visual appeal.</p>
                   </div>
                 </div>
@@ -236,22 +241,22 @@ function Glass() {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <img
-                src="https://images.unsplash.com/photo-1563170352-76e756f569aa?auto=format&fit=crop&q=80"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/2843ef942571776b77029faa8e5ccb0af285ec1d-3590x4787.webp"
                 alt="Custom glass perfume bottle"
                 className="rounded-2xl shadow-md w-full h-64 object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1612036782180-6f0822369c55?auto=format&fit=crop&q=80"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/7b8ab701663d19cd36d8fddeaa1dfb1e73d4a5ac-3590x4787.webp"
                 alt="Luxury glass bottle detail"
                 className="rounded-2xl shadow-md w-full h-64 object-cover mt-12"
               />
               <img
-                src="https://images.unsplash.com/photo-1574616536048-61a842bc1850?auto=format&fit=crop&q=80"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/d4beeb28634e5c79b343e100faceafde1efb533c-1226x958.webp"
                 alt="Decorative glass elements"
                 className="rounded-2xl shadow-md w-full h-64 object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1550697560-af26217945dd?auto=format&fit=crop&q=80"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/d798aba6d18ef671fb30f31153ddbf3a3f79465b-803x850.png"
                 alt="Frosted glass bottle"
                 className="rounded-2xl shadow-md w-full h-64 object-cover mt-12"
               />
@@ -261,12 +266,12 @@ function Glass() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-brand-card text-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
             Elevate Your Fragrance with Premium Glass
           </h2>
-          <p className="text-xl text-white max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-brand-mauve max-w-3xl mx-auto mb-10">
             Contact our glass specialists today to discover how our exceptional glass components can enhance your fragrance products.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -278,7 +283,7 @@ function Glass() {
             </a>
             <a
               href="#"
-              className="border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white/10 transition-colors inline-block font-medium"
+              className="border-2 border-brand-accent text-brand-accent px-8 py-3 rounded-full hover:bg-brand-accent/10 transition-colors inline-block font-medium"
             >
               Download Catalogue
             </a>

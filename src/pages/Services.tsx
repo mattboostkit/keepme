@@ -141,7 +141,7 @@ function Services() {
                 Fragrance <span className="text-brand-rose">Componentry</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                Discover our extensive range of fragrance glass and componentry. We source and supply premium bottles, sophisticated caps, reliable pumps, and other essential elements, ensuring your fragrance is presented in packaging that reflects its quality and your brand's aesthetic.
+                Discover our extensive range of fragrance glass and componentry. We manufacture and supply premium bottles, sophisticated caps, precision pumps, vials, and closures, ensuring your fragrance is presented to reflect its quality and your brand's aesthetic.
               </p>
               {/* Optional: Add bullet points if more detail is available */}
               <Link to="/services/fragrance-componentry" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
@@ -168,7 +168,7 @@ function Services() {
                 Home <span className="text-brand-rose">Fragrance</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                Expand your brand's presence into the home with our bespoke home fragrance solutions. From luxurious scented candles and elegant reed diffusers to room sprays and more, we help you create inviting atmospheres that resonate with your customers.
+                Expand your brand's presence into the home sector with our bespoke home fragrance solutions. From luxurious scented candles and elegant reed diffusers to room sprays and more, we help you create inviting atmospheres that resonate with your customers.
               </p>
               {/* Optional: Add bullet points if more detail is available */}
               <Link to="/services/home-fragrance" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
@@ -259,19 +259,18 @@ function Services() {
               <img src={servicesImages.fragranceCreationImage ? (urlFor(servicesImages.fragranceCreationImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Fragrance+Creation'} alt={servicesImages.fragranceCreationImage?.alt || 'Fragrance Creation'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </div>
             <div className="order-1 md:order-2">
-
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
                 Fragrance <span className="text-brand-rose">Creation</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                Leverage our expertise in the art and science of fragrance creation. Our master perfumers collaborate with you to develop unique, captivating scents that embody your brand's essence, guiding the journey from initial concept through meticulous refinement to the final, signature masterpiece.
+                Leverage on the expertise of our partners in the art and science of fragrance creation. We work with the best perfumers in Europe. We collaborate with you to develop unique, captivating scents that embody your brand's essence, guiding the journey from initial concept through meticulous refinement to the final, signature masterpiece.
               </p>
               {/* Optional: Add bullet points if more detail is available */}
               <Link to="/services/fragrance-creation" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
                 Learn More about Fragrance Creation
               </Link>
             </div>
-          </div>
+          </div> {/* Closing tag for grid md:grid-cols-2 */}
         </div>
       </section>
 
