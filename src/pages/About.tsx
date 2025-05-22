@@ -224,9 +224,6 @@ function About() {
               <p className="text-lg text-brand-mauve leading-relaxed mb-12">
                 We specialise in the creation, manufacture, and delivery of premium fragrance, home, and lifestyle products. Based in the UK, we are a family-run business with over 20 years of industry experience. We work closely with brands, license holders, distributors, and retailers to bring their visions to life — from initial concept through to final product delivery. Whether you need individual components or a retail-ready product, KeepMe is the trusted partner to support your project at every stage.
               </p>
-              <p className="text-lg text-brand-mauve leading-relaxed mb-8">
-                We’re all about turning big ideas into high-quality products - and making the whole process feel easy and collaborative.
-              </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Mission</span></h2>
                 <p className="text-lg text-brand-mauve leading-relaxed">
@@ -258,24 +255,6 @@ function About() {
         </div>
       </section>
 
-      {/* Our Focus Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-5 gap-12 items-center">
-             <div className="md:col-span-2">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Focus</span></h2>
-            </div>
-            <div className="md:col-span-3 space-y-4">
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                Delivering high-quality product and packaging solutions. We specialise in complex manufacturing projects for our customers.
-              </p>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                Based in the UK, we are supported by regional offices in key global territories. Working directly with our factories, we can control and influence the manufacturing process, employees’ health and safety, and working conditions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Development Process Section - New Layout & Colors */}
       <section className="py-12 md:py-20 bg-white"> {/* Main section background to white */}
