@@ -291,28 +291,28 @@ function Services() {
             <FaqAccordion
               items={[
                 {
-                  question: "What makes KeepMe's fragrance services unique?",
-                  answer: "We offer end-to-end solutions from concept to delivery, with expertise in both fragrance creation and packaging. Our global manufacturing network and commitment to quality control at every stage ensures exceptional results."
+                  question: "What is the minimum order quantity?",
+                  answer: "Our minimum order quantities vary by product type. Stock Glass Bottles and Caps typically require a minimum of 1,000 units (this can increase depending on capacity and complexity), whilst Bespoke Glass Bottles and Caps have an MOQ of 10,000 units. Decoration MOQ’s vary between 500-5,000 units."
                 },
                 {
-                  question: "Can you work with my existing fragrance formula?",
-                  answer: "Yes, we can work with your existing formula or help you develop a new one. Our team can analyze, refine, or recreate formulations to meet your specific requirements."
+                  question: "How long does the production process take?",
+                  answer: "We recommend 6 months when custom moulds aren’t required, bespoke projects may require up to 9 months depending on complexity and required components. Our team will issue a Critical Path during the Development and Evaluation stages"
                 },
                 {
-                  question: "Do you offer sustainable and eco-friendly options?",
-                  answer: "Absolutely. We provide a range of sustainable options including eco-friendly packaging materials, refillable designs, and responsibly sourced ingredients. We can help you align your product with modern sustainability standards."
+                  question: "Do you offer sampling services?",
+                  answer: "Yes, all our components and finishes will undergo a Development and Sampling stage. Our team are able to supply Technical Drawings and product prototypes. Sample fees may apply but are typically credited toward your first order."
                 },
                 {
-                  question: "What are your minimum order quantities?",
-                  answer: "Our minimum order quantities vary by service type. For standard products, we typically require 1,000-2,500 units, while custom projects may have different requirements based on complexity and specifications."
+                  question: "What regions do you ship to?",
+                  answer: "We ship globally with established logistics networks in Europe, North America, Asia, and the Middle East. Custom shipping arrangements can be made for other regions. Our experienced and dedicated Operations Team will help manage all inbound and outbound deliveries"
                 },
                 {
-                  question: "How long does the entire process take from concept to delivery?",
-                  answer: "The timeline varies based on project complexity. A standard project typically takes 8-12 weeks, while more complex custom projects may require 12-16 weeks or more. We'll provide a detailed timeline during our initial consultation."
+                  question: "Do you offer an end to end service?",
+                  answer: "Yes, we specialise in all stages of Development and Production. From concept to delivery we can support you. Many of our clients utilise all of our services, from Creative Design, to Sampling, Production, Shipping, Blending of oils, Testing, Filling and Assembly of finished goods"
                 },
                 {
-                  question: "Can you help with regulatory compliance for different markets?",
-                  answer: "Yes, we ensure all our products meet regulatory requirements for their intended markets, including EU, UK, US, and other international standards. Our team stays updated on changing regulations to keep your products compliant."
+                  question: "Can you help with regulatory compliance?",
+                  answer: "Absolutely. We ensure all our products meet regulatory requirements for their intended markets, including EU, UK, US, and other international standards. Our Team can also support with the Back of Pack labelling and appropriate warning symbols."
                 }
               ]}
             />

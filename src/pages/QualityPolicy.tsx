@@ -1,7 +1,5 @@
-import React from "react";
-
 const QualityPolicy = () => (
-  <div className="container mx-auto px-4 py-12 max-w-3xl">
+  <div className="container mx-auto px-4 py-12 max-w-3xl bg-white">
     <h1 className="text-3xl font-bold mb-6">Quality Policy</h1>
     <p>
       <strong>Quality Policy (ISO 9001 2015 Clause 5.2.1, 5.2.2)</strong>

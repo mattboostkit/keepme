@@ -1,7 +1,5 @@
-import React from "react";
-
 const PrivacyPolicy = () => (
-  <div className="container mx-auto px-4 py-12 max-w-3xl">
+  <div className="container mx-auto px-4 py-12 max-w-3xl bg-white">
     <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
     <p><strong>Protecting your personal details on our website</strong></p>
     <p>Last updated: 1 May 2015</p>
