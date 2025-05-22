@@ -30,6 +30,7 @@ import TestimonialsDemo from './pages/TestimonialsDemo'; // Import Testimonials 
 import PrivacyPolicy from './pages/PrivacyPolicy'; // Import Privacy Policy page
 import TermsAndConditions from './pages/TermsAndConditions'; // Import Terms and Conditions page
 import QualityPolicy from './pages/QualityPolicy'; // Import Quality Policy page
+import NotFoundPage from './pages/NotFoundPage'; // Import Not Found page
 import ImageTestPage from './pages/ImageTest'; // Import Image Test page
 // Import client pages
 import {
@@ -88,8 +89,8 @@ function App() {
           <Route path="/video/:id" element={<SingleVideoPage />} />
           {/* Old blog route replaced with Sanity-powered blog */}
           <Route path="/testimonials-demo" element={<TestimonialsDemo />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/quality-policy" element={<QualityPolicy />} />
           <Route path="/image-test" element={<ImageTestPage />} />
           {/* Client Detail Routes */}
@@ -103,6 +104,8 @@ function App() {
           <Route path="/portfolio/house-of-brandt" element={<HouseOfBrandtPage />} />
           <Route path="/portfolio/fragrance-du-bois" element={<FragranceDuBoisPage />} />
           <Route path="/portfolio/flannels" element={<FlannelsPage />} />
+          {/* Catch-all route for 404 Not Found page - MUST BE LAST */}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />

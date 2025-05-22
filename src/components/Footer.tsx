@@ -65,8 +65,8 @@ function Footer() {
             © {new Date().getFullYear()} KeepMe Lifestyle. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-white hover:text-white/80 transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="text-white hover:text-white/80 transition-colors">Terms & Conditions</Link>
+            <Link to="/privacy-policy" className="text-white hover:text-white/80 transition-colors">Privacy Policy</Link>
+            <Link to="/terms-and-conditions" className="text-white hover:text-white/80 transition-colors">Terms & Conditions</Link>
             <Link to="/quality-policy" className="text-white hover:text-white/80 transition-colors">Quality Policy</Link>
           </div>
         </div>
