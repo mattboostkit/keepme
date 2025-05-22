@@ -317,33 +317,34 @@ function About() {
 
               <h3 className="text-xl font-bold mb-3">Passion</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
-                We are passionate perfectionists, truly motivated to create and deliver luxury products.
+                We are passionate about everything we do. Driven by creativity, integrity, and excellence. We create and deliver exceptional products that exceed expectations and make a meaningful impact.
               </p>
             </div>
 
-            {/* Value 2: Communication */}
+            {/* Value 2: Service */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Communication</h3>
+              <h3 className="text-xl font-bold mb-3">Service</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
-                Our confident and calm working environment translates to excellent customer communication and collaboration.
+                We believe great service starts with a calm, confident team. By creating a positive space to work, we make collaboration easy and communication effortless, so every customer feels supported and inspired.
               </p>
             </div>
 
-            {/* Value 3: Trust */}
+            {/* Value 3: Partnership */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Trust</h3>
+              <h3 className="text-xl font-bold mb-3">Partnership</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
-                Honesty and integrity are core values at KeepMe Lifestyle. Respect for colleagues, customers, and stakeholders is vital to establishing a healthy, productive workplace.
+                Honesty and integrity shape everything we do. We build trust through mutual respect within the team, with customers and partners. Real collaboration happens when everyone feels valued, heard, and empowered to contribute.
               </p>
             </div>
 
+            {/* Value 4: Quality */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Partnerships</h3>
+              <h3 className="text-xl font-bold mb-3">Quality</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
-                We build lasting relationships based on trust, transparency, and mutual success.
+                Quality means more than great products, it’s about building lasting relationships rooted in trust, transparency, and shared success. We take pride in every detail, knowing that doing things right creates results people believe in.
               </p>
             </div>
           </div>
