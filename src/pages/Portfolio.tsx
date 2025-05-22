@@ -40,10 +40,10 @@ function PortfolioPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
-                Our <span className="text-brand-rose">Portfolio</span>
+                Our Portfolio
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
-                Discover our partnerships with prestigious fragrance houses and luxury brands. We're proud to work with some of the most distinguished names in the industry.
+                Discover more about our work. From bold concepts to commercially minded solutions, we deliver quality that fits your vision and your budget.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <div className="flex items-center space-x-4 mb-4">
@@ -53,7 +53,7 @@ function PortfolioPage() {
                   <h3 className="text-xl font-semibold text-brand-mauve">Client Partnerships</h3>
                 </div>
                 <p className="text-base text-brand-mauve leading-relaxed">
-                  We collaborate with luxury brands to create exceptional products that elevate their customer experience and strengthen their market position.
+                  We partner with niche, innovative, creative brands. We’re proud to work with some of the most distinguished names in the industry.
                 </p>
               </div>
             </div>
@@ -69,7 +69,7 @@ function PortfolioPage() {
                     <ArrowRight className="h-6 w-6 text-brand-rose" />
                   </div>
                   <div>
-                    <p className="text-xl font-bold">100+ Premium Clients</p>
+                    <p className="text-xl font-bold">Over 100 Clients</p>
                     <p className="text-brand-mauve">Trusted Partnerships</p>
                   </div>
                 </div>

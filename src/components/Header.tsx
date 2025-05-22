@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'; // Import useState, useEffect, and useRef
 import { Link } from 'react-router-dom';
-import { ChevronRight, Menu, X } from 'lucide-react'; // Import Menu and X icons, removed Droplets
+import { Menu, X } from 'lucide-react'; // Import Menu and X icons, removed Droplets
 import logoUrl from '../assets/images/logo.svg'; // Import the logo
 
 function Header() {
@@ -82,8 +82,7 @@ function Header() {
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors">Blog</Link>
           </nav>
           <Link to="/contact" className="hidden lg:flex items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors">
-            Contact Us
-            <ChevronRight className="h-4 w-4 ml-1" />
+            Contact
           </Link>
 
           {/* Hamburger Button */}
@@ -134,7 +133,7 @@ function Header() {
             <Link to="/tools" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Tools</Link>
             <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Portfolio</Link>
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Blog</Link>
-            <Link to="/contact" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Contact Us</Link>
+            <Link to="/contact" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Contact</Link>
           </nav>
         </div>
       )}
