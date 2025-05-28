@@ -81,7 +81,7 @@ function Glass() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
+              <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
                 Premium Glass Solutions
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
@@ -266,7 +266,7 @@ function Glass() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-brand-pink-light">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
             Elevate Your Fragrance with Premium Glass
@@ -277,13 +277,13 @@ function Glass() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="/contact"
-              className="bg-brand-accent text-white px-8 py-3 rounded-full hover:bg-brand-accent/80 transition-colors inline-block font-medium"
+              className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors inline-block font-medium"
             >
               Request a Sample
             </a>
             <a
               href="#"
-              className="border-2 border-brand-accent text-brand-accent px-8 py-3 rounded-full hover:bg-brand-accent/10 transition-colors inline-block font-medium"
+              className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors inline-block font-medium"
             >
               Download Catalogue
             </a>

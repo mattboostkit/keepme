@@ -52,7 +52,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
     <section id="portfolio" className={`py-20 ${backgroundColor}`}>
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
+          <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-4">
             {title.split(' ').map((word, index, array) =>
               index === array.length - 1 ?
                 <span key={index}>
@@ -71,7 +71,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             <button
               key="all"
-              className={`px-5 py-2 rounded-full transition-colors font-medium min-w-32 text-center ${
+              className={`px-5 py-2 rounded-full transition-colors font-normal min-w-32 text-center ${
                 selectedFeature === null
                   ? 'bg-brand-mauve text-white'
                   : 'bg-brand-pink-light text-brand-plum hover:bg-brand-rose hover:text-white'
@@ -83,7 +83,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
             {allFeatures.map((feature) => (
               <button
                 key={feature}
-                className={`px-5 py-2 rounded-full transition-colors font-medium min-w-32 text-center ${
+                className={`px-5 py-2 rounded-full transition-colors font-normal min-w-32 text-center ${
                   selectedFeature === feature
                     ? 'bg-brand-mauve text-white'
                     : 'bg-brand-pink-light text-brand-plum hover:bg-brand-rose hover:text-white'
@@ -126,7 +126,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <Link to={`/portfolio/${item.id}`} className="relative z-20 block" onClick={(e) => e.stopPropagation()}>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-brand-card transition-colors hover:text-brand-card cursor-pointer">
+                    <h3 className="text-xl mb-2 group-hover:text-brand-card transition-colors hover:text-brand-card cursor-pointer">
                       {item.title}
                     </h3>
                   </Link>

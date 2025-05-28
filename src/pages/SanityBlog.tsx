@@ -214,7 +214,7 @@ function SanityBlog() {
                 <div className="relative z-20 inline-block">
                   <Link
                     to={`/post/${featuredPost.slug?.current}`}
-                    className="bg-brand-button text-white px-5 py-2 rounded-full hover:bg-brand-card transition-colors flex items-center"
+                    className="bg-brand-mauve text-white px-5 py-2 rounded-full hover:bg-brand-rose transition-colors flex items-center"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span>Read Article</span>
@@ -308,7 +308,7 @@ function SanityBlog() {
           )}
 
           <div className="mt-12 text-center">
-            <button className="bg-brand-button text-white px-5 py-2 rounded-full hover:bg-brand-card transition-colors flex items-center mx-auto">
+            <button className="bg-brand-mauve text-white px-5 py-2 rounded-full hover:bg-brand-rose transition-colors flex items-center mx-auto">
               <span>Load More Articles</span>
               <ArrowRight className="h-4 w-4 ml-2" />
             </button>
@@ -330,7 +330,7 @@ function SanityBlog() {
                 placeholder="Your email address"
                 className="flex-grow px-5 py-3 rounded-full focus:outline-none text-gray-800"
               />
-              <button className="bg-white text-brand-card px-6 py-3 rounded-full hover:bg-gray-100 transition-colors font-medium">
+              <button className="bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors font-medium">
                 Subscribe
               </button>
             </form>

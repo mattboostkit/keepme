@@ -65,14 +65,16 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-normal;
-    font-weight: 400; /* Poppins Regular for body text */
+    @apply bg-background text-foreground font-sans font-normal;
   }
-  h1, h4, h5, h6 {
-    font-weight: 300; /* Poppins Light for these headings */
+  h1, h2, h3 {
+    @apply font-sans font-semibold; /* Poppins 600 for H1, H2, H3 */
   }
+  h4, h5, h6 {
+    @apply font-sans font-normal; /* Poppins 400 for H4, H5, H6 */
+  }
+  /* If H2 and H3 still need the brand-mauve color, re-apply it */
   h2, h3 {
-    font-weight: 300; /* Poppins Light for these headings */
-    @apply text-brand-mauve; /* Apply brand-mauve color */
+    @apply text-brand-mauve;
   }
 }

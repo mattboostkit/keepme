@@ -67,14 +67,14 @@ function Services() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
+              <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
                 Our <span className="text-brand-rose">Services</span>
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
                 From concept to delivery, we provide end-to-end fragrance manufacturing solutions tailored to your brand's unique vision.
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-xl font-semibold text-brand-mauve mb-4">Full-Service Solutions</h3>
+                <h3 className="text-xl font-normal text-brand-mauve mb-4">Full-Service Solutions</h3>
                 <p className="text-base text-brand-mauve leading-relaxed">
                   We offer comprehensive services from design and technical drawings, manufacturing of components to logistics and delivery, ensuring a seamless experience for your brand.
                 </p>
@@ -88,13 +88,13 @@ function Services() {
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
-                  <p className="text-xl font-bold">Full Service</p>
+                  <p className="text-xl font-semibold">Full Service</p>
                   <p className="text-gray-600">Comprehensive Solutions</p>
                 </div>
               </div>
               <div className="absolute -top-8 -right-8 bg-white rounded-xl p-6 shadow-lg hidden md:block">
                 <div>
-                  <p className="text-xl font-bold">Global Reach</p>
+                  <p className="text-xl font-semibold">Global Reach</p>
                   <p className="text-gray-600">Worldwide Delivery</p>
                 </div>
               </div>
@@ -102,25 +102,25 @@ function Services() {
           </div>
 
           <div className="mt-16">
-            <h3 className="text-2xl font-serif font-bold text-brand-plum mb-6 text-center">Our Service <span className="text-brand-rose">Categories</span></h3>
+            <h3 className="text-2xl font-sans font-normal text-brand-plum mb-6 text-center">Our Service <span className="text-brand-rose">Categories</span></h3>
             <div className="flex flex-wrap justify-center gap-4">
               {/* Reordered Links */}
-              <a href="#fragrance-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
+              <a href="#fragrance-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
                 Fragrance Componentry
               </a>
-              <a href="#home-fragrance" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
+              <a href="#home-fragrance" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
                 Home Fragrance
               </a>
-              <a href="#luxury-packaging" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
+              <a href="#luxury-packaging" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
                 Luxury Packaging
               </a>
-              <a href="#gift-with-purchase" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
+              <a href="#gift-with-purchase" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
                 Gift With Purchase
               </a>
-              <a href="#skincare-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
+              <a href="#skincare-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
                 Skincare Componentry
               </a>
-              <a href="#fragrance-creation" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-medium">
+              <a href="#fragrance-creation" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
                 Fragrance Creation
               </a>
 
@@ -137,7 +137,7 @@ function Services() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
 
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+              <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
                 Fragrance <span className="text-brand-rose">Componentry</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
@@ -164,7 +164,7 @@ function Services() {
             </div>
             <div className="order-1 md:order-2">
 
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+              <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
                 Home <span className="text-brand-rose">Fragrance</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
@@ -185,7 +185,7 @@ function Services() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
 
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+              <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
                 Luxury <span className="text-brand-rose">Packaging</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
@@ -212,7 +212,7 @@ function Services() {
             </div>
             <div className="order-1 md:order-2">
 
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+              <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
                 Gift With <span className="text-brand-rose">Purchase</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
@@ -233,7 +233,7 @@ function Services() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
 
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+              <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
                 Skincare <span className="text-brand-rose">Componentry</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
@@ -259,7 +259,7 @@ function Services() {
               <img src={servicesImages.fragranceCreationImage ? (urlFor(servicesImages.fragranceCreationImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Fragrance+Creation'} alt={servicesImages.fragranceCreationImage?.alt || 'Fragrance Creation'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </div>
             <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+              <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
                 Fragrance <span className="text-brand-rose">Creation</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
@@ -320,17 +320,17 @@ function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-brand-card text-white">
+      <section className="py-20 bg-brand-pink-light">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-brand-plum">
             Ready to Bring Your Fragrance Vision to Life?
           </h2>
-          <p className="text-xl text-white max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-brand-plum max-w-3xl mx-auto mb-10">
             Contact us today to discuss your project and how our services can help you create exceptional fragrances.
           </p>
           <a
             href="/contact"
-            className="bg-brand-accent text-white px-8 py-3 rounded-full hover:bg-brand-accent/80 transition-colors inline-block font-medium"
+            className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors inline-block font-medium"
           >
             Get in Touch
           </a>

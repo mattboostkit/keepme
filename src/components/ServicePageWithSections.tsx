@@ -58,7 +58,7 @@ const ServicePageWithSections: React.FC<ServicePageWithSectionsProps> = ({
   return (
     <div className="pt-12">
       <div className="container mx-auto px-6">
-        <h1 className="text-4xl font-bold mb-8 text-center">{title}</h1>
+        <h1 className="text-4xl font-semibold mb-8 text-center">{title}</h1>
         <p className="text-lg text-gray-700 mb-12 text-center max-w-3xl mx-auto">
           {description}
         </p>

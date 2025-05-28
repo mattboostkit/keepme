@@ -23,7 +23,7 @@ function Footer() {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-6 text-white">Quick Links</h3>
+            <h3 className="text-xl mb-6 text-white">Quick Links</h3>
             <div className="grid grid-cols-2 gap-4">
               <ul className="space-y-3">
                 <li><Link to="/" className="text-white hover:text-white/80 transition-colors">Home</Link></li>
@@ -43,7 +43,7 @@ function Footer() {
 
           {/* New Contact Us Column */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-white">Contact Us</h3>
+            <h3 className="text-xl mb-6 text-white">Contact Us</h3>
             <ul className="space-y-3 text-white">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />

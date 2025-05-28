@@ -9,7 +9,7 @@ function Contact() {
       <section className="py-16 bg-[#f3d3c4]">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-sans font-semibold text-gray-900 mb-6">
               Get in <span className="text-brand-accent">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8">
@@ -24,7 +24,7 @@ function Contact() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Send Us a Message</h2>
+              <h2 className="text-2xl font-sans font-semibold text-gray-900 mb-6">Send Us a Message</h2>
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -85,7 +85,7 @@ function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="bg-[#f4cfd9] text-white px-8 py-3 rounded-lg hover:bg-[#f4cfd9]/80 transition-colors flex items-center justify-center w-full"
+                  className="bg-brand-mauve text-white px-8 py-3 rounded-lg hover:bg-brand-rose transition-colors flex items-center justify-center w-full"
                 >
                   Send Message
                   <Send className="ml-2 h-4 w-4" />
@@ -93,7 +93,7 @@ function Contact() {
               </form>
             </div>
             <div>
-              <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-sans font-semibold text-gray-900 mb-6">Contact Information</h2>
               <div className="bg-white p-8 rounded-2xl shadow-xl">
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
@@ -101,7 +101,7 @@ function Contact() {
                       <MapPin className="h-6 w-6 text-[#f4cfd9]" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg">Our Location</h3>
+                      <h3 className="text-lg">Our Location</h3>
                       <p className="text-gray-600">16 Quadrant Court, Dartford<br/>Greenhithe DA9 9AY</p>
                     </div>
                   </div>
@@ -110,7 +110,7 @@ function Contact() {
                       <Mail className="h-6 w-6 text-[#f4cfd9]" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg">Email Us</h3>
+                      <h3 className="text-lg">Email Us</h3>
                       <p className="text-gray-600">hello@keepme.co.uk</p>
                       {/* Removed second email line */}
                     </div>
@@ -120,7 +120,7 @@ function Contact() {
                       <Phone className="h-6 w-6 text-[#f4cfd9]" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg">Call Us</h3>
+                      <h3 className="text-lg">Call Us</h3>
                       <p className="text-gray-600">+44 (0)1322 381144</p>
                       {/* Removed second phone line */}
                     </div>
@@ -130,7 +130,7 @@ function Contact() {
                       <Clock className="h-6 w-6 text-[#f4cfd9]" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg">Business Hours</h3>
+                      <h3 className="text-lg">Business Hours</h3>
                       <p className="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
                     </div>
                   </div>
@@ -139,7 +139,7 @@ function Contact() {
             </div>
           </div>
           <div className="mt-16">
-            <h3 className="text-xl font-serif font-bold text-gray-900 mb-6 text-center">Our Location</h3>
+            <h3 className="text-xl font-sans text-gray-900 mb-6 text-center">Our Location</h3>
             <div className="rounded-xl overflow-hidden h-96 shadow-lg md:col-span-2">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.247800939565!2d0.2688733775436449!3d51.45360661463063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8b13794355e99%3A0xbfb57953d02877c2!2sKeepme%20LifeStyle%20Ltd!5e0!3m2!1sen!2suk!4v1744043045392!5m2!1sen!2suk"
@@ -160,7 +160,7 @@ function Contact() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-sans font-semibold text-gray-900 mb-4">
               Frequently Asked <span className="text-[#f4cfd9]">Questions</span>
             </h2>
             <p className="text-gray-600">

@@ -47,7 +47,7 @@ import {
 
 function App() {
   return (
-    <div className="min-h-screen bg-brand-background text-gray-900 flex flex-col"> {/* Updated to use new brand background color */}
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col"> {/* Updated to use new brand background color */}
       <Header />
       <main className="flex-grow pt-16 sm:pt-20 md:pt-24"> {/* Responsive padding for different screen sizes */}
         <Routes>

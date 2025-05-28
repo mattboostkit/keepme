@@ -28,7 +28,7 @@ function About() {
 
       return (
         <div key={idx} className="mb-3 last:mb-0 text-sm">
-          {subHeadingText && <h4 className="text-md font-semibold text-brand-mauve mb-1">{subHeadingText}</h4>} {/* Using brand-mauve */}
+          {subHeadingText && <h4 className="text-md font-normal text-brand-mauve mb-1">{subHeadingText}</h4>} {/* Using brand-mauve */}
           {currentListItems.length > 0 && (
             <ul className="list-none pl-0 text-gray-700 space-y-1">
               {currentListItems.map((item, itemIdx) => (
@@ -95,7 +95,7 @@ function About() {
       title: "2004",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Where It All Began</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Where It All Began</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             Kevin and Steve Anderson opened the doors to what would become a trusted name in Branded Merchandise. Operating from our London office with a vision to support brands and distributors, KeepMe Promotions was founded. Utilising a network of newly established suppliers, the foundation was simple but powerful: strong relationships, reliable service, and a deep understanding of how merchandise could elevate brand presence.
           </p>
@@ -106,7 +106,7 @@ function About() {
       title: "2005-2008",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Integration and Expansion</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Integration and Expansion</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             This period marked a defining time as KeepMe. We integrated our businesses with our Shenzhen Operation, and we’re proud to say: we still enjoy this relationship today. Here we laid the foundations for a robust, ethical supply chain, with audited factories and fully transparent practices.
           </p>
@@ -117,7 +117,7 @@ function About() {
       title: "2009–2010",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Enhancing our Services</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Enhancing our Services</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             KeepMe broaden our offering to include design, manufacturing and full service solutions. With a strong emphasis on creativity, technical excellence, and customer service, KeepMe built a solid foundation for future growth across a diverse range of industries. New team members supported our growing client demands in sales, logistics, and account management.
           </p>
@@ -128,7 +128,7 @@ function About() {
       title: "2011",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Entering the Fragrance &amp; Lifestyle Market</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Entering the Fragrance &amp; Lifestyle Market</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             Recognising the opportunity to innovate in new sectors, KeepMe moved into the fragrance and lifestyle market. The team began offering bespoke solutions across fragrance, skincare, beauty, cosmetics and wellness, helping brands create standout product experiences.
           </p>
@@ -139,7 +139,7 @@ function About() {
       title: "2011-2018",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Global Manufacturing Expansion</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Global Manufacturing Expansion</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             KeepMe expanded its global footprint, establishing strategic manufacturing capabilities across the UK, Europe and China. This global presence enabled the business to offer scalable, cost-effective production while maintaining high quality and speed to market.
           </p>
@@ -150,7 +150,7 @@ function About() {
       title: "2020",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Launch of the Lifestyle Lookbook</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Launch of the Lifestyle Lookbook</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             To inspire clients and showcase its full-service offering, KeepMe launched the Lifestyle Lookbook—a curated guide to its fragrance, skincare, wellness and packaging capabilities. This lookbook highlighted KeepMe’s creative direction, market insight, and bespoke product range.
           </p>
@@ -161,7 +161,7 @@ function About() {
       title: "2021",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Commitment to Sustainability</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Commitment to Sustainability</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             Sustainability became a core focus. KeepMe Lifestyle adopted environmentally responsible practices across its operations, including eco-friendly materials, reduced waste processes and more sustainable packaging options—helping clients meet their own green goals.
           </p>
@@ -172,7 +172,7 @@ function About() {
       title: "2023",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Launch of KeepMe Glass</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Launch of KeepMe Glass</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             To further specialise in packaging, KeepMe established KeepMe Glass – a division dedicated to premium glass manufacturing for fragrance bottles, diffusers and candle jars. With a focus on quality, consistency and innovation, KeepMe Glass quickly became a trusted name in high-end packaging solutions.
           </p>
@@ -183,7 +183,7 @@ function About() {
       title: "2024",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">Celebrating 20 Years of Innovation</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Celebrating 20 Years of Innovation</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             In 2024, KeepMe proudly celebrated two decades of excellence. From humble beginnings to becoming a globally recognised partner, the anniversary marked a milestone of growth, innovation and unwavering dedication to quality and client success, offering clients a seamless route from concept to shelf.
           </p>
@@ -194,7 +194,7 @@ function About() {
       title: "Present",
       content: (
         <div>
-          <h4 className="text-lg font-semibold text-brand-rose dark:text-brand-rose mb-2">KeepMe Lifestyle &amp; KeepMe Glass: A Unified Force</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">KeepMe Lifestyle &amp; KeepMe Glass: A Unified Force</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             In 2025, KeepMe and KeepMe Glass brought their operations closer than ever before—uniting product development and packaging under one seamless offering. This reintegration created a powerful end-to-end partner for brands in the fragrance and lifestyle sector.
           </p>
@@ -218,7 +218,7 @@ function About() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
+              <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
                 About <span className="text-brand-rose">KeepMe</span>
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-12">
@@ -367,7 +367,7 @@ function About() {
       />
 
       {/* Contact Section */}
-      <section className="py-20 bg-brand-background">
+      <section className="py-20 bg-brand-pink-light">
         <div className="container mx-auto px-6">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">

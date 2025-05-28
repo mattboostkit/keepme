@@ -15,6 +15,7 @@ import FilterablePortfolio, { PortfolioItem } from '../components/FilterablePort
 // Import fetchPortfolioBrands utility
 import { fetchPortfolioBrands } from '../lib/portfolioUtils';
 import FlickityCarousel from '../components/FlickityCarousel'; // Re-import FlickityCarousel
+import logoWhiteUrl from '../assets/images/logos/Logo_White.svg'; // Import the white logo for hero
 import '../components/FlickityCarousel.css'; // Re-import FlickityCarousel styles
 
 // Define Sanity Image Reference type
@@ -89,7 +90,7 @@ function Home() { // Component name is Home
       {/* Hero Section - Updated with Full Width Background */}
       <section
         id="home"
-        className="relative flex items-center justify-center text-center text-white min-h-[60vh] md:min-h-[70vh] pt-16 pb-24 md:pt-20 md:pb-32 bg-cover bg-center bg-no-repeat" // Adjusted top padding
+        className="relative h-[60vh] min-h-[450px] md:min-h-[550px] text-white flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat" 
         style={{ backgroundImage: `url(${heroImageUrl})` }}
       >
         {/* Overlay for text contrast */}
@@ -97,28 +98,40 @@ function Home() { // Component name is Home
 
         {/* Content Container */}
         <div className="relative z-10 container mx-auto px-6">
-          <div className="max-w-3xl mx-auto"> {/* Centering content */}
-            <div className="space-y-8"> {/* Text Content */}
+          <div className="max-w-5xl mx-auto">
+            <img 
+              src={logoWhiteUrl} 
+              alt="KeepMe Lifestyle" 
+              className="w-full h-auto mx-auto"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* New Section for H1, Paragraph, and CTA */}
+      <section className="bg-brand-mauve text-white py-16 md:py-24">
+        <div className="container mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-8">
               <div>
-                <h1 className="text-4xl md:text-6xl font-serif font-bold leading-relaxed"> {/* Adjusted text color */}
+                <h1 className="text-4xl md:text-6xl font-sans font-semibold leading-relaxed">
                   Flawless Fragrances, <br />
                   <TextShimmer
-                    as="span" // Keep as span
-                    duration={2} // Adjust duration as needed
-                    // Updated shimmer colors for light text on dark background, ensuring brand-pink-light is used
+                    as="span"
+                    duration={2}
                     className="pb-2 [--base-color:#FFFFFF] [--base-gradient-color:theme(colors.brand.pink-light)] dark:[--base-color:#FFFFFF] dark:[--base-gradient-color:theme(colors.brand.pink-light)]"
                   >
                     Expertly Crafted
                   </TextShimmer>
                 </h1>
               </div>
-              <p className="text-lg leading-relaxed"> {/* Adjusted text color */}
+              <p className="text-lg leading-relaxed">
                 Your end-to-end partner in fragrance and packaging. We specialise in perfume production,
                 from components to filling, assembly, and delivery.
               </p>
-              <div className="flex justify-center"> {/* Centered button */}
-                <Link to="/services" className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors flex items-center justify-center">
-                  Our Services
+              <div className="flex justify-center">
+                <Link to="/contact" className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors flex items-center justify-center font-semibold">
+                  Contact Us
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </div>
@@ -149,13 +162,13 @@ function Home() { // Component name is Home
               </div>
               <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
-                  <p className="text-xl font-bold text-brand-plum">Manufacturing</p>
+                  <p className="text-xl font-semibold text-brand-plum">Manufacturing</p>
                   <p className="text-brand-mauve">made simple</p>
                 </div>
               </div>
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum">
+              <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum">
                 About <span className="text-brand-rose">KeepMe</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed">
@@ -171,7 +184,7 @@ function Home() { // Component name is Home
       <section id="services" className="py-20 bg-white services-section"> 
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
+            <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-4">
               Our <span className="text-brand-rose">Services</span> {/* Ensured class is applied */}
             </h2>
             <p className="text-lg text-brand-mauve leading-relaxed max-w-2xl mx-auto">

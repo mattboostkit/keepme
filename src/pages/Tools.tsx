@@ -11,9 +11,6 @@ function Tools() { // Renamed from ToolsLanding
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
             Our <span className="text-brand-rose">Tools</span>
           </h1>
-          <p className="text-lg text-brand-mauve leading-relaxed max-w-2xl mx-auto">
-            Useful resources for your fragrance journey.
-          </p>
         </div>
       </section>
 

@@ -39,7 +39,7 @@ function PortfolioPage() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
+              <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
                 Our Portfolio
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
@@ -50,7 +50,7 @@ function PortfolioPage() {
                   <div className="bg-brand-highlight/20 p-2 rounded-full">
                     <ArrowRight className="h-6 w-6 text-brand-rose" />
                   </div>
-                  <h3 className="text-xl font-semibold text-brand-mauve">Client Partnerships</h3>
+                  <h3 className="text-xl text-brand-mauve">Client Partnerships</h3>
                 </div>
                 <p className="text-base text-brand-mauve leading-relaxed">
                   We partner with niche, innovative, creative brands. We’re proud to work with some of the most distinguished names in the industry.
@@ -69,7 +69,7 @@ function PortfolioPage() {
                     <ArrowRight className="h-6 w-6 text-brand-rose" />
                   </div>
                   <div>
-                    <p className="text-xl font-bold">Over 100 Clients</p>
+                    <p className="text-xl font-semibold">Over 100 Clients</p>
                     <p className="text-brand-mauve">Trusted Partnerships</p>
                   </div>
                 </div>
@@ -91,7 +91,7 @@ function PortfolioPage() {
       ) : (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
+            <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-4">
               Featured <span className="text-brand-rose">Clients</span>
             </h2>
             <p className="text-lg text-brand-mauve leading-relaxed mb-8">
