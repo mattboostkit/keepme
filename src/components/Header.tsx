@@ -52,7 +52,7 @@ function Header() {
             <img
               src={logoUrl}
               alt="KeepMe Logo"
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain"
+              className="h-8 sm:h-9 md:h-10 w-auto object-contain"
             />
           </Link>
           {/* Desktop Menu */}
