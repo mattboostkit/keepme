@@ -4,12 +4,10 @@ import { fetchPortfolioBrandByName, getPortfolioBrandImageUrl } from '../../lib/
 
 const BDXYPage: React.FC = () => {
   const [clientImage, setClientImage] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchBrandData = async () => {
       try {
-        setLoading(true);
         const brandData = await fetchPortfolioBrandByName('BDXY');
         if (brandData) {
           const imageUrl = getPortfolioBrandImageUrl(brandData);
@@ -18,7 +16,7 @@ const BDXYPage: React.FC = () => {
       } catch (error) {
         console.error('Error fetching BDXY data:', error);
       } finally {
-        setLoading(false);
+        // Loading complete
       }
     };
 

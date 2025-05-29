@@ -10,13 +10,13 @@ interface ChainableUrl {
 // Helper function to extract YouTube or Vimeo video ID
 const getVideoId = (url: string) => {
   // YouTube
-  let match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+  let match = url.match(/(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/);
   if (match && match[1]) {
     return { platform: 'youtube', id: match[1] };
   }
 
   // Vimeo
-  match = url.match(/(?:vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^\/]*)\/videos\/|album\/(?:\d+)\/video\/|)(\d+)(?:$|\/|\?))/);
+  match = url.match(/(?:vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^/]*)\/videos\/|album\/(?:\d+)\/video\/|)(\d+)(?:$|\/|\?))/);
   if (match && match[1]) {
     return { platform: 'vimeo', id: match[1] };
   }
@@ -25,7 +25,12 @@ const getVideoId = (url: string) => {
 };
 
 // Component for rendering embedded videos
-const VideoEmbed: React.FC<{ value: any }> = ({ value }) => {
+interface VideoEmbedValue {
+  videoUrl: string;
+  caption?: string;
+}
+
+const VideoEmbed: React.FC<{ value: VideoEmbedValue }> = ({ value }) => {
   const { videoUrl, caption } = value;
   const videoInfo = getVideoId(videoUrl);
 
@@ -33,12 +38,9 @@ const VideoEmbed: React.FC<{ value: any }> = ({ value }) => {
     return <div>Invalid video URL</div>;
   }
 
-  let embedUrl = '';
-  if (videoInfo.platform === 'youtube') {
-    embedUrl = `https://www.youtube.com/embed/${videoInfo.id}`;
-  } else if (videoInfo.platform === 'vimeo') {
-    embedUrl = `https://player.vimeo.com/video/${videoInfo.id}`;
-  }
+  const embedUrl = videoInfo.platform === 'youtube'
+    ? `https://www.youtube.com/embed/${videoInfo.id}`
+    : `https://player.vimeo.com/video/${videoInfo.id}`;
 
   return (
     <div className="video-container my-8">

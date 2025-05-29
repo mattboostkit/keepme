@@ -17,7 +17,7 @@ function About() {
       if (lines.length === 0) return null;
 
       let subHeadingText = "";
-      let currentListItems = [];
+      let currentListItems: string[] = [];
 
       if (!lines[0].startsWith('- ')) {
         subHeadingText = lines[0].replace(':', '');
@@ -302,7 +302,7 @@ function About() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-20 bg-brand-highlight/20">
+      <section className="py-20 bg-brand-plum/20">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Values</span></h2>
@@ -410,7 +410,7 @@ function About() {
         <div className="container mx-auto px-6">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Contact <span className="text-brand-accent">Us</span>
+              Contact <span className="text-brand-mauve">Us</span>
             </h2>
             <p className="text-lg text-gray-600">
               Get in touch to discuss your project requirements

@@ -26,7 +26,7 @@ const PortfolioClientTemplate: React.FC<PortfolioClientTemplateProps> = ({
         <img src={image} alt={clientName} className="object-cover w-full h-full max-h-72 rounded-2xl shadow-xl" />
       </div>
       {/* Top-right: Dummy Text */}
-      <div className="col-start-2 row-start-1 flex items-center justify-center bg-brand-highlight/10 rounded-2xl">
+      <div className="col-start-2 row-start-1 flex items-center justify-center bg-brand-plum/10 rounded-2xl">
         <span className="text-xl text-brand-plum font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
       </div>
       {/* Bottom-left: Dummy Text */}
@@ -66,7 +66,7 @@ const PortfolioClientTemplate: React.FC<PortfolioClientTemplateProps> = ({
       {website && (
         <div className="mb-8">
           <h3 className="text-2xl font-semibold text-brand-plum mb-3">Website</h3>
-          <a href={website} target="_blank" rel="noopener noreferrer" className="text-brand-accent hover:underline">
+          <a href={website} target="_blank" rel="noopener noreferrer" className="text-brand-mauve hover:underline">
             {website}
           </a>
         </div>

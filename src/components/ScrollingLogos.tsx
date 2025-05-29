@@ -17,9 +17,9 @@ function ScrollingLogos() {
             {[...Array(2)].map((_, setIndex) => (
               <React.Fragment key={setIndex}>
                 {logos.map((logoText, logoIndex) => (
-                  <div key={`${setIndex}-${logoIndex}`} className="flex-shrink-0 w-40 mx-8 flex items-center justify-center h-16">
+                  <div key={`${setIndex}-${logoIndex}`} className="flex-shrink-0 w-24 sm:w-32 md:w-40 mx-4 sm:mx-6 md:mx-8 flex items-center justify-center h-12 sm:h-14 md:h-16">
                     {/* In a real app, this would likely be an <img> tag */}
-                    <span className="text-brand-card text-2xl font-bold">{logoText}</span>
+                    <span className="text-brand-peach text-lg sm:text-xl md:text-2xl font-bold">{logoText}</span>
                   </div>
                 ))}
               </React.Fragment>

@@ -6,7 +6,7 @@ import { client } from './sanity';
  * @param params Query parameters
  * @returns Promise with the query results
  */
-export async function fetchSanityData<T>(query: string, params?: Record<string, any>): Promise<T> {
+export async function fetchSanityData<T>(query: string, params?: Record<string, unknown>): Promise<T> {
   try {
     return await client.fetch(query, params);
   } catch (error) {

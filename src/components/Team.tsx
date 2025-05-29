@@ -8,7 +8,11 @@ interface TeamMember {
   _id: string;
   name: string;
   title: string;
-  image: any; // Sanity image reference
+  image: {
+    asset: {
+      _ref: string;
+    };
+  }; // Sanity image reference
   linkedinUrl?: string;
 
   displayOrder: number;
@@ -41,7 +45,7 @@ const Team: React.FC<TeamProps> = ({
       const fetchTeamMembers = async () => {
         try {
           setLoading(true);
-          let query = '*[_type == "teamMember"] | order(displayOrder asc)';
+          const query = '*[_type == "teamMember"] | order(displayOrder asc)';
 
           const result = await fetchSanityData<TeamMember[]>(query);
 
@@ -71,7 +75,7 @@ const Team: React.FC<TeamProps> = ({
                   {title.split(' ').map((word, index, array) =>
                     index === array.length - 1 ?
                       <span key={index}>
-                        <span className="text-brand-accent">{word}</span>
+                        <span className="text-brand-mauve">{word}</span>
                       </span> :
                       <span key={index}>{word} </span>
                   )}
@@ -107,6 +111,9 @@ const Team: React.FC<TeamProps> = ({
                   <img
                     src={urlFor(member.image).width(600).height(600).url()}
                     alt={member.name}
+                    width={600}
+                    height={600}
+                    loading="lazy"
                     className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {member.linkedinUrl && (

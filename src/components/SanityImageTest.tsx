@@ -2,8 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { client } from '../lib/sanity';
 import { urlFor } from '../lib/sanity';
 
+interface SanityBrand {
+  _id: string;
+  name: string;
+  image: {
+    asset: {
+      _ref: string;
+    };
+  };
+}
+
 const SanityImageTest: React.FC = () => {
-  const [imageData, setImageData] = useState<any>(null);
+  const [imageData, setImageData] = useState<SanityBrand | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

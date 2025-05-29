@@ -73,7 +73,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </div>
               {/* Apply conditional styling to the year title */}
               <h3 className={`hidden md:block text-xl md:text-3xl lg:text-5xl font-bold font-serif md:pl-20 transition-colors duration-300 ${ // Added font-serif
-                  activeIndex === index ? 'text-brand-accent dark:text-brand-accent' : 'text-brand-accent/50 dark:text-brand-accent/50'
+                  activeIndex === index ? 'text-brand-mauve dark:text-brand-mauve' : 'text-brand-mauve/50 dark:text-brand-mauve/50'
                 }`}>
                 {item.title}
               </h3>
@@ -82,7 +82,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
               {/* Apply conditional styling to the mobile year title */}
               <h3 className={`md:hidden block text-2xl mb-4 text-left font-bold font-serif transition-colors duration-300 ${ // Added font-serif
-                  activeIndex === index ? 'text-brand-accent dark:text-brand-accent' : 'text-brand-accent/50 dark:text-brand-accent/50'
+                  activeIndex === index ? 'text-brand-mauve dark:text-brand-mauve' : 'text-brand-mauve/50 dark:text-brand-mauve/50'
                 }`}>
                 {item.title}
               </h3>
@@ -101,7 +101,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-brand-accent via-brand-accent to-transparent from-[0%] via-[10%] rounded-full"
+            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-brand-mauve via-brand-mauve to-transparent from-[0%] via-[10%] rounded-full"
           />
         </div>
       </div>

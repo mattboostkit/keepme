@@ -24,12 +24,28 @@ function FreightCalculator() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // This is a placeholder calculation - replace with your actual calculation logic
-    // For now, we'll just show a dummy result
+    // Validate inputs
+    if (!origin || !destination || !weight || !dimensions.length || !dimensions.width || !dimensions.height) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    // Calculate volumetric weight
+    const volumetricWeight = (parseFloat(dimensions.length) * parseFloat(dimensions.width) * parseFloat(dimensions.height)) / 5000;
+    const chargeableWeight = Math.max(parseFloat(weight), volumetricWeight);
+
+    // Basic calculation logic (placeholder rates)
+    const baseRate = shippingMethod === 'express' ? 25 : 15;
+    const distanceMultiplier = origin === destination ? 0.5 : 1.5;
+    const typeMultiplier = packageType === 'pallet' ? 2 : packageType === 'envelope' ? 0.5 : 1;
+    
+    const cost = Math.round(baseRate * chargeableWeight * distanceMultiplier * typeMultiplier * 100) / 100;
+    const days = shippingMethod === 'express' ? '1-3' : '3-7';
+
     setCalculationResult({
-      cost: 149.99,
-      estimatedDays: '3-5',
-      distance: '1,245 km',
+      cost,
+      estimatedDays: days,
+      distance: origin === destination ? '0 km' : '1,245 km',
     });
   };
 
@@ -40,11 +56,11 @@ function FreightCalculator() {
         <div className="container mx-auto px-6">
           <BackButton to="/tools" label="Back to Tools" />
           <div className="flex items-center mb-6">
-            <div className="bg-brand-highlight/20 p-3 rounded-full mr-4">
-              <Truck className="h-6 w-6 text-brand-card" />
+            <div className="bg-brand-plum/20 p-3 rounded-full mr-4">
+              <Truck className="h-6 w-6 text-brand-peach" />
             </div>
             <h1 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum">
-              Freight <span className="text-brand-accent">Calculator</span>
+              Freight <span className="text-brand-mauve">Calculator</span>
             </h1>
           </div>
           <p className="text-lg text-brand-mauve max-w-3xl">
@@ -111,34 +127,55 @@ function FreightCalculator() {
                     <label className="block text-sm font-medium text-brand-mauve mb-1">
                       Package Type
                     </label>
-                    <div className="grid grid-cols-3 gap-4">
-                      <div
+                    <div className="grid grid-cols-3 gap-4" role="radiogroup" aria-label="Package Type">
+                      <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'box' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'box' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
-                        onClick={() => setPackageType('box')}
                       >
+                        <input
+                          type="radio"
+                          name="packageType"
+                          value="box"
+                          checked={packageType === 'box'}
+                          onChange={(e) => setPackageType(e.target.value)}
+                          className="sr-only"
+                        />
                         <div className="flex justify-center mb-2">📦</div>
                         <div className="text-sm font-medium">Box</div>
-                      </div>
-                      <div
+                      </label>
+                      <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'pallet' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'pallet' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
-                        onClick={() => setPackageType('pallet')}
                       >
+                        <input
+                          type="radio"
+                          name="packageType"
+                          value="pallet"
+                          checked={packageType === 'pallet'}
+                          onChange={(e) => setPackageType(e.target.value)}
+                          className="sr-only"
+                        />
                         <div className="flex justify-center mb-2">🔢</div>
                         <div className="text-sm font-medium">Pallet</div>
-                      </div>
-                      <div
+                      </label>
+                      <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'envelope' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'envelope' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
-                        onClick={() => setPackageType('envelope')}
                       >
+                        <input
+                          type="radio"
+                          name="packageType"
+                          value="envelope"
+                          checked={packageType === 'envelope'}
+                          onChange={(e) => setPackageType(e.target.value)}
+                          className="sr-only"
+                        />
                         <div className="flex justify-center mb-2">✉️</div>
                         <div className="text-sm font-medium">Envelope</div>
-                      </div>
+                      </label>
                     </div>
                   </div>
 
@@ -206,34 +243,55 @@ function FreightCalculator() {
                     <label className="block text-sm font-medium text-brand-mauve mb-1">
                       Shipping Method
                     </label>
-                    <div className="grid grid-cols-3 gap-4">
-                      <div
+                    <div className="grid grid-cols-3 gap-4" role="radiogroup" aria-label="Shipping Method">
+                      <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'standard' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'standard' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
-                        onClick={() => setShippingMethod('standard')}
                       >
+                        <input
+                          type="radio"
+                          name="shippingMethod"
+                          value="standard"
+                          checked={shippingMethod === 'standard'}
+                          onChange={(e) => setShippingMethod(e.target.value)}
+                          className="sr-only"
+                        />
                         <div className="text-sm font-medium">Standard</div>
-                        <div className="text-xs text-gray-500">5-7 days</div>
-                      </div>
-                      <div
+                        <div className="text-xs text-gray-500">3-7 days</div>
+                      </label>
+                      <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'express' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'express' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
-                        onClick={() => setShippingMethod('express')}
                       >
+                        <input
+                          type="radio"
+                          name="shippingMethod"
+                          value="express"
+                          checked={shippingMethod === 'express'}
+                          onChange={(e) => setShippingMethod(e.target.value)}
+                          className="sr-only"
+                        />
                         <div className="text-sm font-medium">Express</div>
-                        <div className="text-xs text-gray-500">2-3 days</div>
-                      </div>
-                      <div
+                        <div className="text-xs text-gray-500">1-3 days</div>
+                      </label>
+                      <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'priority' ? 'bg-brand-highlight/20 border-brand-card' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'priority' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
-                        onClick={() => setShippingMethod('priority')}
                       >
+                        <input
+                          type="radio"
+                          name="shippingMethod"
+                          value="priority"
+                          checked={shippingMethod === 'priority'}
+                          onChange={(e) => setShippingMethod(e.target.value)}
+                          className="sr-only"
+                        />
                         <div className="text-sm font-medium">Priority</div>
-                        <div className="text-xs text-gray-500">1-2 days</div>
-                      </div>
+                        <div className="text-xs text-gray-500">Next day</div>
+                      </label>
                     </div>
                   </div>
 
@@ -255,7 +313,7 @@ function FreightCalculator() {
                   <h2 className="text-2xl font-bold mb-6 text-brand-plum">Shipping Estimate</h2>
 
                   <div className="mb-8">
-                    <div className="flex justify-between items-center p-4 bg-brand-highlight/20 rounded-lg mb-4">
+                    <div className="flex justify-between items-center p-4 bg-brand-plum/20 rounded-lg mb-4">
                       <div className="text-lg font-medium">Shipping Cost</div>
                       <div className="text-2xl font-bold">£{calculationResult.cost.toFixed(2)}</div>
                     </div>
@@ -305,8 +363,8 @@ function FreightCalculator() {
               ) : (
                 <div className="bg-white p-8 rounded-2xl shadow-md h-full flex flex-col justify-center">
                   <div className="text-center mb-6">
-                    <div className="bg-brand-highlight/20 p-4 rounded-full inline-flex justify-center items-center mb-4">
-                      <Truck className="h-8 w-8 text-brand-card" />
+                    <div className="bg-brand-plum/20 p-4 rounded-full inline-flex justify-center items-center mb-4">
+                      <Truck className="h-8 w-8 text-brand-peach" />
                     </div>
                     <h2 className="text-2xl font-bold mb-2 text-brand-plum">Shipping Calculator</h2>
                     <p className="text-brand-mauve">
@@ -403,7 +461,7 @@ function FreightCalculator() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 bg-brand-card">
+      <section className="py-12 bg-brand-peach">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-2xl font-bold mb-4">Need a Custom Shipping Solution?</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">

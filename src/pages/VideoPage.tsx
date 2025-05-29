@@ -6,13 +6,13 @@ import { urlFor } from '../lib/sanity';
 // Helper function to extract YouTube or Vimeo video ID
 const getVideoId = (url: string) => {
   // YouTube
-  let match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+  let match = url.match(/(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/);
   if (match && match[1]) {
     return { platform: 'youtube', id: match[1] };
   }
 
   // Vimeo
-  match = url.match(/(?:vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^\/]*)\/videos\/|album\/(?:\d+)\/video\/|)(\d+)(?:$|\/|\?))/);
+  match = url.match(/(?:vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^/]*)\/videos\/|album\/(?:\d+)\/video\/|)(\d+)(?:$|\/|\?))/);
   if (match && match[1]) {
     return { platform: 'vimeo', id: match[1] };
   }
@@ -85,7 +85,7 @@ const SingleVideoPage: React.FC = () => {
       <div className="mt-8">
         <a
           href="/videos"
-          className="px-4 py-2 bg-brand-button text-white rounded-full hover:bg-brand-card transition-colors"
+          className="px-4 py-2 bg-brand-rose text-white rounded-full hover:bg-brand-peach transition-colors"
         >
           Back to all videos
         </a>

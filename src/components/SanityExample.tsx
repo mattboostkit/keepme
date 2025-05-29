@@ -16,7 +16,11 @@ interface Post {
     };
   };
   publishedAt?: string;
-  body?: any;
+  body?: Array<{
+    _type: string;
+    _key: string;
+    [key: string]: unknown;
+  }>;
   description?: string;
 }
 

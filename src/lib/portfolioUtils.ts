@@ -1,5 +1,4 @@
 import { fetchSanityData } from './sanityUtils';
-import { urlFor } from './sanity';
 import { PortfolioItem } from '../components/FilterablePortfolio';
 
 // Interface for Sanity portfolio brand
@@ -9,7 +8,11 @@ interface SanityPortfolioBrand {
   slug: {
     current: string;
   };
-  image: any;
+  image: {
+    asset: {
+      _ref: string;
+    };
+  };
   features: string[];
   description: string;
   displayOrder: number;
@@ -19,16 +22,14 @@ interface SanityPortfolioBrand {
 export const convertSanityPortfolioBrands = (brands: SanityPortfolioBrand[]): PortfolioItem[] => {
   return brands.map(brand => {
     // Create a direct CDN URL for the image
-    let imageUrl = '';
+    const imageUrl = brand.image && brand.image.asset && brand.image.asset._ref
+      ? (() => {
+          const ref = brand.image.asset._ref;
+          const [, id, dimensions, extension] = ref.split('-');
+          return `https://cdn.sanity.io/images/tyzs5imn/production/${id}-${dimensions}.${extension}`;
+        })()
+      : '';
 
-    if (brand.image && brand.image.asset && brand.image.asset._ref) {
-      // Extract the image ID from the reference
-      const ref = brand.image.asset._ref;
-      const [, id, dimensions, extension] = ref.split('-');
-
-      // Construct the CDN URL directly
-      imageUrl = `https://cdn.sanity.io/images/tyzs5imn/production/${id}-${dimensions}.${extension}`;
-    }
 
     // Create a URL-friendly ID from the brand name
     const urlFriendlyId = brand.name.toLowerCase().replace(/[^a-z0-9]/g, '-');

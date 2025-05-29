@@ -1,6 +1,7 @@
 // React import removed - not needed in modern React
 // Removed StickyScroll import
 import { Timeline } from '../components/ui/Timeline';
+import OptimizedImage from '../components/OptimizedImage';
 // Removed unused Image import (and it's incorrect for Vite)
 // All icons removed as requested
 
@@ -14,7 +15,13 @@ const timelineData = [
         <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           Sourcing and mixing high-quality raw materials such as silica sand, soda ash, limestone, and other additives required for glass production. Our facility uses state of the art technology to carefully mix the raw materials into a precise formula (batch).
         </p>
-        <img src="https://cdn.sanity.io/images/tyzs5imn/production/d44d11713334b38c92e50653c3f621ccef490718-1200x800.webp" alt="Sourcing and mixing raw materials for glass production" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+        <img 
+          src="https://cdn.sanity.io/images/tyzs5imn/production/d44d11713334b38c92e50653c3f621ccef490718-1200x800.webp" 
+          alt="Sourcing and mixing raw materials for glass production" 
+          className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" 
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     ),
   },
@@ -30,7 +37,13 @@ const timelineData = [
           <li>Blow and Blow</li>
           <li>Press and Blow</li>
         </ul>
-        <img src="https://cdn.sanity.io/images/tyzs5imn/production/eaf07ea735af0ef69759f30e3762caf39d7eeb92-1600x1066.webp" alt="Molten glass being formed" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+        <img 
+          src="https://cdn.sanity.io/images/tyzs5imn/production/eaf07ea735af0ef69759f30e3762caf39d7eeb92-1600x1066.webp" 
+          alt="Molten glass being formed" 
+          className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" 
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     ),
   },
@@ -42,7 +55,13 @@ const timelineData = [
         <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           Slowly cooling the formed glass bottles in an annealing oven (lehr) to relieve internal stresses and prevent cracking.
         </p>
-        <img src="https://cdn.sanity.io/images/tyzs5imn/production/c04c75d97aa256414fdfc589f11e866905f2b000-1600x1066.webp" alt="Glass bottles in an annealing oven" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+        <img 
+          src="https://cdn.sanity.io/images/tyzs5imn/production/c04c75d97aa256414fdfc589f11e866905f2b000-1600x1066.webp" 
+          alt="Glass bottles in an annealing oven" 
+          className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" 
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     ),
   },
@@ -54,7 +73,13 @@ const timelineData = [
         <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           Checking bottles for defects such as bubbles, cracks, or irregular shapes using automated systems and manual inspection. The bottles are then packed for shipment to customers or decoration facilities.
         </p>
-        <img src="https://cdn.sanity.io/images/tyzs5imn/production/582d5e7983c888e264a3e527547bf57632c026b7-1600x1066.webp" alt="Manual inspection of glass bottles" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+        <img 
+          src="https://cdn.sanity.io/images/tyzs5imn/production/582d5e7983c888e264a3e527547bf57632c026b7-1600x1066.webp" 
+          alt="Manual inspection of glass bottles" 
+          className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" 
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     ),
   },
@@ -66,7 +91,13 @@ const timelineData = [
         <p className="text-brand-mauve dark:text-neutral-300 text-sm md:text-base">
           Expert finishing techniques and decorative elements add distinctive character to each piece.
         </p>
-        <img src="https://cdn.sanity.io/images/tyzs5imn/production/34c9b100b596972fdbf1429d14462043725ed3df-1600x1066.webp" alt="Decorated glass perfume bottles" className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" />
+        <img 
+          src="https://cdn.sanity.io/images/tyzs5imn/production/34c9b100b596972fdbf1429d14462043725ed3df-1600x1066.webp" 
+          alt="Decorated glass perfume bottles" 
+          className="mt-4 rounded-lg shadow-md w-full h-auto object-cover" 
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     ),
   },
@@ -102,6 +133,8 @@ function Glass() {
                 src="https://cdn.sanity.io/images/tyzs5imn/production/59313bd50e9799ef00ea9c463cc5854043e98d95-1400x900.jpg"
                 alt="KeepMe luxury glass perfume bottles"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
+                loading="eager"
+                decoding="sync"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
@@ -210,7 +243,7 @@ function Glass() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
-                Custom Glass <span className="text-brand-card">Solutions</span>
+                Custom Glass <span className="text-brand-peach">Solutions</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 Beyond our standard offerings, we specialise in creating bespoke glass components tailored to your specific vision and requirements.
@@ -235,7 +268,7 @@ function Glass() {
                   </div>
                 </div>
               </div>
-              <button className="bg-brand-button text-white px-8 py-3 rounded-full hover:bg-brand-card transition-colors">
+              <button className="bg-brand-rose text-white px-8 py-3 rounded-full hover:bg-brand-peach transition-colors">
                 Schedule a Consultation
               </button>
             </div>
@@ -244,21 +277,29 @@ function Glass() {
                 src="https://cdn.sanity.io/images/tyzs5imn/production/2843ef942571776b77029faa8e5ccb0af285ec1d-3590x4787.webp"
                 alt="Custom glass perfume bottle"
                 className="rounded-2xl shadow-md w-full h-64 object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="https://cdn.sanity.io/images/tyzs5imn/production/7b8ab701663d19cd36d8fddeaa1dfb1e73d4a5ac-3590x4787.webp"
                 alt="Luxury glass bottle detail"
                 className="rounded-2xl shadow-md w-full h-64 object-cover mt-12"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="https://cdn.sanity.io/images/tyzs5imn/production/d4beeb28634e5c79b343e100faceafde1efb533c-1226x958.webp"
                 alt="Decorative glass elements"
                 className="rounded-2xl shadow-md w-full h-64 object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="https://cdn.sanity.io/images/tyzs5imn/production/d798aba6d18ef671fb30f31153ddbf3a3f79465b-803x850.png"
                 alt="Frosted glass bottle"
                 className="rounded-2xl shadow-md w-full h-64 object-cover mt-12"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

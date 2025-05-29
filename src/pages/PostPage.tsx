@@ -19,7 +19,11 @@ interface Post {
     };
   };
   publishedAt?: string;
-  body?: any[]; // This would ideally be typed more specifically for Portable Text
+  body?: Array<{
+    _type: string;
+    _key: string;
+    [key: string]: unknown;
+  }>; // Portable Text block array
 }
 
 const PostPage: React.FC = () => {

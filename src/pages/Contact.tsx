@@ -22,7 +22,7 @@ function Contact() {
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
-              Get in <span className="text-brand-accent">Touch</span>
+              Get in <span className="text-brand-mauve">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               Are you ready to start your journey with KeepMe Lifestyle? Contact us today to discuss your project.
@@ -37,24 +37,26 @@ function Contact() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               {/* GHL Form Embed Start */}
-              <iframe
-                src="https://link.boostkit.io/widget/form/13vSfuzUpZsN8Rmcbfqz"
-                style={{width:'100%', height:'100%', border:'none', borderRadius:'8px'}}
-                id="inline-13vSfuzUpZsN8Rmcbfqz" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="KeepMe Lifestyle Contact Form"
-                data-height="863"
-                data-layout-iframe-id="inline-13vSfuzUpZsN8Rmcbfqz"
-                data-form-id="13vSfuzUpZsN8Rmcbfqz"
-                title="KeepMe Lifestyle Contact Form"
-              >
-              </iframe>
+              <div className="w-full" style={{minHeight: '600px', height: '863px'}}>
+                <iframe
+                  src="https://link.boostkit.io/widget/form/13vSfuzUpZsN8Rmcbfqz"
+                  className="w-full h-full border-none rounded-lg"
+                  id="inline-13vSfuzUpZsN8Rmcbfqz" 
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="KeepMe Lifestyle Contact Form"
+                  data-height="863"
+                  data-layout-iframe-id="inline-13vSfuzUpZsN8Rmcbfqz"
+                  data-form-id="13vSfuzUpZsN8Rmcbfqz"
+                  title="KeepMe Lifestyle Contact Form"
+                >
+                </iframe>
+              </div>
               {/* GHL Form Embed End */}
             </div>
             <div>

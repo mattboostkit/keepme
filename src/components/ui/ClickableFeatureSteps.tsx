@@ -46,7 +46,7 @@ export function ClickableFeatureSteps({
                   key={i}
                   className={cn(
                     "absolute w-0.5 transition-all duration-500",
-                    i < currentFeature ? "bg-brand-accent" : "bg-transparent"
+                    i < currentFeature ? "bg-brand-mauve" : "bg-transparent"
                   )}
                   style={{
                     top: `${(i * 100) / features.length}%`,
@@ -72,9 +72,9 @@ export function ClickableFeatureSteps({
                   className={cn(
                     "w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border-2",
                     index === currentFeature
-                      ? "bg-brand-accent border-brand-accent text-white"
+                      ? "bg-brand-mauve border-brand-mauve text-white"
                       : index < currentFeature
-                        ? "bg-brand-accent border-brand-accent text-white"
+                        ? "bg-brand-mauve border-brand-mauve text-white"
                         : "bg-muted border-muted-foreground"
                   )}
                 >

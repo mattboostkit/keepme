@@ -36,7 +36,7 @@ const FaqAccordion: React.FC<FaqAccordionProps> = ({ items }) => {
             aria-controls={`faq-answer-${index}`}
           >
             <h4 className="text-lg font-normal text-gray-800">{item.question}</h4>
-            <span className="text-brand-accent">
+            <span className="text-brand-mauve">
               {openItems.includes(index) ? (
                 <ChevronUp className="h-5 w-5" />
               ) : (

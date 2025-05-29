@@ -9,7 +9,11 @@ interface ServicePageSection {
   _id: string;
   serviceName: string;
   sectionName: string;
-  image: any; // Sanity image reference
+  image: {
+    asset: {
+      _ref: string;
+    };
+  }; // Sanity image reference
   order: number;
 }
 
@@ -66,7 +70,7 @@ const ServicePageWithSections: React.FC<ServicePageWithSectionsProps> = ({
         {/* Loading indicator */}
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-card"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-peach"></div>
           </div>
         )}
       </div>

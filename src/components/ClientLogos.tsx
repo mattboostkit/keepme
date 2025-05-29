@@ -6,7 +6,11 @@ import { urlFor } from '../lib/sanity';
 interface Logo {
   _id: string;
   name: string;
-  image: any; // Sanity image reference
+  image: {
+    asset: {
+      _ref: string;
+    };
+  }; // Sanity image reference
   url?: string;
   displayOrder: number;
 }

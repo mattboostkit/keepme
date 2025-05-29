@@ -24,7 +24,7 @@ const InputField = ({ id, label, value, onChange, placeholder, icon: Icon, unit 
 }) => (
   <div>
     <label htmlFor={id} className="flex items-center text-sm font-medium text-brand-mauve mb-1">
-      <Icon className="w-4 h-4 mr-1 text-brand-card" />
+      <Icon className="w-4 h-4 mr-1 text-brand-peach" />
       {label} {unit && `(${unit})`}
     </label>
     <input
@@ -37,7 +37,7 @@ const InputField = ({ id, label, value, onChange, placeholder, icon: Icon, unit 
       step="any" // Allow any decimal step
       onChange={onChange}
       placeholder={placeholder}
-      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm"
+      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm"
     />
   </div>
 );
@@ -49,7 +49,7 @@ const ResultCard = ({ title, value, isCurrency = false, isHighlighted = false }:
   isCurrency?: boolean;
   isHighlighted?: boolean;
 }) => (
-  <div className={`p-4 rounded-lg ${isHighlighted ? 'bg-brand-highlight/20 border border-brand-card' : 'bg-brand-highlight/10'}`}>
+  <div className={`p-4 rounded-lg ${isHighlighted ? 'bg-brand-plum/20 border border-brand-peach' : 'bg-brand-plum/10'}`}>
     <p className="text-sm text-brand-mauve mb-1">{title}</p>
     <p className={`text-2xl font-bold ${isHighlighted ? 'text-brand-plum' : 'text-brand-plum'}`}>
       {isCurrency ? formatCurrency(value) : formatNumber(value)}
@@ -173,7 +173,7 @@ function FragranceCalculator() {
           {/* Input Parameters */}
           <div className="mb-8">
             <h2 className="text-lg font-semibold text-brand-plum mb-4 flex items-center">
-              <Calculator className="w-5 h-5 mr-2 text-brand-card" /> Input Parameters
+              <Calculator className="w-5 h-5 mr-2 text-brand-peach" /> Input Parameters
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {/* Bind inputs to raw string state variables */}
@@ -192,7 +192,7 @@ function FragranceCalculator() {
           {/* Calculation Results */}
           <div>
             <h2 className="text-lg font-semibold text-brand-plum mb-4 flex items-center">
-              <Info className="w-5 h-5 mr-2 text-brand-card" /> Calculation Results
+              <Info className="w-5 h-5 mr-2 text-brand-peach" /> Calculation Results
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               <ResultCard title="ml per Product" value={mlPerProduct} />
@@ -301,7 +301,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ inputs, outputs }) => {
   };
 
   return (
-    <div className="mt-10 bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-brand-highlight/20">
+    <div className="mt-10 bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-brand-plum/20">
       <h3 className="text-xl font-semibold text-brand-plum mb-6">Enquiry Details</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Display Calculation Summary (Readonly) */}
@@ -321,28 +321,28 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ inputs, outputs }) => {
         {/* Dummy Enquiry Fields */}
         <div>
           <label htmlFor="fragranceName" className="block text-sm font-medium text-brand-mauve">Fragrance Name (Optional)</label>
-          <input type="text" id="fragranceName" value={fragranceName} onChange={(e) => setFragranceName(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" />
+          <input type="text" id="fragranceName" value={fragranceName} onChange={(e) => setFragranceName(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" />
         </div>
         <div>
           <label htmlFor="notesDescription" className="block text-sm font-medium text-brand-mauve">Notes Description / Concept</label>
-          <textarea id="notesDescription" value={notesDescription} onChange={(e) => setNotesDescription(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" placeholder="e.g., Woody base, floral heart, citrus top notes..."></textarea>
+          <textarea id="notesDescription" value={notesDescription} onChange={(e) => setNotesDescription(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" placeholder="e.g., Woody base, floral heart, citrus top notes..."></textarea>
         </div>
          <div>
           <label htmlFor="targetAudience" className="block text-sm font-medium text-brand-mauve">Target Audience (Optional)</label>
-          <input type="text" id="targetAudience" value={targetAudience} onChange={(e) => setTargetAudience(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" placeholder="e.g., Young professionals, luxury market..." />
+          <input type="text" id="targetAudience" value={targetAudience} onChange={(e) => setTargetAudience(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" placeholder="e.g., Young professionals, luxury market..." />
         </div>
          <div>
           <label htmlFor="additionalInfo" className="block text-sm font-medium text-brand-mauve">Additional Information</label>
-          <textarea id="additionalInfo" value={additionalInfo} onChange={(e) => setAdditionalInfo(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" placeholder="Any specific requirements, packaging ideas, etc."></textarea>
+          <textarea id="additionalInfo" value={additionalInfo} onChange={(e) => setAdditionalInfo(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" placeholder="Any specific requirements, packaging ideas, etc."></textarea>
         </div>
          <hr className="my-4"/>
          <div>
           <label htmlFor="contactName" className="block text-sm font-medium text-brand-mauve">Your Name *</label>
-          <input type="text" id="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" />
+          <input type="text" id="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" />
         </div>
          <div>
           <label htmlFor="contactEmail" className="block text-sm font-medium text-brand-mauve">Your Email *</label>
-          <input type="email" id="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-card focus:border-brand-card sm:text-sm" />
+          <input type="email" id="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" />
         </div>
 
         <button

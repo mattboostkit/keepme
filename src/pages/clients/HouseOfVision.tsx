@@ -4,12 +4,10 @@ import { fetchPortfolioBrandByName, getPortfolioBrandImageUrl } from '../../lib/
 
 const HouseOfVisionPage: React.FC = () => {
   const [clientImage, setClientImage] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchBrandData = async () => {
       try {
-        setLoading(true);
         const brandData = await fetchPortfolioBrandByName('House of Vision');
         if (brandData) {
           const imageUrl = getPortfolioBrandImageUrl(brandData);
@@ -18,7 +16,7 @@ const HouseOfVisionPage: React.FC = () => {
       } catch (error) {
         console.error('Error fetching House of Vision data:', error);
       } finally {
-        setLoading(false);
+        // Loading complete
       }
     };
 

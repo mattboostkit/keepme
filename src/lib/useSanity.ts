@@ -7,7 +7,7 @@ import { fetchSanityData } from './sanityUtils';
  * @param params Query parameters
  * @returns Object with data, loading state, and error
  */
-export function useSanityQuery<T>(query: string, params?: Record<string, any>) {
+export function useSanityQuery<T>(query: string, params?: Record<string, unknown>) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
@@ -28,6 +28,7 @@ export function useSanityQuery<T>(query: string, params?: Record<string, any>) {
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, JSON.stringify(params)]);
 
   return { data, loading, error };

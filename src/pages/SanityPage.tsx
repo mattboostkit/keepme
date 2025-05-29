@@ -28,7 +28,7 @@ const SanityPage: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4 pt-32 mb-16">
-      <h1 className="text-4xl font-serif font-bold mb-8 text-gray-900">Posts from <span className="text-brand-accent">KeepMe</span></h1>
+      <h1 className="text-4xl font-serif font-bold mb-8 text-gray-900">Posts from <span className="text-brand-mauve">KeepMe</span></h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
@@ -47,7 +47,7 @@ const SanityPage: React.FC = () => {
               )}
             </div>
             <div className="p-6">
-              <h2 className="text-xl font-bold mb-3 group-hover:text-brand-card transition-colors">{post.title}</h2>
+              <h2 className="text-xl font-bold mb-3 group-hover:text-brand-peach transition-colors">{post.title}</h2>
               {post.publishedAt && (
                 <p className="text-sm text-gray-500">
                   Published: {new Date(post.publishedAt).toLocaleDateString()}
@@ -56,7 +56,7 @@ const SanityPage: React.FC = () => {
               {post.slug && (
                 <a
                   href={`/post/${post.slug.current}`}
-                  className="mt-4 inline-flex items-center px-5 py-2 bg-brand-button text-white rounded-full hover:bg-brand-card transition-colors"
+                  className="mt-4 inline-flex items-center px-5 py-2 bg-brand-rose text-white rounded-full hover:bg-brand-peach transition-colors"
                 >
                   <span>Read more</span>
                 </a>

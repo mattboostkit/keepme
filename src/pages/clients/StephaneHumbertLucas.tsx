@@ -4,12 +4,10 @@ import { fetchPortfolioBrandByName, getPortfolioBrandImageUrl } from '../../lib/
 
 const StephaneHumbertLucasPage: React.FC = () => {
   const [clientImage, setClientImage] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchBrandData = async () => {
       try {
-        setLoading(true);
         const brandData = await fetchPortfolioBrandByName('Stephane Humbert Lucas');
         if (brandData) {
           const imageUrl = getPortfolioBrandImageUrl(brandData);
@@ -18,7 +16,7 @@ const StephaneHumbertLucasPage: React.FC = () => {
       } catch (error) {
         console.error('Error fetching Stephane Humbert Lucas data:', error);
       } finally {
-        setLoading(false);
+        // Loading complete
       }
     };
 

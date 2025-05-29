@@ -317,7 +317,7 @@ function SanityBlog() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 bg-brand-card text-white">
+      <section className="py-16 bg-brand-peach text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-serif font-bold mb-6">Subscribe to Our Newsletter</h2>

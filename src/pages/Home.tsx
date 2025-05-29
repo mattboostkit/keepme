@@ -233,7 +233,7 @@ function Home() { // Component name is Home
                        <h3 className="text-xl font-bold mb-2 group-hover:text-brand-plum transition-colors">{service.title}</h3>
                        <p className="text-gray-600 text-sm mb-3">{service.shortDescription}</p>
                        {/* Optional: Keep Learn More link if desired, style appropriately */}
-                       {/* <div className="mt-auto text-brand-accent font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm">
+                       {/* <div className="mt-auto text-brand-mauve font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm">
                          Learn More <ArrowRight className="ml-1 h-4 w-4" />
                        </div> */}
                      </div>

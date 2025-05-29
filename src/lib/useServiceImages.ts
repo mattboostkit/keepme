@@ -4,7 +4,11 @@ import { useSanityDocuments } from './useSanity';
 export interface ServiceImage {
   _id: string;
   title: string;
-  image: any; // Sanity image reference
+  image: {
+    asset: {
+      _ref: string;
+    };
+  }; // Sanity image reference
 }
 
 export function useServiceImages() {

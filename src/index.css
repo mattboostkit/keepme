@@ -73,8 +73,5 @@
   h4, h5, h6 {
     @apply font-sans font-normal; /* Poppins 400 for H4, H5, H6 */
   }
-  /* If H2 and H3 still need the brand-mauve color, re-apply it */
-  h2, h3 {
-    @apply text-brand-mauve;
-  }
+  /* Allow H2 and H3 to use contextual colors */
 }

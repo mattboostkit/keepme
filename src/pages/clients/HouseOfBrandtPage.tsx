@@ -6,12 +6,10 @@ const HouseOfBrandtPage: React.FC = () => {
   const [clientImage, setClientImage] = useState<string>('');
   const [clientDescription, setClientDescription] = useState<string>(''); 
   const [clientFeatures, setClientFeatures] = useState<string[]>([]); 
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchBrandData = async () => {
       try {
-        setLoading(true);
         const brandData = await fetchPortfolioBrandByName('House of Brandt');
         if (brandData) {
           const imageUrl = getPortfolioBrandImageUrl(brandData);
@@ -24,7 +22,7 @@ const HouseOfBrandtPage: React.FC = () => {
         setClientDescription('Failed to load description.'); 
         setClientFeatures([]); 
       } finally {
-        setLoading(false);
+        // Loading complete
       }
     };
 
@@ -34,7 +32,7 @@ const HouseOfBrandtPage: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-brand-accent"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-brand-mauve"></div>
       </div>
     );
   }

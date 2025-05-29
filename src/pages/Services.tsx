@@ -85,6 +85,9 @@ function Services() {
                 src={servicesImages.mainOurServicesImage ? (urlFor(servicesImages.mainOurServicesImage).width(1200) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/1226x958.png?text=Main+Service+Image'}
                 alt={servicesImages.mainOurServicesImage?.alt || 'Main Our Services Image'}
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
+                loading="lazy"
+                width="1200"
+                height="500"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
@@ -105,22 +108,22 @@ function Services() {
             <h3 className="text-2xl font-sans font-normal text-brand-plum mb-6 text-center">Our Service <span className="text-brand-rose">Categories</span></h3>
             <div className="flex flex-wrap justify-center gap-4">
               {/* Reordered Links */}
-              <a href="#fragrance-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
+              <a href="#fragrance-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-plum/20 transition-all text-gray-700 font-normal">
                 Fragrance Componentry
               </a>
-              <a href="#home-fragrance" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
+              <a href="#home-fragrance" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-plum/20 transition-all text-gray-700 font-normal">
                 Home Fragrance
               </a>
-              <a href="#luxury-packaging" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
+              <a href="#luxury-packaging" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-plum/20 transition-all text-gray-700 font-normal">
                 Luxury Packaging
               </a>
-              <a href="#gift-with-purchase" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
+              <a href="#gift-with-purchase" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-plum/20 transition-all text-gray-700 font-normal">
                 Gift With Purchase
               </a>
-              <a href="#skincare-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
+              <a href="#skincare-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-plum/20 transition-all text-gray-700 font-normal">
                 Skincare Componentry
               </a>
-              <a href="#fragrance-creation" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-highlight/20 transition-all text-gray-700 font-normal">
+              <a href="#fragrance-creation" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-plum/20 transition-all text-gray-700 font-normal">
                 Fragrance Creation
               </a>
 
@@ -149,18 +152,18 @@ function Services() {
               </Link>
             </div>
             <div>
-              <img src={servicesImages.fragranceComponentryImage ? (urlFor(servicesImages.fragranceComponentryImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Fragrance+Componentry'} alt={servicesImages.fragranceComponentryImage?.alt || 'Fragrance Componentry'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src={servicesImages.fragranceComponentryImage ? (urlFor(servicesImages.fragranceComponentryImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Fragrance+Componentry'} alt={servicesImages.fragranceComponentryImage?.alt || 'Fragrance Componentry'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" loading="lazy" width="800" height="350" />
             </div>
           </div>
         </div>
       </section>
 
       {/* 2. Home Fragrance Section */}
-      <section id="home-fragrance" className="py-20 bg-brand-highlight/20">
+      <section id="home-fragrance" className="py-20 bg-brand-plum/20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <img src={servicesImages.homeFragranceImage ? (urlFor(servicesImages.homeFragranceImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Home+Fragrance'} alt={servicesImages.homeFragranceImage?.alt || 'Home Fragrance'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src={servicesImages.homeFragranceImage ? (urlFor(servicesImages.homeFragranceImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Home+Fragrance'} alt={servicesImages.homeFragranceImage?.alt || 'Home Fragrance'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" loading="lazy" width="800" height="350" />
             </div>
             <div className="order-1 md:order-2">
 
@@ -197,18 +200,18 @@ function Services() {
               </Link>
             </div>
             <div>
-              <img src={servicesImages.luxuryPackagingImage ? (urlFor(servicesImages.luxuryPackagingImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Luxury+Packaging'} alt={servicesImages.luxuryPackagingImage?.alt || 'Luxury Packaging'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src={servicesImages.luxuryPackagingImage ? (urlFor(servicesImages.luxuryPackagingImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Luxury+Packaging'} alt={servicesImages.luxuryPackagingImage?.alt || 'Luxury Packaging'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" loading="lazy" width="800" height="350" />
             </div>
           </div>
         </div>
       </section>
 
       {/* 4. Gift With Purchase Section */}
-      <section id="gift-with-purchase" className="py-20 bg-brand-highlight/20">
+      <section id="gift-with-purchase" className="py-20 bg-brand-plum/20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <img src={servicesImages.giftWithPurchaseImage ? (urlFor(servicesImages.giftWithPurchaseImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Gift+With+Purchase'} alt={servicesImages.giftWithPurchaseImage?.alt || 'Gift With Purchase'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src={servicesImages.giftWithPurchaseImage ? (urlFor(servicesImages.giftWithPurchaseImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Gift+With+Purchase'} alt={servicesImages.giftWithPurchaseImage?.alt || 'Gift With Purchase'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" loading="lazy" width="800" height="350" />
             </div>
             <div className="order-1 md:order-2">
 
@@ -245,18 +248,18 @@ function Services() {
               </Link>
             </div>
             <div>
-              <img src={servicesImages.skincareComponentryImage ? (urlFor(servicesImages.skincareComponentryImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Skincare+Componentry'} alt={servicesImages.skincareComponentryImage?.alt || 'Skincare Componentry'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src={servicesImages.skincareComponentryImage ? (urlFor(servicesImages.skincareComponentryImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Skincare+Componentry'} alt={servicesImages.skincareComponentryImage?.alt || 'Skincare Componentry'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" loading="lazy" width="800" height="350" />
             </div>
           </div>
         </div>
       </section>
 
       {/* 6. Fragrance Creation Section */}
-      <section id="fragrance-creation" className="py-20 bg-brand-highlight/20">
+      <section id="fragrance-creation" className="py-20 bg-brand-plum/20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <img src={servicesImages.fragranceCreationImage ? (urlFor(servicesImages.fragranceCreationImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Fragrance+Creation'} alt={servicesImages.fragranceCreationImage?.alt || 'Fragrance Creation'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src={servicesImages.fragranceCreationImage ? (urlFor(servicesImages.fragranceCreationImage).width(800) as unknown as ChainableUrl).url() : 'https://via.placeholder.com/800x350.png?text=Fragrance+Creation'} alt={servicesImages.fragranceCreationImage?.alt || 'Fragrance Creation'} className="rounded-2xl shadow-xl w-full h-[350px] object-cover" loading="lazy" width="800" height="350" />
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">

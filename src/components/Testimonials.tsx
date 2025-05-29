@@ -9,7 +9,11 @@ interface Testimonial {
   name: string;
   title: string;
   company: string;
-  image: any; // Sanity image reference
+  image: {
+    asset: {
+      _ref: string;
+    };
+  }; // Sanity image reference
   displayOrder: number;
 }
 
