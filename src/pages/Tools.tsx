@@ -29,7 +29,7 @@ function Tools() { // Renamed from ToolsLanding
           <div className="flex justify-center mb-16">
             <div className="max-w-md w-full">
               <Link to="/tools/fragrance-calculator" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
-                <div className="bg-brand-plum/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-peach transition-colors">
+                <div className="bg-brand-plum/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-mauve transition-colors">
                   <FlaskConical className="h-8 w-8 text-brand-rose group-hover:text-brand-plum transition-colors" />
                 </div>
                 <h3 className="text-xl font-semibold text-brand-plum mb-3">Fragrance Calculator</h3>

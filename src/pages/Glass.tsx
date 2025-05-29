@@ -268,7 +268,7 @@ function Glass() {
                   </div>
                 </div>
               </div>
-              <button className="bg-brand-rose text-white px-8 py-3 rounded-full hover:bg-brand-peach transition-colors">
+              <button className="bg-brand-rose text-white px-8 py-3 rounded-full hover:bg-brand-mauve transition-colors">
                 Schedule a Consultation
               </button>
             </div>

@@ -126,7 +126,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <Link to={`/portfolio/${item.id}`} className="relative z-20 block" onClick={(e) => e.stopPropagation()}>
-                    <h3 className="text-xl mb-2 group-hover:text-brand-peach transition-colors hover:text-brand-peach cursor-pointer">
+                    <h3 className="text-xl mb-2 group-hover:text-brand-mauve transition-colors hover:text-brand-mauve cursor-pointer">
                       {item.title}
                     </h3>
                   </Link>

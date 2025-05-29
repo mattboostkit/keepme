@@ -85,7 +85,7 @@ const SingleVideoPage: React.FC = () => {
       <div className="mt-8">
         <a
           href="/videos"
-          className="px-4 py-2 bg-brand-rose text-white rounded-full hover:bg-brand-peach transition-colors"
+          className="px-4 py-2 bg-brand-rose text-white rounded-full hover:bg-brand-mauve transition-colors"
         >
           Back to all videos
         </a>

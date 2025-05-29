@@ -47,7 +47,7 @@ const SanityPage: React.FC = () => {
               )}
             </div>
             <div className="p-6">
-              <h2 className="text-xl font-bold mb-3 group-hover:text-brand-peach transition-colors">{post.title}</h2>
+              <h2 className="text-xl font-bold mb-3 group-hover:text-brand-mauve transition-colors">{post.title}</h2>
               {post.publishedAt && (
                 <p className="text-sm text-gray-500">
                   Published: {new Date(post.publishedAt).toLocaleDateString()}
@@ -56,7 +56,7 @@ const SanityPage: React.FC = () => {
               {post.slug && (
                 <a
                   href={`/post/${post.slug.current}`}
-                  className="mt-4 inline-flex items-center px-5 py-2 bg-brand-rose text-white rounded-full hover:bg-brand-peach transition-colors"
+                  className="mt-4 inline-flex items-center px-5 py-2 bg-brand-rose text-white rounded-full hover:bg-brand-mauve transition-colors"
                 >
                   <span>Read more</span>
                 </a>

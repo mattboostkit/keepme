@@ -268,7 +268,7 @@ function About() {
               <div key={index} className="rounded-lg shadow-md overflow-hidden bg-white">
                 <button
                   onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
-                  className={`w-full flex justify-between items-center p-4 md:p-5 text-left transition-colors duration-200 ${activeIndex === index ? 'bg-brand-mauve text-white' : 'bg-brand-peach hover:bg-brand-pink-light text-brand-plum'}`}
+                  className={`w-full flex justify-between items-center p-4 md:p-5 text-left transition-colors duration-200 ${activeIndex === index ? 'bg-brand-mauve text-white' : 'bg-brand-peach hover:bg-brand-mauve text-brand-plum'}`}
                 >
                   <h3 className={`text-lg md:text-xl font-semibold ${activeIndex === index ? 'text-white' : 'text-brand-plum'}`}>{step.title}</h3>
                   <span className={`transform transition-transform duration-300 text-2xl ${activeIndex === index ? 'rotate-180' : ''}`}>

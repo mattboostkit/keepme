@@ -16,6 +16,13 @@ function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
 
   // Handle clicks outside the mobile menu to close it
   useEffect(() => {
@@ -48,16 +55,16 @@ function Header() {
       <header className="fixed w-full z-50 py-2 md:py-4 bg-white shadow-sm">
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center h-[5.5rem]">
           {/* Updated Logo - with responsive sizing */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center" onClick={scrollToTop}>
             <img
               src={logoUrl}
               alt="KeepMe Logo"
-              className="h-8 sm:h-9 md:h-10 w-auto object-contain"
+              className="h-8 sm:h-9 md:h-9 w-auto object-contain"
             />
           </Link>
           {/* Desktop Menu */}
           <nav className="hidden xl:flex space-x-8 text-brand-plum">
-            <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors">Home</Link>
+            <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors" onClick={scrollToTop}>Home</Link>
             <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors">About</Link>
 
             {/* Services dropdown */}
@@ -114,7 +121,7 @@ function Header() {
             </button>
           </div>
           <nav className="container mx-auto px-6 flex flex-col space-y-3">
-            <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Home</Link>
+            <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={() => { closeMobileMenu(); scrollToTop(); }}>Home</Link>
             <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>About</Link>
 
             {/* Services section */}

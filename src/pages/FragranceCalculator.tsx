@@ -37,7 +37,7 @@ const InputField = ({ id, label, value, onChange, placeholder, icon: Icon, unit 
       step="any" // Allow any decimal step
       onChange={onChange}
       placeholder={placeholder}
-      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm"
+      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm"
     />
   </div>
 );
@@ -321,28 +321,28 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ inputs, outputs }) => {
         {/* Dummy Enquiry Fields */}
         <div>
           <label htmlFor="fragranceName" className="block text-sm font-medium text-brand-mauve">Fragrance Name (Optional)</label>
-          <input type="text" id="fragranceName" value={fragranceName} onChange={(e) => setFragranceName(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" />
+          <input type="text" id="fragranceName" value={fragranceName} onChange={(e) => setFragranceName(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" />
         </div>
         <div>
           <label htmlFor="notesDescription" className="block text-sm font-medium text-brand-mauve">Notes Description / Concept</label>
-          <textarea id="notesDescription" value={notesDescription} onChange={(e) => setNotesDescription(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" placeholder="e.g., Woody base, floral heart, citrus top notes..."></textarea>
+          <textarea id="notesDescription" value={notesDescription} onChange={(e) => setNotesDescription(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" placeholder="e.g., Woody base, floral heart, citrus top notes..."></textarea>
         </div>
          <div>
           <label htmlFor="targetAudience" className="block text-sm font-medium text-brand-mauve">Target Audience (Optional)</label>
-          <input type="text" id="targetAudience" value={targetAudience} onChange={(e) => setTargetAudience(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" placeholder="e.g., Young professionals, luxury market..." />
+          <input type="text" id="targetAudience" value={targetAudience} onChange={(e) => setTargetAudience(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" placeholder="e.g., Young professionals, luxury market..." />
         </div>
          <div>
           <label htmlFor="additionalInfo" className="block text-sm font-medium text-brand-mauve">Additional Information</label>
-          <textarea id="additionalInfo" value={additionalInfo} onChange={(e) => setAdditionalInfo(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" placeholder="Any specific requirements, packaging ideas, etc."></textarea>
+          <textarea id="additionalInfo" value={additionalInfo} onChange={(e) => setAdditionalInfo(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" placeholder="Any specific requirements, packaging ideas, etc."></textarea>
         </div>
          <hr className="my-4"/>
          <div>
           <label htmlFor="contactName" className="block text-sm font-medium text-brand-mauve">Your Name *</label>
-          <input type="text" id="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" />
+          <input type="text" id="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" />
         </div>
          <div>
           <label htmlFor="contactEmail" className="block text-sm font-medium text-brand-mauve">Your Email *</label>
-          <input type="email" id="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-peach focus:border-brand-peach sm:text-sm" />
+          <input type="email" id="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" />
         </div>
 
         <button
