@@ -61,9 +61,9 @@ function Services() {
   }
 
   return (
-    <div className="pt-24">
+    <div>
       {/* Hero Section */}
-      <section className="py-20 bg-brand-background">
+      <section className="py-16 md:py-20 bg-brand-peach">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>

@@ -4,11 +4,11 @@ import { FlaskConical } from 'lucide-react';
 
 function Tools() { // Renamed from ToolsLanding
   return (
-    <div className="pt-24">
+    <div>
       {/* Hero Section */}
-      <section className="py-20 bg-brand-background">
+      <section className="py-16 md:py-20 bg-brand-peach">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
+          <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
             Our <span className="text-brand-rose">Tools</span>
           </h1>
         </div>

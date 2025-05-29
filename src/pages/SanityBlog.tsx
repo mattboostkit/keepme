@@ -103,12 +103,12 @@ function SanityBlog() {
   };
 
   return (
-    <div className="pt-32">
+    <div>
       {/* Hero Section */}
-      <section className="py-16 bg-brand-background">
+      <section className="py-16 md:py-20 bg-brand-peach">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-plum mb-6">
+            <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
               The KeepMe <span className="text-brand-rose">Blog</span>
             </h1>
             <p className="text-lg text-brand-mauve leading-relaxed mb-8">

@@ -214,7 +214,7 @@ function About() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-12 md:py-20 bg-brand-background">
+      <section className="py-16 md:py-20 bg-brand-peach">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -359,12 +359,14 @@ function About() {
         backgroundColor="bg-white"
       />
 
-      {/* Team Section (Using Team component from Sanity) */}
-      <Team
+      {/* Team Section (Using Team component from Sanity) - Temporarily Hidden */}
+      <div className="hidden">
+        <Team
         useSanity={true}
         title={<h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6 text-center">Meet the <span className="text-brand-rose">Team</span></h2>}
         subtitle="Meet the experts behind our innovative solutions"
-      />
+        />
+      </div>
 
       {/* Contact Section */}
       <section className="py-20 bg-brand-pink-light">
