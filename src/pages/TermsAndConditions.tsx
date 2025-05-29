@@ -258,7 +258,7 @@ const TermsAndConditions = () => (
       21.1. The Client may not resell, assign, transfer, or sublicense any design work or associated intellectual property provided by KeepMe Lifestyle to any third party without the prior written consent of KeepMe Lifestyle. Any unauthorised transfer or use shall constitute a breach of these Terms and Conditions and may result in legal action.
     </p>
     <p className="text-sm sm:text-base font-semibold mt-8">
-      For the full Terms & Conditions, please contact KeepMe Lifestyle Ltd.</strong>
+      For the full Terms & Conditions, please contact KeepMe Lifestyle Ltd.
     </p>
   </div>
 );
