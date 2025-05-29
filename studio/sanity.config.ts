@@ -17,7 +17,7 @@ export default defineConfig({
   },
 
   cors: {
-    allowOrigins: ['https://keep-me-bolt.windsurf.build', 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
+    allowOrigins: ['https://keepme.co.uk', 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
     allowCredentials: true,
   },
 })
