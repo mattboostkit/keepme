@@ -1,6 +1,5 @@
 import post from './post'
 import video from './video'
-import gallery from './gallery'
 import category from './category'
 import author from './author'
 import heroSection from './heroSection'
@@ -13,5 +12,6 @@ import logo from './logo'
 import teamMember from './teamMember'
 import portfolioBrand from './portfolioBrand'
 import servicesPageImages from '../schemas/servicesPageImages'
+import galleryImage from '../schemas/galleryImage'
 
-export const schemaTypes = [post, video, gallery, category, author, heroSection, service, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, servicesPageImages]
+export const schemaTypes = [post, video, category, author, heroSection, service, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, servicesPageImages, galleryImage]

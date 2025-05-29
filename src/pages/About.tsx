@@ -233,7 +233,7 @@ function About() {
             </div>
             <div className="relative">
               <img
-                src="https://cdn.sanity.io/images/tyzs5imn/production/00ead275773abba703c8272d4f0998e7a2292731-850x1085.webp"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/4aeefbbef8dae3dd080f930c8af649be6f7dac45-1600x1066.webp"
                 alt="KeepMe perfume bottles"
                 className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
               />
@@ -367,6 +367,43 @@ function About() {
         subtitle="Meet the experts behind our innovative solutions"
         />
       </div>
+
+      {/* Glass Manufacturer Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Image Column */}
+            <div className="relative">
+              <img
+                src="https://cdn.sanity.io/images/tyzs5imn/production/d1b61dc82170aa5a21ee677f8ce6423223fad74f-603x664.webp"
+                alt="KeepMe Glass perfume bottle"
+                className="rounded-lg shadow-xl w-full max-w-md mx-auto md:mx-0"
+              />
+            </div>
+            {/* Text Content Column */}
+            <div className="text-left">
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+                Glass Manufacturer for the Fragrance and Lifestyle sector
+              </h3>
+              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+                At KeepMe Glass, we specialise in designing and manufacturing premium quality glass bottles and components for the fragrance, beauty, and lifestyle industries.
+              </p>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                We offer a full design and decoration service for customers looking for a high-end, bespoke finish, and a catalogue of hundreds of stock bottles, with short lead times with low MOQs and short lead times for those looking for a faster turnaround.
+              </p>
+              <a
+                href="https://keepmeglass.co.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-3 bg-brand-mauve text-white font-bold rounded-full hover:bg-brand-rose hover:text-white transition-colors"
+              >
+                Visit KeepMe Glass
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* End Glass Manufacturer Section */}
 
       {/* Contact Section */}
       <section className="py-20 bg-brand-pink-light">

@@ -1,8 +1,20 @@
 // React import removed - not needed in modern React
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { useEffect } from 'react';
 import FaqAccordion from '../components/FaqAccordion';
 
 function Contact() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://link.boostkit.io/js/form_embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div>
       {/* Hero Section */}
@@ -24,73 +36,26 @@ function Contact() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-2xl font-sans font-semibold text-gray-900 mb-6">Send Us a Message</h2>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-gray-700 mb-2">Your Name *</label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-gray-700 mb-2">Email Address *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
-                      placeholder="john@example.com"
-                      required
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="company" className="block text-gray-700 mb-2">Company Name</label>
-                  <input
-                    type="text"
-                    id="company"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
-                    placeholder="Your Company"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-gray-700 mb-2">Subject *</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
-                    placeholder="How can we help?"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-gray-700 mb-2">Message *</label>
-                  <textarea
-                    id="message"
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f4cfd9] placeholder-gray-500"
-                    placeholder="Tell us about your project..."
-                    required
-                  ></textarea>
-                </div>
-                <div className="flex items-start">
-                  <input type="checkbox" id="privacy" className="mt-1 h-5 w-5" required />
-                  <label htmlFor="privacy" className="ml-3 text-gray-700 text-base">
-                    I agree to the <a href="/privacy-policy" className="text-[#f4cfd9] hover:underline">Privacy Policy</a> and consent to having my data processed.
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="bg-brand-mauve text-white px-8 py-3 rounded-lg hover:bg-brand-rose transition-colors flex items-center justify-center w-full"
-                >
-                  Send Message
-                  <Send className="ml-2 h-4 w-4" />
-                </button>
-              </form>
+              {/* GHL Form Embed Start */}
+              <iframe
+                src="https://link.boostkit.io/widget/form/13vSfuzUpZsN8Rmcbfqz"
+                style={{width:'100%', height:'100%', border:'none', borderRadius:'8px'}}
+                id="inline-13vSfuzUpZsN8Rmcbfqz" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="KeepMe Lifestyle Contact Form"
+                data-height="863"
+                data-layout-iframe-id="inline-13vSfuzUpZsN8Rmcbfqz"
+                data-form-id="13vSfuzUpZsN8Rmcbfqz"
+                title="KeepMe Lifestyle Contact Form"
+              >
+              </iframe>
+              {/* GHL Form Embed End */}
             </div>
             <div>
               <h2 className="text-2xl font-sans font-semibold text-gray-900 mb-6">Contact Information</h2>

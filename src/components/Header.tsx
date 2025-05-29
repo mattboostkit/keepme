@@ -56,7 +56,7 @@ function Header() {
             />
           </Link>
           {/* Desktop Menu */}
-          <nav className="hidden lg:flex space-x-8 text-brand-plum">
+          <nav className="hidden xl:flex space-x-8 text-brand-plum">
             <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors">Home</Link>
             <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors">About</Link>
 
@@ -82,14 +82,14 @@ function Header() {
             <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors">Portfolio</Link>
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors">Blog</Link>
           </nav>
-          <Link to="/contact" className="hidden lg:flex items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors">
+          <Link to="/contact" className="hidden xl:flex items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors">
             Contact
           </Link>
 
           {/* Hamburger Button */}
           <button
             ref={hamburgerRef}
-            className="lg:hidden text-brand-plum focus:outline-none ml-4 bg-white p-2 rounded-md"
+            className="xl:hidden text-brand-plum focus:outline-none ml-4 bg-white p-2 rounded-md"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
@@ -102,7 +102,7 @@ function Header() {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="lg:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="xl:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <div className="container mx-auto px-6 flex justify-end mb-2">
             <button
