@@ -1,12 +1,14 @@
-import React from 'react';
 import ServicePageWithSections from '../components/ServicePageWithSections';
 
 // Dummy FAQ data specific to Fragrance Componentry
 const faqItems = [
-  { question: "What types of fragrance components do you offer?", answer: "We offer a wide range of components including glass bottles in various shapes and sizes, caps (plastic, metal, wood), pumps, collars, and decorative elements." },
+  { question: "What is the PCR content in your glass?", answer: "Our glass contains up to 30% post-consumer recycled (PCR) content. This level ensures sustainability without compromising the clarity and quality essential for premium perfume packaging. Higher percentages can affect the glass’s integrity, which is why we prioritise both performance and environmental responsibility." },
   { question: "Can you source custom-designed components?", answer: "Yes, we work with a network of manufacturers and can source or develop custom components based on your specific design requirements and technical specifications." },
   { question: "Do you offer sustainable component options?", answer: "Absolutely. We can source components made from recycled materials (like PCR glass or plastic), biodegradable materials, or refillable designs." },
   { question: "What are the lead times for component sourcing?", answer: "Lead times vary depending on the component type, customisation level, and supplier. Standard components might take a few weeks, while custom moulds can take several months." },
+  { question: "What type of furnace do you use?", answer: "We use an electric furnace, which offers greater energy efficiency and reduced emissions compared to traditional gas furnaces—supporting both high-quality glass production and our commitment to sustainability." },
+  { question: "How do you check the quality and integrity of the glass?", answer: "We follow a strict quality control process that includes visual inspections and the use of polarised light machines to detect stress, ensure clarity, and maintain structural integrity—meeting the high standards required for premium fragrance glass." },
+  { question: "What is the most critical part of the production process?", answer: "The most critical aspects are the quality of raw materials, our team’s expertise, and rigorous quality control. Together, they ensure each glass component meets the exacting standards required for luxury fragrance packaging." },
 ];
 
 function FragranceComponentry() {

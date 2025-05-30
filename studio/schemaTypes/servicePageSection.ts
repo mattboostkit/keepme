@@ -74,17 +74,11 @@ export default {
       order: 'order',
       media: 'image',
     },
-    prepare({
-  title,
-  subtitle,
-  order,
-  media,
-}: {
-  title: string;
-  subtitle: string;
-  order: number;
-  media: any; // Sanity image type
-}) {
+    prepare(value: Record<string, any>) {
+      const title = value.title as string;
+      const subtitle = value.subtitle as string;
+      const order = value.order as number;
+      const media = value.media; // Typically 'any' or a specific Sanity image type
       return {
         title: title,
         subtitle: `${subtitle} - Section ${order}: ${title}`,

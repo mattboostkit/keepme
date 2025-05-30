@@ -192,7 +192,7 @@ function Services() {
                 Luxury <span className="text-brand-rose">Packaging</span>
               </h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                Specialising in luxury packaging for the fragrance industry, we help elevate your brand's perceived value. Our exquisite packaging solutions are meticulously designed to impress consumers, convey exclusivity, and protect the precious contents within.
+                Specialising in luxury packaging for the fragrance industry, we help elevate your brand's value and presence. Our exquisite packaging solutions are meticulously designed to impress consumers, convey exclusivity, and protect the precious contents within.
               </p>
               {/* Optional: Add bullet points if more detail is available */}
               <Link to="/services/luxury-packaging" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">

@@ -1,7 +1,7 @@
 // React import removed - not needed in modern React
 // Removed StickyScroll import
+import { Link } from 'react-router-dom';
 import { Timeline } from '../components/ui/Timeline';
-import OptimizedImage from '../components/OptimizedImage';
 // Removed unused Image import (and it's incorrect for Vite)
 // All icons removed as requested
 
@@ -113,7 +113,7 @@ function Glass() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
-                Premium Glass Solutions
+                Premium <span className="text-brand-rose">Glass Solutions</span>
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
                 We create custom-designed glass components that define and elevate your fragrance brand.  With a deep understanding of the fragrance industry's aesthetic and functional demands, we deliver exceptional quality, refined detail, and timeless craftsmanship—transforming glass into a powerful expression of identity.
@@ -169,50 +169,46 @@ function Glass() {
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col">
               <h3 className="text-xl font-semibold text-brand-plum mb-3">Glass Polishing</h3>
               <p className="text-base text-brand-mauve leading-relaxed mb-4">
-                To achieve the flawless, crystal surfaces that make fragrance bottles truly stand out, we use expert finishing techniques like hand polishing and fire polishing—each delivering an immaculate, high-gloss finish that enhances the beauty and luxury of your glass components.
+                To achieve the flawless, crystal-clear surfaces that make fragrance bottles stand out, we use expert finishing techniques like hand and fire polishing, each delivering a high-gloss finish that enhances the beauty and luxury of your glass components.
               </p>
               <p className="text-base text-brand-mauve leading-relaxed mb-4">
-                <strong>Hand Polishing</strong> is a meticulous, artisan process where skilled craftsmen gently refine every curve and edge using fine abrasives and polishing tools. This technique smooths out any minor imperfections and creates a perfectly even surface with a subtle, elegant sheen. The result is glass that feels as exquisite to touch as it looks, elevating the tactile experience of your fragrance bottle.
+                <strong>Hand Polishing</strong> is a meticulous, artisan process where skilled craftsmen refine every curve and edge using fine abrasives. It smooths out minor imperfections and creates an even surface with a subtle, elegant sheen making the glass as exquisite to touch as it is to behold.
               </p>
               <p className="text-base text-brand-mauve leading-relaxed mb-4">
-                <strong>Fire Polishing</strong> involves carefully reheating the glass surface to a precise temperature, allowing the outer layer to soften and naturally smooth out under expert control. This process enhances clarity, reduces surface irregularities, and produces a brilliant, mirror-like gloss. Fire polishing gives the glass an exceptionally pure and luminous appearance, capturing light beautifully and highlighting the bottle’s design details.
+                <strong>Fire Polishing</strong> involves reheating the glass to a precise temperature, allowing the surface to naturally smooth and clarify under expert control. This technique reduces irregularities and produces a luminous, mirror-like finish that beautifully highlights design details.
               </p>
               <p className="text-base text-brand-mauve leading-relaxed mt-auto">
-                Together, these finishing techniques ensure your fragrance bottles have an impeccable, polished look—reflecting the premium quality and craftsmanship your brand deserves.
+                Together, these techniques give your fragrance bottles a polished, premium look, reflecting the craftsmanship and quality your brand stands for.
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col">
               <h3 className="text-xl font-semibold text-brand-plum mb-3">Glass Printing and Decoration Techniques</h3>
               <p className="text-base text-brand-mauve leading-relaxed mb-4">
-                To bring your fragrance bottles to life with captivating detail and unique branding, we offer a range of expert decoration techniques—each carefully designed to enhance the visual impact and luxury feel of your glass components.
+                To bring your fragrance bottles to life with captivating detail and unique branding, we offer a range of expert decoration techniques, each designed to enhance the visual impact and luxury feel of your glass components.
               </p>
               <div className="space-y-3 mb-4 text-sm text-brand-mauve leading-relaxed">
-                <p><strong>Printing & Silkscreen:</strong> Our precision printing and silkscreen processes allow for vibrant, high-definition graphics and logos directly applied to the glass surface. Whether bold colours or delicate details, these techniques ensure sharp, lasting imagery that reinforces your brand identity.</p>
-                <p><strong>Spraying & Graduated Finishes:</strong> Create stunning visual effects with sprayed coatings and graduated (ombre) finishes that transition smoothly in color or texture. These finishes add depth, sophistication, and an element of surprise, giving your bottles a truly bespoke look.</p>
-                <p><strong>Foiling:</strong> Add a touch of glamour with metallic foiling, applying shimmering gold, silver, or custom colours that catch the light and elevate the bottle’s elegance. Foiling can highlight logos, borders, or decorative patterns with a luxurious shine.</p>
-                <p><strong>Laser Etching:</strong> For a subtle, tactile effect, laser etching engraves precise designs onto the glass surface without color. This technique produces a refined matte finish that’s perfect for intricate logos or patterns, adding a sense of craftsmanship and exclusivity.</p>
-                <p><strong>Embossing & Debossing:</strong> Add dimension and texture by raising (embossing) or recessing (debossing) your design elements into the glass. These tactile finishes enhance grip and invite touch, creating a memorable sensory experience and an unmistakable premium look.</p>
+                <p><strong>Printing & Silkscreen:</strong> Precision printing and silkscreen for vibrant, high-definition graphics and logos directly on the glass, ensuring sharp, lasting imagery.</p>
+                <p><strong>Spraying & Graduated Finishes:</strong> Sprayed coatings and graduated (ombre) finishes for stunning visual effects that transition smoothly in colour or texture, adding depth and sophistication.</p>
+                <p><strong>Foiling:</strong> Metallic foiling in gold, silver, or custom colours to highlight logos and patterns with a luxurious shine.</p>
+                <p><strong>Laser Etching:</strong> Subtle, tactile engraving of precise designs onto the glass surface without colour, producing a refined matte finish for intricate logos or patterns.</p>
+                <p><strong>Embossing & Debossing:</strong> Raised (embossing) or recessed (debossing) design elements to add dimension, texture, and a memorable sensory experience.</p>
               </div>
               <p className="text-base text-brand-mauve leading-relaxed mt-auto">
-                Each technique can be tailored and combined to create truly unique bottles that reflect your brand’s personality and stand out on the shelf. <a href="/portfolio" className="text-brand-rose font-semibold hover:underline">Browse our Portfolio</a> to see some of the results.
+                Each technique can be tailored and combined to create unique bottles that reflect your brand’s personality and stand out. <a href="/portfolio" className="text-brand-rose font-semibold hover:underline">Browse our Portfolio</a> to see the results.
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col">
               <h3 className="text-xl font-semibold text-brand-plum mb-3">Electroplating</h3>
               <p className="text-base text-brand-mauve leading-relaxed mb-4">
-                A sophisticated finishing technique that applies a thin, metallic coating onto the surface of fragrance glass, creating a striking and durable decorative effect. This process involves depositing metal layers—such as gold, silver, or chrome—through an electrochemical bath, resulting in a flawless, mirror-like surface that instantly elevates the bottle’s aesthetic.
+                Electroplating coats glass with a thin metal layer (gold, silver, chrome, copper) for enhanced aesthetics, durability, and a premium feel. It uses an electric current for a seamless, uniform coating customisable in thickness and finish, from reflective sheens to matte textures.
               </p>
-              <h4 className="text-md font-semibold text-brand-rose mt-3 mb-2">Benefits of Electroplating:</h4>
-              <ul className="list-disc list-inside text-sm text-brand-mauve leading-relaxed space-y-1 mb-4">
-                <li>Enhanced Elegance: The metallic sheen adds a premium, high-end look that captures light beautifully and gives your bottles a luxurious, reflective finish.</li>
-                <li>Durability: Electroplated coatings are highly resistant to scratches, tarnishing, and corrosion, ensuring your fragrance bottles maintain their pristine appearance over time.</li>
-                <li>Customization: Choose from a variety of metal tones and finishes—from bright chrome to warm gold—to perfectly complement your brand’s style and packaging design.</li>
-                <li>Versatility: Electroplating can be applied to full surfaces or selective areas, allowing intricate patterns, logos, or accents that create unique, eye-catching details.</li>
-              </ul>
+              <p className="text-base text-brand-mauve leading-relaxed mb-4">
+                This process allows for intricate detailing and can be combined with other techniques like etching or embossing for unique, luxurious designs.
+              </p>
               <p className="text-base text-brand-mauve leading-relaxed mt-auto">
-                The result is a fragrance bottle that not only looks exquisite but also stands out for its quality and craftsmanship—making a lasting impression on customers and enhancing brand prestige.
+                Ideal for conveying opulence, electroplated components make a bold statement, transforming bottles into art—perfect for limited editions or luxury lines aiming for a striking appearance.
               </p>
             </div>
           </div>
@@ -268,9 +264,9 @@ function Glass() {
                   </div>
                 </div>
               </div>
-              <button className="bg-brand-rose text-white px-8 py-3 rounded-full hover:bg-brand-mauve transition-colors">
+              <Link to="/contact" className="bg-brand-rose text-white px-8 py-3 rounded-full hover:bg-brand-mauve transition-colors">
                 Schedule a Consultation
-              </button>
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <img

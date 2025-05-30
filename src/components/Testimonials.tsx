@@ -27,7 +27,7 @@ interface TestimonialsProps {
 
 const Testimonials: React.FC<TestimonialsProps> = ({
   title = "What Our Clients Say",
-  subtitle = "Hear from brands who trust KeepMe for their fragrance manufacturing needs.",
+  subtitle = "What trusted brands say about working with KeepMe Lifestyle.",
   testimonials: propTestimonials,
   useSanity = true
 }) => {

@@ -4,8 +4,6 @@ export default defineType({
   name: 'servicesPageImages',
   title: 'Services Page Images',
   type: 'document',
-  // Singleton document configuration
-  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'], 
   fields: [
     defineField({
       name: 'pageTitle',

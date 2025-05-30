@@ -57,9 +57,12 @@ export default {
     select: {
       title: 'title',
       active: 'active',
-      media: 'heroImages.0',
+      media: 'heroImages.0', // Assuming heroImages is an array and we take the first
     },
-    prepare({ title, active, media }: any) {
+    prepare(value: Record<string, any>) {
+      const title = value.title as string;
+      const active = value.active as boolean;
+      const media = value.media; // Or value.media as SanityImageType if defined
       return {
         title,
         subtitle: active ? '✅ Active' : '❌ Inactive',

@@ -3,8 +3,7 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {
   dashboardTool,
-  projectInfoWidget,
-  projectUsersWidget
+  projectInfoWidget
 } from '@sanity/dashboard'
 import {schemaTypes} from './schemaTypes'
 
@@ -20,21 +19,7 @@ export default defineConfig({
     visionTool(),
     dashboardTool({
       widgets: [
-        projectInfoWidget({
-          data: [
-            {
-              title: 'Production Site',
-              value: 'https://keepme.co.uk',
-              category: 'apps'
-            },
-            {
-              title: 'Development Site', 
-              value: 'https://keepmenew.netlify.app',
-              category: 'apps'
-            }
-          ]
-        }),
-        projectUsersWidget()
+        projectInfoWidget()
       ]
     })
   ],

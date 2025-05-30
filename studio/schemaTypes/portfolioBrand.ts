@@ -1,3 +1,5 @@
+import {Rule} from 'sanity'
+
 export default {
   name: 'portfolioBrand',
   title: 'Portfolio Brands',
@@ -8,7 +10,7 @@ export default {
       title: 'Brand Name',
       type: 'string',
       description: 'The name of the brand (e.g., Roja Parfums)',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'slug',
@@ -19,7 +21,7 @@ export default {
         source: 'name',
         maxLength: 96,
       },
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'image',
@@ -29,7 +31,7 @@ export default {
       options: {
         hotspot: true,
       },
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'features',
@@ -48,21 +50,21 @@ export default {
           { title: 'Luxury Packaging', value: 'Luxury Packaging' }
         ]
       },
-      validation: Rule => Rule.required().min(1)
+      validation: (Rule: Rule) => Rule.required().min(1)
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
       description: 'A brief description of the work done for this brand',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'displayOrder',
       title: 'Display Order',
       type: 'number',
       description: 'The order in which to display this brand (lower numbers appear first)',
-      validation: Rule => Rule.required().min(1)
+      validation: (Rule: Rule) => Rule.required().min(1)
     }
   ],
   preview: {
@@ -71,7 +73,10 @@ export default {
       subtitle: 'features',
       media: 'image'
     },
-    prepare({ title, subtitle, media }) {
+    prepare(value: Record<string, any>) {
+      const title = value.title as string;
+      const subtitle = value.subtitle as string[];
+      const media = value.media; // Typically 'any' or a specific Sanity image type
       return {
         title,
         subtitle: Array.isArray(subtitle) ? subtitle.join(', ') : subtitle,
