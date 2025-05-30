@@ -1,4 +1,3 @@
-import React from 'react';
 import ServicePageWithSections from '../components/ServicePageWithSections';
 
 // Dummy FAQ data specific to Gift With Purchase

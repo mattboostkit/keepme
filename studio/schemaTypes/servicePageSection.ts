@@ -27,7 +27,7 @@ export default {
           { title: 'Skincare Componentry', value: 'Skincare Componentry' },
           { title: 'Home Fragrance', value: 'Home Fragrance' },
           { title: 'Luxury Packaging', value: 'Luxury Packaging' },
-          { title: 'Gifts With Purchase', value: 'Gifts With Purchase' },
+          { title: 'Gift With Purchase', value: 'Gift With Purchase' },
         ],
       },
     },
@@ -74,7 +74,17 @@ export default {
       order: 'order',
       media: 'image',
     },
-    prepare({ title, subtitle, order, media }: any) {
+    prepare({
+  title,
+  subtitle,
+  order,
+  media,
+}: {
+  title: string;
+  subtitle: string;
+  order: number;
+  media: any; // Sanity image type
+}) {
       return {
         title: title,
         subtitle: `${subtitle} - Section ${order}: ${title}`,
