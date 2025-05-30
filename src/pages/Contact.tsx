@@ -59,7 +59,7 @@ function Contact() {
               </div>
               {/* GHL Form Embed End */}
             </div>
-            <div>
+            <div className="pt-12 md:pt-0">
               <h2 className="text-2xl font-sans font-semibold text-gray-900 mb-6">Contact Information</h2>
               <div className="bg-white p-8 rounded-2xl shadow-xl">
                 <div className="space-y-6">
