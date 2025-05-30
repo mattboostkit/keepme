@@ -32,16 +32,20 @@ const builder = imageUrlBuilder(client);
 export const urlFor = (source: SanityImageSource | undefined | null) => {
   if (!source) {
     console.warn('No image source provided to urlFor');
-    // Return a placeholder URL or empty string
+    // Return a mock builder that allows .url() and common chains to fail gracefully
     return {
-      url: () => 'https://via.placeholder.com/800x600?text=No+Image+Source',
-      width: () => ({ height: () => ({ url: () => 'https://via.placeholder.com/800x600?text=No+Image+Source', format: () => ({ quality: () => ({ url: () => 'https://via.placeholder.com/800x600?text=No+Image+Source' }) }) }) })
-    };
+      url: () => 'https://via.placeholder.com/1x1?text=No_Source',
+      width: function() { return this; },
+      height: function() { return this; },
+      fit: function() { return this; },
+      crop: function() { return this; },
+      format: function() { return this; },
+      quality: function() { return this; }
+      // Cast to the main builder type. This is a pragmatic way to handle the mock.
+      // A more robust mock would fully implement the ImageUrlBuilder interface.
+    } as unknown as import('@sanity/image-url/lib/types/builder').ImageUrlBuilder;
   }
 
-  console.log('Building image URL for source:', source);
-  // Default to WebP format for better compression
-  const imageBuilder = builder.image(source).format('webp');
-  console.log('Image builder created:', imageBuilder);
-  return imageBuilder;
+  // Return the raw builder; formatting and other transformations will be chained by the caller.
+  return builder.image(source);
 };

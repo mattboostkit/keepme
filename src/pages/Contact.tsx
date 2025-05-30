@@ -34,8 +34,8 @@ function Contact() {
       {/* Contact Form Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
+          <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+            <div className="mb-16">
               {/* GHL Form Embed Start */}
               <div className="w-full" style={{minHeight: '600px', height: '863px'}}>
                 <iframe
@@ -98,7 +98,7 @@ function Contact() {
                     </div>
                     <div>
                       <h3 className="text-lg">Business Hours</h3>
-                      <p className="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                      <p className="text-gray-600">Monday - Friday: 9:00am – 5:00pm</p>
                     </div>
                   </div>
                 </div>

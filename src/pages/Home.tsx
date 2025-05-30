@@ -221,16 +221,16 @@ function Home() { // Component name is Home
                     {service.image?.asset && (
                       <div className="w-full h-80 overflow-hidden mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
                          <img
-                           src={urlFor(service.image).width(400).height(600).url()} // Removed .fit('crop')
+                           src={urlFor(service.image).width(600).height(400).fit('crop').crop('center').format('webp').url()} // Removed .fit('crop')
                            alt={service.image.alt || `${service.title} image`}
-                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                           className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                            loading="lazy"
                          />
                        </div>
                     )}
                     {/* Text Content - Placed below the image */}
                     <div className="mt-4"> {/* Add margin-top to separate from image */}
-                       <h3 className="text-xl font-bold mb-2 group-hover:text-brand-plum transition-colors">{service.title}</h3>
+                       <h3 className="text-xl font-sans font-normal mb-2 group-hover:text-brand-plum transition-colors">{service.title}</h3>
                        <p className="text-gray-600 text-sm mb-3">{service.shortDescription}</p>
                        {/* Optional: Keep Learn More link if desired, style appropriately */}
                        {/* <div className="mt-auto text-brand-mauve font-medium flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm">

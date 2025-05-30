@@ -16,7 +16,7 @@ export default {
           { title: 'Skincare Componentry', value: 'Skincare Componentry' },
           { title: 'Gift With Purchase', value: 'Gift With Purchase' },
           { title: 'Home Fragrance', value: 'Home Fragrance' },
-          { title: 'Luxury Packaging', value: 'Luxury Packaging' },
+          { title: 'Secondary Packaging', value: 'Secondary Packaging' },
         ],
       },
     },

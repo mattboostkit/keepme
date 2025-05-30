@@ -239,7 +239,7 @@ function Glass() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
-                Custom Glass <span className="text-brand-peach">Solutions</span>
+                Custom Glass <span className="text-brand-rose">Solutions</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 Beyond our standard offerings, we specialise in creating bespoke glass components tailored to your specific vision and requirements.
@@ -316,7 +316,7 @@ function Glass() {
               href="/contact"
               className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors inline-block font-medium"
             >
-              Request a Sample
+              Contact Us
             </a>
           </div>
         </div>

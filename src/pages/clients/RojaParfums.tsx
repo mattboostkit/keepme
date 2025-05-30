@@ -1,4 +1,3 @@
-import React from 'react';
 import PortfolioClientTemplate from '../../components/PortfolioClientTemplate';
 
 const rojaImages = [
@@ -18,7 +17,7 @@ export default function RojaParfumsPage() {
         <PortfolioClientTemplate
           clientName="Roja Parfums"
           description="We are honoured to manufacture and decorate the glass bottles for Roja Parfums, one of the world’s most prestigious fragrance houses. Known for its uncompromising luxury, British heritage, and olfactory artistry, Roja Parfums sets the global standard for excellence in perfumery. We also develop their vials and ceramic candle collection."
-          features={["Fragrance Glass", "Vials", "Candle Ceramics", "Luxury Packaging"]}
+          features={["Fragrance Glass", "Vials", "Candle Ceramics", "Secondary Packaging"]}
           image="https://cdn.sanity.io/images/tyzs5imn/production/7d3fd66af3a5706fbe2e183f22e5700dc1b96086-1920x950.webp"
           gallery={rojaImages}
           website="https://rojaparfums.com"

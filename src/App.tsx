@@ -18,7 +18,7 @@ import FragranceCreation from './pages/FragranceCreation';
 import FragranceComponentry from './pages/FragranceComponentry';
 import SkincareComponentry from './pages/SkincareComponentry';
 import HomeFragrance from './pages/HomeFragrance';
-import LuxuryPackaging from './pages/LuxuryPackaging';
+import SecondaryPackaging from './pages/SecondaryPackaging';
 import GiftWithPurchase from './pages/GiftWithPurchase';
 // DeliveryAndLogistics removed as it's no longer needed
 import SanityPage from './pages/SanityPage'; // Import Sanity pages
@@ -68,7 +68,7 @@ function App() {
           <Route path="/services/fragrance-componentry" element={<FragranceComponentry />} />
           <Route path="/services/skincare-componentry" element={<SkincareComponentry />} />
           <Route path="/services/home-fragrance" element={<HomeFragrance />} />
-          <Route path="/services/luxury-packaging" element={<LuxuryPackaging />} />
+          <Route path="/services/secondary-packaging" element={<SecondaryPackaging />} />
           <Route path="/services/gift-with-purchase" element={<GiftWithPurchase />} />
 
           {/* Add redirects for old URLs */}
@@ -76,7 +76,7 @@ function App() {
           <Route path="/fragrance-componentry" element={<Navigate to="/services/fragrance-componentry" replace />} />
           <Route path="/skincare-componentry" element={<Navigate to="/services/skincare-componentry" replace />} />
           <Route path="/home-fragrance" element={<Navigate to="/services/home-fragrance" replace />} />
-          <Route path="/luxury-packaging" element={<Navigate to="/services/luxury-packaging" replace />} />
+          <Route path="/secondary-packaging" element={<Navigate to="/services/secondary-packaging" replace />} />
           <Route path="/gift-with-purchase" element={<Navigate to="/services/gift-with-purchase" replace />} />
           <Route path="/gifts-with-purchase" element={<Navigate to="/services/gift-with-purchase" replace />} />
           {/* DeliveryAndLogistics route removed as it's no longer needed */}

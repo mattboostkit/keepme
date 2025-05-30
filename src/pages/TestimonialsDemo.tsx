@@ -62,7 +62,7 @@ function TestimonialsDemo() {
             testimonials={[
               {
                 _id: '3',
-                quote: "KeepMe's luxury packaging solutions have become an integral part of our brand identity. The attention to detail and quality of materials exceed our expectations every time. We wouldn't trust anyone else with our packaging needs.",
+                quote: "KeepMe's secondary packaging solutions have become an integral part of our brand identity. The attention to detail and quality of materials exceed our expectations every time. We wouldn't trust anyone else with our packaging needs.",
                 name: "Alexandra Bennett",
                 title: "Founder & CEO",
                 company: "Lumière Parfums",

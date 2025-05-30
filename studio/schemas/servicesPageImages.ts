@@ -94,8 +94,8 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'luxuryPackagingImage',
-      title: 'Luxury Packaging Image',
+      name: 'secondaryPackagingImage',
+      title: 'Secondary Packaging Image',
       type: 'image',
       options: {
         hotspot: true,

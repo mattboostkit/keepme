@@ -235,7 +235,7 @@ function About() {
               <img
                 src="https://cdn.sanity.io/images/tyzs5imn/production/4aeefbbef8dae3dd080f930c8af649be6f7dac45-1600x1066.webp"
                 alt="KeepMe perfume bottles"
-                className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
+                className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
@@ -302,7 +302,7 @@ function About() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-20 bg-brand-plum/20">
+      <section className="py-20 bg-brand-pink-light">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Values</span></h2>
@@ -412,13 +412,10 @@ function About() {
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
               Contact <span className="text-brand-mauve">Us</span>
             </h2>
-            <p className="text-lg text-gray-600">
-              Get in touch to discuss your project requirements
-            </p>
+            <p className="text-lg text-gray-600">Get in touch to discuss your project requirements</p>
             <a href="/contact" className="inline-block mt-8 px-8 py-3 bg-brand-mauve text-white font-bold rounded-full hover:bg-brand-rose transition-colors">
               Contact Us
             </a>
-            <p className="text-md text-gray-500 mt-4">Our interactive contact form will be available here soon. In the meantime, please use the button above to navigate to our full contact page.</p>
           </div>
         </div>
       </section>

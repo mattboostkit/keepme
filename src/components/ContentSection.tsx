@@ -34,8 +34,10 @@ const ContentSection: React.FC<ContentSectionProps> = ({
             <img
               src={imageUrl}
               alt={title}
-              className="rounded-lg shadow-xl w-full h-auto object-cover"
+              className="rounded-lg shadow-xl w-[400px] h-[400px] object-cover"
               loading="lazy"
+              width="400"
+              height="400"
             />
           </div>
         </div>

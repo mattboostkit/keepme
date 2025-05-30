@@ -45,7 +45,7 @@ export default {
           { title: 'Shields', value: 'Shields' },
           { title: 'Candle Glass', value: 'Candle Glass' },
           { title: 'Candle Ceramics', value: 'Candle Ceramics' },
-          { title: 'Luxury Packaging', value: 'Luxury Packaging' }
+          { title: 'Secondary Packaging', value: 'Secondary Packaging' }
         ]
       },
       validation: Rule => Rule.required().min(1)

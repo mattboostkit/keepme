@@ -76,7 +76,7 @@ function Header() {
                 <div className="py-2">
                   <Link to="/services/fragrance-componentry" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Fragrance Componentry</Link>
                   <Link to="/services/home-fragrance" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Home Fragrance</Link>
-                  <Link to="/services/luxury-packaging" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Luxury Packaging</Link>
+                  <Link to="/services/secondary-packaging" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Secondary Packaging</Link>
                   <Link to="/services/gift-with-purchase" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Gift With Purchase</Link>
                   <Link to="/services/skincare-componentry" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Skincare Componentry</Link>
                   <Link to="/services/fragrance-creation" className="block px-4 py-2 text-brand-plum hover:bg-brand-rose hover:text-white transition-colors">Fragrance Creation</Link>
@@ -130,7 +130,7 @@ function Header() {
               <div className="pl-4 mt-2 space-y-1 border-l border-brand-peach">
                 <Link to="/services/fragrance-componentry" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Componentry</Link>
                 <Link to="/services/home-fragrance" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Home Fragrance</Link>
-                <Link to="/services/luxury-packaging" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Luxury Packaging</Link>
+                <Link to="/services/secondary-packaging" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Secondary Packaging</Link>
                 <Link to="/services/gift-with-purchase" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Gift With Purchase</Link>
                 <Link to="/services/skincare-componentry" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Skincare Componentry</Link>
                 <Link to="/services/fragrance-creation" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Creation</Link>

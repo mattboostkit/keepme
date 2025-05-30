@@ -47,7 +47,7 @@ function PortfolioPage() {
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="bg-brand-plum/20 p-2 rounded-full">
+                  <div className="bg-brand-pink-light p-2 rounded-full">
                     <ArrowRight className="h-6 w-6 text-brand-rose" />
                   </div>
                   <h3 className="text-xl text-brand-mauve">Client Partnerships</h3>
@@ -65,7 +65,7 @@ function PortfolioPage() {
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center space-x-2">
-                  <div className="bg-brand-plum/20 p-2 rounded-full">
+                  <div className="bg-brand-pink-light p-2 rounded-full">
                     <ArrowRight className="h-6 w-6 text-brand-rose" />
                   </div>
                   <div>

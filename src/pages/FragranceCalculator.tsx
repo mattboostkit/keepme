@@ -49,7 +49,7 @@ const ResultCard = ({ title, value, isCurrency = false, isHighlighted = false }:
   isCurrency?: boolean;
   isHighlighted?: boolean;
 }) => (
-  <div className={`p-4 rounded-lg ${isHighlighted ? 'bg-brand-plum/20 border border-brand-peach' : 'bg-brand-plum/10'}`}>
+  <div className={`p-4 rounded-lg ${isHighlighted ? 'bg-brand-pink-light border border-brand-peach' : 'bg-brand-plum/10'}`}>
     <p className="text-sm text-brand-mauve mb-1">{title}</p>
     <p className={`text-2xl font-bold ${isHighlighted ? 'text-brand-plum' : 'text-brand-plum'}`}>
       {isCurrency ? formatCurrency(value) : formatNumber(value)}

@@ -44,7 +44,7 @@ function CostCalculator() {
                 Calculate Estimate (Placeholder)
               </button>
             </div>
-             <div className="mt-8 p-4 bg-brand-plum/20 rounded-lg text-center">
+             <div className="mt-8 p-4 bg-brand-pink-light rounded-lg text-center">
                <p className="text-brand-mauve">Estimated Cost: <span className="font-bold text-brand-rose">TBD</span></p>
              </div>
           </div>

@@ -29,7 +29,7 @@ function Tools() { // Renamed from ToolsLanding
           <div className="flex justify-center mb-16">
             <div className="max-w-md w-full">
               <Link to="/tools/fragrance-calculator" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
-                <div className="bg-brand-plum/20 p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-mauve transition-colors">
+                <div className="bg-brand-pink-light p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-mauve transition-colors">
                   <FlaskConical className="h-8 w-8 text-brand-rose group-hover:text-brand-plum transition-colors" />
                 </div>
                 <h3 className="text-xl font-semibold text-brand-plum mb-3">Fragrance Calculator</h3>
@@ -44,21 +44,7 @@ function Tools() { // Renamed from ToolsLanding
             </div>
           </div>
 
-          {/* Supporting Copy & Coming Soon Section */}
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold text-brand-plum mb-4">We’re just getting started!</h3>
-            <p className="text-lg text-brand-mauve leading-relaxed mb-2">
-              More tools are on the way to help with everything from costing and logistics to advanced formulation and compliance.
-            </p>
-            <p className="text-lg text-brand-mauve leading-relaxed font-medium text-brand-rose">
-              Your feedback and ideas are welcome as we build the ultimate fragrance resource hub.
-            </p>
-            <div className="mt-8">
-              <span className="inline-block bg-brand-plum/30 text-brand-rose font-semibold px-6 py-3 rounded-full text-sm">
-                More Tools Coming Soon
-              </span>
-            </div>
-          </div>
+
         </div>
       </section>
     </div>

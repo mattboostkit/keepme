@@ -56,7 +56,7 @@ function FreightCalculator() {
         <div className="container mx-auto px-6">
           <BackButton to="/tools" label="Back to Tools" />
           <div className="flex items-center mb-6">
-            <div className="bg-brand-plum/20 p-3 rounded-full mr-4">
+            <div className="bg-brand-pink-light p-3 rounded-full mr-4">
               <Truck className="h-6 w-6 text-brand-peach" />
             </div>
             <h1 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum">
@@ -130,7 +130,7 @@ function FreightCalculator() {
                     <div className="grid grid-cols-3 gap-4" role="radiogroup" aria-label="Package Type">
                       <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'box' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'box' ? 'bg-brand-pink-light border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                       >
                         <input
@@ -146,7 +146,7 @@ function FreightCalculator() {
                       </label>
                       <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'pallet' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'pallet' ? 'bg-brand-pink-light border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                       >
                         <input
@@ -162,7 +162,7 @@ function FreightCalculator() {
                       </label>
                       <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          packageType === 'envelope' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
+                          packageType === 'envelope' ? 'bg-brand-pink-light border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                       >
                         <input
@@ -246,7 +246,7 @@ function FreightCalculator() {
                     <div className="grid grid-cols-3 gap-4" role="radiogroup" aria-label="Shipping Method">
                       <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'standard' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'standard' ? 'bg-brand-pink-light border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                       >
                         <input
@@ -262,7 +262,7 @@ function FreightCalculator() {
                       </label>
                       <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'express' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'express' ? 'bg-brand-pink-light border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                       >
                         <input
@@ -278,7 +278,7 @@ function FreightCalculator() {
                       </label>
                       <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
-                          shippingMethod === 'priority' ? 'bg-brand-plum/20 border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
+                          shippingMethod === 'priority' ? 'bg-brand-pink-light border-brand-peach' : 'border-gray-300 hover:bg-gray-50'
                         }`}
                       >
                         <input
@@ -313,7 +313,7 @@ function FreightCalculator() {
                   <h2 className="text-2xl font-bold mb-6 text-brand-plum">Shipping Estimate</h2>
 
                   <div className="mb-8">
-                    <div className="flex justify-between items-center p-4 bg-brand-plum/20 rounded-lg mb-4">
+                    <div className="flex justify-between items-center p-4 bg-brand-pink-light rounded-lg mb-4">
                       <div className="text-lg font-medium">Shipping Cost</div>
                       <div className="text-2xl font-bold">£{calculationResult.cost.toFixed(2)}</div>
                     </div>
@@ -363,7 +363,7 @@ function FreightCalculator() {
               ) : (
                 <div className="bg-white p-8 rounded-2xl shadow-md h-full flex flex-col justify-center">
                   <div className="text-center mb-6">
-                    <div className="bg-brand-plum/20 p-4 rounded-full inline-flex justify-center items-center mb-4">
+                    <div className="bg-brand-pink-light p-4 rounded-full inline-flex justify-center items-center mb-4">
                       <Truck className="h-8 w-8 text-brand-peach" />
                     </div>
                     <h2 className="text-2xl font-bold mb-2 text-brand-plum">Shipping Calculator</h2>
