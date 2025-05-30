@@ -270,28 +270,28 @@ function Glass() {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <img
-                src="https://cdn.sanity.io/images/tyzs5imn/production/2843ef942571776b77029faa8e5ccb0af285ec1d-3590x4787.webp"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/e572c3e79aa7058c8659589996e7e31adddb7016-1200x800.webp"
                 alt="Custom glass perfume bottle"
                 className="rounded-2xl shadow-md w-full h-64 object-cover"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src="https://cdn.sanity.io/images/tyzs5imn/production/7b8ab701663d19cd36d8fddeaa1dfb1e73d4a5ac-3590x4787.webp"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/718c2341b303bd421c5d9cf130a180f30a25eb04-1200x800.webp"
                 alt="Luxury glass bottle detail"
                 className="rounded-2xl shadow-md w-full h-64 object-cover mt-12"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src="https://cdn.sanity.io/images/tyzs5imn/production/d4beeb28634e5c79b343e100faceafde1efb533c-1226x958.webp"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/e7a1afaa9f2519f408cdef907ec9b8a7252257c6-1200x800.webp"
                 alt="Decorative glass elements"
                 className="rounded-2xl shadow-md w-full h-64 object-cover"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src="https://cdn.sanity.io/images/tyzs5imn/production/d798aba6d18ef671fb30f31153ddbf3a3f79465b-803x850.png"
+                src="https://cdn.sanity.io/images/tyzs5imn/production/c54611d8a40ead1d25a328878e38956459859d0f-1200x800.webp"
                 alt="Frosted glass bottle"
                 className="rounded-2xl shadow-md w-full h-64 object-cover mt-12"
                 loading="lazy"
