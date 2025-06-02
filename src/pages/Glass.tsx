@@ -138,13 +138,13 @@ function Glass() {
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
-                  <p className="text-xl font-bold">20+ Years</p>
+                  <p className="text-xl font-semibold">20+ Years</p>
                   <p className="text-brand-mauve">Glass Expertise</p>
                 </div>
               </div>
               <div className="absolute -top-8 -right-8 bg-white rounded-xl p-6 shadow-lg hidden md:block">
                 <div>
-                  <p className="text-xl font-bold">Premium Quality</p>
+                  <p className="text-xl font-semibold">Premium Quality</p>
                   <p className="text-brand-mauve">Luxury Materials</p>
                 </div>
               </div>

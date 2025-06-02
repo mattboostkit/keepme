@@ -47,7 +47,7 @@ const SanityPage: React.FC = () => {
               )}
             </div>
             <div className="p-6">
-              <h2 className="text-xl font-bold mb-3 group-hover:text-brand-mauve transition-colors">{post.title}</h2>
+              <h2 className="text-xl font-semibold mb-3 group-hover:text-brand-mauve transition-colors">{post.title}</h2>
               {post.publishedAt && (
                 <p className="text-sm text-gray-500">
                   Published: {new Date(post.publishedAt).toLocaleDateString()}

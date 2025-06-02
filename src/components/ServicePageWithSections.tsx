@@ -91,8 +91,8 @@ const ServicePageWithSections: React.FC<ServicePageWithSectionsProps> = ({
             title={section.title}
             text={section.content}
             imageUrl={sectionImage?.image
-              ? urlFor(sectionImage.image).width(400).height(400).fit('crop').crop('center').format('webp').url()
-              : `https://via.placeholder.com/400x400.png?text=${encodeURIComponent(section.title)}`
+              ? urlFor(sectionImage.image).width(600).height(400).fit('crop').crop('center').format('webp').url()
+              : `https://via.placeholder.com/600x400.png?text=${encodeURIComponent(section.title)}`
             }
             imageLeft={section.imageLeft}
             index={index}

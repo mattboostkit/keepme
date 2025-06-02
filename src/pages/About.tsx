@@ -239,14 +239,14 @@ function About() {
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
-                  <p className="text-xl font-bold">Since 2004</p>
+                  <p className="text-xl font-semibold">Since 2004</p>
                   <p className="text-gray-600">Crafting Excellence</p>
                 </div>
               </div>
               {/* New Stats Card: 5 Million Units */}
               <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-lg hidden md:block"> {/* Hide on small screens */}
                 <div>
-                  <p className="text-xl font-bold">5M+ Units</p>
+                  <p className="text-xl font-semibold">5M+ Units</p>
                   <p className="text-gray-600">Produced Per Annum</p>
                 </div>
               </div>
@@ -286,6 +286,91 @@ function About() {
         </div>
       </section>
 
+      {/* Interactive Development Process Section - Enhanced Version */}
+      <section className="py-12 md:py-20 bg-gradient-to-br from-brand-peach to-brand-pink-light">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+              Our <span className="text-brand-rose">Development Process</span> - Interactive Experience
+            </h2>
+            <p className="text-lg text-brand-mauve max-w-2xl mx-auto">
+              Experience our comprehensive development journey through an interactive timeline. Click on each step to explore the details.
+            </p>
+          </div>
+
+          <div className="relative max-w-5xl mx-auto">
+            {/* Timeline Line */}
+            <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-rose via-brand-mauve to-brand-plum"></div>
+            
+            {processFlowchartData.map((step, index) => (
+              <div key={index} className={`relative mb-8 ${index % 2 === 0 ? 'md:text-right md:pr-1/2' : 'md:text-left md:pl-1/2'}`}>
+                {/* Timeline Dot */}
+                <div className={`absolute w-6 h-6 bg-white border-4 border-brand-rose rounded-full z-10 ${index % 2 === 0 ? 'left-5 md:left-auto md:right-1/2 md:transform md:translate-x-3' : 'left-5 md:left-1/2 md:transform md:-translate-x-3'}`}></div>
+                
+                {/* Content Card */}
+                <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
+                  <div className="group cursor-pointer" onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}>
+                    <div className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${activeIndex === index ? 'ring-4 ring-brand-rose ring-opacity-50 scale-105' : ''}`}>
+                      {/* Card Header */}
+                      <div className="p-6 border-b border-gray-100">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h3 className="text-xl font-bold text-brand-plum group-hover:text-brand-rose transition-colors duration-200">
+                              {step.title}
+                            </h3>
+                            <div className="flex items-center mt-2">
+                              <div className="w-8 h-1 bg-gradient-to-r from-brand-rose to-brand-mauve rounded-full"></div>
+                              <span className="ml-2 text-sm text-gray-500">Step {index + 1} of {processFlowchartData.length}</span>
+                            </div>
+                          </div>
+                          <div className={`w-10 h-10 rounded-full bg-gradient-to-r from-brand-rose to-brand-mauve flex items-center justify-center text-white font-bold transform transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : 'group-hover:rotate-45'}`}>
+                            {activeIndex === index ? '−' : '+'}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Expandable Content */}
+                      <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div className="p-6 bg-gradient-to-br from-white to-gray-50">
+                          <div className="prose prose-sm max-w-none">
+                            {renderProcessStepContent(step.content)}
+                          </div>
+                          
+                          {/* Progress Indicator */}
+                          <div className="mt-6 flex items-center">
+                            <div className="flex-1 bg-gray-200 rounded-full h-2">
+                              <div 
+                                className="bg-gradient-to-r from-brand-rose to-brand-mauve h-2 rounded-full transition-all duration-1000"
+                                style={{width: `${((index + 1) / processFlowchartData.length) * 100}%`}}
+                              ></div>
+                            </div>
+                            <span className="ml-3 text-sm text-gray-600 font-medium">
+                              {Math.round(((index + 1) / processFlowchartData.length) * 100)}% Complete
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            {/* Completion Badge */}
+            <div className="relative text-center mt-12">
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-rose to-brand-mauve text-white font-bold rounded-full shadow-lg relative z-10">
+                <div className="w-6 h-6 mr-3 flex items-center justify-center">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                Project Complete - Ready for Launch
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Journey Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
@@ -315,7 +400,7 @@ function About() {
             {/* Value 1: Passion */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Passion</h3>
+              <h3 className="text-xl font-semibold mb-3">Passion</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
                 We are passionate about everything we do. Driven by creativity, integrity, and excellence. We create and deliver exceptional products that exceed expectations and make a meaningful impact.
               </p>
@@ -324,7 +409,7 @@ function About() {
             {/* Value 2: Service */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Service</h3>
+              <h3 className="text-xl font-semibold mb-3">Service</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
                 We believe great service starts with a calm, confident team. By creating a positive space to work, we make collaboration easy and communication effortless, so every customer feels supported and inspired.
               </p>
@@ -333,7 +418,7 @@ function About() {
             {/* Value 3: Partnership */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Partnership</h3>
+              <h3 className="text-xl font-semibold mb-3">Partnership</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
                 Honesty and integrity shape everything we do. We build trust through mutual respect within the team, with customers and partners. Real collaboration happens when everyone feels valued, heard, and empowered to contribute.
               </p>
@@ -342,7 +427,7 @@ function About() {
             {/* Value 4: Quality */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
 
-              <h3 className="text-xl font-bold mb-3">Quality</h3>
+              <h3 className="text-xl font-semibold mb-3">Quality</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
                 Quality means more than great products, it’s about building lasting relationships rooted in trust, transparency, and shared success. We take pride in every detail, knowing that doing things right creates results people believe in.
               </p>

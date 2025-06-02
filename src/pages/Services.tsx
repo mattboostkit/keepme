@@ -77,11 +77,11 @@ function Services() {
             </div>
             <div className="relative">
               <img
-                src={servicesImages.mainOurServicesImage ? urlFor(servicesImages.mainOurServicesImage).width(400).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/400x400.png?text=Main+Service+Image'}
+                src={servicesImages.mainOurServicesImage ? urlFor(servicesImages.mainOurServicesImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Main+Service+Image'}
                 alt={servicesImages.mainOurServicesImage?.alt || 'Main Our Services Image'}
-                className="rounded-2xl shadow-xl w-[400px] h-[400px] object-cover"
+                className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
                 loading="lazy"
-                width="400"
+                width="600"
                 height="400"
               />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
@@ -147,7 +147,7 @@ function Services() {
               </Link>
             </div>
             <div>
-              <img src={servicesImages.fragranceComponentryImage ? urlFor(servicesImages.fragranceComponentryImage).width(400).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/400x400.png?text=Fragrance+Componentry'} alt={servicesImages.fragranceComponentryImage?.alt || 'Fragrance Componentry'} className="rounded-2xl shadow-xl w-[400px] h-[400px] object-cover" loading="lazy" width="400" height="400" />
+              <img src={servicesImages.fragranceComponentryImage ? urlFor(servicesImages.fragranceComponentryImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Fragrance+Componentry'} alt={servicesImages.fragranceComponentryImage?.alt || 'Fragrance Componentry'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ function Services() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <img src={servicesImages.homeFragranceImage ? urlFor(servicesImages.homeFragranceImage).width(400).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/400x400.png?text=Home+Fragrance'} alt={servicesImages.homeFragranceImage?.alt || 'Home Fragrance'} className="rounded-2xl shadow-xl w-[400px] h-[400px] object-cover" loading="lazy" width="400" height="400" />
+              <img src={servicesImages.homeFragranceImage ? urlFor(servicesImages.homeFragranceImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Home+Fragrance'} alt={servicesImages.homeFragranceImage?.alt || 'Home Fragrance'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
             </div>
             <div className="order-1 md:order-2">
 
@@ -195,7 +195,7 @@ function Services() {
               </Link>
             </div>
             <div>
-              <img src={servicesImages.secondaryPackagingImage ? urlFor(servicesImages.secondaryPackagingImage).width(400).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/400x400.png?text=Secondary+Packaging'} alt={servicesImages.secondaryPackagingImage?.alt || 'Secondary Packaging'} className="rounded-2xl shadow-xl w-[400px] h-[400px] object-cover" loading="lazy" width="400" height="400" />
+              <img src={servicesImages.secondaryPackagingImage ? urlFor(servicesImages.secondaryPackagingImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Secondary+Packaging'} alt={servicesImages.secondaryPackagingImage?.alt || 'Secondary Packaging'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
             </div>
           </div>
         </div>
@@ -206,7 +206,7 @@ function Services() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <img src={servicesImages.giftWithPurchaseImage ? urlFor(servicesImages.giftWithPurchaseImage).width(400).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/400x400.png?text=Gift+With+Purchase'} alt={servicesImages.giftWithPurchaseImage?.alt || 'Gift With Purchase'} className="rounded-2xl shadow-xl w-[400px] h-[400px] object-cover" loading="lazy" width="400" height="400" />
+              <img src={servicesImages.giftWithPurchaseImage ? urlFor(servicesImages.giftWithPurchaseImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Gift+With+Purchase'} alt={servicesImages.giftWithPurchaseImage?.alt || 'Gift With Purchase'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
             </div>
             <div className="order-1 md:order-2">
 
@@ -243,7 +243,7 @@ function Services() {
               </Link>
             </div>
             <div>
-              <img src={servicesImages.skincareComponentryImage ? urlFor(servicesImages.skincareComponentryImage).width(400).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/400x400.png?text=Skincare+Componentry'} alt={servicesImages.skincareComponentryImage?.alt || 'Skincare Componentry'} className="rounded-2xl shadow-xl w-[400px] h-[400px] object-cover" loading="lazy" width="400" height="400" />
+              <img src={servicesImages.skincareComponentryImage ? urlFor(servicesImages.skincareComponentryImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Skincare+Componentry'} alt={servicesImages.skincareComponentryImage?.alt || 'Skincare Componentry'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
             </div>
           </div>
         </div>
@@ -254,7 +254,7 @@ function Services() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <img src={servicesImages.fragranceCreationImage ? urlFor(servicesImages.fragranceCreationImage).width(400).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/400x400.png?text=Fragrance+Creation'} alt={servicesImages.fragranceCreationImage?.alt || 'Fragrance Creation'} className="rounded-2xl shadow-xl w-[400px] h-[400px] object-cover" loading="lazy" width="400" height="400" />
+              <img src={servicesImages.fragranceCreationImage ? urlFor(servicesImages.fragranceCreationImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Fragrance+Creation'} alt={servicesImages.fragranceCreationImage?.alt || 'Fragrance Creation'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">

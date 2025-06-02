@@ -44,7 +44,7 @@ export default {
       title: 'Section Image',
       type: 'image',
       group: 'content',
-      description: 'Image for this section (recommended size: 500x500 pixels)',
+      description: 'Image for this section (recommended size: 600x400 pixels)',
       options: {
         hotspot: true,
       },

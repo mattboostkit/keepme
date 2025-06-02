@@ -54,7 +54,7 @@ const SanityImageTest: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Sanity Image Test</h2>
+      <h2 className="text-xl font-semibold mb-4">Sanity Image Test</h2>
       <div className="mb-4">
         <h3 className="font-bold">Brand: {imageData.name}</h3>
         <pre className="bg-gray-100 p-2 rounded text-xs overflow-auto">

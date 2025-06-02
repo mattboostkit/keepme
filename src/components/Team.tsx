@@ -128,7 +128,7 @@ const Team: React.FC<TeamProps> = ({
                     </a>
                   )}
                 </div>
-                <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
                 <p className="text-gray-600">{member.title}</p>
 
               </div>

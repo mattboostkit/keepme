@@ -16,6 +16,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- Netlify Forms - Hidden form for fragrance calculator -->
+    <form name="fragrance-calculator" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+      <input type="text" name="volume_ml" />
+      <input type="text" name="inclusion_rate" />
+      <input type="text" name="order_quantity" />
+      <input type="text" name="total_cost" />
+    </form>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

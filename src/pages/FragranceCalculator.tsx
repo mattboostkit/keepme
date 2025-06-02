@@ -208,11 +208,32 @@ function FragranceCalculator() {
         <div className="flex justify-center my-8"> {/* Added vertical margin */}
            <button
              type="button"
-             onClick={() => setShowEnquiryForm(!showEnquiryForm)}
+             onClick={() => {
+               setShowEnquiryForm(!showEnquiryForm);
+               if (!showEnquiryForm) {
+                 // Auto-populate form when opening
+                 setFragranceName('Custom Fragrance');
+                 setNotesDescription('');
+                 setTargetAudience('');
+                 setAdditionalInfo(`Based on fragrance calculator results:
+• Volume: ${volumeInput} ml
+• Inclusion Rate: ${inclusionRateInput}%
+• Order Quantity: ${orderQuantityInput} units
+• Wastage: ${wastageInput}%
+• Cost per kg: £${costPerKgInput}
+
+Calculated Results:
+• ml per Product: ${formatNumber(mlPerProduct)}
+• Total kg Required: ${formatNumber(totalKgRequired)}
+• Cost per ml: ${formatCurrency(costPerMl)}
+• Cost per Product: ${formatCurrency(costPerProduct)}
+• Total Cost: ${formatCurrency(totalCost)}`);
+               }
+             }}
              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-brand-mauve hover:bg-brand-rose transition-colors focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
              disabled={!totalCost} // Disable if no valid calculation
            >
-             {showEnquiryForm ? 'Hide Enquiry Form' : 'Request Quote / Add Details'}
+             {showEnquiryForm ? 'Hide Enquiry Form' : 'Get Quote - Auto-fill Calculator Results'}
            </button>
         </div>
 
@@ -268,88 +289,178 @@ interface EnquiryFormProps {
 }
 
 const EnquiryForm: React.FC<EnquiryFormProps> = ({ inputs, outputs }) => {
-  // Dummy state for form fields
+  // State for form fields
   const [fragranceName, setFragranceName] = useState('');
   const [notesDescription, setNotesDescription] = useState('');
   const [targetAudience, setTargetAudience] = useState('');
   const [additionalInfo, setAdditionalInfo] = useState('');
   const [contactName, setContactName] = useState('');
   const [contactEmail, setContactEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'copied'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder for actual submission logic (e.g., API call)
-    alert('Enquiry Submitted (Placeholder)\n\nData:\n' + JSON.stringify({
-      inputs,
-      outputs: { // Format outputs for display
-        mlPerProduct: formatNumber(outputs.mlPerProduct),
-        totalKgRequired: formatNumber(outputs.totalKgRequired),
-        costPerMl: formatCurrency(outputs.costPerMl),
-        costPerProduct: formatCurrency(outputs.costPerProduct),
-        totalCost: formatCurrency(outputs.totalCost),
-      },
-      enquiryDetails: {
-        fragranceName,
-        notesDescription,
-        targetAudience,
-        additionalInfo,
-        contactName,
-        contactEmail,
+    
+    // Basic validation
+    if (!contactName.trim() || !contactEmail.trim()) {
+      setSubmitStatus('error');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    // Prepare comprehensive data for submission
+    const calculatorSummary = `
+CALCULATION INPUTS:
+• Volume: ${inputs.volumeInput} ml
+• Inclusion Rate: ${inputs.inclusionRateInput}%
+• Order Quantity: ${inputs.orderQuantityInput} units
+• Wastage: ${inputs.wastageInput}%
+• Cost per kg: £${inputs.costPerKgInput}
+
+CALCULATED RESULTS:
+• ml per Product: ${formatNumber(outputs.mlPerProduct)}
+• Total kg Required: ${formatNumber(outputs.totalKgRequired)}
+• Cost per ml: ${formatCurrency(outputs.costPerMl)}
+• Cost per Product: ${formatCurrency(outputs.costPerProduct)}
+• TOTAL COST: ${formatCurrency(outputs.totalCost)}
+
+PROJECT DETAILS:
+${additionalInfo}
+    `.trim();
+
+    try {
+      // Use Netlify Forms for submission (works with GoHighLevel via webhook)
+      const formData = new FormData();
+      formData.append('form-name', 'fragrance-calculator');
+      formData.append('name', contactName);
+      formData.append('email', contactEmail);
+      formData.append('subject', 'Fragrance Calculator Quote Request');
+      formData.append('message', calculatorSummary);
+      
+      // Add individual fields for automation
+      formData.append('volume_ml', inputs.volumeInput);
+      formData.append('inclusion_rate', inputs.inclusionRateInput);
+      formData.append('order_quantity', inputs.orderQuantityInput);
+      formData.append('total_cost', formatCurrency(outputs.totalCost));
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString()
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        
+        // Also send email notification
+        const emailSubject = `Fragrance Calculator Quote Request - ${contactName}`;
+        const emailBody = `New fragrance calculator submission:\n\nName: ${contactName}\nEmail: ${contactEmail}\n\n${calculatorSummary}`;
+        window.open(`mailto:sales@keepme.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`);
+        
+        // Reset form after successful submission
+        setTimeout(() => {
+          setAdditionalInfo('');
+          setContactName('');
+          setContactEmail('');
+          setSubmitStatus('idle');
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
       }
-    }, null, 2));
-     // Optionally hide form after submission: setShowEnquiryForm(false);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   return (
     <div className="mt-10 bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-brand-plum/20">
-      <h3 className="text-xl font-semibold text-brand-plum mb-6">Enquiry Details</h3>
+      <h3 className="text-xl font-semibold text-brand-plum mb-6">Quote Request - Calculator Results Auto-Filled</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Display Calculation Summary (Readonly) */}
-        <details className="bg-gray-50 p-4 rounded-md border border-gray-200 mb-4">
-           <summary className="text-sm font-medium text-brand-mauve cursor-pointer hover:text-brand-rose">Show Calculation Summary</summary>
-           <div className="mt-3 text-xs space-y-1 text-gray-600">
-             <p>Volume: {inputs.volumeInput} ml</p>
-             <p>Inclusion Rate: {inputs.inclusionRateInput}%</p>
-             <p>Order Quantity: {inputs.orderQuantityInput} units</p>
-             <p>Wastage: {inputs.wastageInput}%</p>
-             <p>Cost/kg: {formatCurrency(parseFloat(inputs.costPerKgInput || '0'))}</p>
-             <hr className="my-2"/>
-             <p>Total Cost: <strong>{formatCurrency(outputs.totalCost)}</strong></p>
-           </div>
-        </details>
+        
+        {/* Auto-filled Calculation Results (Read-only display) */}
+        <div className="bg-brand-peach/20 p-4 rounded-md border border-brand-peach">
+          <h4 className="text-sm font-medium text-brand-plum mb-3">📊 Your Calculation Results</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+            <div><strong>Volume:</strong> {inputs.volumeInput} ml</div>
+            <div><strong>Inclusion Rate:</strong> {inputs.inclusionRateInput}%</div>
+            <div><strong>Order Quantity:</strong> {inputs.orderQuantityInput} units</div>
+            <div><strong>Wastage:</strong> {inputs.wastageInput}%</div>
+            <div><strong>Cost per kg:</strong> £{inputs.costPerKgInput}</div>
+            <div className="md:col-span-2 pt-2 border-t border-brand-peach">
+              <strong className="text-brand-plum">Total Cost: {formatCurrency(outputs.totalCost)}</strong>
+            </div>
+          </div>
+        </div>
 
-        {/* Dummy Enquiry Fields */}
+        {/* Auto-filled Additional Information */}
         <div>
-          <label htmlFor="fragranceName" className="block text-sm font-medium text-brand-mauve">Fragrance Name (Optional)</label>
-          <input type="text" id="fragranceName" value={fragranceName} onChange={(e) => setFragranceName(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" />
+          <label htmlFor="additionalInfo" className="block text-sm font-medium text-brand-mauve">Project Details (Auto-filled from calculator)</label>
+          <textarea 
+            id="additionalInfo" 
+            value={additionalInfo} 
+            onChange={(e) => setAdditionalInfo(e.target.value)} 
+            rows={8} 
+            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm bg-gray-50"
+            placeholder="Calculator results and additional project details..."
+          />
+          <p className="text-xs text-gray-500 mt-1">You can edit this information or add more details</p>
         </div>
-        <div>
-          <label htmlFor="notesDescription" className="block text-sm font-medium text-brand-mauve">Notes Description / Concept</label>
-          <textarea id="notesDescription" value={notesDescription} onChange={(e) => setNotesDescription(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" placeholder="e.g., Woody base, floral heart, citrus top notes..."></textarea>
+
+        {/* Simple Contact Fields */}
+        <div className="bg-white p-4 rounded-md border border-gray-200">
+          <h4 className="text-sm font-medium text-brand-plum mb-3">👤 Your Contact Information</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="contactName" className="block text-sm font-medium text-brand-mauve">Your Name *</label>
+              <input type="text" id="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" placeholder="Enter your full name" />
+            </div>
+            <div>
+              <label htmlFor="contactEmail" className="block text-sm font-medium text-brand-mauve">Your Email *</label>
+              <input type="email" id="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" placeholder="Enter your email address" />
+            </div>
+          </div>
         </div>
-         <div>
-          <label htmlFor="targetAudience" className="block text-sm font-medium text-brand-mauve">Target Audience (Optional)</label>
-          <input type="text" id="targetAudience" value={targetAudience} onChange={(e) => setTargetAudience(e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" placeholder="e.g., Young professionals, luxury market..." />
-        </div>
-         <div>
-          <label htmlFor="additionalInfo" className="block text-sm font-medium text-brand-mauve">Additional Information</label>
-          <textarea id="additionalInfo" value={additionalInfo} onChange={(e) => setAdditionalInfo(e.target.value)} rows={3} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" placeholder="Any specific requirements, packaging ideas, etc."></textarea>
-        </div>
-         <hr className="my-4"/>
-         <div>
-          <label htmlFor="contactName" className="block text-sm font-medium text-brand-mauve">Your Name *</label>
-          <input type="text" id="contactName" value={contactName} onChange={(e) => setContactName(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" />
-        </div>
-         <div>
-          <label htmlFor="contactEmail" className="block text-sm font-medium text-brand-mauve">Your Email *</label>
-          <input type="email" id="contactEmail" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm" />
-        </div>
+
+        {/* Status Messages */}
+        {submitStatus === 'success' && (
+          <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-md">
+            <p className="text-green-800 text-sm font-medium">
+              ✓ Enquiry submitted successfully! We'll be in touch with you soon.
+            </p>
+          </div>
+        )}
+        
+        {submitStatus === 'error' && (
+          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
+            <p className="text-red-800 text-sm font-medium">
+              ✗ There was an error submitting your enquiry. Please ensure all required fields are filled in and try again.
+            </p>
+          </div>
+        )}
 
         <button
           type="submit"
-          className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-brand-mauve hover:bg-brand-rose transition-colors focus:outline-none"
+          disabled={isSubmitting || !contactName.trim() || !contactEmail.trim()}
+          className="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-full text-white bg-brand-mauve hover:bg-brand-rose transition-colors focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Submit Enquiry (Placeholder)
+          {isSubmitting ? (
+            <>
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 074 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Submitting Enquiry...
+            </>
+          ) : (
+            'Submit Enquiry'
+          )}
         </button>
       </form>
     </div>

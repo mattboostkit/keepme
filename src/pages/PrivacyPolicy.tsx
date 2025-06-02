@@ -1,76 +1,178 @@
 const PrivacyPolicy = () => (
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-4xl bg-white">
-    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8">Privacy Policy</h1>
-    <p className="text-base sm:text-lg font-semibold mb-2">Protecting your personal details on our website</p>
-    <p className="text-sm sm:text-base text-gray-600 mb-4">Last updated: 1 May 2015</p>
+    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8">PRIVACY POLICY</h1>
+    <p className="text-sm sm:text-base text-gray-600 mb-6">Last updated: 28 May 2025</p>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">WHO WE ARE</h2>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      KeepMe Lifestyle Ltd (Registered number 12000276), whose registered office is at 35 Theydon Park Road, Theydon Bois, Epping, Essex, CM16 7LR, knows that you care how information about you is used and shared and we appreciate your trust in us to do that carefully and sensibly. This notice describes our privacy policy and forms part of our website terms and conditions (“Website Terms”).
+      This website is operated by KeepMe Lifestyle Ltd (company number 12000276), with a registered office at 35 Theydon Park Road, Theydon Bois, Epping, Essex, CM16 7LR, United Kingdom.
     </p>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      By accepting our Website Terms or by visiting keepme.co.uk (“the Website”) you are accepting and consenting to the practices described in this Privacy Policy.
+      We are committed to protecting and respecting your privacy. This policy explains how we collect, use, and share your personal data and your rights under data protection law, including the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+    </p>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">THE DATA WE COLLECT</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">We may collect and process the following personal data:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>Identity Data – name, title, date of birth</li>
+      <li>Contact Data – email address, phone number, billing/shipping address</li>
+      <li>Payment Data – bank account and payment card details</li>
+      <li>Technical Data – IP address, browser type, location, cookies</li>
+      <li>Marketing & Communication Data – preferences in receiving marketing from us</li>
+      <li>Usage Data – how you use our website, products and services</li>
+    </ul>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">HOW WE COLLECT YOUR DATA</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">We collect your data in the following ways:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>Directly from you (e.g. by filling out forms or contacting us)</li>
+      <li>Through your use of our website (e.g. via cookies and analytics tools)</li>
+      <li>From third parties (e.g. payment processors, business partners)</li>
+    </ul>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">LEGAL BASIS FOR PROCESSING</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">We only use your personal data where we have a legal basis to do so. These include:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>Consent (e.g. marketing emails, cookies)</li>
+      <li>Contractual necessity (e.g. processing orders)</li>
+      <li>Legal obligation (e.g. tax records)</li>
+      <li>Legitimate interests (e.g. customer support, improving our website)</li>
+    </ul>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">HOW WE USE YOUR PERSONAL DATA</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">We may use your personal data to:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>Process and deliver your orders</li>
+      <li>Manage your customer account</li>
+      <li>Respond to enquiries or support requests</li>
+      <li>Send you marketing communications (with your consent)</li>
+      <li>Improve our products and services</li>
+      <li>Ensure website security and performance</li>
+      <li>Comply with our legal obligations</li>
+    </ul>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">MARKETING AND COMMUNICATION</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-4">
+      We will only send you direct marketing by email or SMS if we have your consent. You can withdraw this consent at any time by clicking "unsubscribe" in our emails or contacting us at sales@keepme.co.uk.
+    </p>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">COOKIES</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-4">
+      We use cookies and similar technologies to provide you with a better browsing experience, analyse site traffic, and personalise content. You can manage your cookie preferences through our cookie banner or in your browser settings.
+    </p>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">SHARING YOUR DATA</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">We may share your personal data with:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>Our trusted service providers (e.g. payment processors, hosting providers)</li>
+      <li>Our professional advisers (e.g. legal, accounting)</li>
+      <li>Regulatory authorities, where required by law</li>
+      <li>In the event of a business transfer or sale</li>
+    </ul>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">INTERNATIONAL TRANSFERS</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">Some of our service providers may be based outside the UK. When transferring data internationally, we ensure it is protected by using:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>UK adequacy decisions, or</li>
+      <li>Standard Contractual Clauses approved by the UK Information Commissioner's Office (ICO)</li>
+    </ul>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">HOW LONG WE KEEP YOUR DATA</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">
+      We only retain your personal data for as long as necessary to fulfil the purposes we collected it for, including legal, accounting, or reporting requirements.
+    </p>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">For example:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>Order and transaction records: up to 7 years</li>
+      <li>Marketing preferences: until you withdraw consent</li>
+    </ul>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">YOUR RIGHTS</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">You have the right to:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>Access the personal data we hold about you</li>
+      <li>Correct inaccuracies in your data</li>
+      <li>Request erasure ("right to be forgotten")</li>
+      <li>Restrict or object to processing</li>
+      <li>Withdraw your consent at any time (where consent is the basis)</li>
+      <li>Request data portability to another provider</li>
+    </ul>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">
+      To exercise your rights, email us at sales@keepme.co.uk.
     </p>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      The Website is brought to you by KeepMe Lifestyle Ltd. KeepMe Lifestyle Ltd believes it is important to protect your Personal Data (as defined in the Data Protection Act 1998) and we are committed to giving you a personalised service that meets your needs in a way that also protects your privacy. This policy explains how we may collect Personal Data about you.
+      You also have the right to complain to the Information Commissioner's Office (ICO):<br />
+      Website: www.ico.org.uk<br />
+      Phone: 0303 123 1113
+    </p>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">HOW WE PROTECT YOUR DATA</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">We use appropriate security measures to prevent your personal data from being lost, used or accessed in an unauthorised way. These include:</p>
+    <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li>SSL encryption</li>
+      <li>Firewalls and secure servers</li>
+      <li>Access controls and staff training</li>
+    </ul>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">CHANGES TO THIS POLICY</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-4">
+      We may update this privacy policy from time to time. When we do, we will update the "Last updated" date and may notify you by email or on the website.
+    </p>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">CONTACT US</h2>
+    <p className="text-sm sm:text-base leading-relaxed mb-2">
+      If you have any questions or concerns about this policy or how we handle your data, please contact:
     </p>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      It also explains some of the security measures we take to protect your Personal Data, and tells you certain things we will do and not do. You should read this policy in conjunction with the Website Terms.
+      Office Manager<br />
+      KeepMe Lifestyle Ltd<br />
+      Unit 16 Quadrant Court<br />
+      Crossways Business Park<br />
+      Greenhithe, Kent, DA9 9AY<br />
+      sales@keepme.co.uk
     </p>
-    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">1. Collecting Information</h2>
+
+    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mt-12 mb-4 sm:mb-6 lg:mb-8">COOKIE POLICY</h1>
+
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      We may collect Personal Data about you from a number of sources, including the following:
-      <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base">
-        <li>From you when you agree to take a service or product from us, in which case this may include your contact details, date of birth, how you will pay for the product or service and your bank details.</li>
-        <li>From you when you contact us with an enquiry or in response to a communication from us, in which case, this may tell us something about how you use our services.</li>
-        <li>From documents that are available to the public, such as the electoral register.</li>
-      </ul>
+      We use cookies and similar tracking technologies to enhance your browsing experience, provide personalised content and advertisements, analyse site traffic, and understand where our visitors are coming from. By browsing our website, you consent to our use of cookies and other tracking technologies.
     </p>
-    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">2. Using Your Personal Information</h2>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">What Are Cookies?</h2>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      Personal Data about our customers is an important part of our business and we shall only use your Personal Data for the following purposes and shall not keep such Personal Data longer than is necessary to fulfil these purposes:
-      <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base">
-        <li>To help us to identify you when you contact us.</li>
-        <li>To help us to identify accounts, services and/or products which you could have from us or selected partners from time to time.</li>
-        <li>To help us to administer and to contact you about improved administration of any accounts, services and products we have provided before, do provide now or will or may provide in the future.</li>
-        <li>To allow us to carry out marketing analysis and customer profiling (including with transactional information), conduct research, including creating statistical and testing information.</li>
-        <li>To help to prevent and detect fraud or loss.</li>
-        <li>To allow us to contact you in any way (including mail, email, telephone, visit, text or multimedia messages) about products and services offered by us and selected partners unless you have previously asked us not to do so.</li>
-        <li>To keep you up to date with our member benefit scheme under which, as part of your membership benefits, we will give you membership information and details of discounts and offers we negotiate from time to time on behalf of our members. If you do not wish to receive this benefit, please write to our Data Protection Manager at the address given in clause 7 below.</li>
-        <li>We may monitor and record communications with you (including phone conversations and emails) for quality assurance and compliance.</li>
-        <li>We may check your details with fraud prevention agencies. If you provide false or inaccurate information and we suspect fraud, we will record this.</li>
-      </ul>
+      Cookies are small text files placed on your device by websites that you visit. They are widely used to make websites work, or work more efficiently, as well as to provide information to the owners of the site.
     </p>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">Types of Cookies We Use:</h2>
+    <ol className="list-decimal ml-4 sm:ml-6 space-y-2 text-sm sm:text-base mb-4">
+      <li><strong>Strictly Necessary Cookies</strong> - These are essential for the website to function properly.</li>
+      <li><strong>Performance Cookies</strong> - These help us understand how visitors interact with our website, collecting information anonymously.</li>
+      <li><strong>Functionality Cookies</strong> - These allow the website to remember choices you make to provide enhanced functionality and personalisation.</li>
+      <li><strong>Targeting/Advertising Cookies</strong> – These are used to deliver relevant advertisements to you.</li>
+    </ol>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">Managing Cookies:</h2>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      We will not disclose your Personal Data to any third party except in accordance with this Privacy Policy. We may allow other people and organisations to use Personal Data we hold about you in the following circumstances:
-      <ul className="list-disc ml-4 sm:ml-6 space-y-2 text-sm sm:text-base">
-        <li>If we, or substantially all of our assets, are acquired or are in the process of being acquired by a third party, in which case Personal Data held by us, about our customers, will be one of the transferred assets.</li>
-        <li>If we have been legitimately asked to provide information for legal or regulatory purposes or as part of legal proceedings or prospective legal proceedings.</li>
-        <li>We employ companies and individuals to perform functions on our behalf and we may disclose your Personal Data to these parties for the purposes set out in clause 2.1 or, for example, for fulfilling orders, delivering packages, sending postal mail and email, removing repetitive information from customer lists, analysing data, providing marketing assistance, providing search results and links (including paid listings and links) and providing customer service. Those parties are bound by strict contractual provisions with us and only have access to Personal Data needed to perform their functions, and may not use it for other purposes. Further, they must process the Personal Data in accordance with this Privacy Policy and as permitted by the Data Protection Act 1998. From time to time, these other people and organisations to whom we may pass your Personal Data may be outside the European Economic Area. We will take all steps reasonably necessary to ensure that your Personal Data is treated securely and in accordance with this Privacy Policy and the Data Protection Act 1998.</li>
-      </ul>
+      You can control and manage cookies through your browser settings. Please note that disabling certain cookies may affect your ability to access some features of our site.
     </p>
-    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">3. Protecting Information</h2>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">Third-Party Cookies:</h2>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      We have strict security measures to protect Personal Data, including SSL encryption, physical, electronic and procedural safeguards, and proof of identity before disclosure.
+      We may also use third-party cookies from trusted partners for analytics and advertising purposes. These cookies are subject to the respective privacy policies of these third parties.
     </p>
-    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">4. The Internet</h2>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">More Information:</h2>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      If you communicate with us using the Internet, we may occasionally email you about our services and products. We may use cookies to monitor how people use our site. You can set your browser to reject cookies, but this may affect your experience.
+      For more detailed information on how we use, store, and keep your personal data secure, please refer to our Privacy Policy.
     </p>
-    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">5. Links</h2>
+
+    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">Changes to This Policy:</h2>
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      The Website may include third-party advertising and links to other websites. We exclude all liability for loss that you may incur when using these third party websites.
+      We may update our Cookie Policy from time to time. Any changes will be posted on this page with an updated revision date.
     </p>
-    <h2 className="text-xl sm:text-2xl font-semibold mt-6 sm:mt-8 mb-3 sm:mb-4">6. Further Information</h2>
+
     <p className="text-sm sm:text-base leading-relaxed mb-4">
-      If you would like any more information or you have any comments about our Privacy Policy, please either write to us at Data Protection Manager, KeepMe Lifestyle Ltd, Unit 16, Quadrant Court, Crossways Business Park, Greenhithe, Kent. DA9 9AY, or email us at sales@keepme.co.uk.
-    </p>
-    <p className="text-sm sm:text-base leading-relaxed mb-4">
-      We may amend this Privacy Policy from time to time without notice to you, in which case, we will publish the amended version on the Website. It is your responsibility to check regularly to determine whether this Privacy Policy has changed.
-    </p>
-    <p className="text-sm sm:text-base leading-relaxed mb-4">
-      If you would like access to the Personal Data that we hold about you, you can do this by emailing us at sales@keepme.co.uk or writing to us at the address noted above. There may be a nominal charge of £10 to cover administrative costs.
-    </p>
-    <p className="text-sm sm:text-base leading-relaxed mb-4">
-      We aim to keep the Personal Data we hold about you accurate and up to date. If you tell us that we are holding any inaccurate Personal Data about you, we will delete it or correct it promptly. Please email us at sales@keepme.co.uk or write to us at the address above to update your Personal Data.
+      If you have any questions about our use of cookies or this policy, please contact us at sales@keepme.co.uk.
     </p>
   </div>
 );
