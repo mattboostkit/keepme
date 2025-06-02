@@ -76,6 +76,14 @@ function FragranceCalculator() {
   const [totalCost, setTotalCost] = useState<number>(0);
   const [orderQuantityWarning, setOrderQuantityWarning] = useState<string>(''); // State for MOQ warning
   const [showEnquiryForm, setShowEnquiryForm] = useState<boolean>(false); // State for form visibility
+  
+  // --- State for Enquiry Form ---
+  const [fragranceName, setFragranceName] = useState('');
+  const [notesDescription, setNotesDescription] = useState('');
+  const [targetAudience, setTargetAudience] = useState('');
+  const [additionalInfo, setAdditionalInfo] = useState('');
+  const [contactName, setContactName] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
   // Removed mailtoLink state
   // --- Calculation Logic ---
   // Define the calculation logic in a memoized callback
@@ -242,6 +250,18 @@ Calculated Results:
           <EnquiryForm
             inputs={{ volumeInput, inclusionRateInput, orderQuantityInput, wastageInput, costPerKgInput }}
             outputs={{ mlPerProduct, totalKgRequired, costPerMl, costPerProduct, totalCost }}
+            fragranceName={fragranceName}
+            setFragranceName={setFragranceName}
+            notesDescription={notesDescription}
+            setNotesDescription={setNotesDescription}
+            targetAudience={targetAudience}
+            setTargetAudience={setTargetAudience}
+            additionalInfo={additionalInfo}
+            setAdditionalInfo={setAdditionalInfo}
+            contactName={contactName}
+            setContactName={setContactName}
+            contactEmail={contactEmail}
+            setContactEmail={setContactEmail}
           />
         )}
 
@@ -286,16 +306,37 @@ interface EnquiryFormProps {
     costPerProduct: number;
     totalCost: number;
   };
+  fragranceName: string;
+  setFragranceName: (value: string) => void;
+  notesDescription: string;
+  setNotesDescription: (value: string) => void;
+  targetAudience: string;
+  setTargetAudience: (value: string) => void;
+  additionalInfo: string;
+  setAdditionalInfo: (value: string) => void;
+  contactName: string;
+  setContactName: (value: string) => void;
+  contactEmail: string;
+  setContactEmail: (value: string) => void;
 }
 
-const EnquiryForm: React.FC<EnquiryFormProps> = ({ inputs, outputs }) => {
-  // State for form fields
-  const [fragranceName, setFragranceName] = useState('');
-  const [notesDescription, setNotesDescription] = useState('');
-  const [targetAudience, setTargetAudience] = useState('');
-  const [additionalInfo, setAdditionalInfo] = useState('');
-  const [contactName, setContactName] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
+const EnquiryForm: React.FC<EnquiryFormProps> = ({ 
+  inputs, 
+  outputs,
+  fragranceName,
+  setFragranceName,
+  notesDescription,
+  setNotesDescription,
+  targetAudience,
+  setTargetAudience,
+  additionalInfo,
+  setAdditionalInfo,
+  contactName,
+  setContactName,
+  contactEmail,
+  setContactEmail
+}) => {
+  // State for form submission status
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'copied'>('idle');
 
@@ -454,7 +495,7 @@ ${additionalInfo}
             <>
               <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 074 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
               Submitting Enquiry...
             </>
