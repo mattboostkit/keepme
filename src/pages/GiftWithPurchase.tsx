@@ -68,7 +68,7 @@ function GiftWithPurchase() {
   return (
     <ServicePageWithSections
       title="Gift With Purchase"
-      description="Offering a gift with purchase allows you to reward loyal customers, attract new buyers, and showcase new products. Customers feel appreciated and valued when given something free, so offer a complimentary item with a purchase to reward customer loyalty. A great opportunity to showcase something new and attract potential customers. With a range of items to choose from such as branded goods, travel-sized products, travel bags, free samples, clothing, robes, and skincare kits, we can provide you with the perfect gift to enhance the perceived value of your product."
+      description="Offering a gift with purchase is a powerful way to reward loyal customers, attract new ones, and showcase new products. Complimentary items make customers feel appreciated while increasing perceived value. From branded goods and travel-sized products to skincare kits, robes, and samples, we offer a wide range of options to help elevate your brand and engage buyers."
       serviceName="Gift With Purchase"
       sections={sections}
       faqItems={faqItems}

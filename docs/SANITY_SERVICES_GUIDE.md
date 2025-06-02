@@ -27,7 +27,7 @@ This guide will help you upload and manage service images for your KeepMe websit
      - GlassWater (for Fragrance Componentry)
      - Palette (for Cosmetic Componentry)
      - Home (for Home Fragrance)
-     - Package (for Luxury Packaging)
+     - Package (for Secondary Packaging)
      - Gift (for Gifts With Purchase)
      - Truck (for Delivery & Logistics)
    
@@ -44,7 +44,7 @@ This guide will help you upload and manage service images for your KeepMe websit
        2. Fragrance Componentry
        3. Cosmetic Componentry
        4. Home Fragrance
-       5. Luxury Packaging
+       5. Secondary Packaging
        6. Gifts With Purchase
        7. Delivery & Logistics
 

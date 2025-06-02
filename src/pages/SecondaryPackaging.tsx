@@ -2,10 +2,10 @@ import ServicePageWithSections from '../components/ServicePageWithSections';
 
 // Dummy FAQ data specific to Secondary Packaging
 const faqItems = [
-  { question: "What defines 'luxury' packaging?", answer: "Luxury packaging often involves premium materials (rigid board, speciality papers), sophisticated construction, intricate finishes (embossing, foiling), and a focus on the unboxing experience." },
-  { question: "What types of luxury packaging do you offer?", answer: "We specialise in rigid boxes, folding cartons with premium finishes, custom inserts (foam, paperboard, fabric), ribbons, and other decorative elements." },
+  { question: "What defines 'secondary' packaging?", answer: "Secondary packaging often involves premium materials (rigid board, speciality papers), sophisticated construction, intricate finishes (embossing, foiling), and a focus on the unboxing experience." },
+  { question: "What types of secondary packaging do you offer?", answer: "We specialise in rigid boxes, folding cartons with premium finishes, custom inserts (foam, paperboard, fabric), ribbons, and other decorative elements." },
   { question: "Can you design the packaging structure?", answer: "Yes, our structural design team can create bespoke packaging structures that are both protective and visually stunning, tailored to your product and brand." },
-  { question: "What sustainable luxury packaging options are available?", answer: "We offer options like FSC-certified papers, recycled board, soy-based inks, and designs that minimise waste or encourage reuse." },
+  { question: "What sustainable secondary packaging options are available?", answer: "We offer options like FSC-certified papers, recycled board, soy-based inks, and designs that minimise waste or encourage reuse." },
 ];
 
 function SecondaryPackaging() {
@@ -56,7 +56,7 @@ function SecondaryPackaging() {
   return (
     <ServicePageWithSections
       title="Secondary Packaging"
-      description="Uplifting, luxury packaging is vital to showcase your brand's elegance and style."
+      description="Uplifting, secondary packaging is vital to showcase your brand's elegance and style."
       serviceName="Secondary Packaging"
       sections={sections}
       faqItems={faqItems}

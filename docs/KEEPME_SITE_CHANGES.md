@@ -38,7 +38,7 @@ This document tracks all significant changes made to the KeepMe website during d
   - Fragrance Componentry
   - Cosmetic Componentry
   - Home Fragrance
-  - Luxury Packaging
+  - Secondary Packaging
   - Gifts With Purchase
 - Removed Delivery and Logistics from Services as requested
 - Portfolio page
