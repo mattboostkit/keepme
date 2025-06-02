@@ -5,6 +5,16 @@
 [dev]
   command = "npm run dev"
   port = 5173
+
+# Enable form detection
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.forms]
+  enable = true
   
 [[redirects]]
   from = "/*"

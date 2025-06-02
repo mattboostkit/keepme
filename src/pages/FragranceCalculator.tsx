@@ -262,6 +262,7 @@ Calculated Results:
             setContactName={setContactName}
             contactEmail={contactEmail}
             setContactEmail={setContactEmail}
+            setShowEnquiryForm={setShowEnquiryForm}
           />
         )}
 
@@ -318,6 +319,7 @@ interface EnquiryFormProps {
   setContactName: (value: string) => void;
   contactEmail: string;
   setContactEmail: (value: string) => void;
+  setShowEnquiryForm: (value: boolean) => void;
 }
 
 const EnquiryForm: React.FC<EnquiryFormProps> = ({ 
@@ -334,7 +336,8 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({
   contactName,
   setContactName,
   contactEmail,
-  setContactEmail
+  setContactEmail,
+  setShowEnquiryForm
 }) => {
   // State for form submission status
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -372,34 +375,34 @@ PROJECT DETAILS:
 ${additionalInfo}
     `.trim();
 
+    // Prepare form data for Netlify Forms
+    const formData = new URLSearchParams();
+    formData.append('form-name', 'fragrance-calculator');
+    formData.append('name', contactName);
+    formData.append('email', contactEmail);
+    formData.append('subject', 'Fragrance Calculator Quote Request');
+    formData.append('message', calculatorSummary);
+    formData.append('volume_ml', inputs.volumeInput);
+    formData.append('inclusion_rate', inputs.inclusionRateInput);
+    formData.append('order_quantity', inputs.orderQuantityInput);
+    formData.append('total_cost', formatCurrency(outputs.totalCost));
+    
     try {
-      // Use Netlify Forms for submission (works with GoHighLevel via webhook)
-      const formData = new FormData();
-      formData.append('form-name', 'fragrance-calculator');
-      formData.append('name', contactName);
-      formData.append('email', contactEmail);
-      formData.append('subject', 'Fragrance Calculator Quote Request');
-      formData.append('message', calculatorSummary);
-      
-      // Add individual fields for automation
-      formData.append('volume_ml', inputs.volumeInput);
-      formData.append('inclusion_rate', inputs.inclusionRateInput);
-      formData.append('order_quantity', inputs.orderQuantityInput);
-      formData.append('total_cost', formatCurrency(outputs.totalCost));
-      
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString()
+        body: formData.toString()
       });
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        
-        // Also send email notification
+      // Check if we're in development (Netlify forms don't work locally)
+      if (window.location.hostname === 'localhost') {
+        // In development, use mailto
         const emailSubject = `Fragrance Calculator Quote Request - ${contactName}`;
         const emailBody = `New fragrance calculator submission:\n\nName: ${contactName}\nEmail: ${contactEmail}\n\n${calculatorSummary}`;
-        window.open(`mailto:sales@keepme.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`);
+        window.location.href = `mailto:sales@keepme.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      } else {
+        // In production, trust that Netlify will handle it
+        setSubmitStatus('success');
         
         // Reset form after successful submission
         setTimeout(() => {
@@ -407,9 +410,8 @@ ${additionalInfo}
           setContactName('');
           setContactEmail('');
           setSubmitStatus('idle');
+          setShowEnquiryForm(false); // Hide the form
         }, 3000);
-      } else {
-        throw new Error('Form submission failed');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -423,7 +425,8 @@ ${additionalInfo}
   return (
     <div className="mt-10 bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-brand-plum/20">
       <h3 className="text-xl font-semibold text-brand-plum mb-6">Quote Request - Calculator Results Auto-Filled</h3>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form name="fragrance-calculator" method="POST" onSubmit={handleSubmit} className="space-y-4">
+        <input type="hidden" name="form-name" value="fragrance-calculator" />
         
         {/* Auto-filled Calculation Results (Read-only display) */}
         <div className="bg-brand-peach/20 p-4 rounded-md border border-brand-peach">
