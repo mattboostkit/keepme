@@ -95,7 +95,7 @@ function About() {
       title: "2004",
       content: (
         <div>
-          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Where It All Began</h4>
+          <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Where it all Began</h4>
           <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">
             Kevin and Steve Anderson opened the doors to what would become a trusted name in Branded Merchandise. Operating from our London office with a vision to support brands and distributors, KeepMe Promotions was founded. Utilising a network of newly established suppliers, the foundation was simple but powerful: strong relationships, reliable service, and a deep understanding of how merchandise could elevate brand presence.
           </p>
