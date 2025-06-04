@@ -136,97 +136,57 @@ function PortfolioPage() {
       <section className="py-20 bg-white">
         <div className="w-full">
           <div className="grid grid-cols-4 gap-0 w-full">
-            {(() => {
-              const rows = [];
-              for (let i = 0, row = 0; i < gridImages.length; row++) {
-                // Odd row: [2,1,1] (first image col-span-2)
-                if (row % 2 === 0) {
-                  const first = gridImages[i];
-                  const second = gridImages[i+1];
-                  const third = gridImages[i+2];
-                  if (first) rows.push(
-                    <div key={first.src + '-row-' + i} className="col-span-2 relative group cursor-pointer overflow-hidden h-72" onClick={() => { setModalOpen(true); setModalIndex(i); }}>
-                      <img src={first.src} alt={first.title} className="object-cover w-full h-full group-hover:brightness-75 transition duration-200" />
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition flex flex-col items-center justify-center">
-                        <div className="text-center">
-                          <h3 className="text-lg md:text-xl font-bold text-white drop-shadow mb-1">{first.title}</h3>
-                          <p className="text-sm md:text-base text-white drop-shadow">{first.subtitle}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                  if (second) rows.push(
-                    <div key={second.src + '-row-' + (i+1)} className="relative group cursor-pointer overflow-hidden h-72" onClick={() => { setModalOpen(true); setModalIndex(i+1); }}>
-                      <img src={second.src} alt={second.title} className="object-cover w-full h-full group-hover:brightness-75 transition duration-200" />
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition flex flex-col items-center justify-center">
-                        <div className="text-center">
-                          <h3 className="text-lg md:text-xl font-bold text-white drop-shadow mb-1">{second.title}</h3>
-                          <p className="text-sm md:text-base text-white drop-shadow">{second.subtitle}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                  if (third) rows.push(
-                    <div key={third.src + '-row-' + (i+2)} className="relative group cursor-pointer overflow-hidden h-72" onClick={() => { setModalOpen(true); setModalIndex(i+2); }}>
-                      <img src={third.src} alt={third.title} className="object-cover w-full h-full group-hover:brightness-75 transition duration-200" />
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition flex flex-col items-center justify-center">
-                        <div className="text-center">
-                          <h3 className="text-lg md:text-xl font-bold text-white drop-shadow mb-1">{third.title}</h3>
-                          <p className="text-sm md:text-base text-white drop-shadow">{third.subtitle}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                  i += 3;
-                } else {
-                  // Even row: [1,1,2] (third image col-span-2)
-                  const first = gridImages[i];
-                  const second = gridImages[i+1];
-                  const third = gridImages[i+2];
-                  if (first) rows.push(
-                    <div key={first.src + '-row-' + i} className="relative group cursor-pointer overflow-hidden h-72" onClick={() => { setModalOpen(true); setModalIndex(i); }}>
-                      <img src={first.src} alt={first.title} className="object-cover w-full h-full group-hover:brightness-75 transition duration-200" />
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition flex flex-col items-center justify-center">
-                        <div className="text-center">
-                          <h3 className="text-lg md:text-xl font-bold text-white drop-shadow mb-1">{first.title}</h3>
-                          <p className="text-sm md:text-base text-white drop-shadow">{first.subtitle}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                  if (second) rows.push(
-                    <div key={second.src + '-row-' + (i+1)} className="relative group cursor-pointer overflow-hidden h-72" onClick={() => { setModalOpen(true); setModalIndex(i+1); }}>
-                      <img src={second.src} alt={second.title} className="object-cover w-full h-full group-hover:brightness-75 transition duration-200" />
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition flex flex-col items-center justify-center">
-                        <div className="text-center">
-                          <h3 className="text-lg md:text-xl font-bold text-white drop-shadow mb-1">{second.title}</h3>
-                          <p className="text-sm md:text-base text-white drop-shadow">{second.subtitle}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                  if (third) rows.push(
-                    <div key={third.src + '-row-' + (i+2)} className="col-span-2 relative group cursor-pointer overflow-hidden h-72" onClick={() => { setModalOpen(true); setModalIndex(i+2); }}>
-                      <img src={third.src} alt={third.title} className="object-cover w-full h-full group-hover:brightness-75 transition duration-200" />
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition flex flex-col items-center justify-center">
-                        <div className="text-center">
-                          <h3 className="text-lg md:text-xl font-bold text-white drop-shadow mb-1">{third.title}</h3>
-                          <p className="text-sm md:text-base text-white drop-shadow">{third.subtitle}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                  i += 3;
-                }
+            {gridImages.map((image, index) => {
+              // Calculate which row this image is in
+              let accumulatedItems = 0;
+              let currentRow = 0;
+              
+              while (accumulatedItems <= index) {
+                accumulatedItems += 3; // Each row has 3 items
+                currentRow++;
               }
-              return rows;
-            })()}
+              currentRow--; // Adjust because we went one row too far
+              
+              // Calculate position within the current row
+              const itemsBeforeThisRow = currentRow * 3;
+              const positionInRow = index - itemsBeforeThisRow;
+              
+              // Determine column span based on row pattern
+              let colSpan = '';
+              if (currentRow % 2 === 0) {
+                // Even rows (0, 2, 4...): first item spans 2 columns
+                colSpan = positionInRow === 0 ? 'col-span-2' : '';
+              } else {
+                // Odd rows (1, 3, 5...): last item spans 2 columns
+                colSpan = positionInRow === 2 ? 'col-span-2' : '';
+              }
+              
+              return (
+                <div 
+                  key={`${image.src}-${index}`} 
+                  className={`${colSpan} relative group cursor-pointer overflow-hidden h-72`} 
+                  onClick={() => { setModalOpen(true); setModalIndex(index); }}
+                >
+                  <img 
+                    src={image.src} 
+                    alt={image.title} 
+                    className="object-cover w-full h-full group-hover:brightness-75 transition duration-200" 
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition flex flex-col items-center justify-center">
+                    <div className="text-center">
+                      <h3 className="text-lg md:text-xl font-bold text-white drop-shadow mb-1">{image.title}</h3>
+                      <p className="text-sm md:text-base text-white drop-shadow">{image.subtitle}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Lightbox Modal */}
-      {modalOpen && (
+      {modalOpen && gridImages[modalIndex] && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 transition-all"
           onClick={closeModal}
