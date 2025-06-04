@@ -7,12 +7,33 @@ function Tools() { // Renamed from ToolsLanding
     <div>
       {/* Hero Section */}
       <section className="py-16 md:py-20 bg-brand-peach">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
-            Our <span className="text-brand-rose">Tools</span>
-          </h1>
+  <div className="container mx-auto px-6">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
+          Our <span className="text-brand-rose">Tools</span>
+        </h1>
+        <p className="text-lg text-brand-mauve leading-relaxed mb-12">
+          Discover a suite of digital tools designed to streamline your fragrance and packaging journey. Whether you're formulating, calculating, or planning, our tools are built to empower your creativity and efficiency every step of the way.
+        </p>
+        <div className="bg-white p-6 rounded-xl shadow-md">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Why <span className="text-brand-rose">Tools?</span></h2>
+          <p className="text-lg text-brand-mauve leading-relaxed">
+            We believe in making complex processes simple and accessible. Our mission is to give you powerful, easy-to-use resources so you can focus on what matters: bringing your ideas to life.
+          </p>
         </div>
-      </section>
+      </div>
+      <div className="relative">
+        <img
+          src="https://cdn.sanity.io/images/tyzs5imn/production/4aeefbbef8dae3dd080f930c8af649be6f7dac45-1600x1066.webp"
+          alt="Tools and resources"
+          className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
+        />
+        {/* Optional: Overlay card or badge can go here */}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Tool Links Section */}
       <section className="py-20">

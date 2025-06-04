@@ -4,7 +4,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 // import WorldMap from '../components/ui/WorldMap'; // Import the WorldMap component (Temporarily commented out)
-import { TextShimmer } from '../components/ui/TextShimmer'; // Import TextShimmer
+
 import { useState, useEffect } from 'react';
 import { fetchSanityData } from '../lib/sanityUtils';
 import { urlFor } from '../lib/sanity';
@@ -114,15 +114,9 @@ function Home() { // Component name is Home
           <div className="max-w-3xl mx-auto">
             <div className="space-y-8">
               <div>
-                <h1 className="text-4xl md:text-6xl font-sans font-semibold leading-relaxed">
-                  Flawless Fragrances, <br />
-                  <TextShimmer
-                    as="span"
-                    duration={2}
-                    className="pb-2 [--base-color:#FFFFFF] [--base-gradient-color:theme(colors.brand.pink-light)] dark:[--base-color:#FFFFFF] dark:[--base-gradient-color:theme(colors.brand.pink-light)]"
-                  >
-                    Expertly Crafted
-                  </TextShimmer>
+                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight gradient-gold-black">
+                  Flawless Fragrances,<br />
+                  Expertly Crafted
                 </h1>
               </div>
               <p className="text-lg leading-relaxed">

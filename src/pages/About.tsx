@@ -256,32 +256,45 @@ function About() {
       </section>
 
 
-      {/* Development Process Section - New Layout & Colors */}
-      <section className="py-12 md:py-20 bg-white"> {/* Main section background to white */}
+      {/* Our Values Section - moved up */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Development Process</span></h2>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Values</span></h2>
+            <p className="text-lg text-brand-mauve leading-relaxed">
+              The principles that guide our work and relationships
+            </p>
           </div>
 
-          <div className="space-y-3 max-w-3xl mx-auto">
-            {processFlowchartData.map((step, index) => (
-              <div key={index} className="rounded-lg shadow-md overflow-hidden bg-white">
-                <button
-                  onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
-                  className={`w-full flex justify-between items-center p-4 md:p-5 text-left transition-colors duration-200 ${activeIndex === index ? 'bg-brand-mauve text-white' : 'bg-brand-peach hover:bg-brand-mauve text-brand-plum'}`}
-                >
-                  <h3 className={`text-lg md:text-xl font-semibold ${activeIndex === index ? 'text-white' : 'text-brand-plum'}`}>{step.title}</h3>
-                  <span className={`transform transition-transform duration-300 text-2xl ${activeIndex === index ? 'rotate-180' : ''}`}>
-                    {activeIndex === index ? '▴' : '▾'}
-                  </span>
-                </button>
-                {activeIndex === index && (
-                  <div className="p-4 md:p-6 border-t border-brand-peach bg-white"> {/* Content area bg-white, border brand-peach */}
-                    {renderProcessStepContent(step.content)}
-                  </div>
-                )}
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Value 1: Passion */}
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-semibold mb-3">Passion</h3>
+              <p className="text-lg text-brand-mauve leading-relaxed">
+                We are passionate about everything we do. Driven by creativity, integrity, and excellence. We create and deliver exceptional products that exceed expectations and make a meaningful impact.
+              </p>
+            </div>
+            {/* Value 2: Service */}
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-semibold mb-3">Service</h3>
+              <p className="text-lg text-brand-mauve leading-relaxed">
+                We believe great service starts with a calm, confident team. By creating a positive space to work, we make collaboration easy and communication effortless, so every customer feels supported and inspired.
+              </p>
+            </div>
+            {/* Value 3: Partnership */}
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-semibold mb-3">Partnership</h3>
+              <p className="text-lg text-brand-mauve leading-relaxed">
+                Honesty and integrity shape everything we do. We build trust through mutual respect within the team, with customers and partners. Real collaboration happens when everyone feels valued, heard, and empowered to contribute.
+              </p>
+            </div>
+            {/* Value 4: Quality */}
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-semibold mb-3">Quality</h3>
+              <p className="text-lg text-brand-mauve leading-relaxed">
+                Quality means more than great products, it’s about building lasting relationships rooted in trust, transparency, and shared success. We take pride in every detail, knowing that doing things right creates results people believe in.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -386,55 +399,6 @@ function About() {
         </div>
       </section>
 
-      {/* Our Values Section */}
-      <section className="py-20 bg-brand-pink-light">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Values</span></h2>
-            <p className="text-lg text-brand-mauve leading-relaxed">
-              The principles that guide our work and relationships
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Value 1: Passion */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-
-              <h3 className="text-xl font-semibold mb-3">Passion</h3>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                We are passionate about everything we do. Driven by creativity, integrity, and excellence. We create and deliver exceptional products that exceed expectations and make a meaningful impact.
-              </p>
-            </div>
-
-            {/* Value 2: Service */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-
-              <h3 className="text-xl font-semibold mb-3">Service</h3>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                We believe great service starts with a calm, confident team. By creating a positive space to work, we make collaboration easy and communication effortless, so every customer feels supported and inspired.
-              </p>
-            </div>
-
-            {/* Value 3: Partnership */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-
-              <h3 className="text-xl font-semibold mb-3">Partnership</h3>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                Honesty and integrity shape everything we do. We build trust through mutual respect within the team, with customers and partners. Real collaboration happens when everyone feels valued, heard, and empowered to contribute.
-              </p>
-            </div>
-
-            {/* Value 4: Quality */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-
-              <h3 className="text-xl font-semibold mb-3">Quality</h3>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                Quality means more than great products, it’s about building lasting relationships rooted in trust, transparency, and shared success. We take pride in every detail, knowing that doing things right creates results people believe in.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Our Clients Section (Using ClientLogos from Sanity) */}
       <ClientLogos
