@@ -17,6 +17,7 @@ import { fetchPortfolioBrands } from '../lib/portfolioUtils';
 import FlickityCarousel from '../components/FlickityCarousel'; // Re-import FlickityCarousel
 import logoWhiteUrl from '../assets/images/logos/Logo_White.svg'; // Import the white logo for hero
 import '../components/FlickityCarousel.css'; // Re-import FlickityCarousel styles
+import { useSanityQuery } from '../lib/useSanity';
 
 // Define Sanity Image Reference type
 interface SanityImageReference {
@@ -46,12 +47,37 @@ interface AboutSectionData {
   image?: SanityImageReference;
 }
 
+// Define Portfolio Item interface for gallery
+interface PortfolioGalleryItem {
+  _id: string;
+  image: SanityImageReference & {
+    _upload?: {
+      createdAt: string;
+      file: {
+        name: string;
+        type: string;
+      };
+      previewImage: string;
+      progress: number;
+      updatedAt: string;
+    };
+  };
+  title?: string;
+  features?: string[];
+  displayOrder?: number;
+}
+
 function Home() { // Component name is Home
   // State for service images, about section, and portfolio brands
   const [serviceImages, setServiceImages] = useState<ServiceImage[]>([]);
   const [aboutData, setAboutData] = useState<AboutSectionData | null>(null); // Use specific type
   const [portfolioBrands, setPortfolioBrands] = useState<PortfolioItem[]>([]); // Use PortfolioItem type
   const [loading, setLoading] = useState(true);
+  
+  // Fetch portfolio images for gallery
+  const { data: portfolioImages } = useSanityQuery<PortfolioGalleryItem[]>(
+    '*[_type == "portfolioItem"] | order(displayOrder asc)[0...9]' // Limit to 9 for the grid
+  );
 
   // Fetch service images, about section data, and portfolio brands from Sanity
   useEffect(() => {
@@ -242,7 +268,7 @@ function Home() { // Component name is Home
       {/* Portfolio Section */}
       {portfolioBrands.length > 0 && (
         <FilterablePortfolio
-          title="Our Portfolio"
+          title="Our Clients"
           subtitle="Discover our partnerships with prestigious Niche and Luxury Brands. We're proud to work with some of the most distinguished names in the industry."
           items={portfolioBrands}
           maxItems={6}

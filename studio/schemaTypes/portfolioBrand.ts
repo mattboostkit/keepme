@@ -49,15 +49,42 @@ export default {
           { title: 'Candle Ceramics', value: 'Candle Ceramics' },
           { title: 'Secondary Packaging', value: 'Secondary Packaging' }
         ]
-      },
-      validation: (Rule: Rule) => Rule.required().min(1)
+      }
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
-      description: 'A brief description of the work done for this brand',
-      validation: (Rule: Rule) => Rule.required()
+      description: 'A brief description of the work done for this brand'
+    },
+    {
+      name: 'logo',
+      title: 'Brand Logo',
+      type: 'image',
+      description: 'The brand\'s logo (recommended size: 320x160 pixels)',
+      options: {
+        hotspot: true,
+      }
+    },
+    {
+      name: 'website',
+      title: 'Website URL',
+      type: 'url',
+      description: 'The brand\'s official website URL (e.g., https://rojaparfums.com)'
+    },
+    {
+      name: 'gallery',
+      title: 'Gallery Images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          }
+        }
+      ],
+      description: 'Gallery images showcasing the brand\'s products (recommended: 4-8 images)'
     },
     {
       name: 'displayOrder',

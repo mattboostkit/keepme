@@ -4,11 +4,20 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Client Name',
-      type: 'string',
-      description: 'The name of the client',
+      name: 'image',
+      title: 'Portfolio Image',
+      type: 'image',
+      description: 'Upload portfolio image (recommended size: 800x600 pixels or larger)',
+      options: {
+        hotspot: true,
+      },
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'title',
+      title: 'Client Name (Optional)',
+      type: 'string',
+      description: 'The name of the client - leave blank if not needed'
     },
     {
       name: 'slug',
@@ -18,25 +27,14 @@ export default {
       options: {
         source: 'title',
         maxLength: 96,
-      },
-      validation: Rule => Rule.required()
-    },
-    {
-      name: 'image',
-      title: 'Client Image',
-      type: 'image',
-      description: 'An image showcasing the client\'s products (recommended size: 800x600 pixels)',
-      options: {
-        hotspot: true,
-      },
-      validation: Rule => Rule.required()
+      }
     },
     {
       name: 'features',
-      title: 'Product Features',
+      title: 'Product Features (Optional)',
       type: 'array',
       of: [{ type: 'string' }],
-      description: 'The types of products created for this client (e.g., Fragrance Glass, Vials, etc.)',
+      description: 'The types of products created for this client',
       options: {
         list: [
           { title: 'Fragrance Glass', value: 'Fragrance Glass' },
@@ -47,22 +45,20 @@ export default {
           { title: 'Candle Ceramics', value: 'Candle Ceramics' },
           { title: 'Secondary Packaging', value: 'Secondary Packaging' }
         ]
-      },
-      validation: Rule => Rule.required().min(1)
+      }
     },
     {
       name: 'description',
-      title: 'Description',
+      title: 'Description (Optional)',
       type: 'text',
-      description: 'A brief description of the work done for this client',
-      validation: Rule => Rule.required()
+      description: 'A brief description of the work done for this client'
     },
     {
       name: 'displayOrder',
-      title: 'Display Order',
+      title: 'Display Order (Optional)',
       type: 'number',
-      description: 'The order in which to display this client (lower numbers appear first)',
-      validation: Rule => Rule.required().min(1)
+      description: 'The order in which to display this image (lower numbers appear first)',
+      initialValue: 100
     }
   ],
   preview: {
@@ -73,8 +69,8 @@ export default {
     },
     prepare({ title, subtitle, media }) {
       return {
-        title,
-        subtitle: Array.isArray(subtitle) ? subtitle.join(', ') : subtitle,
+        title: title || 'Portfolio Image',
+        subtitle: Array.isArray(subtitle) ? subtitle.join(', ') : subtitle || '',
         media
       }
     }

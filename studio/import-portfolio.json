@@ -1,0 +1,24 @@
+[
+  {
+    "_type": "portfolioItem",
+    "_id": "portfolio-1",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-[ASSET_ID]-[WIDTH]x[HEIGHT]-[FORMAT]"
+      }
+    }
+  },
+  {
+    "_type": "portfolioItem",
+    "_id": "portfolio-2",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-[ASSET_ID]-[WIDTH]x[HEIGHT]-[FORMAT]"
+      }
+    }
+  }
+]
