@@ -1,20 +1,38 @@
 import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useSanityQuery } from '../lib/useSanity';
+import { urlFor } from '../lib/sanity';
+
+interface PortfolioItem {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  image: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  features: string[];
+  description: string;
+  displayOrder: number;
+}
 
 function PortfolioPage() {
-  // Dummy images for grid
-  const gridImages = [
-    { src: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80", title: "Boadicea", subtitle: "Fragrance" },
-    { src: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=800", title: "Flannels", subtitle: "Candles" },
-    { src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800", title: "Fragrance Du Bois", subtitle: "Fragrance" },
-    { src: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=800", title: "Roja", subtitle: "Vials" },
-    { src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800", title: "Horatio", subtitle: "Secondary Packaging" },
-    { src: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=800", title: "Tabitha Webb", subtitle: "Fragrance" },
-    { src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800", title: "River Island", subtitle: "Candles" },
-    { src: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=800", title: "Stephane Humbert Lucas", subtitle: "Fragrance" },
-  ];
+  const { data: portfolioItems, loading, error } = useSanityQuery<PortfolioItem[]>(
+  '*[_type == "portfolioItem"] | order(displayOrder asc)'
+);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
+
+  // Transform Sanity data to match the existing grid format
+  const gridImages = portfolioItems?.map((item: PortfolioItem) => ({
+    src: item.image ? urlFor(item.image).width(800).height(600).url() : '',
+    title: item.title,
+    subtitle: item.features?.join(', ') || '',
+    description: item.description
+  })) || [];
 
   useEffect(() => {
     if (!modalOpen) return;
@@ -32,7 +50,40 @@ function PortfolioPage() {
   function nextImage() { setModalIndex(idx => (idx === gridImages.length - 1 ? 0 : idx + 1)); }
 
   // Hero image (keep as before)
-  const heroImage = gridImages[0].src;
+  const heroImage = gridImages[0]?.src;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-plum mx-auto mb-4"></div>
+          <p className="text-brand-mauve">Loading portfolio...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">Error loading portfolio items</p>
+          <p className="text-gray-600">{error.message}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!gridImages.length) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-brand-mauve mb-4">No portfolio items found</p>
+          <p className="text-gray-600">Please add portfolio items in Sanity Studio</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>

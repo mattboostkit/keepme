@@ -114,7 +114,7 @@ function Home() { // Component name is Home
           <div className="max-w-3xl mx-auto">
             <div className="space-y-8">
               <div>
-                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight gradient-gold-black">
+                <h1 className="text-4xl md:text-6xl font-semibold leading-tight text-white">
                   Flawless Fragrances,<br />
                   Expertly Crafted
                 </h1>

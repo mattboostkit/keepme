@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'; // Add useCallback
 import { Droplets, Percent, Package, AlertTriangle, PoundSterling, Info, Calculator } from 'lucide-react';
 import debounce from 'lodash/debounce'; // Import debounce
-import BackButton from '../components/BackButton';
+
 
 // Helper function to format currency
 const formatCurrency = (value: number): string => {
@@ -78,9 +78,7 @@ function FragranceCalculator() {
   const [showEnquiryForm, setShowEnquiryForm] = useState<boolean>(false); // State for form visibility
   
   // --- State for Enquiry Form ---
-  const [fragranceName, setFragranceName] = useState('');
-  const [notesDescription, setNotesDescription] = useState('');
-  const [targetAudience, setTargetAudience] = useState('');
+
   const [additionalInfo, setAdditionalInfo] = useState('');
   const [contactName, setContactName] = useState('');
   const [contactEmail, setContactEmail] = useState('');
@@ -162,12 +160,15 @@ function FragranceCalculator() {
   // Component definitions are now outside
 
   return (
-    <div className="pb-16 bg-brand-background min-h-screen"> {/* Removed pt-28 */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28"> {/* Added pt-28 here */}
+    <section className="bg-gradient-to-br from-brand-peach to-brand-pink-light min-h-screen py-12 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Back Button */}
+        {/* Back to Tools Button */}
         <div className="mb-4">
-          <BackButton to="/tools" label="Back to Tools" />
+          <a href="/tools" className="inline-flex items-center px-5 py-2 bg-brand-mauve text-white rounded-full hover:bg-brand-rose transition-colors">
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            Back to Tools
+          </a>
         </div>
 
         {/* Header */}
@@ -250,12 +251,6 @@ Calculated Results:
           <EnquiryForm
             inputs={{ volumeInput, inclusionRateInput, orderQuantityInput, wastageInput, costPerKgInput }}
             outputs={{ mlPerProduct, totalKgRequired, costPerMl, costPerProduct, totalCost }}
-            fragranceName={fragranceName}
-            setFragranceName={setFragranceName}
-            notesDescription={notesDescription}
-            setNotesDescription={setNotesDescription}
-            targetAudience={targetAudience}
-            setTargetAudience={setTargetAudience}
             additionalInfo={additionalInfo}
             setAdditionalInfo={setAdditionalInfo}
             contactName={contactName}
@@ -283,10 +278,10 @@ Calculated Results:
 
         {/* Simple Footer */}
         <footer className="text-center mt-10 text-xs text-gray-500">
-          © {new Date().getFullYear()} Fragrance Calculator. All rights reserved.
+          {new Date().getFullYear()} Fragrance Calculator. All rights reserved.
         </footer>
       </div>
-    </div>
+    </section>
   );
 } // Closing brace for the main FragranceCalculator function
 
@@ -307,12 +302,7 @@ interface EnquiryFormProps {
     costPerProduct: number;
     totalCost: number;
   };
-  fragranceName: string;
-  setFragranceName: (value: string) => void;
-  notesDescription: string;
-  setNotesDescription: (value: string) => void;
-  targetAudience: string;
-  setTargetAudience: (value: string) => void;
+
   additionalInfo: string;
   setAdditionalInfo: (value: string) => void;
   contactName: string;
@@ -325,12 +315,7 @@ interface EnquiryFormProps {
 const EnquiryForm: React.FC<EnquiryFormProps> = ({ 
   inputs, 
   outputs,
-  fragranceName,
-  setFragranceName,
-  notesDescription,
-  setNotesDescription,
-  targetAudience,
-  setTargetAudience,
+
   additionalInfo,
   setAdditionalInfo,
   contactName,
@@ -388,7 +373,7 @@ ${additionalInfo}
     formData.append('total_cost', formatCurrency(outputs.totalCost));
     
     try {
-      const response = await fetch('/', {
+      await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formData.toString()
@@ -492,7 +477,7 @@ ${additionalInfo}
         <button
           type="submit"
           disabled={isSubmitting || !contactName.trim() || !contactEmail.trim()}
-          className="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-full text-white bg-brand-mauve hover:bg-brand-rose transition-colors focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+          className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-brand-mauve hover:bg-brand-rose transition-colors focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed w-full"
         >
           {isSubmitting ? (
             <>

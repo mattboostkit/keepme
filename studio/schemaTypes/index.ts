@@ -11,7 +11,8 @@ import testimonial from './testimonial'
 import logo from './logo'
 import teamMember from './teamMember'
 import portfolioBrand from './portfolioBrand'
+import portfolioItem from './portfolioItem'
 import servicesPageImages from '../schemas/servicesPageImages'
 import galleryImage from '../schemas/galleryImage'
 
-export const schemaTypes = [post, video, category, author, heroSection, service, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, servicesPageImages, galleryImage]
+export const schemaTypes = [post, video, category, author, heroSection, service, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage]
