@@ -100,17 +100,17 @@ function DevelopmentProcess() {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-2xl mx-auto">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-rose via-brand-mauve to-brand-plum"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-rose via-brand-mauve to-brand-plum"></div>
           {processFlowchartData.map((step, index) => (
-            <div key={index} className={`relative mb-8 ${index % 2 === 0 ? 'md:text-right md:pr-1/2' : 'md:text-left md:pl-1/2'}`}>
+            <div key={index} className="relative mb-8 flex flex-col items-center">
               {/* Timeline Dot */}
-              <div className={`absolute w-6 h-6 bg-white border-4 border-brand-rose rounded-full z-10 ${index % 2 === 0 ? 'left-5 md:left-auto md:right-1/2 md:transform md:translate-x-3' : 'left-5 md:left-1/2 md:transform md:-translate-x-3'}`}></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-brand-rose rounded-full z-10"></div>
               {/* Content Card */}
-              <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
+              <div className="ml-0 w-full max-w-2xl mx-auto">
                 <div className="group cursor-pointer" onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}>
-                  <div className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${activeIndex === index ? 'ring-4 ring-brand-rose ring-opacity-50 scale-105' : ''}`}>
+                  <div className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden ${activeIndex === index ? 'ring-4 ring-brand-rose ring-opacity-50 scale-105' : ''}`}>
                     {/* Card Header */}
                     <div className="p-6 border-b border-gray-100">
                       <div className="flex items-center justify-between">
