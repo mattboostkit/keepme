@@ -78,7 +78,7 @@ function Contact() {
                     </div>
                     <div>
                       <h3 className="text-lg">Email Us</h3>
-                      <p className="text-gray-600">hello@keepme.co.uk</p>
+                      <a href="mailto:hello@keepme.co.uk" className="text-gray-600 hover:underline">hello@keepme.co.uk</a>
                       {/* Removed second email line */}
                     </div>
                   </div>
@@ -88,7 +88,7 @@ function Contact() {
                     </div>
                     <div>
                       <h3 className="text-lg">Call Us</h3>
-                      <p className="text-gray-600">+44 (0)1322 381144</p>
+                      <a href="tel:+441322381144" className="text-gray-600 hover:underline">+44 (0)1322 381144</a>
                       {/* Removed second phone line */}
                     </div>
                   </div>
