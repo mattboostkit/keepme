@@ -313,11 +313,11 @@ function PortfolioBrandsSection() {
               <div className="p-6">
                 {/* Logo */}
                 {brand.logo && (
-                  <div className="mb-4 h-12 flex items-center">
+                  <div className="mb-4 h-20 flex items-center">
                     <img
                       src={urlFor(brand.logo).width(200).height(100).fit('crop').url()}
                       alt={`${brand.name} logo`}
-                      className="max-h-12 w-auto object-contain"
+                      className="max-h-20 w-auto object-contain"
                     />
                   </div>
                 )}
