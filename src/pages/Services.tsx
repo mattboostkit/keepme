@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'; // Import Link
 import FaqAccordion from '../components/FaqAccordion';
 import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
+import { useSEO } from '../hooks/useSEO';
 
 // Interface for the Sanity image object with alt text
 interface SanityImageObject {
@@ -39,6 +40,11 @@ const SERVICES_PAGE_IMAGES_QUERY = `*[_type == "servicesPageImages"][0]{
 }`;
 
 function Services() {
+  useSEO({
+    title: 'Our Services | KeepMe - Expert Fragrance Manufacturing',
+    description: 'Explore our comprehensive fragrance manufacturing services including fragrance creation, componentry, packaging, and specialist solutions for luxury brands.'
+  });
+
   const { data: servicesImages, loading, error } = useSanityQuery<ServicesPageImageData>(SERVICES_PAGE_IMAGES_QUERY);
 
   if (loading) {

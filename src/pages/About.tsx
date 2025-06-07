@@ -1,7 +1,13 @@
 import ClientLogos from '../components/ClientLogos';
 import Team from '../components/Team';
+import { useSEO } from '../hooks/useSEO';
 
 function About() {
+  useSEO({
+    title: 'About Us | KeepMe - UK Fragrance Manufacturing Experts',
+    description: 'Learn about KeepMe, a family-run UK fragrance manufacturer with over 20 years of experience creating premium fragrance, home, and lifestyle products for luxury brands.'
+  });
+
   return (
     <div>
       {/* Hero Section */}

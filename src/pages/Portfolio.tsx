@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
+import { useSEO } from '../hooks/useSEO';
 
 interface PortfolioItem {
   _id: string;
@@ -31,6 +32,11 @@ interface PortfolioItem {
 }
 
 function PortfolioPage() {
+  useSEO({
+    title: 'Portfolio | KeepMe - Our Fragrance Manufacturing Projects',
+    description: 'Explore our portfolio of successful fragrance manufacturing projects for prestigious brands including Roja Parfums, Ormonde Jayne, and other luxury fragrance houses.'
+  });
+
   const { data: portfolioItems, loading, error } = useSanityQuery<PortfolioItem[]>(
   '*[_type == "portfolioItem"] | order(displayOrder asc)'
 );

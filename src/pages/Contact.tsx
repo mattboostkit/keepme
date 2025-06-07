@@ -2,8 +2,14 @@
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { useEffect } from 'react';
 import FaqAccordion from '../components/FaqAccordion';
+import { useSEO } from '../hooks/useSEO';
 
 function Contact() {
+  useSEO({
+    title: 'Contact Us | KeepMe - Get In Touch With Our Fragrance Experts',
+    description: 'Contact KeepMe for your fragrance manufacturing needs. Our UK-based team is ready to help with your next perfume project. Get a quote today.'
+  });
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://link.boostkit.io/js/form_embed.js";

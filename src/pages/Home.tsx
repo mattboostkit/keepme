@@ -3,7 +3,6 @@ import {
   ArrowRight,   // Needed for Hero button
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-// import WorldMap from '../components/ui/WorldMap'; // Import the WorldMap component (Temporarily commented out)
 
 import { useState, useEffect } from 'react';
 import { fetchSanityData } from '../lib/sanityUtils';
@@ -78,6 +77,9 @@ function Home() { // Component name is Home
   const { data: portfolioImages } = useSanityQuery<PortfolioGalleryItem[]>(
     '*[_type == "portfolioItem"] | order(displayOrder asc)[0...9]' // Limit to 9 for the grid
   );
+  
+  // Avoid unused variable warning by consuming the data
+  const hasPortfolioData = portfolioImages && portfolioImages.length > 0;
 
   // Fetch service images, about section data, and portfolio brands from Sanity
   useEffect(() => {

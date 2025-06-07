@@ -10,7 +10,12 @@
       "Bash(npm run dev:*)",
       "Bash(claude doctor)",
       "Bash(claude --version)",
-      "Bash(claude mcp:*)"
+      "Bash(claude mcp:*)",
+      "Bash(claude update)",
+      "WebFetch(domain:keepme.co.uk)",
+      "Bash(rg:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }

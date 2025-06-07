@@ -52,9 +52,7 @@ export const fetchPortfolioBrands = async (): Promise<PortfolioItem[]> => {
     const sanityBrands = await fetchSanityData<SanityPortfolioBrand[]>(
       '*[_type == "portfolioBrand"] | order(displayOrder asc)'
     );
-    console.log('Fetched portfolio brands from Sanity:', sanityBrands);
     const convertedBrands = convertSanityPortfolioBrands(sanityBrands);
-    console.log('Converted portfolio brands:', convertedBrands);
     return convertedBrands;
   } catch (error) {
     console.error('Error fetching portfolio brands:', error);
