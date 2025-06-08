@@ -78,7 +78,6 @@ function FragranceCalculator() {
   const [showEnquiryForm, setShowEnquiryForm] = useState<boolean>(false); // State for form visibility
   
   // --- State for Enquiry Form ---
-
   const [additionalInfo, setAdditionalInfo] = useState('');
   const [contactName, setContactName] = useState('');
   const [contactEmail, setContactEmail] = useState('');
@@ -221,9 +220,6 @@ function FragranceCalculator() {
                setShowEnquiryForm(!showEnquiryForm);
                if (!showEnquiryForm) {
                  // Auto-populate form when opening
-                 setFragranceName('Custom Fragrance');
-                 setNotesDescription('');
-                 setTargetAudience('');
                  setAdditionalInfo(`Based on fragrance calculator results:
 • Volume: ${volumeInput} ml
 • Inclusion Rate: ${inclusionRateInput}%
@@ -373,30 +369,27 @@ ${additionalInfo}
     formData.append('total_cost', formatCurrency(outputs.totalCost));
     
     try {
-      await fetch('/', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formData.toString()
       });
 
-      // Check if we're in development (Netlify forms don't work locally)
-      if (window.location.hostname === 'localhost') {
-        // In development, use mailto
-        const emailSubject = `Fragrance Calculator Quote Request - ${contactName}`;
-        const emailBody = `New fragrance calculator submission:\n\nName: ${contactName}\nEmail: ${contactEmail}\n\n${calculatorSummary}`;
-        window.location.href = `mailto:sales@keepme.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-      } else {
-        // In production, trust that Netlify will handle it
+      if (response.ok) {
+        // Success! Show success message
         setSubmitStatus('success');
         
-        // Reset form after successful submission
+        // Keep the success message visible for longer
         setTimeout(() => {
           setAdditionalInfo('');
           setContactName('');
           setContactEmail('');
           setSubmitStatus('idle');
           setShowEnquiryForm(false); // Hide the form
-        }, 3000);
+        }, 5000); // Show success message for 5 seconds
+      } else {
+        // If submission fails, show error
+        setSubmitStatus('error');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -461,7 +454,7 @@ ${additionalInfo}
         {submitStatus === 'success' && (
           <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-md">
             <p className="text-green-800 text-sm font-medium">
-              ✓ Enquiry submitted successfully! We'll be in touch with you soon.
+              ✓ Thanks for submitting the form! Your fragrance calculator results and enquiry have been sent to our team. We'll be in touch with you soon.
             </p>
           </div>
         )}
