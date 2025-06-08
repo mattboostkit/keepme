@@ -27,7 +27,7 @@ const ReturnToTop = () => {
   }, []);
 
   return (
-    <div className={`fixed bottom-8 right-8 z-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <div className={`fixed bottom-24 right-8 z-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <button
         type="button"
         onClick={scrollToTop}
