@@ -218,22 +218,6 @@ function FragranceCalculator() {
              type="button"
              onClick={() => {
                setShowEnquiryForm(!showEnquiryForm);
-               if (!showEnquiryForm) {
-                 // Auto-populate form when opening
-                 setAdditionalInfo(`Based on fragrance calculator results:
-• Volume: ${volumeInput} ml
-• Inclusion Rate: ${inclusionRateInput}%
-• Order Quantity: ${orderQuantityInput} units
-• Wastage: ${wastageInput}%
-• Cost per kg: £${costPerKgInput}
-
-Calculated Results:
-• ml per Product: ${formatNumber(mlPerProduct)}
-• Total kg Required: ${formatNumber(totalKgRequired)}
-• Cost per ml: ${formatCurrency(costPerMl)}
-• Cost per Product: ${formatCurrency(costPerProduct)}
-• Total Cost: ${formatCurrency(totalCost)}`);
-               }
              }}
              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-brand-mauve hover:bg-brand-rose transition-colors focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
              disabled={!totalCost} // Disable if no valid calculation
@@ -423,16 +407,46 @@ ${additionalInfo}
 
         {/* Auto-filled Additional Information */}
         <div>
-          <label htmlFor="additionalInfo" className="block text-sm font-medium text-brand-mauve">Project Details (Auto-filled from calculator)</label>
+          <label htmlFor="additionalInfo" className="block text-sm font-medium text-brand-mauve">
+            Project Details
+            <button
+              type="button"
+              onClick={() => {
+                const calculatorResults = `Based on fragrance calculator results:
+• Volume: ${inputs.volumeInput} ml
+• Inclusion Rate: ${inputs.inclusionRateInput}%
+• Order Quantity: ${inputs.orderQuantityInput} units
+• Wastage: ${inputs.wastageInput}%
+• Cost per kg: £${inputs.costPerKgInput}
+
+Calculated Results:
+• ml per Product: ${formatNumber(outputs.mlPerProduct)}
+• Total kg Required: ${formatNumber(outputs.totalKgRequired)}
+• Cost per ml: ${formatCurrency(outputs.costPerMl)}
+• Cost per Product: ${formatCurrency(outputs.costPerProduct)}
+• Total Cost: ${formatCurrency(outputs.totalCost)}
+
+Additional notes:
+`;
+                setAdditionalInfo(calculatorResults);
+              }}
+              className="ml-3 inline-flex items-center px-3 py-1 border border-brand-mauve text-xs font-medium rounded-full text-brand-mauve hover:bg-brand-mauve hover:text-white transition-colors"
+            >
+              <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Update with Calculator Results
+            </button>
+          </label>
           <textarea 
             id="additionalInfo" 
             value={additionalInfo} 
             onChange={(e) => setAdditionalInfo(e.target.value)} 
-            rows={8} 
+            rows={10} 
             className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm bg-gray-50"
-            placeholder="Calculator results and additional project details..."
+            placeholder="Click 'Update with Calculator Results' to populate this field, then add any additional project details..."
           />
-          <p className="text-xs text-gray-500 mt-1">You can edit this information or add more details</p>
+          <p className="text-xs text-gray-500 mt-1">Click the button above to populate with calculator results, then add any additional project details</p>
         </div>
 
         {/* Simple Contact Fields */}
