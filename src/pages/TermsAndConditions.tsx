@@ -39,7 +39,7 @@ const TermsAndConditions = () => (
       5.2. The Contract Price is exclusive of Value Added Tax and any other chargeable taxes.<br/>
       5.3. Any estimate of the whole or any part of the Contract Price is given in good faith and shall be treated as an estimate only unless and until it is specifically agreed in writing by KeepMe Lifestyle Ltd.<br/>
       5.4. Quotations issued by KeepMe Lifestyle Ltd are valid for two calendar months from issue. They do not constitute an offer to sell or supply. If the Client wishes to purchase Goods or Services the subject of a quotation, it will need to place an Order.<br/>
-      5.5. The Client shall pay for the entire Order, upon acceptance of KeepMe Lifestyle Ltd estimate and prior to the commencement of manufacture or supply of the Goods and/or Services. Alternatively the Client can apply for a credit line which is subject to satisfactory credit checks. KeepMe Lifestyle Ltd may set and vary credit limits from time to time and withhold all further supplies if the Client exceeds such credit limit.<br/>
+      5.5. The Client shall pay for the entire Order, upon acceptance of KeepMe Lifestyle Ltd estimate and prior to the commencement of manufacture or supply of the Goods and/or Services. Alternatively, the Client can apply for a credit line which is subject to satisfactory credit checks. KeepMe Lifestyle Ltd may set and vary credit limits from time to time and withhold all further supplies if the Client exceeds such credit limit.<br/>
       5.6. Unless otherwise agreed, payment of the Contract Price shall be made in pounds sterling within 30 days of delivery of each applicable invoice. If the Client fails to make payment in full within that period of 30 days, KeepMe Lifestyle Ltd shall, without limiting its other rights, be entitled to charge interest on the outstanding balance at a rate three percentage points above National Westminster Bank plc base rate in force from time to time, the interest being added to the principal amount of the invoice outstanding on the last day of the month following the date of the invoice. Interest will accrue on a daily basis and apply from the due date for payment of each invoice until actual payment in full, whether before or after judgment.<br/>
       5.7. In addition, KeepMe Lifestyle Ltd shall be entitled to suspend any further Works ordered by the Client, whether under the same or any other Order.<br/>
       5.8. In cases where KeepMe Lifestyle Ltd holds the Client’s stock in storage, KeepMe Lifestyle Ltd reserves the right to dispose of this stock in cases where the Client has failed to pay within 30 days of the due date of invoices. Irrespective if the outstanding invoices relate to the goods / services in question, or another Order.<br/>
@@ -164,7 +164,12 @@ const TermsAndConditions = () => (
       &nbsp;&nbsp;&nbsp;&nbsp;14.5.2. KeepMe Lifestyle Ltd will store and insure the Goods pending delivery, and the Client will pay all costs and expenses, including storage and insurance charges, incurred by KeepMe Lifestyle Ltd in doing so.<br/>
       14.6. If, two Business Days after the due date for delivery or collection/the last day of the period for delivery or collection of the Goods, the Client has not taken delivery of, or collected, the Goods KeepMe Lifestyle Ltd may resell or otherwise dispose of the Goods without the requirement for notice to or consent from the Client. KeepMe Lifestyle Ltd’s right to resell or otherwise dispose of the Goods shall apply irrespective of whether the Goods have been branded and/or have been marked by KeepMe Lifestyle Ltd at part of the Client product specification for the Client. KeepMe Lifestyle Ltd will:<br/>
       &nbsp;&nbsp;&nbsp;&nbsp;14.6.1. deduct storage and insurance charges and reasonable costs of resale, incurred by KeepMe Lifestyle Ltd; and<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;14.6.2. account to the Client for any excess of the resale price over, or invoice the Client for any shortfall of the resale price below, the price paid by the Client for the Goods.
+      &nbsp;&nbsp;&nbsp;&nbsp;14.6.2. account to the Client for any excess of the resale price over, or invoice the Client for any shortfall of the resale price below, the price paid by the Client for the Goods.<br/>
+      14.7. Production Overs and Unders<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;14.7.1. The Client acknowledges that, due to standard manufacturing processes, the quantity of Goods actually delivered may vary from the quantity specified in the Order. KeepMe Lifestyle Ltd reserves the right to deliver up to 5% more or less than the quantity of Goods ordered.<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;14.7.2. Such variation shall be deemed to satisfy the Order in full, and the Client agrees to accept and pay for the actual quantity of Goods delivered, provided that the deviation does not exceed the permitted 5% threshold.<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;14.7.3. Invoices will reflect the actual quantity delivered, and the Contract Price shall be adjusted on a pro rata basis accordingly.<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;14.7.4. If the Client requires strict quantity conformity, such requirement must be communicated in writing and agreed upon by KeepMe Lifestyle Ltd prior to acceptance of the Order. KeepMe Lifestyle Ltd reserves the right to revise the Contract Price in such cases.
     </p>
     <div className="my-4 sm:my-6"></div>
     <p className="text-lg sm:text-xl font-semibold mb-2">15. Goods and Services</p>
@@ -256,9 +261,6 @@ const TermsAndConditions = () => (
     <p className="text-lg sm:text-xl font-semibold mb-2">21. No Transfer of Rights Without Permission</p>
     <p className="text-sm sm:text-base leading-relaxed">
       21.1. The Client may not resell, assign, transfer, or sublicense any design work or associated intellectual property provided by KeepMe Lifestyle to any third party without the prior written consent of KeepMe Lifestyle. Any unauthorised transfer or use shall constitute a breach of these Terms and Conditions and may result in legal action.
-    </p>
-    <p className="text-sm sm:text-base font-semibold mt-8">
-      For the full Terms & Conditions, please contact KeepMe Lifestyle Ltd.
     </p>
   </div>
 );
