@@ -75,7 +75,7 @@ function Contact() {
                     </div>
                     <div>
                       <h3 className="text-lg">Our Location</h3>
-                      <p className="text-gray-600">16 Quadrant Court, Dartford<br/>Greenhithe DA9 9AY</p>
+                      <p className="text-gray-600">Unit 16 Quadrant Court, Crossways Business Park,<br/>Greenhithe, Kent, DA9 9AY</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">

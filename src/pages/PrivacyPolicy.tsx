@@ -126,8 +126,8 @@ const PrivacyPolicy = () => (
     <p className="text-sm sm:text-base leading-relaxed mb-4">
       Office Manager<br />
       KeepMe Lifestyle Ltd<br />
-      Unit 16 Quadrant Court<br />
-      Crossways Business Park<br />
+      Unit 16 Quadrant Court, Crossways Business Park,<br />
+
       Greenhithe, Kent, DA9 9AY<br />
       sales@keepme.co.uk
     </p>

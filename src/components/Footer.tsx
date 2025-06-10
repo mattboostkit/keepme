@@ -47,7 +47,7 @@ function Footer() {
             <ul className="space-y-3 text-white">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />
-                <span>16 Quadrant Court, Greenhithe<br/>Kent DA9 9AY</span>
+                <span>Unit 16 Quadrant Court, Crossways Business Park,<br/>Greenhithe, Kent, DA9 9AY</span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />
