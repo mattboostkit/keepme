@@ -17,6 +17,7 @@ import FlickityCarousel from '../components/FlickityCarousel'; // Re-import Flic
 import logoWhiteUrl from '../assets/images/logos/Logo_White.svg'; // Import the white logo for hero
 import '../components/FlickityCarousel.css'; // Re-import FlickityCarousel styles
 import { useSanityQuery } from '../lib/useSanity';
+import { useSEO } from '../hooks/useSEO';
 
 // Define Sanity Image Reference type
 interface SanityImageReference {
@@ -67,6 +68,11 @@ interface PortfolioGalleryItem {
 }
 
 function Home() { // Component name is Home
+  useSEO({
+    title: 'KeepMe | Expert Fragrance Manufacturer',
+    description: 'KeepMe is a leading UK-based fragrance manufacturer specialising in perfume production, packaging, and end-to-end solutions for luxury brands.',
+    canonical: window.location.href,
+  });
   // State for service images, about section, and portfolio brands
   const [serviceImages, setServiceImages] = useState<ServiceImage[]>([]);
   const [aboutData, setAboutData] = useState<AboutSectionData | null>(null); // Use specific type

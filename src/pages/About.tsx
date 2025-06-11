@@ -1,11 +1,21 @@
 import ClientLogos from '../components/ClientLogos';
 import Team from '../components/Team';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 function About() {
   useSEO({
     title: 'About Us | KeepMe - UK Fragrance Manufacturing Experts',
-    description: 'Learn about KeepMe, a family-run UK fragrance manufacturer with over 20 years of experience creating premium fragrance, home, and lifestyle products for luxury brands.'
+    description: 'Learn about KeepMe, a family-run UK fragrance manufacturer with 20+ years of experience creating premium perfume, home, and lifestyle products for luxury brands.',
+    canonical: window.location.href,
+  });
+  useJsonLd('about-breadcrumb', {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://keepme.co.uk/' },
+      { '@type': 'ListItem', position: 2, name: 'About' }
+    ]
   });
 
   return (

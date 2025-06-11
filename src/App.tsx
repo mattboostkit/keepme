@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ReturnToTop from './components/ReturnToTop';
 import CookieBanner from './components/CookieBanner'; // Import CookieBanner
+import SEOManager from './components/SEOManager';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -49,6 +50,7 @@ import {
 function App() {
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col"> {/* Updated to use new brand background color */}
+      <SEOManager />
       <Header />
       <main className="flex-grow pt-16 sm:pt-20 md:pt-24"> {/* Responsive padding for different screen sizes */}
         <Routes>
