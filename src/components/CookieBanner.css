@@ -38,6 +38,8 @@
   cursor: pointer;
   font-weight: bold;
   margin-left: 20px;
+  /* Shift button left to avoid chat widget overlay */
+  margin-right: 120px;
   font-family: 'Poppins', sans-serif;
 }
 
