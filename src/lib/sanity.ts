@@ -1,11 +1,12 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { isPreviewMode } from './previewMode';
 
 export const client = createClient({
   projectId: 'tyzs5imn',
   dataset: 'production',
-  useCdn: true, // Set to true for production for better performance
+  useCdn: !isPreviewMode(), // Disable CDN in preview mode for fresh content
   apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
   // No token needed for read-only operations
 });
