@@ -34,6 +34,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'; // Import Privacy Policy page
 import TermsAndConditions from './pages/TermsAndConditions'; // Import Terms and Conditions page
 import QualityPolicy from './pages/QualityPolicy'; // Import Quality Policy page
 import NotFoundPage from './pages/NotFoundPage'; // Import Not Found page
+import Creative from './pages/Creative'; // Import Creative page
 // Import client pages
 import {
   RojaParfumsPage,
@@ -58,6 +59,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/glass" element={<Glass />} />
+          <Route path="/creative" element={<Creative />} />
           <Route path="/blog" element={<SanityBlog />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add new routes */}
