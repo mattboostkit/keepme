@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (dynamic)
+Sitemap: https://keepme.co.uk/.netlify/functions/generate-sitemap
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /studio/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /.netlify/
+
+# Allow important pages
+Allow: /blog/
+Allow: /services/
+Allow: /portfolio/
+Allow: /about/
+Allow: /contact/
+Allow: /creative/
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1 

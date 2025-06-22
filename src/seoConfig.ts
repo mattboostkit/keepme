@@ -46,9 +46,17 @@ const seoConfig: Record<string, SeoEntry> = {
     title: 'Glass Bottle Manufacturing | KeepMe',
     description: 'Custom glass bottle production and decoration for perfume & cosmetics.'
   },
+  '/creative': {
+    title: 'KeepMe Creative | Premium Design Studio for Fragrance Brands',
+    description: 'KeepMe Creative offers premium, high-impact creative output for fragrance brands. Our UK-based Design Studio provides bespoke design and development across all aspects of product and packaging presentation.'
+  },
   '/portfolio': {
     title: 'Portfolio | KeepMe - Fragrance Manufacturing Projects',
     description: 'View case studies of successful perfume manufacturing & packaging projects delivered for renowned brands.'
+  },
+  '/blog': {
+    title: 'KeepMe Blog | Fragrance Manufacturing Insights & Expertise',
+    description: 'Expert insights, industry trends, and manufacturing expertise from KeepMe. Discover the latest in fragrance production, packaging innovation, and luxury brand development.'
   },
   '/contact': {
     title: 'Contact KeepMe | Start Your Fragrance Project',

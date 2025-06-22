@@ -4,6 +4,8 @@ import { useSanityDocumentBySlug } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '../components/PortableTextComponents';
+import { useSEO } from '../hooks/useSEO';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 // Define the Post interface with body content
 interface Post {
@@ -19,6 +21,13 @@ interface Post {
     };
   };
   publishedAt?: string;
+  excerpt?: string;
+  author?: {
+    name: string;
+  };
+  categories?: {
+    title: string;
+  }[];
   body?: Array<{
     _type: string;
     _key: string;
@@ -32,6 +41,41 @@ const PostPage: React.FC = () => {
 
   // Use our custom hook to fetch a single post by slug
   const { data: post, loading, error } = useSanityDocumentBySlug<Post>('post', slug || '');
+
+  // SEO for individual blog posts
+  useSEO({
+    title: post?.title ? `${post.title} | KeepMe Blog` : 'Blog Post | KeepMe',
+    description: post?.excerpt || 'Read the latest insights and expertise from KeepMe, the leading UK fragrance manufacturer.',
+    canonical: `https://keepme.co.uk/post/${slug}`,
+    image: post?.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined,
+  });
+
+  // Structured data for blog posts
+  useJsonLd(`post-${slug}`, {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post?.title,
+    description: post?.excerpt,
+    image: post?.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined,
+    datePublished: post?.publishedAt,
+    dateModified: post?.publishedAt,
+    author: post?.author ? {
+      '@type': 'Person',
+      name: post.author.name
+    } : undefined,
+    publisher: {
+      '@type': 'Organization',
+      name: 'KeepMe',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://keepme.co.uk/favicon/favicon-96x96.png'
+      }
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://keepme.co.uk/post/${slug}`
+    }
+  });
 
   if (loading) return <div className="p-4">Loading post...</div>;
   if (error) return <div className="p-4 text-red-500">Error: {error.message}</div>;
