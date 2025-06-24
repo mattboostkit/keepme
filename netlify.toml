@@ -53,9 +53,9 @@
   to = "/blog"
   status = 301
 
-# SPA fallback - must be last and forced
+# SPA fallback - must be last
+# This should NOT use force=true as it would intercept asset requests
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
