@@ -53,20 +53,9 @@
   to = "/blog"
   status = 301
 
-# Handle blog post trailing slashes specifically
-[[redirects]]
-  from = "/post/*/"
-  to = "/post/:splat"
-  status = 301
-
-# Handle any other trailing slash issues
-[[redirects]]
-  from = "/*/"
-  to = "/:splat"
-  status = 301
-
-# SPA fallback - must be last
+# SPA fallback - must be last and forced
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
