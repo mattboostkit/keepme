@@ -53,6 +53,12 @@
   to = "/blog"
   status = 301
 
+# Handle blog post trailing slashes specifically
+[[redirects]]
+  from = "/post/*/"
+  to = "/post/:splat"
+  status = 301
+
 # Handle any other trailing slash issues
 [[redirects]]
   from = "/*/"
