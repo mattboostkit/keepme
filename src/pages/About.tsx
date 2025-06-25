@@ -7,7 +7,7 @@ function About() {
   useSEO({
     title: 'About Us | KeepMe - UK Fragrance Manufacturing Experts',
     description: 'Learn about KeepMe, a family-run UK fragrance manufacturer with 20+ years of experience creating premium perfume, home, and lifestyle products for luxury brands.',
-    canonical: window.location.href,
+    canonical: 'https://keepme.co.uk/about',
   });
   useJsonLd('about-breadcrumb', {
     '@context': 'https://schema.org',
@@ -34,7 +34,7 @@ function About() {
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Our <span className="text-brand-rose">Mission</span></h2>
                 <p className="text-lg text-brand-mauve leading-relaxed">
-                  We’re all about turning big ideas into high-quality products — and making the whole process feel easy and collaborative.
+                  We're all about turning big ideas into high-quality products — and making the whole process feel easy and collaborative.
                 </p>
               </div>
             </div>
@@ -99,7 +99,7 @@ function About() {
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
               <h3 className="text-xl font-semibold mb-3">Quality</h3>
               <p className="text-lg text-brand-mauve leading-relaxed">
-                Quality means more than great products, it’s about building lasting relationships rooted in trust, transparency, and shared success. We take pride in every detail, knowing that doing things right creates results people believe in.
+                Quality means more than great products, it's about building lasting relationships rooted in trust, transparency, and shared success. We take pride in every detail, knowing that doing things right creates results people believe in.
               </p>
             </div>
           </div>
@@ -145,7 +145,7 @@ function About() {
                   <h3 className="md:hidden block text-2xl mb-4 text-left font-bold font-serif transition-colors duration-300 text-brand-mauve/50 dark:text-brand-mauve/50">2005-2008</h3>
                   <div>
                     <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Integration and Expansion</h4>
-                    <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">This period marked a defining time as KeepMe. We integrated our businesses with our Shenzhen Operation, and we’re proud to say: we still enjoy this relationship today. Here we laid the foundations for a robust, ethical supply chain, with audited factories and fully transparent practices.</p>
+                    <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">This period marked a defining time as KeepMe. We integrated our businesses with our Shenzhen Operation, and we're proud to say: we still enjoy this relationship today. Here we laid the foundations for a robust, ethical supply chain, with audited factories and fully transparent practices.</p>
                   </div>
                 </div>
               </div>
@@ -209,7 +209,7 @@ function About() {
                   <h3 className="md:hidden block text-2xl mb-4 text-left font-bold font-serif transition-colors duration-300 text-brand-mauve/50 dark:text-brand-mauve/50">2020</h3>
                   <div>
                     <h4 className="text-lg font-normal text-brand-rose dark:text-brand-rose mb-2">Launch of the Lifestyle Lookbook</h4>
-                    <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">To inspire clients and showcase its full-service offering, KeepMe launched the Lifestyle Lookbook—a curated guide to its fragrance, skincare, wellness and packaging capabilities. This lookbook highlighted KeepMe’s creative direction, market insight, and bespoke product range.</p>
+                    <p className="text-brand-mauve dark:text-neutral-300 text-base leading-relaxed">To inspire clients and showcase its full-service offering, KeepMe launched the Lifestyle Lookbook—a curated guide to its fragrance, skincare, wellness and packaging capabilities. This lookbook highlighted KeepMe's creative direction, market insight, and bespoke product range.</p>
                   </div>
                 </div>
               </div>

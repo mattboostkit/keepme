@@ -5,7 +5,7 @@ function Creative() {
   useSEO({
     title: 'KeepMe Creative | Premium Design Studio for Fragrance Brands',
     description: 'KeepMe Creative offers premium, high-impact creative output for fragrance brands. Our UK-based Design Studio provides bespoke design and development across all aspects of product and packaging presentation.',
-    canonical: window.location.href,
+    canonical: 'https://keepme.co.uk/creative',
   });
   useJsonLd('creative-breadcrumb', {
     '@context': 'https://schema.org',

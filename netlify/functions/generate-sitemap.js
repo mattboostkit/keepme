@@ -18,6 +18,14 @@ exports.handler = async function(event, context) {
       }
     `);
 
+    // Fetch all portfolio brands
+    const portfolioBrands = await client.fetch(`
+      *[_type == "portfolioBrand"] | order(displayOrder asc) {
+        slug,
+        _updatedAt
+      }
+    `);
+
     // Generate sitemap XML
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -129,6 +137,13 @@ exports.handler = async function(event, context) {
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  ${portfolioBrands.map(brand => `
+  <url>
+    <loc>https://keepme.co.uk/portfolio/${brand.slug.current}</loc>
+    <lastmod>${new Date(brand._updatedAt).toISOString().split('T')[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`).join('')}
   ${posts.map(post => `
   <url>
     <loc>https://keepme.co.uk/post/${post.slug.current}</loc>

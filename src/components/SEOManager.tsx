@@ -14,11 +14,14 @@ export default function SEOManager() {
     return seoConfig[pathname] || seoConfig[pathname.replace(/\/$/, '')] || seoConfig['/'];
   }, [pathname]);
 
+  // Normalize pathname to remove trailing slash for canonical URL
+  const normalizedPathname = pathname.replace(/\/$/, '') || '/';
+
   // Basic on-page SEO – will run on every route change
   useSEO({
     title: seo.title,
     description: seo.description,
-    canonical: `${BASE_URL}${pathname}`,
+    canonical: `${BASE_URL}${normalizedPathname}`,
     image: seo.image,
   });
 
