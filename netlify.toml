@@ -37,11 +37,6 @@
   to = "/contact"
   status = 301
 
-[[redirects]]
-  from = "/creative/"
-  to = "/creative"
-  status = 301
-
 # Handle old blog URLs if they exist
 [[redirects]]
   from = "/posts"
