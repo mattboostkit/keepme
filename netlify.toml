@@ -33,11 +33,6 @@
   status = 301
 
 [[redirects]]
-  from = "/portfolio/"
-  to = "/portfolio"
-  status = 301
-
-[[redirects]]
   from = "/contact/"
   to = "/contact"
   status = 301
