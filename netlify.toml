@@ -42,12 +42,6 @@
   to = "/creative"
   status = 301
 
-# Handle portfolio trailing slash to prevent duplicate content
-[[redirects]]
-  from = "/portfolio/"
-  to = "/portfolio"
-  status = 301
-
 # Handle old blog URLs if they exist
 [[redirects]]
   from = "/posts"
