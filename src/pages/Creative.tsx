@@ -28,42 +28,42 @@ function Creative() {
             _id: '1',
             title: 'Bottle Visuals',
             image: 'https://images.unsplash.com/photo-1594035910369-67c4c35ba3a1?auto=format&fit=crop&q=80&w=600&h=400',
-            description: '3D renderings for mock-ups and presentations.',
+            description: '3D renderings for mock-ups and presentations',
             displayOrder: 1
           },
           {
             _id: '2',
             title: 'Stock Bottle Selection',
             image: 'https://images.unsplash.com/photo-1619994121345-b61cd610c5a6?auto=format&fit=crop&q=80&w=600&h=400',
-            description: 'Choose from our extensive range of stock bottles for your fragrance.',
+            description: 'Choose from our extensive range of stock bottles for your fragrance',
             displayOrder: 2
           },
           {
             _id: '3',
             title: 'Technical Design',
             image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600&h=400',
-            description: 'Precise, production-ready specs for bottles, caps, and components.',
+            description: 'Precise, production-ready specs for bottles, caps, and components',
             displayOrder: 3
           },
           {
             _id: '4',
             title: 'Packaging Visuals',
             image: 'https://images.unsplash.com/photo-1594913615593-5dca0aaf4593?auto=format&fit=crop&q=80&w=600&h=400',
-            description: 'Full creative support for primary and secondary packaging.',
+            description: 'Full creative support for primary and secondary packaging',
             displayOrder: 4
           },
           {
             _id: '5',
             title: 'Artwork Creation',
             image: 'https://images.unsplash.com/photo-1609207825181-52d3214556dd?auto=format&fit=crop&q=80&w=600&h=400',
-            description: 'Professional artwork design from initial concept to final print-ready files.',
+            description: 'Professional artwork design from initial concept to final print-ready files',
             displayOrder: 5
           },
           {
             _id: '6',
             title: 'NPD Visuals',
             image: 'https://images.unsplash.com/photo-1586104237516-6b7b5a2e7e89?auto=format&fit=crop&q=80&w=600&h=400',
-            description: 'New Product Development visuals to bring your ideas to life.',
+            description: 'New Product Development visuals to bring your ideas to life',
             displayOrder: 6
           }
         ];
@@ -142,11 +142,13 @@ function Creative() {
       </section>
 
       {/* Primary and Secondary Component Visuals Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white services-section">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Primary and Secondary <span className="text-brand-rose">Component Visuals</span></h2>
-            <p className="text-lg text-brand-mauve leading-relaxed">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-4">
+              Primary and Secondary <span className="text-brand-rose">Component Visuals</span>
+            </h2>
+            <p className="text-lg text-brand-mauve leading-relaxed max-w-2xl mx-auto">
               We help fragrance and lifestyle brands turn concepts into stunning visual realities, ready for internal approval, and final production.
             </p>
           </div>
@@ -155,7 +157,7 @@ function Creative() {
             <div className="text-center">Loading visuals...</div>
           ) : (
             <FlickityCarousel
-              className="component-visuals-carousel"
+              className="services-carousel"
               options={{
                 freeScroll: true,
                 contain: true,
@@ -172,21 +174,19 @@ function Creative() {
             >
               {componentVisuals.map((visual) => (
                 <div key={visual._id} className="px-3 pb-4">
-                  <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow h-full">
-                    {visual.image && (
-                      <div className="w-full h-48 overflow-hidden mb-6 rounded-lg">
-                        <img
-                          src={visual.image}
-                          alt={visual.title}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-                    <h3 className="text-xl font-semibold mb-3 text-brand-plum">{visual.title}</h3>
-                    <p className="text-lg text-brand-mauve leading-relaxed">
-                      {visual.description}
-                    </p>
+                  <div className="text-brand-mauve hover:text-brand-rose font-medium flex flex-col group">
+                    <div className="w-full h-80 overflow-hidden mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
+                      <img
+                        src={visual.image}
+                        alt={visual.title}
+                        className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="mt-4">
+                      <h3 className="text-xl font-sans font-normal mb-2 group-hover:text-brand-plum transition-colors">{visual.title}</h3>
+                      <p className="text-gray-600 text-sm mb-3">{visual.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
