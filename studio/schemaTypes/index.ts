@@ -1,9 +1,6 @@
 import post from './post'
-import video from './video'
 import category from './category'
 import author from './author'
-import heroSection from './heroSection'
-import service from './service'
 import serviceImage from './serviceImage'
 import servicePageSection from './servicePageSection'
 import aboutSection from './aboutSection'
@@ -17,4 +14,4 @@ import galleryImage from '../schemas/galleryImage'
 import creativeCarousel from './creativeCarousel'
 import creativePage from './creativePage'
 
-export const schemaTypes = [post, video, category, author, heroSection, service, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage]
+export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage]
