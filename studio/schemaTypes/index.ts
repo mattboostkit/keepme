@@ -25,5 +25,6 @@ import homePage from './homePage'
 import servicesPage from './servicesPage'
 import serviceSection from './serviceSection'
 import faqItem from './faqItem'
+import portfolioPage from './portfolioPage'
 
-export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage, glassPage, glassType, manufacturingStep, aboutPage, companyValue, companyTimeline, toolsPage, tool, homePage, servicesPage, serviceSection, faqItem]
+export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage, glassPage, glassType, manufacturingStep, aboutPage, companyValue, companyTimeline, toolsPage, tool, homePage, servicesPage, serviceSection, faqItem, portfolioPage]

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
 import { useSEO } from '../hooks/useSEO';
+import { fetchSanityData } from '../lib/sanityUtils';
 
 interface PortfolioItem {
   _id: string;
@@ -31,10 +32,44 @@ interface PortfolioItem {
   displayOrder: number;
 }
 
+interface PortfolioPageData {
+  heroTitle: string;
+  heroDescription: string;
+  heroBoxTitle: string;
+  heroBoxDescription: string;
+  heroBadgeNumber: string;
+  heroBadgeText: string;
+  brandsTitle: string;
+  brandsDescription: string;
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
 function PortfolioPage() {
+  const [pageData, setPageData] = useState<PortfolioPageData | null>(null);
+  const [pageLoading, setPageLoading] = useState(true);
+  
+  useEffect(() => {
+    const fetchPageData = async () => {
+      try {
+        setPageLoading(true);
+        const result = await fetchSanityData<PortfolioPageData>(
+          '*[_type == "portfolioPage"][0]'
+        );
+        setPageData(result);
+      } catch (error) {
+        console.error('Error fetching portfolio page data:', error);
+      } finally {
+        setPageLoading(false);
+      }
+    };
+
+    fetchPageData();
+  }, []);
+  
   useSEO({
-    title: 'Portfolio | KeepMe - Our Fragrance Manufacturing Projects',
-    description: 'Explore our portfolio of successful fragrance manufacturing projects for prestigious brands including Roja Parfums, Ormonde Jayne, and other luxury fragrance houses.'
+    title: pageData?.seoTitle || 'Portfolio | KeepMe - Our Fragrance Manufacturing Projects',
+    description: pageData?.seoDescription || 'Explore our portfolio of successful fragrance manufacturing projects for prestigious brands including Roja Parfums, Ormonde Jayne, and other luxury fragrance houses.'
   });
 
   const { data: portfolioItems, loading, error } = useSanityQuery<PortfolioItem[]>(
@@ -112,20 +147,20 @@ function PortfolioPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
-                Our Portfolio
+                {pageData?.heroTitle || 'Our Portfolio'}
               </h1>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
-                Discover more about our work. From bold concepts to commercially minded solutions, we deliver quality that fits your vision and your budget.
+                {pageData?.heroDescription || 'Discover more about our work. From bold concepts to commercially minded solutions, we deliver quality that fits your vision and your budget.'}
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="bg-brand-pink-light p-2 rounded-full">
                     <ArrowRight className="h-6 w-6 text-brand-rose" />
                   </div>
-                  <h3 className="text-xl text-brand-mauve">Client Partnerships</h3>
+                  <h3 className="text-xl text-brand-mauve">{pageData?.heroBoxTitle || 'Client Partnerships'}</h3>
                 </div>
                 <p className="text-base text-brand-mauve leading-relaxed">
-                  We partner with niche, innovative, creative brands. We’re proud to work with some of the most distinguished names in the industry.
+                  {pageData?.heroBoxDescription || 'We partner with niche, innovative, creative brands. We\'re proud to work with some of the most distinguished names in the industry.'}
                 </p>
               </div>
             </div>
@@ -141,8 +176,8 @@ function PortfolioPage() {
                     <ArrowRight className="h-6 w-6 text-brand-rose" />
                   </div>
                   <div>
-                    <p className="text-xl font-semibold">Over 100 Clients</p>
-                    <p className="text-brand-mauve">Trusted Partnerships</p>
+                    <p className="text-xl font-semibold">{pageData?.heroBadgeNumber || 'Over 100 Clients'}</p>
+                    <p className="text-brand-mauve">{pageData?.heroBadgeText || 'Trusted Partnerships'}</p>
                   </div>
                 </div>
               </div>
@@ -254,6 +289,23 @@ function PortfolioPage() {
 
 // Portfolio Brands Component
 function PortfolioBrandsSection() {
+  const [pageData, setPageData] = useState<PortfolioPageData | null>(null);
+  
+  useEffect(() => {
+    const fetchPageData = async () => {
+      try {
+        const result = await fetchSanityData<PortfolioPageData>(
+          '*[_type == "portfolioPage"][0]'
+        );
+        setPageData(result);
+      } catch (error) {
+        console.error('Error fetching portfolio page data:', error);
+      }
+    };
+
+    fetchPageData();
+  }, []);
+  
   const { data: portfolioBrands, loading, error } = useSanityQuery<any[]>(
     `*[_type == "portfolioBrand"] | order(displayOrder asc) {
       _id,
@@ -286,10 +338,10 @@ function PortfolioBrandsSection() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-4">
-            Our Clients
+            {pageData?.brandsTitle || 'Our Clients'}
           </h2>
           <p className="text-lg text-brand-mauve max-w-3xl mx-auto">
-            Discover our partnerships with prestigious brands. We're proud to work with some of the most distinguished names in the industry.
+            {pageData?.brandsDescription || 'Discover our partnerships with prestigious brands. We\'re proud to work with some of the most distinguished names in the industry.'}
           </p>
         </div>
 
