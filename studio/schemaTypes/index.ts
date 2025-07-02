@@ -13,5 +13,8 @@ import servicesPageImages from '../schemas/servicesPageImages'
 import galleryImage from '../schemas/galleryImage'
 import creativeCarousel from './creativeCarousel'
 import creativePage from './creativePage'
+import glassPage from './glassPage'
+import glassType from './glassType'
+import manufacturingStep from './manufacturingStep'
 
-export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage]
+export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage, glassPage, glassType, manufacturingStep]
