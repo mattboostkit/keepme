@@ -16,5 +16,8 @@ import creativePage from './creativePage'
 import glassPage from './glassPage'
 import glassType from './glassType'
 import manufacturingStep from './manufacturingStep'
+import aboutPage from './aboutPage'
+import companyValue from './companyValue'
+import companyTimeline from './companyTimeline'
 
-export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage, glassPage, glassType, manufacturingStep]
+export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage, glassPage, glassType, manufacturingStep, aboutPage, companyValue, companyTimeline]
