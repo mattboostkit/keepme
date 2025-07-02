@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'componentVisual',
-  title: 'Component Visual',
+  name: 'creativeCarousel',
+  title: 'Creative Carousel',
   type: 'document',
   fields: [
     defineField({
