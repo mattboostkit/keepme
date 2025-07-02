@@ -163,11 +163,6 @@ export default defineType({
           {name: 'description', type: 'string', title: 'Description'}
         ]
       }],
-      initialValue: [
-        {title: 'Typography', description: 'Elegant, legible, and on-brand'},
-        {title: 'Colour palettes', description: 'Sophisticated combinations that reflect your identity'},
-        {title: 'Logo usage rules', description: 'Scalable, versatile, and crystal-clear'}
-      ],
       validation: Rule => Rule.required()
     }),
     defineField({

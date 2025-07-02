@@ -32,9 +32,9 @@ const creativePage = {
   brandGuidelinesDescription: 'Your brand deserves more than a great logo—it needs a visual system that speaks with clarity and confidence across every touchpoint.',
   brandGuidelinesSubDescription: 'At KeepMe Creative, we develop cohesive, professional brand guidelines tailored specifically for fragrance and lifestyle brands, including:',
   brandGuidelinesFeatures: [
-    {title: 'Typography', description: 'Elegant, legible, and on-brand'},
-    {title: 'Colour palettes', description: 'Sophisticated combinations that reflect your identity'},
-    {title: 'Logo usage rules', description: 'Scalable, versatile, and crystal-clear'}
+    {_key: 'typography', title: 'Typography', description: 'Elegant, legible, and on-brand'},
+    {_key: 'colour-palettes', title: 'Colour palettes', description: 'Sophisticated combinations that reflect your identity'},
+    {_key: 'logo-usage', title: 'Logo usage rules', description: 'Scalable, versatile, and crystal-clear'}
   ],
   brandGuidelinesFooter: 'We ensure your brand looks and feels seamless everywhere.',
   seoTitle: 'KeepMe Creative | Premium Design Studio for Fragrance Brands',
