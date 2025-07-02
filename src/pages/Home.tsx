@@ -46,16 +46,37 @@ interface AboutSectionData {
   image?: SanityImageReference;
 }
 
+// Define Home Page Data interface
+interface HomePageData {
+  heroBackgroundImage?: SanityImageReference;
+  heroLogoImage?: SanityImageReference;
+  ctaTitle: string;
+  ctaDescription: string;
+  ctaButtonText: string;
+  ctaButtonLink: string;
+  clientLogosTitle: string;
+  servicesTitle: string;
+  servicesDescription: string;
+  portfolioTitle: string;
+  portfolioDescription: string;
+  contactCtaTitle: string;
+  contactCtaDescription: string;
+  contactCtaButtonText: string;
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
 function Home() { // Component name is Home
   useSEO({
-    title: 'KeepMe | Expert Fragrance Manufacturer',
-    description: 'KeepMe is a leading UK-based fragrance manufacturer specialising in perfume production, packaging, and end-to-end solutions for luxury brands.',
+    title: homePageData?.seoTitle || 'KeepMe | Expert Fragrance Manufacturer',
+    description: homePageData?.seoDescription || 'KeepMe is a leading UK-based fragrance manufacturer specialising in perfume production, packaging, and end-to-end solutions for luxury brands.',
     canonical: 'https://keepme.co.uk/',
   });
-  // State for service images, about section, and portfolio brands
+  // State for service images, about section, portfolio brands, and home page data
   const [serviceImages, setServiceImages] = useState<ServiceImage[]>([]);
   const [aboutData, setAboutData] = useState<AboutSectionData | null>(null); // Use specific type
   const [portfolioBrands, setPortfolioBrands] = useState<PortfolioItem[]>([]); // Use PortfolioItem type
+  const [homePageData, setHomePageData] = useState<HomePageData | null>(null);
   const [loading, setLoading] = useState(true);
   
   // Fetch service images, about section data, and portfolio brands from Sanity
@@ -78,6 +99,10 @@ function Home() { // Component name is Home
         const portfolioResult = await fetchPortfolioBrands();
         console.log('Portfolio brands result:', portfolioResult);
         setPortfolioBrands(portfolioResult);
+        
+        // Fetch home page data
+        const homeResult = await fetchSanityData<HomePageData>('*[_type == "homePage"][0]');
+        setHomePageData(homeResult);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -88,7 +113,9 @@ function Home() { // Component name is Home
     fetchData();
   }, []);
 
-  const heroImageUrl = "https://cdn.sanity.io/images/tyzs5imn/production/7feee1508aeaf269bf3ecdfa7c0c8bc62585b627-2700x1336.webp";
+  const heroImageUrl = homePageData?.heroBackgroundImage?.asset 
+    ? urlFor(homePageData.heroBackgroundImage).width(2700).height(1336).fit('crop').format('webp').url()
+    : "https://cdn.sanity.io/images/tyzs5imn/production/7feee1508aeaf269bf3ecdfa7c0c8bc62585b627-2700x1336.webp";
 
   return (
     <>
@@ -120,17 +147,25 @@ function Home() { // Component name is Home
             <div className="space-y-8">
               <div>
                 <h1 className="text-4xl md:text-6xl font-semibold leading-tight text-white">
-                  Flawless Fragrances,<br />
-                  Expertly Crafted
+                  {homePageData?.ctaTitle?.split('\n').map((line, index) => (
+                    <span key={index}>
+                      {line}
+                      {index === 0 && <br />}
+                    </span>
+                  )) || (
+                    <>
+                      Flawless Fragrances,<br />
+                      Expertly Crafted
+                    </>
+                  )}
                 </h1>
               </div>
               <p className="text-lg leading-relaxed">
-                Your end-to-end partner in fragrance and packaging. We specialise in perfume production,
-                from components to filling, assembly, and delivery.
+                {homePageData?.ctaDescription || 'Your end-to-end partner in fragrance and packaging. We specialise in perfume production, from components to filling, assembly, and delivery.'}
               </p>
               <div className="flex justify-center">
-                <Link to="/contact" className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors flex items-center justify-center font-semibold">
-                  Contact Us
+                <Link to={homePageData?.ctaButtonLink || "/contact"} className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors flex items-center justify-center font-semibold">
+                  {homePageData?.ctaButtonText || 'Contact Us'}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </div>
@@ -140,7 +175,7 @@ function Home() { // Component name is Home
       </section>
 
       {/* Client Logos Section - Using Sanity Data */}
-      <ClientLogos useSanity={true} title="Trusted by Leading Brands" scrolling={true} />
+      <ClientLogos useSanity={true} title={homePageData?.clientLogosTitle || "Trusted by Leading Brands"} scrolling={true} />
 
       {/* About Section */}
       <section id="about" className="py-20 bg-brand-pink-light/20">
@@ -184,10 +219,10 @@ function Home() { // Component name is Home
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-4">
-              Our <span className="text-brand-rose">Services</span> {/* Ensured class is applied */}
+              {homePageData?.servicesTitle?.split(' ').slice(0, -1).join(' ') || 'Our'} <span className="text-brand-rose">{homePageData?.servicesTitle?.split(' ').slice(-1).join(' ') || 'Services'}</span>
             </h2>
             <p className="text-lg text-brand-mauve leading-relaxed max-w-2xl mx-auto">
-              We combine creativity with technical expertise to support our clients' projects from concept to completion.
+              {homePageData?.servicesDescription || 'We combine creativity with technical expertise to support our clients\' projects from concept to completion.'}
             </p>
           </div>
 
@@ -247,8 +282,8 @@ function Home() { // Component name is Home
       {/* Portfolio Section */}
       {portfolioBrands.length > 0 && (
         <FilterablePortfolio
-          title="Our Clients"
-          subtitle="Discover our partnerships with prestigious Niche and Luxury Brands. We're proud to work with some of the most distinguished names in the industry."
+          title={homePageData?.portfolioTitle || "Our Portfolio"}
+          subtitle={homePageData?.portfolioDescription || "Discover our partnerships with prestigious Niche and Luxury Brands. We're proud to work with some of the most distinguished names in the industry."}
           items={portfolioBrands}
           maxItems={6}
           showFilters={true}
@@ -260,6 +295,26 @@ function Home() { // Component name is Home
       )}
     {/* Testimonials Section - Using Sanity Data */}
     <Testimonials useSanity={true} />
+    
+    {/* Contact CTA Section */}
+    <section className="py-20 bg-brand-pink-light">
+      <div className="container mx-auto px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
+          {homePageData?.contactCtaTitle || 'Ready to Start Your Project?'}
+        </h2>
+        <p className="text-xl text-brand-mauve max-w-3xl mx-auto mb-10">
+          {homePageData?.contactCtaDescription || 'Let\'s discuss how we can bring your fragrance vision to life with our expertise in design, manufacturing, and delivery.'}
+        </p>
+        <div className="flex justify-center">
+          <Link
+            to="/contact"
+            className="bg-brand-mauve text-white px-8 py-3 rounded-full hover:bg-brand-rose transition-colors inline-block font-medium"
+          >
+            {homePageData?.contactCtaButtonText || 'Get Started'}
+          </Link>
+        </div>
+      </div>
+    </section>
   </>
 );
 }

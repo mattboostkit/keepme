@@ -21,5 +21,6 @@ import companyValue from './companyValue'
 import companyTimeline from './companyTimeline'
 import toolsPage from './toolsPage'
 import tool from './tool'
+import homePage from './homePage'
 
-export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage, glassPage, glassType, manufacturingStep, aboutPage, companyValue, companyTimeline, toolsPage, tool]
+export const schemaTypes = [post, category, author, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, creativeCarousel, creativePage, glassPage, glassType, manufacturingStep, aboutPage, companyValue, companyTimeline, toolsPage, tool, homePage]
