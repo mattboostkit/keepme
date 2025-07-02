@@ -14,5 +14,6 @@ import portfolioBrand from './portfolioBrand'
 import portfolioItem from './portfolioItem'
 import servicesPageImages from '../schemas/servicesPageImages'
 import galleryImage from '../schemas/galleryImage'
+import componentVisual from './componentVisual'
 
-export const schemaTypes = [post, video, category, author, heroSection, service, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage]
+export const schemaTypes = [post, video, category, author, heroSection, service, serviceImage, servicePageSection, aboutSection, testimonial, logo, teamMember, portfolioBrand, portfolioItem, servicesPageImages, galleryImage, componentVisual]

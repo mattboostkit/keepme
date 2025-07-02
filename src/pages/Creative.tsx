@@ -1,7 +1,89 @@
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { useState, useEffect } from 'react';
+import { fetchSanityData } from '../lib/sanityUtils';
+import { urlFor } from '../lib/sanity';
+import FlickityCarousel from '../components/FlickityCarousel';
+import '../components/FlickityCarousel.css';
+
+interface ComponentVisual {
+  _id: string;
+  title: string;
+  image: string;
+  description: string;
+  displayOrder: number;
+}
 
 function Creative() {
+  const [componentVisuals, setComponentVisuals] = useState<ComponentVisual[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // For now, using dummy data until Sanity content is populated
+        const dummyVisuals: ComponentVisual[] = [
+          {
+            _id: '1',
+            title: 'Bottle Visuals',
+            image: 'https://images.unsplash.com/photo-1594035910369-67c4c35ba3a1?auto=format&fit=crop&q=80&w=600&h=400',
+            description: '3D renderings for mock-ups and presentations.',
+            displayOrder: 1
+          },
+          {
+            _id: '2',
+            title: 'Stock Bottle Selection',
+            image: 'https://images.unsplash.com/photo-1619994121345-b61cd610c5a6?auto=format&fit=crop&q=80&w=600&h=400',
+            description: 'Choose from our extensive range of stock bottles for your fragrance.',
+            displayOrder: 2
+          },
+          {
+            _id: '3',
+            title: 'Technical Design',
+            image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600&h=400',
+            description: 'Precise, production-ready specs for bottles, caps, and components.',
+            displayOrder: 3
+          },
+          {
+            _id: '4',
+            title: 'Packaging Visuals',
+            image: 'https://images.unsplash.com/photo-1594913615593-5dca0aaf4593?auto=format&fit=crop&q=80&w=600&h=400',
+            description: 'Full creative support for primary and secondary packaging.',
+            displayOrder: 4
+          },
+          {
+            _id: '5',
+            title: 'Artwork Creation',
+            image: 'https://images.unsplash.com/photo-1609207825181-52d3214556dd?auto=format&fit=crop&q=80&w=600&h=400',
+            description: 'Professional artwork design from initial concept to final print-ready files.',
+            displayOrder: 5
+          },
+          {
+            _id: '6',
+            title: 'NPD Visuals',
+            image: 'https://images.unsplash.com/photo-1586104237516-6b7b5a2e7e89?auto=format&fit=crop&q=80&w=600&h=400',
+            description: 'New Product Development visuals to bring your ideas to life.',
+            displayOrder: 6
+          }
+        ];
+
+        // Uncomment when ready to fetch from Sanity
+        // const visualsResult = await fetchSanityData<ComponentVisual[]>(
+        //   '*[_type == "componentVisual"] | order(displayOrder asc)'
+        // );
+        // setComponentVisuals(visualsResult);
+
+        setComponentVisuals(dummyVisuals);
+      } catch (error) {
+        console.error('Error fetching component visuals:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
   useSEO({
     title: 'KeepMe Creative | Premium Design Studio for Fragrance Brands',
     description: 'KeepMe Creative offers premium, high-impact creative output for fragrance brands. Our UK-based Design Studio provides bespoke design and development across all aspects of product and packaging presentation.',
@@ -59,6 +141,60 @@ function Creative() {
         </div>
       </section>
 
+      {/* Primary and Secondary Component Visuals Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Primary and Secondary <span className="text-brand-rose">Component Visuals</span></h2>
+            <p className="text-lg text-brand-mauve leading-relaxed">
+              We help fragrance and lifestyle brands turn concepts into stunning visual realities, ready for internal approval, and final production.
+            </p>
+          </div>
+
+          {loading ? (
+            <div className="text-center">Loading visuals...</div>
+          ) : (
+            <FlickityCarousel
+              className="component-visuals-carousel"
+              options={{
+                freeScroll: true,
+                contain: true,
+                prevNextButtons: true,
+                pageDots: false,
+                cellAlign: 'left',
+                groupCells: true,
+                draggable: true,
+                friction: 0.2,
+                selectedAttraction: 0.01,
+                adaptiveHeight: false,
+                watchCSS: false
+              }}
+            >
+              {componentVisuals.map((visual) => (
+                <div key={visual._id} className="px-3 pb-4">
+                  <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow h-full">
+                    {visual.image && (
+                      <div className="w-full h-48 overflow-hidden mb-6 rounded-lg">
+                        <img
+                          src={visual.image}
+                          alt={visual.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <h3 className="text-xl font-semibold mb-3 text-brand-plum">{visual.title}</h3>
+                    <p className="text-lg text-brand-mauve leading-relaxed">
+                      {visual.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </FlickityCarousel>
+          )}
+        </div>
+      </section>
+
       {/* Logo Design Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
@@ -66,7 +202,7 @@ function Creative() {
             <div>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Logo <span className="text-brand-rose">Design</span></h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                Your logo is more than a mark—it's the first impression of your fragrance brand. At KeepMe Creative, we craft logos that capture the essence of your scent, your story, and your audience.
+                Your logo is more than a mark, it's the first impression of your fragrance brand. At KeepMe Creative, we craft logos that capture the essence of your scent, your story, and your audience.
               </p>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
                 Whether you're launching a new fragrance house or refreshing an established brand, our UK Design Studio delivers:
@@ -115,7 +251,7 @@ function Creative() {
             <div className="order-1 md:order-2">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Brand <span className="text-brand-rose">Guidelines</span></h2>
               <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                Cohesive, professional brand identity systems to ensure consistency across all platforms. Your brand deserves more than a great logo—it needs a visual system that speaks with clarity and confidence across every touchpoint.
+                Your brand deserves more than a great logo—it needs a visual system that speaks with clarity and confidence across every touchpoint.
               </p>
               <p className="text-lg text-brand-mauve leading-relaxed mb-8">
                 At KeepMe Creative, we develop cohesive, professional brand guidelines tailored specifically for fragrance and lifestyle brands, including:
@@ -123,7 +259,7 @@ function Creative() {
               <ul className="space-y-3 text-lg text-brand-mauve leading-relaxed">
                 <li className="flex items-start">
                   <span className="text-brand-rose mr-3">•</span>
-                  <strong>Typography systems</strong> – Elegant, legible, and on-brand
+                  <strong>Typography</strong> – Elegant, legible, and on-brand
                 </li>
                 <li className="flex items-start">
                   <span className="text-brand-rose mr-3">•</span>
@@ -138,55 +274,6 @@ function Creative() {
                 We ensure your brand looks and feels seamless everywhere.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Primary and Secondary Component Visuals Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">Primary and Secondary <span className="text-brand-rose">Component Visuals</span></h2>
-            <p className="text-lg text-brand-mauve leading-relaxed">
-              We help fragrance and lifestyle brands turn concepts into stunning visual realities, ready for internal approval, and final production.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Bottle Visuals */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-brand-plum">Bottle Visuals</h3>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                3D renderings for mock-ups and presentations.
-              </p>
-            </div>
-            {/* Technical Drawings */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-brand-plum">Technical Drawings</h3>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                Precise, production-ready specs for bottles, caps, and components—ensuring a smooth handover to our production team.
-              </p>
-            </div>
-            {/* Packaging Visuals */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-brand-plum">Packaging Visuals</h3>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                Full creative support for primary and secondary packaging, from initial concept to final artwork.
-              </p>
-            </div>
-            {/* 3D Samples & Prototypes */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-brand-plum">3D Samples & Prototypes</h3>
-              <p className="text-lg text-brand-mauve leading-relaxed">
-                Physical or digital prototypes to evaluate shape, size, finish, and feel before committing to production.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-16 text-center">
-            <p className="text-lg text-brand-mauve leading-relaxed max-w-3xl mx-auto">
-              Whether you're designing a signature bottle or refining a luxury gift box, we give your product the visual clarity and technical precision it needs to succeed.
-            </p>
           </div>
         </div>
       </section>
