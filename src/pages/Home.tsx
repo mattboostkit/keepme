@@ -67,17 +67,23 @@ interface HomePageData {
 }
 
 function Home() { // Component name is Home
-  useSEO({
-    title: homePageData?.seoTitle || 'KeepMe | Expert Fragrance Manufacturer',
-    description: homePageData?.seoDescription || 'KeepMe is a leading UK-based fragrance manufacturer specialising in perfume production, packaging, and end-to-end solutions for luxury brands.',
-    canonical: 'https://keepme.co.uk/',
-  });
   // State for service images, about section, portfolio brands, and home page data
   const [serviceImages, setServiceImages] = useState<ServiceImage[]>([]);
   const [aboutData, setAboutData] = useState<AboutSectionData | null>(null); // Use specific type
   const [portfolioBrands, setPortfolioBrands] = useState<PortfolioItem[]>([]); // Use PortfolioItem type
   const [homePageData, setHomePageData] = useState<HomePageData | null>(null);
   const [loading, setLoading] = useState(true);
+  
+  // Use SEO hook with static defaults to prevent initialization errors
+  // Only use dynamic values after they're loaded
+  const seoTitle = !loading && homePageData?.seoTitle ? homePageData.seoTitle : 'KeepMe | Expert Fragrance Manufacturer';
+  const seoDescription = !loading && homePageData?.seoDescription ? homePageData.seoDescription : 'KeepMe is a leading UK-based fragrance manufacturer specialising in perfume production, packaging, and end-to-end solutions for luxury brands.';
+  
+  useSEO({
+    title: seoTitle,
+    description: seoDescription,
+    canonical: 'https://keepme.co.uk/',
+  });
   
   // Fetch service images, about section data, and portfolio brands from Sanity
   useEffect(() => {

@@ -98,9 +98,13 @@ function About() {
     fetchData();
   }, []);
 
+  // Use SEO hook with static defaults to prevent initialization errors
+  const seoTitle = !loading && pageData?.seoTitle ? pageData.seoTitle : 'About Us | KeepMe - UK Fragrance Manufacturing Experts';
+  const seoDescription = !loading && pageData?.seoDescription ? pageData.seoDescription : 'Learn about KeepMe, a family-run UK fragrance manufacturer with 20+ years of experience creating premium perfume, home, and lifestyle products for luxury brands.';
+  
   useSEO({
-    title: pageData?.seoTitle || 'About Us | KeepMe - UK Fragrance Manufacturing Experts',
-    description: pageData?.seoDescription || 'Learn about KeepMe, a family-run UK fragrance manufacturer with 20+ years of experience creating premium perfume, home, and lifestyle products for luxury brands.',
+    title: seoTitle,
+    description: seoDescription,
     canonical: 'https://keepme.co.uk/about',
   });
   

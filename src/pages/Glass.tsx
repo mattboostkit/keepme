@@ -199,9 +199,13 @@ function Glass() {
     fetchData();
   }, []);
   
+  // Use SEO hook with static defaults to prevent initialization errors
+  const seoTitle = !loading && pageData?.seoTitle ? pageData.seoTitle : 'Premium Glass Solutions | KeepMe Glass Manufacturing';
+  const seoDescription = !loading && pageData?.seoDescription ? pageData.seoDescription : 'Expert glass manufacturing for luxury fragrances. Custom designs, premium finishes, and 20+ years of expertise in creating exceptional glass components.';
+  
   useSEO({
-    title: pageData?.seoTitle || 'Premium Glass Solutions | KeepMe Glass Manufacturing',
-    description: pageData?.seoDescription || 'Expert glass manufacturing for luxury fragrances. Custom designs, premium finishes, and 20+ years of expertise in creating exceptional glass components.',
+    title: seoTitle,
+    description: seoDescription,
     canonical: 'https://keepme.co.uk/glass',
   });
   

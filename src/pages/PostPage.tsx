@@ -42,12 +42,16 @@ const PostPage: React.FC = () => {
   // Use our custom hook to fetch a single post by slug
   const { data: post, loading, error } = useSanityDocumentBySlug<Post>('post', slug || '');
 
-  // SEO for individual blog posts
+  // SEO for individual blog posts - use static defaults to prevent initialization errors
+  const seoTitle = !loading && post?.title ? `${post.title} | KeepMe Blog` : 'Blog Post | KeepMe';
+  const seoDescription = !loading && post?.excerpt ? post.excerpt : 'Read the latest insights and expertise from KeepMe, the leading UK fragrance manufacturer.';
+  const seoImage = !loading && post?.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined;
+  
   useSEO({
-    title: post?.title ? `${post.title} | KeepMe Blog` : 'Blog Post | KeepMe',
-    description: post?.excerpt || 'Read the latest insights and expertise from KeepMe, the leading UK fragrance manufacturer.',
+    title: seoTitle,
+    description: seoDescription,
     canonical: `https://keepme.co.uk/post/${slug}`,
-    image: post?.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined,
+    image: seoImage,
   });
 
   // Structured data for blog posts

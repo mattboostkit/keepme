@@ -67,9 +67,13 @@ function PortfolioPage() {
     fetchPageData();
   }, []);
   
+  // Use SEO hook with static defaults to prevent initialization errors
+  const seoTitle = !pageLoading && pageData?.seoTitle ? pageData.seoTitle : 'Portfolio | KeepMe - Our Fragrance Manufacturing Projects';
+  const seoDescription = !pageLoading && pageData?.seoDescription ? pageData.seoDescription : 'Explore our portfolio of successful fragrance manufacturing projects for prestigious brands including Roja Parfums, Ormonde Jayne, and other luxury fragrance houses.';
+  
   useSEO({
-    title: pageData?.seoTitle || 'Portfolio | KeepMe - Our Fragrance Manufacturing Projects',
-    description: pageData?.seoDescription || 'Explore our portfolio of successful fragrance manufacturing projects for prestigious brands including Roja Parfums, Ormonde Jayne, and other luxury fragrance houses.'
+    title: seoTitle,
+    description: seoDescription
   });
 
   const { data: portfolioItems, loading, error } = useSanityQuery<PortfolioItem[]>(

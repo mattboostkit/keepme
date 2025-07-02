@@ -4,6 +4,7 @@ import FaqAccordion from '../components/FaqAccordion';
 import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
 import { useSEO } from '../hooks/useSEO';
+import { fetchSanityData } from '../lib/sanityUtils';
 
 // Interface for the Sanity image object with alt text
 interface SanityImageObject {
@@ -96,7 +97,6 @@ function Services() {
         setDataLoading(true);
         
         // Fetch Services Page data
-        const { fetchSanityData } = await import('../lib/sanityUtils');
         const pageResult = await fetchSanityData<ServicesPageData>(
           '*[_type == "servicesPage"][0]'
         );
@@ -124,9 +124,13 @@ function Services() {
     fetchData();
   }, []);
   
+  // Use SEO hook with static defaults to prevent initialization errors
+  const seoTitle = !dataLoading && pageData?.seoTitle ? pageData.seoTitle : 'Our Services | KeepMe - Expert Fragrance Manufacturing';
+  const seoDescription = !dataLoading && pageData?.seoDescription ? pageData.seoDescription : 'Explore our comprehensive fragrance manufacturing services including fragrance creation, componentry, packaging, and specialist solutions for luxury brands.';
+  
   useSEO({
-    title: pageData?.seoTitle || 'Our Services | KeepMe - Expert Fragrance Manufacturing',
-    description: pageData?.seoDescription || 'Explore our comprehensive fragrance manufacturing services including fragrance creation, componentry, packaging, and specialist solutions for luxury brands.'
+    title: seoTitle,
+    description: seoDescription
   });
 
   const { data: servicesImages, loading, error } = useSanityQuery<ServicesPageImageData>(SERVICES_PAGE_IMAGES_QUERY);

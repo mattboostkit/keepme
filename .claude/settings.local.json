@@ -22,7 +22,10 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(node:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(pkill:*)",
+      "Bash(true)",
+      "Bash(npm run preview:*)"
     ],
     "deny": []
   }

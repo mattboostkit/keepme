@@ -53,9 +53,13 @@ function Creative() {
 
     fetchData();
   }, []);
+  // Use SEO hook with static defaults to prevent initialization errors
+  const seoTitle = !loading && pageData?.seoTitle ? pageData.seoTitle : 'KeepMe Creative | Premium Design Studio for Fragrance Brands';
+  const seoDescription = !loading && pageData?.seoDescription ? pageData.seoDescription : 'KeepMe Creative offers premium, high-impact creative output for fragrance brands. Our UK-based Design Studio provides bespoke design and development across all aspects of product and packaging presentation.';
+  
   useSEO({
-    title: pageData?.seoTitle || 'KeepMe Creative | Premium Design Studio for Fragrance Brands',
-    description: pageData?.seoDescription || 'KeepMe Creative offers premium, high-impact creative output for fragrance brands. Our UK-based Design Studio provides bespoke design and development across all aspects of product and packaging presentation.',
+    title: seoTitle,
+    description: seoDescription,
     canonical: 'https://keepme.co.uk/creative',
   });
   useJsonLd('creative-breadcrumb', {
