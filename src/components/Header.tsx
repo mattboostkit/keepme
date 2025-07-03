@@ -85,6 +85,7 @@ function Header() {
             </div>
 
             <Link to="/glass" className="text-brand-plum hover:text-brand-rose transition-colors">Glass</Link>
+            <Link to="/creative" className="text-brand-plum hover:text-brand-rose transition-colors">Creative</Link>
             <Link to="/tools" className="text-brand-plum hover:text-brand-rose transition-colors">Tools</Link>
             <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors">Portfolio</Link>
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors">Blog</Link>
@@ -138,6 +139,7 @@ function Header() {
             </div>
 
             <Link to="/glass" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Glass</Link>
+            <Link to="/creative" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Creative</Link>
             <Link to="/tools" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Tools</Link>
             <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Portfolio</Link>
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Blog</Link>
