@@ -13,7 +13,7 @@ interface ProductType {
 
 const InclusionRatesCalculator: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>('edp');
-  const [batchSize, setBatchSize] = useState<number>(1000);
+  const [batchSize, setBatchSize] = useState<number>(100);
   const [fragranceRate, setFragranceRate] = useState<number>(25);
 
   const productTypes: Record<string, ProductType> = {
@@ -134,10 +134,10 @@ const InclusionRatesCalculator: React.FC = () => {
                 </select>
               </div>
 
-              {/* Batch Size Input */}
+              {/* Fill Capacity Input */}
               <div className="mb-6">
                 <label className="block text-sm font-semibold text-brand-plum mb-2">
-                  Batch Size ({currentProduct.unit})
+                  Fill Capacity ({currentProduct.unit})
                 </label>
                 <input
                   type="number"
@@ -145,6 +145,7 @@ const InclusionRatesCalculator: React.FC = () => {
                   onChange={(e) => setBatchSize(Math.max(1, parseInt(e.target.value) || 0))}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-mauve"
                   min="1"
+                  placeholder="100"
                 />
               </div>
 
@@ -200,7 +201,7 @@ const InclusionRatesCalculator: React.FC = () => {
                   </div>
                   <div className="border-t-2 border-brand-peach pt-3 mt-3">
                     <div className="flex justify-between items-center p-3 bg-brand-plum/10 rounded">
-                      <span className="text-gray-700 font-medium">Total Batch:</span>
+                      <span className="text-gray-700 font-medium">Total Fill Capacity:</span>
                       <span className="text-xl font-bold text-brand-plum">
                         {batchSize} {currentProduct.unit}
                       </span>
