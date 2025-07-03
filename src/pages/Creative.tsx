@@ -84,7 +84,10 @@ function Creative() {
     title: seoTitle,
     description: seoDescription,
     canonical: 'https://keepme.co.uk/creative',
+    image: pageData?.heroImage ? urlFor(pageData.heroImage).width(1200).height(630).url() : undefined
   });
+
+  // Breadcrumb structured data
   useJsonLd('creative-breadcrumb', {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -92,6 +95,54 @@ function Creative() {
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://keepme.co.uk/' },
       { '@type': 'ListItem', position: 2, name: 'Creative' }
     ]
+  });
+
+  // Service structured data for Creative Studio
+  useJsonLd('creative-service', {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'KeepMe Creative Design Studio',
+    provider: {
+      '@type': 'Organization',
+      name: 'KeepMe',
+      url: 'https://keepme.co.uk'
+    },
+    description: seoDescription,
+    serviceType: 'Design Studio',
+    areaServed: {
+      '@type': 'Place',
+      name: 'United Kingdom'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Creative Design Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Component Visuals',
+            description: pageData?.componentVisualsDescription || 'Technical drawings and 3D renders for fragrance components'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Logo Design',
+            description: pageData?.logoDesignDescription || 'Bespoke logo design and brand identity creation'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Brand Guidelines',
+            description: pageData?.brandGuidelinesDescription || 'Comprehensive brand guideline development and documentation'
+          }
+        }
+      ]
+    }
   });
 
   return (
