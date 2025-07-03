@@ -46,10 +46,32 @@ interface GlassPageData {
   seoDescription?: string;
 }
 
+// Portable Text Types
+interface PortableTextChild {
+  _type: 'span';
+  text: string;
+  marks?: string[];
+}
+
+interface PortableTextMarkDef {
+  _type: string;
+  _key: string;
+  [key: string]: unknown;
+}
+
+interface PortableTextBlock {
+  _type: 'block';
+  _key?: string;
+  style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+  listItem?: 'bullet' | 'number';
+  markDefs?: PortableTextMarkDef[];
+  children: PortableTextChild[];
+}
+
 interface GlassType {
   _id: string;
   title: string;
-  content: any[];
+  content: PortableTextBlock[];
   displayOrder: number;
 }
 

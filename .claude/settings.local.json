@@ -25,7 +25,13 @@
       "Bash(git reset:*)",
       "Bash(pkill:*)",
       "Bash(true)",
-      "Bash(npm run preview:*)"
+      "Bash(npm run preview:*)",
+      "mcp__sanity__get_initial_context",
+      "Bash(for file in About.tsx Contact.tsx Creative.tsx Glass.tsx Home.tsx Portfolio.tsx PostPage.tsx Services.tsx)",
+      "Bash(do echo -e \"\\n\\n=== $file ===\")",
+      "Bash(done)",
+      "Bash(touch:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": []
   }

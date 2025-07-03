@@ -18,14 +18,14 @@ export default defineType({
       options: {
         hotspot: true, // Enables hotspot for better cropping
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'altText',
       title: 'Alternative Text',
       type: 'string',
       description: 'Important for SEO and accessibility. Describe the image content.',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     // Optional: Add more fields like tags, categories, etc.
     // defineField({

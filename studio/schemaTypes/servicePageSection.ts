@@ -19,7 +19,7 @@ export default {
       type: 'string',
       group: 'content',
       description: 'Name of the service page',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
       options: {
         list: [
           { title: 'Fragrance Creation', value: 'Fragrance Creation' },
@@ -37,7 +37,7 @@ export default {
       type: 'string',
       group: 'content',
       description: 'Name of the section within this service page',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -56,7 +56,7 @@ export default {
           description: 'Important for SEO and accessibility',
         },
       ],
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'order',
@@ -64,7 +64,7 @@ export default {
       type: 'number',
       group: 'display',
       description: 'Order in which this section appears on the page (1, 2, 3, etc.)',
-      validation: (Rule: any) => Rule.required().integer().positive(),
+      validation: (Rule) => Rule.required().integer().positive(),
     },
   ],
   preview: {
@@ -74,11 +74,8 @@ export default {
       order: 'order',
       media: 'image',
     },
-    prepare(value: Record<string, any>) {
-      const title = value.title as string;
-      const subtitle = value.subtitle as string;
-      const order = value.order as number;
-      const media = value.media; // Typically 'any' or a specific Sanity image type
+    prepare(value: { title?: string; subtitle?: string; order?: number; media?: { _type: string; asset?: { _ref: string; _type: string } } }) {
+      const { title = '', subtitle = '', order = 0, media } = value;
       return {
         title: title,
         subtitle: `${subtitle} - Section ${order}: ${title}`,

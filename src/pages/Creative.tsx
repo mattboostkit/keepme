@@ -23,9 +23,32 @@ interface CreativeCarousel {
   displayOrder: number;
 }
 
+interface CreativePageData {
+  heroTitle: string;
+  heroDescription: string;
+  heroImage?: SanityImageReference;
+  approachTitle: string;
+  approachDescription: string;
+  componentVisualsTitle: string;
+  componentVisualsDescription: string;
+  logoDesignTitle: string;
+  logoDesignDescription: string;
+  logoDesignSubDescription: string;
+  logoDesignFeatures: string[];
+  logoDesignImage?: SanityImageReference;
+  brandGuidelinesTitle: string;
+  brandGuidelinesDescription: string;
+  brandGuidelinesSubDescription: string;
+  brandGuidelinesFeatures: Array<{ title: string; description: string }>;
+  brandGuidelinesFooter: string;
+  brandGuidelinesImage?: SanityImageReference;
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
 function Creative() {
   const [creativeCarousels, setCreativeCarousels] = useState<CreativeCarousel[]>([]);
-  const [pageData, setPageData] = useState<any>(null);
+  const [pageData, setPageData] = useState<CreativePageData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,7 +63,7 @@ function Creative() {
         setCreativeCarousels(carouselResult);
         
         // Fetch creative page data
-        const pageResult = await fetchSanityData<any>(
+        const pageResult = await fetchSanityData<CreativePageData>(
           '*[_type == "creativePage"][0]'
         );
         setPageData(pageResult);
@@ -229,7 +252,7 @@ function Creative() {
                   {title: 'Typography', description: 'Elegant, legible, and on-brand'},
                   {title: 'Colour palettes', description: 'Sophisticated combinations that reflect your identity'},
                   {title: 'Logo usage rules', description: 'Scalable, versatile, and crystal-clear'}
-                ]).map((feature: any, index: number) => (
+                ]).map((feature: { title: string; description: string }, index: number) => (
                   <li key={index} className="flex items-start">
                     <span className="text-brand-rose mr-3">•</span>
                     <strong>{feature.title}</strong> – {feature.description}

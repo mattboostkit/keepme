@@ -136,7 +136,10 @@ function FragranceCalculator() {
   }, [volumeInput, inclusionRateInput, orderQuantityInput, wastageInput, costPerKgInput]); // Dependencies for useCallback
 
   // Create a debounced version of the calculation function
-  const debouncedCalculateResults = useCallback(debounce(calculateResults, 400), [calculateResults]); // 400ms delay
+  const debouncedCalculateResults = useCallback(
+    debounce(() => calculateResults(), 400),
+    [calculateResults]
+  ); // 400ms delay
 
   // useEffect now calls the debounced function
   useEffect(() => {

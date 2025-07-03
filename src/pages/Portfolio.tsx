@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
@@ -92,6 +92,10 @@ function PortfolioPage() {
       description: item.description || ''
     })) || [];
 
+  const closeModal = useCallback(() => { setModalOpen(false); }, []);
+  const prevImage = useCallback(() => { setModalIndex(idx => (idx === 0 ? gridImages.length - 1 : idx - 1)); }, [gridImages.length]);
+  const nextImage = useCallback(() => { setModalIndex(idx => (idx === gridImages.length - 1 ? 0 : idx + 1)); }, [gridImages.length]);
+
   useEffect(() => {
     if (!modalOpen) return;
     function onKeyDown(e: KeyboardEvent) {
@@ -101,11 +105,7 @@ function PortfolioPage() {
     }
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [modalOpen, modalIndex]);
-
-  function closeModal() { setModalOpen(false); }
-  function prevImage() { setModalIndex(idx => (idx === 0 ? gridImages.length - 1 : idx - 1)); }
-  function nextImage() { setModalIndex(idx => (idx === gridImages.length - 1 ? 0 : idx + 1)); }
+  }, [modalOpen, prevImage, nextImage]);
 
   // Hero image (keep as before)
   const heroImage = gridImages[0]?.src;
@@ -310,7 +310,32 @@ function PortfolioBrandsSection() {
     fetchPageData();
   }, []);
   
-  const { data: portfolioBrands, loading, error } = useSanityQuery<any[]>(
+  interface PortfolioBrand {
+    _id: string;
+    name: string;
+    slug: {
+      current: string;
+    };
+    description?: string;
+    features?: string[];
+    image?: {
+      _type: string;
+      asset?: {
+        _ref: string;
+        _type: string;
+      };
+    };
+    logo?: {
+      _type: string;
+      asset?: {
+        _ref: string;
+        _type: string;
+      };
+    };
+    displayOrder: number;
+  }
+
+  const { data: portfolioBrands, loading, error } = useSanityQuery<PortfolioBrand[]>(
     `*[_type == "portfolioBrand"] | order(displayOrder asc) {
       _id,
       name,

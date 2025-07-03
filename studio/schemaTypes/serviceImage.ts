@@ -8,7 +8,7 @@ export default {
       title: 'Service Name',
       type: 'string',
       description: 'Name of the service',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
       options: {
         list: [
           { title: 'Fragrance Creation', value: 'Fragrance Creation' },
@@ -36,7 +36,7 @@ export default {
           description: 'Important for SEO and accessibility',
         },
       ],
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'shortDescription',
@@ -44,7 +44,7 @@ export default {
       type: 'text',
       description: 'A brief description of the service for the homepage.',
       rows: 3,
-      validation: (Rule: any) => Rule.required().max(200),
+      validation: (Rule) => Rule.required().max(200),
     },
     {
       name: 'slug',
@@ -55,14 +55,14 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'displayOrder',
       title: 'Display Order',
       type: 'number',
       description: 'Order in which the service appears on the page (e.g., 1, 2, 3). Lower numbers appear first.',
-      validation: (Rule: any) => Rule.required().integer().positive(),
+      validation: (Rule) => Rule.required().integer().positive(),
     },
   ],
   preview: {

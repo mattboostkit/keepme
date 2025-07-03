@@ -4,6 +4,7 @@ import FaqAccordion from '../components/FaqAccordion';
 import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { fetchSanityData } from '../lib/sanityUtils';
 
 // Interface for the Sanity image object with alt text
@@ -131,6 +132,78 @@ function Services() {
   useSEO({
     title: seoTitle,
     description: seoDescription
+  });
+
+  // Add structured data for services
+  useJsonLd('services', {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Fragrance Manufacturing Services',
+    provider: {
+      '@type': 'Organization',
+      name: 'KeepMe',
+      url: 'https://keepme.co.uk'
+    },
+    description: seoDescription,
+    serviceType: ['Fragrance Creation', 'Fragrance Componentry', 'Skincare Componentry', 'Home Fragrance', 'Secondary Packaging', 'Gift With Purchase'],
+    areaServed: {
+      '@type': 'Place',
+      name: 'United Kingdom'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Fragrance Manufacturing Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Fragrance Creation',
+            description: 'Bespoke perfume formulation & development'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Fragrance Componentry',
+            description: 'High-quality pumps, collars, caps & accessories'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Skincare Componentry',
+            description: 'Tubes, dispensers and closures for skincare'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Home Fragrance',
+            description: 'Candles, diffusers and room sprays'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Secondary Packaging',
+            description: 'Luxury rigid boxes, cartons & magnetic closures'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Gift With Purchase',
+            description: 'Bespoke minis & promotional sets'
+          }
+        }
+      ]
+    }
   });
 
   const { data: servicesImages, loading, error } = useSanityQuery<ServicesPageImageData>(SERVICES_PAGE_IMAGES_QUERY);

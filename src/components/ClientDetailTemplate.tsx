@@ -1,17 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { urlFor } from '@/lib/sanity';
 import { useSanityQuery } from '@/lib/useSanity';
+import { useSEO } from '@/hooks/useSEO';
 
 interface ClientDetailTemplateProps {
   slug: string;
 }
 
+interface GalleryImage {
+  _key: string;
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+  _upload?: boolean;
+}
+
 // Hook for gallery modal functionality
-function useGalleryModal(galleryImages: any[]) {
+function useGalleryModal(galleryImages: GalleryImage[]) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
+
+  const prevImage = useCallback(() => {
+    setModalIndex(idx => (idx === 0 ? galleryImages.length - 1 : idx - 1));
+  }, [galleryImages.length]);
+  
+  const nextImage = useCallback(() => {
+    setModalIndex(idx => (idx === galleryImages.length - 1 ? 0 : idx + 1));
+  }, [galleryImages.length]);
 
   useEffect(() => {
     if (!modalOpen) return;
@@ -22,16 +40,10 @@ function useGalleryModal(galleryImages: any[]) {
     }
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [modalOpen, modalIndex]);
+  }, [modalOpen, prevImage, nextImage]);
 
   function closeModal() {
     setModalOpen(false);
-  }
-  function prevImage() {
-    setModalIndex(idx => (idx === 0 ? galleryImages.length - 1 : idx - 1));
-  }
-  function nextImage() {
-    setModalIndex(idx => (idx === galleryImages.length - 1 ? 0 : idx + 1));
   }
   return { modalOpen, setModalOpen, modalIndex, setModalIndex, closeModal, prevImage, nextImage };
 }
@@ -40,7 +52,28 @@ const ClientDetailTemplate: React.FC<ClientDetailTemplateProps> = ({
   slug
 }) => {
   // Fetch portfolio brand data from Sanity
-  const { data: portfolioBrand, loading, error } = useSanityQuery<any>(
+interface PortfolioBrand {
+  _id: string;
+  name: string;
+  description?: string;
+  features?: string[];
+  image?: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  logo?: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  website?: string;
+  gallery?: GalleryImage[];
+}
+
+  const { data: portfolioBrand, loading, error } = useSanityQuery<PortfolioBrand>(
     `*[_type == "portfolioBrand" && slug.current == "${slug}"][0] {
       _id,
       name,
@@ -53,8 +86,15 @@ const ClientDetailTemplate: React.FC<ClientDetailTemplateProps> = ({
     }`
   );
 
-  const galleryImages = portfolioBrand?.gallery?.filter((item: any) => item.asset && !item._upload) || [];
+  const galleryImages = portfolioBrand?.gallery?.filter((item) => item.asset && !item._upload) || [];
   const { modalOpen, setModalOpen, modalIndex, setModalIndex, closeModal, prevImage, nextImage } = useGalleryModal(galleryImages);
+
+  // Set dynamic SEO
+  useSEO({
+    title: portfolioBrand ? `${portfolioBrand.name} Case Study | KeepMe Portfolio` : 'Loading...',
+    description: portfolioBrand?.description || `Discover how KeepMe partners with ${portfolioBrand?.name} for fragrance manufacturing and luxury packaging solutions.`,
+    image: portfolioBrand?.image ? urlFor(portfolioBrand.image).width(1200).height(630).url() : undefined
+  });
 
   if (loading) {
     return (

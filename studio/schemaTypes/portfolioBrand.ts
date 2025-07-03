@@ -100,10 +100,8 @@ export default {
       subtitle: 'features',
       media: 'image'
     },
-    prepare(value: Record<string, any>) {
-      const title = value.title as string;
-      const subtitle = value.subtitle as string[];
-      const media = value.media; // Typically 'any' or a specific Sanity image type
+    prepare(value: { title?: string; subtitle?: string[]; media?: { _type: string; asset?: { _ref: string; _type: string } } }) {
+      const { title = '', subtitle = [], media } = value;
       return {
         title,
         subtitle: Array.isArray(subtitle) ? subtitle.join(', ') : subtitle,

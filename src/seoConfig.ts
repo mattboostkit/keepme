@@ -77,6 +77,75 @@ const seoConfig: Record<string, SeoEntry> = {
   '/tools': {
     title: 'Digital Tools | KeepMe',
     description: 'Utilise calculators & interactive guides that streamline your fragrance and packaging journey.'
+  },
+  '/tools/cost-calculator': {
+    title: 'Cost Calculator | KeepMe - Calculate Your Fragrance Project Costs',
+    description: 'Instantly estimate costs for your fragrance manufacturing project. Calculate packaging, components, and production expenses with our free online tool.'
+  },
+  '/tools/fragrance-calculator': {
+    title: 'Fragrance Calculator | KeepMe - Formulation & Dilution Tool',
+    description: 'Professional fragrance calculator for perfumers. Calculate dilutions, concentrations, and formulation ratios for your fragrance development projects.'
+  },
+  '/tools/freight-calculator': {
+    title: 'Freight Calculator | KeepMe - Shipping Cost Estimator',
+    description: 'Calculate shipping costs for fragrance products. Get instant freight estimates for UK and international delivery of your perfume orders.'
+  },
+  '/tools/development-process': {
+    title: 'Development Process | KeepMe - From Concept to Launch',
+    description: 'Explore our comprehensive fragrance development process. Learn how we take your perfume from initial concept to successful market launch.'
+  },
+  '/galleries': {
+    title: 'Project Galleries | KeepMe - Manufacturing Showcase',
+    description: 'Browse our visual galleries showcasing fragrance manufacturing projects, luxury packaging, and successful brand launches.'
+  },
+  '/videos': {
+    title: 'Video Library | KeepMe - Manufacturing & Process Videos',
+    description: 'Watch our collection of videos demonstrating fragrance manufacturing processes, packaging solutions, and industry insights.'
+  },
+  '/testimonials-demo': {
+    title: 'Client Testimonials | KeepMe - What Our Partners Say',
+    description: 'Read testimonials from luxury brands who trust KeepMe for their fragrance manufacturing and packaging needs.'
+  },
+  '/posts': {
+    title: 'News & Updates | KeepMe - Industry Insights',
+    description: 'Stay updated with the latest news, industry trends, and insights from KeepMe\'s fragrance manufacturing experts.'
+  },
+  // Client portfolio pages
+  '/portfolio/roja-parfums': {
+    title: 'Roja Parfums Case Study | KeepMe Portfolio',
+    description: 'Discover how KeepMe partners with Roja Parfums to manufacture and package their ultra-luxury fragrance collections.'
+  },
+  '/portfolio/ormonde-jayne': {
+    title: 'Ormonde Jayne Case Study | KeepMe Portfolio',
+    description: 'See how KeepMe supports Ormonde Jayne with bespoke fragrance manufacturing and premium packaging solutions.'
+  },
+  '/portfolio/house-of-vision': {
+    title: 'House of Vision Case Study | KeepMe Portfolio',
+    description: 'Learn about our collaboration with House of Vision, delivering innovative fragrance concepts and luxury packaging.'
+  },
+  '/portfolio/boadicea': {
+    title: 'Boadicea The Victorious Case Study | KeepMe Portfolio',
+    description: 'Explore our partnership with Boadicea The Victorious, creating exceptional British luxury fragrances.'
+  },
+  '/portfolio/bdxy': {
+    title: 'BDXY Case Study | KeepMe Portfolio',
+    description: 'Discover how KeepMe manufactures contemporary fragrances for BDXY with cutting-edge packaging design.'
+  },
+  '/portfolio/stephane-humbert-lucas': {
+    title: 'Stephane Humbert Lucas Case Study | KeepMe Portfolio',
+    description: 'See how we bring Stephane Humbert Lucas\'s artistic fragrance visions to life through expert manufacturing.'
+  },
+  '/portfolio/house-of-brandt': {
+    title: 'House of Brandt Case Study | KeepMe Portfolio',
+    description: 'Learn about our work with House of Brandt, crafting sophisticated fragrances with meticulous attention to detail.'
+  },
+  '/portfolio/fragrance-du-bois': {
+    title: 'Fragrance Du Bois Case Study | KeepMe Portfolio',
+    description: 'Explore our partnership with Fragrance Du Bois, creating sustainable luxury fragrances with premium packaging.'
+  },
+  '/portfolio/flannels': {
+    title: 'Flannels Case Study | KeepMe Portfolio',
+    description: 'Discover how KeepMe develops exclusive fragrance collections and gift sets for premium retailer Flannels.'
   }
 };
 

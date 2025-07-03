@@ -39,7 +39,7 @@ interface Tool {
 }
 
 // Icon mapping
-const iconMap: { [key: string]: React.ComponentType<any> } = {
+const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
   'FlaskConical': FlaskConical,
   'Settings': Settings,
 };
@@ -47,13 +47,10 @@ const iconMap: { [key: string]: React.ComponentType<any> } = {
 function Tools() { // Renamed from ToolsLanding
   const [pageData, setPageData] = useState<ToolsPageData | null>(null);
   const [tools, setTools] = useState<Tool[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
-        
         // Fetch Tools Page data
         const pageResult = await fetchSanityData<ToolsPageData>(
           '*[_type == "toolsPage"][0]'
@@ -69,7 +66,7 @@ function Tools() { // Renamed from ToolsLanding
       } catch (error) {
         console.error('Error fetching tools page data:', error);
       } finally {
-        setLoading(false);
+        // Loading complete
       }
     };
 
