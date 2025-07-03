@@ -163,6 +163,22 @@ function Tools() { // Renamed from ToolsLanding
                     </span>
                   </Link>
                 </div>
+                {/* Inclusion Rates Calculator Card */}
+                <div className="max-w-md w-full">
+                  <Link to="/tools/inclusion-rates" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
+                    <div className="bg-brand-pink-light p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-mauve transition-colors">
+                      <Calculator className="h-8 w-8 text-brand-rose group-hover:text-brand-plum transition-colors" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-brand-plum mb-3">Inclusion Rates Guide</h3>
+                    <p className="text-base text-brand-mauve leading-relaxed mb-4">
+                      Calculate optimal fragrance oil amounts for different product types using industry standards.
+                    </p>
+                    <span className="text-brand-rose font-medium flex items-center">
+                      Calculate Rates
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </span>
+                  </Link>
+                </div>
                 {/* Our Development Process Card */}
                 <div className="max-w-md w-full">
                   <Link to="/tools/development-process" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">

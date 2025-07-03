@@ -2,187 +2,193 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://keepme.co.uk/</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.604Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/about</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/services</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/services/fragrance-creation</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/services/fragrance-componentry</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/services/skincare-componentry</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/services/home-fragrance</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/services/secondary-packaging</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/services/gift-with-purchase</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/glass</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/creative</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/blog</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/contact</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/tools</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/tools/cost-calculator</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/tools/fragrance-calculator</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/tools/freight-calculator</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://keepme.co.uk/tools/inclusion-rates</loc>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/tools/development-process</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/privacy-policy</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/terms-and-conditions</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/quality-policy</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/roja-parfums</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/ormonde-jayne</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/house-of-vision</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/boadicea</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/bdxy</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/stephane-humbert-lucas</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/house-of-brandt</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/fragrance-du-bois</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://keepme.co.uk/portfolio/flannels</loc>
-    <lastmod>2025-07-03T10:53:38.755Z</lastmod>
+    <lastmod>2025-07-03T11:35:32.605Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

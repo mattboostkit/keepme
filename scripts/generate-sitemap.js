@@ -25,6 +25,7 @@ const staticRoutes = [
   '/tools/cost-calculator',
   '/tools/fragrance-calculator',
   '/tools/freight-calculator',
+  '/tools/inclusion-rates',
   '/tools/development-process',
   '/privacy-policy',
   '/terms-and-conditions',

@@ -90,6 +90,10 @@ const seoConfig: Record<string, SeoEntry> = {
     title: 'Freight Calculator | KeepMe - Shipping Cost Estimator',
     description: 'Calculate shipping costs for fragrance products. Get instant freight estimates for UK and international delivery of your perfume orders.'
   },
+  '/tools/inclusion-rates': {
+    title: 'Fragrance Inclusion Rates Calculator | KeepMe - Dosage Guide',
+    description: 'Calculate optimal fragrance oil concentrations for EDP, EDT, body mists, candles, and more. Interactive tool with industry-standard inclusion rates and regional variations.'
+  },
   '/tools/development-process': {
     title: 'Development Process | KeepMe - From Concept to Launch',
     description: 'Explore our comprehensive fragrance development process. Learn how we take your perfume from initial concept to successful market launch.'

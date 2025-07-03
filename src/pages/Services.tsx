@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
 import FaqAccordion from '../components/FaqAccordion';
+import InclusionRatesTable from '../components/InclusionRatesTable';
 import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
 import { useSEO } from '../hooks/useSEO';
@@ -540,9 +541,14 @@ function Services() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md">
-            <FaqAccordion
-              items={faqItems.length > 0 ? faqItems.map(faq => ({
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* Inclusion Rates Table */}
+            <InclusionRatesTable />
+            
+            {/* FAQ Accordion */}
+            <div className="bg-white p-8 rounded-xl shadow-md">
+              <FaqAccordion
+                items={faqItems.length > 0 ? faqItems.map(faq => ({
                 question: faq.question,
                 answer: faq.answer
               })) : [
@@ -571,7 +577,8 @@ function Services() {
                   answer: "Absolutely. We ensure all our products meet regulatory requirements for their intended markets, including EU, UK, US, and other international standards. Our Team can also support with the Back of Pack labelling and appropriate warning symbols."
                 }
               ]}
-            />
+              />
+            </div>
           </div>
         </div>
       </section>

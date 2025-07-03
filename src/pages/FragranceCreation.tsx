@@ -1,10 +1,12 @@
 import React from 'react';
 import ServicePageWithSections from '../components/ServicePageWithSections';
+import InclusionRatesTable from '../components/InclusionRatesTable';
 
 // Dummy FAQ data specific to Fragrance Creation
 const faqItems = [
   { question: "What is the typical process for creating a custom fragrance?", answer: "Our process involves initial consultation, scent development based on your brief, sample evaluation, refinement, and final production. We collaborate closely with you at each stage." },
   { question: "How long does fragrance creation take?", answer: "The timeline varies depending on complexity, but typically ranges from a few weeks for modifications to several months for entirely new creations." },
+  { question: "What are the recommended fragrance inclusion rates?", answer: "Inclusion rates vary by application: EDP (20-30%), EDT (15-20%), Body Mist (2-7%, trending up to 10%), Hair Mist (2-7%), Diffusers (15-30%), and Candles (8-10%). Regional preferences and regulations can affect these rates - for example, Middle Eastern markets often use higher concentrations. Our experts will guide you on optimal dosage for your specific needs." },
   { question: "Can you replicate an existing scent?", answer: "While we don't directly replicate trademarked scents, we can create fragrances inspired by specific profiles or notes you admire." },
   { question: "What are the minimum order quantities?", answer: "Minimum order quantities depend on the specific project details. Please contact us to discuss your requirements." },
 ];
@@ -48,6 +50,10 @@ function FragranceCreation() {
       title: "Fragrance Strengths & Types",
       content: (
         <>
+          <p className="mb-4">Understanding fragrance strengths is crucial for creating the perfect product. Each application requires specific concentration levels to achieve optimal performance and consumer satisfaction.</p>
+          <div className="my-6">
+            <InclusionRatesTable />
+          </div>
           <p className="mb-4">A fragrance or aroma wheel illustrates the relationships between the four main olfactory groups based on their scent similarities and differences.</p>
           <p className="mb-4">The wheel is organised into segments, each representing a specific scent category, with adjacent groups sharing common traits. This helps to identify and classify scents, making it easier to understand how fragrances relate to and complement one another.</p>
         </>

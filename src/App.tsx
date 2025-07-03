@@ -15,6 +15,7 @@ import Tools from './pages/Tools'; // Import new page
 import CostCalculator from './pages/CostCalculator'; // Import new page
 import FragranceCalculator from './pages/FragranceCalculator'; // Import new page
 import FreightCalculator from './pages/FreightCalculator'; // Import Freight Calculator page
+import InclusionRatesCalculator from './pages/InclusionRatesCalculator'; // Import Inclusion Rates Calculator
 import DevelopmentProcess from './pages/DevelopmentProcess'; // Import Development Process page
 import PortfolioPage from './pages/Portfolio'; // Import Portfolio page
 import FragranceCreation from './pages/FragranceCreation';
@@ -67,6 +68,7 @@ function App() {
           <Route path="/tools/cost-calculator" element={<CostCalculator />} />
           <Route path="/tools/fragrance-calculator" element={<FragranceCalculator />} />
           <Route path="/tools/freight-calculator" element={<FreightCalculator />} />
+          <Route path="/tools/inclusion-rates" element={<InclusionRatesCalculator />} />
           <Route path="/tools/development-process" element={<DevelopmentProcess />} />
           <Route path="/portfolio" element={<PortfolioPage />} /> {/* Add Portfolio route */}
           {/* Service Detail Routes */}
