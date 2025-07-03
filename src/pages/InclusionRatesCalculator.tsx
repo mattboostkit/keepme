@@ -14,15 +14,19 @@ interface ProductType {
 const InclusionRatesCalculator: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>('edp');
   const [batchSize, setBatchSize] = useState<number>(100);
-  const [fragranceRate, setFragranceRate] = useState<number>(25);
+  const [fragranceRate, setFragranceRate] = useState<number>(20);
 
   const productTypes: Record<string, ProductType> = {
-    edp: { name: 'EDP (Eau de Parfum)', minRate: 20, maxRate: 30, unit: 'ml', color: '#FFB06D' },
-    edt: { name: 'EDT (Eau de Toilette)', minRate: 15, maxRate: 20, unit: 'ml', color: '#FFC891' },
-    bodyMist: { name: 'Body Mist', minRate: 2, maxRate: 10, unit: 'ml', note: 'Trending higher (up to 10%)', color: '#FFD4A3' },
+    eauFraiche: { name: 'Eau Fraîche', minRate: 1, maxRate: 3, unit: 'ml', color: '#FFEDC5' },
+    edc: { name: 'Eau de Cologne (EDC)', minRate: 2, maxRate: 4, unit: 'ml', color: '#FFE0B5' },
+    bodyMist: { name: 'Body Mist', minRate: 2, maxRate: 7, unit: 'ml', note: 'Trending higher (up to 10%)', color: '#FFD4A3' },
     hairMist: { name: 'Hair Mist', minRate: 2, maxRate: 7, unit: 'ml', color: '#FFD4A3' },
-    diffuser: { name: 'Diffuser', minRate: 15, maxRate: 30, unit: 'ml', color: '#FFA45B' },
-    candle: { name: 'Candle', minRate: 8, maxRate: 10, unit: 'g', color: '#FFBC7F' },
+    edt: { name: 'Eau de Toilette (EDT)', minRate: 5, maxRate: 15, unit: 'ml', color: '#FFC891' },
+    candle: { name: 'Candles', minRate: 8, maxRate: 10, unit: 'g', color: '#FFBC7F' },
+    edp: { name: 'Eau de Parfum (EDP)', minRate: 15, maxRate: 25, unit: 'ml', color: '#FFB06D' },
+    diffuser: { name: 'Diffusers', minRate: 15, maxRate: 30, unit: 'ml', color: '#FFA45B' },
+    parfum: { name: 'Parfum', minRate: 25, maxRate: 35, unit: 'ml', color: '#FF9849' },
+    extrait: { name: 'Extrait de Parfum', minRate: 35, maxRate: 45, unit: 'ml', color: '#FF8C37' },
   };
 
   const currentProduct = productTypes[selectedProduct];

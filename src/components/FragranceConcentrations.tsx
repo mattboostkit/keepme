@@ -9,7 +9,7 @@ interface ConcentrationItem {
 
 const FragranceConcentrations: React.FC = () => {
   const concentrations: ConcentrationItem[] = [
-    { concentration: '1-3%', name: 'Eau fraîche', fillPercentage: 3, fillColor: '#FFEDC5' },
+    { concentration: '1-3%', name: 'Eau Fraîche', fillPercentage: 3, fillColor: '#FFEDC5' },
     { concentration: '2-4%', name: 'Eau de Cologne (EDC)', fillPercentage: 4, fillColor: '#FFE0B5' },
     { concentration: '2-7%', name: 'Body Mist', fillPercentage: 7, fillColor: '#FFD4A3' },
     { concentration: '2-7%', name: 'Hair Mist', fillPercentage: 7, fillColor: '#FFD4A3' },
