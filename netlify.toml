@@ -16,27 +16,6 @@
 [build.processing.forms]
   enable = true
 
-# Handle trailing slashes and prevent duplicate content
-[[redirects]]
-  from = "/blog/"
-  to = "/blog"
-  status = 301
-
-[[redirects]]
-  from = "/about/"
-  to = "/about"
-  status = 301
-
-[[redirects]]
-  from = "/services/"
-  to = "/services"
-  status = 301
-
-[[redirects]]
-  from = "/contact/"
-  to = "/contact"
-  status = 301
-
 # Handle old blog URLs if they exist
 [[redirects]]
   from = "/posts"
