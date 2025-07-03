@@ -1,6 +1,6 @@
 import React from 'react';
 import ServicePageWithSections from '../components/ServicePageWithSections';
-import InclusionRatesTable from '../components/InclusionRatesTable';
+import FragranceConcentrations from '../components/FragranceConcentrations';
 
 // Dummy FAQ data specific to Fragrance Creation
 const faqItems = [
@@ -52,7 +52,7 @@ function FragranceCreation() {
         <>
           <p className="mb-4">Understanding fragrance strengths is crucial for creating the perfect product. Each application requires specific concentration levels to achieve optimal performance and consumer satisfaction.</p>
           <div className="my-6">
-            <InclusionRatesTable />
+            <FragranceConcentrations />
           </div>
           <p className="mb-4">A fragrance or aroma wheel illustrates the relationships between the four main olfactory groups based on their scent similarities and differences.</p>
           <p className="mb-4">The wheel is organised into segments, each representing a specific scent category, with adjacent groups sharing common traits. This helps to identify and classify scents, making it easier to understand how fragrances relate to and complement one another.</p>

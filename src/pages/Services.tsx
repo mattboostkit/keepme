@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
 import FaqAccordion from '../components/FaqAccordion';
-import InclusionRatesTable from '../components/InclusionRatesTable';
+import FragranceConcentrations from '../components/FragranceConcentrations';
 import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
 import { useSEO } from '../hooks/useSEO';
@@ -541,12 +541,12 @@ function Services() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-8">
-            {/* Inclusion Rates Table */}
-            <InclusionRatesTable />
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* Fragrance Concentrations Visual Guide */}
+            <FragranceConcentrations />
             
             {/* FAQ Accordion */}
-            <div className="bg-white p-8 rounded-xl shadow-md">
+            <div className="bg-white p-8 rounded-xl shadow-md max-w-4xl mx-auto">
               <FaqAccordion
                 items={faqItems.length > 0 ? faqItems.map(faq => ({
                 question: faq.question,
