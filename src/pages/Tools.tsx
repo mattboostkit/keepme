@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FlaskConical, Settings } from 'lucide-react';
+import { FlaskConical, Settings, Calculator } from 'lucide-react';
 import { fetchSanityData } from '../lib/sanityUtils';
 import { urlFor } from '../lib/sanity';
 
