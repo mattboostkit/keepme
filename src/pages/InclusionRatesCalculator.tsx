@@ -44,48 +44,133 @@ const InclusionRatesCalculator: React.FC = () => {
   // Visual bottle representation
   const BottleVisualization = () => {
     const fillPercentage = fragranceRate;
-    const liquidHeight = (fillPercentage / 100) * 200;
-    const liquidY = 250 - liquidHeight;
+    
+    if (selectedProduct === 'diffuser') {
+      const liquidHeight = (fillPercentage / 100) * 80;
+      const liquidY = 140 - liquidHeight;
+      
+      return (
+        <div className="flex flex-col items-center">
+          <div className="text-2xl font-bold text-brand-plum mb-4">{fragranceRate}%</div>
+          <svg width="150" height="200" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{ stopColor: currentProduct.color, stopOpacity: 0.6 }} />
+                <stop offset="100%" style={{ stopColor: currentProduct.color, stopOpacity: 0.9 }} />
+              </linearGradient>
+              <clipPath id="diffuserShape">
+                <rect x="25" y="60" width="50" height="80" rx="2" />
+              </clipPath>
+            </defs>
+            
+            <rect x="25" y={liquidY} width="50" height={liquidHeight} 
+                  fill="url(#liquidGradient)" clipPath="url(#diffuserShape)" />
+            
+            <path d="M 50 50 L 30 5 M 50 50 L 50 5 M 50 50 L 70 5" 
+                  stroke="#8B4A8C" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+            <rect x="42" y="48" width="16" height="12" fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <rect x="25" y="60" width="50" height="80" rx="2" fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <rect x="25" y="85" width="50" height="30" fill="none" stroke="#8B4A8C" strokeWidth="2" strokeDasharray="2 2" opacity="0.5"/>
+          </svg>
+          <div className="mt-4 text-sm text-brand-mauve font-medium">{currentProduct.name}</div>
+        </div>
+      );
+    } else if (selectedProduct === 'candle') {
+      const liquidHeight = (fillPercentage / 100) * 85;
+      const liquidY = 125 - liquidHeight;
+      
+      return (
+        <div className="flex flex-col items-center">
+          <div className="text-2xl font-bold text-brand-plum mb-4">{fragranceRate}%</div>
+          <svg width="150" height="200" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{ stopColor: currentProduct.color, stopOpacity: 0.6 }} />
+                <stop offset="100%" style={{ stopColor: currentProduct.color, stopOpacity: 0.9 }} />
+              </linearGradient>
+              <clipPath id="candleShape">
+                <path d="M 20 40 L 20 120 Q 20 130 30 130 L 70 130 Q 80 130 80 120 L 80 40" />
+              </clipPath>
+            </defs>
+            
+            <rect x="20" y={liquidY} width="60" height={liquidHeight} 
+                  fill="url(#liquidGradient)" clipPath="url(#candleShape)" />
+            
+            <path d="M 50 15 Q 45 20 45 25 Q 45 30 50 30 Q 55 30 55 25 Q 55 20 50 15" 
+                  fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <line x1="50" y1="30" x2="50" y2="40" stroke="#8B4A8C" strokeWidth="2"/>
+            <ellipse cx="50" cy="40" rx="30" ry="5" fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <path d="M 20 40 L 20 120 Q 20 130 30 130 L 70 130 Q 80 130 80 120 L 80 40" 
+                  fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <ellipse cx="50" cy="125" rx="30" ry="5" fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <rect x="20" y="70" width="60" height="30" fill="none" stroke="#8B4A8C" strokeWidth="2" strokeDasharray="2 2" opacity="0.5"/>
+          </svg>
+          <div className="mt-4 text-sm text-brand-mauve font-medium">{currentProduct.name}</div>
+        </div>
+      );
+    } else if (selectedProduct === 'hairMist') {
+      const liquidHeight = (fillPercentage / 100) * 95;
+      const liquidY = 135 - liquidHeight;
+      
+      return (
+        <div className="flex flex-col items-center">
+          <div className="text-2xl font-bold text-brand-plum mb-4">{fragranceRate}%</div>
+          <svg width="150" height="200" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{ stopColor: currentProduct.color, stopOpacity: 0.6 }} />
+                <stop offset="100%" style={{ stopColor: currentProduct.color, stopOpacity: 0.9 }} />
+              </linearGradient>
+              <clipPath id="hairmistShape">
+                <rect x="38" y="40" width="24" height="95" rx="2" />
+              </clipPath>
+            </defs>
+            
+            <rect x="38" y={liquidY} width="24" height={liquidHeight} 
+                  fill="url(#liquidGradient)" clipPath="url(#hairmistShape)" />
+            
+            <rect x="47" y="10" width="6" height="8" fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <rect x="44" y="18" width="12" height="15" fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <rect x="46" y="33" width="8" height="7" fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <rect x="38" y="40" width="24" height="95" rx="2" fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+            <rect x="38" y="65" width="24" height="35" fill="none" stroke="#8B4A8C" strokeWidth="2" strokeDasharray="2 2" opacity="0.5"/>
+          </svg>
+          <div className="mt-4 text-sm text-brand-mauve font-medium">{currentProduct.name}</div>
+        </div>
+      );
+    } else {
+      // Default bottle for all other types
+      const liquidHeight = (fillPercentage / 100) * 200;
+      const liquidY = 250 - liquidHeight;
 
-    return (
-      <div className="flex flex-col items-center">
-        <div className="text-2xl font-bold text-brand-plum mb-4">{fragranceRate}%</div>
-        <svg width="120" height="260" viewBox="0 0 120 260" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style={{ stopColor: currentProduct.color, stopOpacity: 0.6 }} />
-              <stop offset="100%" style={{ stopColor: currentProduct.color, stopOpacity: 0.9 }} />
-            </linearGradient>
-            <clipPath id="bottleShape">
+      return (
+        <div className="flex flex-col items-center">
+          <div className="text-2xl font-bold text-brand-plum mb-4">{fragranceRate}%</div>
+          <svg width="120" height="260" viewBox="0 0 120 260" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{ stopColor: currentProduct.color, stopOpacity: 0.6 }} />
+                <stop offset="100%" style={{ stopColor: currentProduct.color, stopOpacity: 0.9 }} />
+              </linearGradient>
+              <clipPath id="bottleShape">
+                <rect x="20" y="50" width="80" height="200" rx="8" />
+              </clipPath>
+            </defs>
+            
+            <rect x="20" y={liquidY} width="80" height={liquidHeight} 
+                  fill="url(#liquidGradient)" clipPath="url(#bottleShape)" />
+            
+            <g fill="none" stroke="#8B4A8C" strokeWidth="3">
               <rect x="20" y="50" width="80" height="200" rx="8" />
-            </clipPath>
-          </defs>
-          
-          {/* Liquid fill */}
-          <rect 
-            x="20" 
-            y={liquidY} 
-            width="80" 
-            height={liquidHeight} 
-            fill="url(#liquidGradient)" 
-            clipPath="url(#bottleShape)" 
-          />
-          
-          {/* Bottle outline */}
-          <g fill="none" stroke="#8B4A8C" strokeWidth="3">
-            {/* Bottle body */}
-            <rect x="20" y="50" width="80" height="200" rx="8" />
-            {/* Bottle neck */}
-            <rect x="45" y="10" width="30" height="45" rx="4" />
-            {/* Cap */}
-            <rect x="40" y="5" width="40" height="15" rx="2" fill="#8B4A8C" />
-            {/* Label area */}
-            <rect x="30" y="120" width="60" height="40" rx="4" strokeDasharray="2 2" opacity="0.5" />
-          </g>
-        </svg>
-        <div className="mt-4 text-sm text-brand-mauve font-medium">{currentProduct.name}</div>
-      </div>
-    );
+              <rect x="45" y="10" width="30" height="45" rx="4" />
+              <rect x="40" y="5" width="40" height="15" rx="2" fill="#8B4A8C" />
+              <rect x="30" y="120" width="60" height="40" rx="4" strokeDasharray="2 2" opacity="0.5" />
+            </g>
+          </svg>
+          <div className="mt-4 text-sm text-brand-mauve font-medium">{currentProduct.name}</div>
+        </div>
+      );
+    }
   };
 
   return (

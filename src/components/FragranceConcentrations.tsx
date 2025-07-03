@@ -21,6 +21,153 @@ const FragranceConcentrations: React.FC = () => {
     { concentration: '35-45%', name: 'Extrait de Parfum', fillPercentage: 45, fillColor: '#FF8C37' },
   ];
 
+  const DiffuserSVG = ({ fillPercentage, fillColor }: { fillPercentage: number; fillColor: string }) => {
+    const liquidHeight = (fillPercentage / 100) * 80;
+    const liquidY = 140 - liquidHeight;
+
+    return (
+      <svg className="w-full h-full" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id={`diffuser-liquid-${fillPercentage}`} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style={{ stopColor: fillColor, stopOpacity: 0.6 }} />
+            <stop offset="100%" style={{ stopColor: fillColor, stopOpacity: 0.9 }} />
+          </linearGradient>
+          <clipPath id={`diffuserClip-${fillPercentage}`}>
+            <rect x="25" y="60" width="50" height="80" rx="2" />
+          </clipPath>
+        </defs>
+        
+        {/* Liquid fill */}
+        <rect 
+          x="25" 
+          y={liquidY} 
+          width="50" 
+          height={liquidHeight} 
+          fill={`url(#diffuser-liquid-${fillPercentage})`} 
+          clipPath={`url(#diffuserClip-${fillPercentage})`} 
+        />
+        
+        {/* Reed sticks */}
+        <path d="M 50 50 L 30 5 M 50 50 L 50 5 M 50 50 L 70 5" 
+              stroke="#8B4A8C" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        
+        {/* Neck/collar */}
+        <rect x="42" y="48" width="16" height="12" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Container */}
+        <rect x="25" y="60" width="50" height="80" rx="2" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Label band */}
+        <rect x="25" y="85" width="50" height="30" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2" strokeDasharray="2 2" opacity="0.5"/>
+      </svg>
+    );
+  };
+
+  const CandleSVG = ({ fillPercentage, fillColor }: { fillPercentage: number; fillColor: string }) => {
+    const liquidHeight = (fillPercentage / 100) * 85;
+    const liquidY = 125 - liquidHeight;
+
+    return (
+      <svg className="w-full h-full" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id={`candle-liquid-${fillPercentage}`} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style={{ stopColor: fillColor, stopOpacity: 0.6 }} />
+            <stop offset="100%" style={{ stopColor: fillColor, stopOpacity: 0.9 }} />
+          </linearGradient>
+          <clipPath id={`candleClip-${fillPercentage}`}>
+            <path d="M 20 40 L 20 120 Q 20 130 30 130 L 70 130 Q 80 130 80 120 L 80 40" />
+          </clipPath>
+        </defs>
+        
+        {/* Wax fill */}
+        <rect 
+          x="20" 
+          y={liquidY} 
+          width="60" 
+          height={liquidHeight} 
+          fill={`url(#candle-liquid-${fillPercentage})`} 
+          clipPath={`url(#candleClip-${fillPercentage})`} 
+        />
+        
+        {/* Flame */}
+        <path d="M 50 15 Q 45 20 45 25 Q 45 30 50 30 Q 55 30 55 25 Q 55 20 50 15" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Wick */}
+        <line x1="50" y1="30" x2="50" y2="40" 
+              stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Candle jar top */}
+        <ellipse cx="50" cy="40" rx="30" ry="5" 
+                 fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Jar body */}
+        <path d="M 20 40 L 20 120 Q 20 130 30 130 L 70 130 Q 80 130 80 120 L 80 40" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Jar bottom */}
+        <ellipse cx="50" cy="125" rx="30" ry="5" 
+                 fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Label band */}
+        <rect x="20" y="70" width="60" height="30" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2" strokeDasharray="2 2" opacity="0.5"/>
+      </svg>
+    );
+  };
+
+  const HairMistSVG = ({ fillPercentage, fillColor }: { fillPercentage: number; fillColor: string }) => {
+    const liquidHeight = (fillPercentage / 100) * 95;
+    const liquidY = 135 - liquidHeight;
+
+    return (
+      <svg className="w-full h-full" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id={`hairmist-liquid-${fillPercentage}`} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style={{ stopColor: fillColor, stopOpacity: 0.6 }} />
+            <stop offset="100%" style={{ stopColor: fillColor, stopOpacity: 0.9 }} />
+          </linearGradient>
+          <clipPath id={`hairmistClip-${fillPercentage}`}>
+            <rect x="38" y="40" width="24" height="95" rx="2" />
+          </clipPath>
+        </defs>
+        
+        {/* Liquid fill */}
+        <rect 
+          x="38" 
+          y={liquidY} 
+          width="24" 
+          height={liquidHeight} 
+          fill={`url(#hairmist-liquid-${fillPercentage})`} 
+          clipPath={`url(#hairmistClip-${fillPercentage})`} 
+        />
+        
+        {/* Spray button/nozzle */}
+        <rect x="47" y="10" width="6" height="8" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Cap */}
+        <rect x="44" y="18" width="12" height="15" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Bottle neck */}
+        <rect x="46" y="33" width="8" height="7" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Bottle body */}
+        <rect x="38" y="40" width="24" height="95" rx="2" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2"/>
+        
+        {/* Label area */}
+        <rect x="38" y="65" width="24" height="35" 
+              fill="none" stroke="#8B4A8C" strokeWidth="2" strokeDasharray="2 2" opacity="0.5"/>
+      </svg>
+    );
+  };
+
   const BottleSVG = ({ fillPercentage, fillColor }: { fillPercentage: number; fillColor: string }) => {
     const liquidHeight = (fillPercentage / 100) * 266.854;
     const liquidY = 389.704 - liquidHeight;
@@ -69,7 +216,15 @@ const FragranceConcentrations: React.FC = () => {
               {item.concentration}
             </div>
             <div className="w-16 h-20 md:w-20 md:h-24 mb-3">
-              <BottleSVG fillPercentage={item.fillPercentage} fillColor={item.fillColor} />
+              {item.name === 'Hair Mist' ? (
+                <HairMistSVG fillPercentage={item.fillPercentage} fillColor={item.fillColor} />
+              ) : item.name === 'Candles' ? (
+                <CandleSVG fillPercentage={item.fillPercentage} fillColor={item.fillColor} />
+              ) : item.name === 'Diffusers' ? (
+                <DiffuserSVG fillPercentage={item.fillPercentage} fillColor={item.fillColor} />
+              ) : (
+                <BottleSVG fillPercentage={item.fillPercentage} fillColor={item.fillColor} />
+              )}
             </div>
             <div className="text-xs md:text-sm font-medium leading-tight text-brand-mauve min-h-[3rem] flex items-center justify-center text-center">
               {item.name.split(' ').map((word, i) => (
