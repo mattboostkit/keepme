@@ -20,6 +20,8 @@
 # Security headers
 /*
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
+  # Allow embedding in iframe from Sanity Studio for visual editing
+  # X-Frame-Options: DENY (removed)
+  Content-Security-Policy: frame-ancestors 'self' https://sanitykeepme.netlify.app;
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin

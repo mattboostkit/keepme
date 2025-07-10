@@ -5,6 +5,10 @@ import App from './App.tsx';
 import ScrollToTop from './components/ScrollToTop.tsx'; // Import the new component
 import { handlePreviewParams } from './lib/previewMode';
 import './index.css';
+import { enableVisualEditing } from '@sanity/visual-editing';
+
+// Enable Sanity visual editing
+enableVisualEditing();
 
 // Handle preview mode parameters on app initialization
 handlePreviewParams();
