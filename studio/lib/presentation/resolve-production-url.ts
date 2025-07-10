@@ -6,6 +6,7 @@ export default defineLocations({
       title: 'title',
       slug: 'slug.current',
     },
+    // Use the correct type for doc and always use doc.slug?.current
     resolve: (doc: { title?: string; slug?: { current?: string } }) => ({
       locations: [
         {
@@ -16,7 +17,7 @@ export default defineLocations({
           title: 'Blog Index',
           href: 'https://keepme.co.uk/blog',
         },
-      ] as const,
+      ],
     }),
   },
-} as const)
+});

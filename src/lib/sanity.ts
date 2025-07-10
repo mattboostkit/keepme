@@ -3,12 +3,15 @@ import imageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { isPreviewMode } from './previewMode';
 
+// Add your Sanity read token here (store securely in env vars in production)
+const previewToken = import.meta.env.VITE_SANITY_PREVIEW_TOKEN || '';
+
 export const client = createClient({
   projectId: 'tyzs5imn',
   dataset: 'production',
   useCdn: !isPreviewMode(), // Disable CDN in preview mode for fresh content
   apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
-  // No token needed for read-only operations
+  token: isPreviewMode() ? previewToken : undefined, // Use token for draft access in preview mode
 });
 
 // Set up the image URL builder
