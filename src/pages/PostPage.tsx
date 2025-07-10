@@ -6,6 +6,7 @@ import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '../components/PortableTextComponents';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { isPreviewMode } from '../lib/previewMode';
 
 // Define the Post interface with body content
 interface Post {
@@ -83,7 +84,12 @@ const PostPage: React.FC = () => {
 
   if (loading) return <div className="p-4">Loading post...</div>;
   if (error) return <div className="p-4 text-red-500">Error: {error.message}</div>;
-  if (!post) return <div className="p-4">Post not found</div>;
+  if (!post) {
+    if (isPreviewMode()) {
+      return <div className="p-4 text-yellow-600">This is a draft post. It is only visible in preview mode and has not been published yet.</div>;
+    }
+    return <div className="p-4">Post not found</div>;
+  }
 
   return (
     <div className="bg-white min-h-screen py-8 md:py-12"> {/* Outer wrapper for full page white and vertical padding */}
