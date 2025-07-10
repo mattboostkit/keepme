@@ -11,7 +11,7 @@ export default defineLocations({
       locations: [
         {
           title: doc.title || 'Untitled',
-          href: `https://keepme.co.uk/blog/${doc.slug}`,
+          href: `https://keepme.co.uk/.netlify/functions/preview-enable?redirect=/blog/${doc.slug}`,
         },
         {
           title: 'Blog Index',
