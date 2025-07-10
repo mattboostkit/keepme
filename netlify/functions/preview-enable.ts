@@ -2,7 +2,7 @@ import { Handler } from '@netlify/functions';
 
 export const handler: Handler = async (event) => {
   // Only allow POST requests
-  if (event.httpMethod !== 'POST') {
+  if (event.httpMethod !== 'POST' && event.httpMethod !== 'GET') {
     return {
       statusCode: 405,
       body: JSON.stringify({ error: 'Method not allowed' }),

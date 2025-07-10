@@ -7,17 +7,17 @@ export default defineLocations({
       title: 'title',
       slug: 'slug.current',
     },
-    resolve: (doc) => ({
+    resolve: (doc: { title?: string; slug?: string }) => ({
       locations: [
         {
           title: doc.title || 'Untitled',
-          href: `/blog/${doc.slug}`,
+          href: `https://keepme.co.uk/blog/${doc.slug}`,
         },
         {
           title: 'Blog Index',
-          href: '/blog',
+          href: 'https://keepme.co.uk/blog',
         },
-      ],
+      ] as const,
     }),
   },
 })
