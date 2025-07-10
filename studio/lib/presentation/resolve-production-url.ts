@@ -1,17 +1,16 @@
 import {defineLocations} from 'sanity/presentation'
 
 export default defineLocations({
-  // Map blog posts to frontend routes
   post: {
     select: {
       title: 'title',
       slug: 'slug.current',
     },
-    resolve: (doc: { title?: string; slug?: string }) => ({
+    resolve: (doc: { title?: string; slug?: { current?: string } }) => ({
       locations: [
         {
           title: doc.title || 'Untitled',
-          href: `https://keepme.co.uk/.netlify/functions/preview-enable?redirect=/blog/${doc.slug}`,
+          href: `https://keepme.co.uk/.netlify/functions/preview-enable?redirect=/blog/${doc.slug?.current ?? ''}`,
         },
         {
           title: 'Blog Index',
@@ -20,4 +19,4 @@ export default defineLocations({
       ] as const,
     }),
   },
-})
+} as const)
