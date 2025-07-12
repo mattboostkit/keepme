@@ -1,6 +1,5 @@
 // --- Custom Preview Button for Sanity Studio v3 ---
 // Remove this when upgrading to v4 (Presentation Tool will provide Locations UI)
-import PreviewButton from './PreviewButton';
 
 export default {
   name: 'post',
@@ -11,7 +10,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'slug',
@@ -21,7 +20,7 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'author',
@@ -123,13 +122,6 @@ export default {
           ],
         },
       ],
-    },
-    {
-      name: 'preview',
-      title: 'Preview',
-      type: 'string',
-      inputComponent: PreviewButton,
-      readOnly: true,
     },
   ],
   preview: {

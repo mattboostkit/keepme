@@ -7,7 +7,6 @@ import {
 } from '@sanity/dashboard'
 import {presentationTool} from 'sanity/presentation'
 import {schemaTypes} from './schemaTypes'
-import resolveProductionUrl from './lib/presentation/resolve-production-url'
 
 export default defineConfig({
   name: 'default',
@@ -25,13 +24,9 @@ export default defineConfig({
       ]
     }),
     presentationTool({
-      resolve: resolveProductionUrl,
+      // Use the default config; if you want to add a location resolver, do so here
       previewUrl: {
         origin: 'https://keepme.co.uk',
-        previewMode: {
-          enable: '/.netlify/functions/preview-enable',
-          disable: '/.netlify/functions/preview-disable',
-        },
       },
     })
   ],

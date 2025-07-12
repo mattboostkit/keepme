@@ -6,12 +6,21 @@ import { isPreviewMode } from './previewMode';
 // Add your Sanity read token here (store securely in env vars in production)
 const previewToken = import.meta.env.VITE_SANITY_PREVIEW_TOKEN || '';
 
+// Use Vite environment variables for Sanity config
+const projectId = import.meta.env.VITE_SANITY_PROJECT_ID || 'tyzs5imn';
+const dataset = import.meta.env.VITE_SANITY_DATASET || 'production';
+const studioUrl = import.meta.env.VITE_SANITY_STUDIO_URL || '';
+
 export const client = createClient({
-  projectId: 'tyzs5imn',
-  dataset: 'production',
+  projectId,
+  dataset,
   useCdn: !isPreviewMode(), // Disable CDN in preview mode for fresh content
   apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
   token: isPreviewMode() ? previewToken : undefined, // Use token for draft access in preview mode
+  stega: {
+    enabled: true,
+    studioUrl,
+  },
 });
 
 // Set up the image URL builder
