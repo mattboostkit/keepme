@@ -5,23 +5,18 @@ const postLocations = defineLocations({
     title: 'title',
     slug: 'slug.current',
   },
-  resolve: (value: { title?: string; slug?: string } | null) => {
-    const { title, slug } = value || {};
-    return {
-      locations: [
-        {
-          title: title || 'Untitled',
-          href: `https://keepme.co.uk/post/${slug ?? ''}`,
-        },
-        {
-          title: 'Blog Index',
-          href: 'https://keepme.co.uk/blog',
-        },
-      ],
-    };
-  },
+  resolve: (doc) => ({
+    locations: [
+      {
+        title: doc?.title || 'Untitled',
+        href: `/post/${doc?.slug}`,
+      },
+    ],
+  }),
 });
 
 export default {
-  post: postLocations,
+  locations: {
+    post: postLocations,
+  },
 };
