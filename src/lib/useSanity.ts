@@ -54,7 +54,10 @@ export function useSanityDocuments<T>(type: string, limit?: number) {
  * @returns Object with data, loading state, and error
  */
 export function useSanityDocumentBySlug<T>(type: string, slug: string) {
-  const query = `*[_type == "${type}" && slug.current == "${slug}"][0]`;
+  const query = `[
+    ...*[_type == "${type}" && slug.current == "${slug}" && _id in path('drafts.**')],
+    ...*[_type == "${type}" && slug.current == "${slug}" && !(_id in path('drafts.**'))]
+  ][0]`;
 
   return useSanityQuery<T>(query);
 }

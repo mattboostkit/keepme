@@ -48,10 +48,12 @@ import {
   FragranceDuBoisPage, // Add import
   FlannelsPage // Add import
 } from './pages/clients';
+import SanityVisualEditing from './components/SanityVisualEditing';
 
 function App() {
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col"> {/* Updated to use new brand background color */}
+      <SanityVisualEditing />
       <SEOManager />
       <Header />
       <main className="flex-grow pt-16 sm:pt-20 md:pt-24"> {/* Responsive padding for different screen sizes */}
