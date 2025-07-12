@@ -39,7 +39,7 @@ function SanityBlog() {
     excerpt,
     "categories": categories[]->{ _id, title }
   }`;
-  const { data: featuredPost, loading: featuredLoading } = useQuery<unknown>(featuredPostQuery);
+  const { data: featuredPost, loading: featuredLoading, error: featuredError } = useQuery<unknown>(featuredPostQuery);
 
   const postsQuery = `*[_type == "post" && isFeatured != true ${selectedCategory ? `&& "${selectedCategory}" in categories[]._ref` : ''}] | order(publishedAt desc)[0...6]{
     _id,
@@ -56,10 +56,10 @@ function SanityBlog() {
     excerpt,
     "categories": categories[]->{ _id, title }
   }`;
-  const { data: posts, loading: postsLoading } = useQuery<unknown[]>(postsQuery);
+  const { data: posts, loading: postsLoading, error: postsError } = useQuery<unknown[]>(postsQuery);
 
   const categoriesQuery = `*[_type == "category"]{_id, title}`;
-  const { data: categories, loading: categoriesLoading } = useQuery<unknown[]>(categoriesQuery);
+  const { data: categories, loading: categoriesLoading, error: categoriesError } = useQuery<unknown[]>(categoriesQuery);
 
   const formatDate = (dateString?: string) => {
     if (!dateString) return '';
@@ -67,11 +67,21 @@ function SanityBlog() {
     return date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
   };
 
+  // Helper to get error message
+  const getErrorMessage = (err: unknown) => {
+    if (typeof err === 'object' && err && 'message' in err) {
+      return (err as { message: string }).message;
+    }
+    return String(err);
+  };
+
   return (
     <div>
       <h1>Blog</h1>
       {/* Categories */}
-      {categoriesLoading ? (
+      {categoriesError ? (
+        <div style={{ color: 'red' }}>Error loading categories: {getErrorMessage(categoriesError)}</div>
+      ) : categoriesLoading ? (
         <div>Loading categories...</div>
       ) : Array.isArray(categories) && categories.filter(isCategory).length > 0 ? (
         <div>
@@ -90,7 +100,9 @@ function SanityBlog() {
 
       {/* Featured Post */}
       <h2>Featured Post</h2>
-      {featuredLoading ? (
+      {featuredError ? (
+        <div style={{ color: 'red' }}>Error loading featured post: {getErrorMessage(featuredError)}</div>
+      ) : featuredLoading ? (
         <div>Loading featured post...</div>
       ) : isPost(featuredPost) ? (
         <div>
@@ -104,7 +116,9 @@ function SanityBlog() {
 
       {/* Posts */}
       <h2>Latest Articles</h2>
-      {postsLoading ? (
+      {postsError ? (
+        <div style={{ color: 'red' }}>Error loading posts: {getErrorMessage(postsError)}</div>
+      ) : postsLoading ? (
         <div>Loading posts...</div>
       ) : Array.isArray(posts) && posts.filter(isPost).length > 0 ? (
         <ul>
