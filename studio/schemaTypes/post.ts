@@ -1,3 +1,7 @@
+// --- Custom Preview Button for Sanity Studio v3 ---
+// Remove this when upgrading to v4 (Presentation Tool will provide Locations UI)
+import PreviewButton from './PreviewButton';
+
 export default {
   name: 'post',
   title: 'Post',
@@ -119,6 +123,13 @@ export default {
           ],
         },
       ],
+    },
+    {
+      name: 'preview',
+      title: 'Preview',
+      type: 'string',
+      inputComponent: PreviewButton,
+      readOnly: true,
     },
   ],
   preview: {
