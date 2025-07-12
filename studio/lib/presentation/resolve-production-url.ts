@@ -1,23 +1,27 @@
-import {defineLocations} from 'sanity/presentation'
+import { defineLocations } from 'sanity/presentation';
 
-export default defineLocations({
-  post: {
-    select: {
-      title: 'title',
-      slug: 'slug.current',
-    },
-    // Use the correct type for doc and always use doc.slug?.current
-    resolve: (doc: { title?: string; slug?: { current?: string } }) => ({
+const postLocations = defineLocations({
+  select: {
+    title: 'title',
+    slug: 'slug.current',
+  },
+  resolve: (value: { title?: string; slug?: string } | null) => {
+    const { title, slug } = value || {};
+    return {
       locations: [
         {
-          title: doc.title || 'Untitled',
-          href: `https://keepme.co.uk/.netlify/functions/preview-enable?redirect=/blog/${doc.slug?.current ?? ''}`,
+          title: title || 'Untitled',
+          href: `https://keepme.co.uk/post/${slug ?? ''}`,
         },
         {
           title: 'Blog Index',
           href: 'https://keepme.co.uk/blog',
         },
       ],
-    }),
+    };
   },
 });
+
+export default {
+  post: postLocations,
+};
