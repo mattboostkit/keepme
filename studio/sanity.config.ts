@@ -27,6 +27,10 @@ export default defineConfig({
     presentationTool({
       previewUrl: {
         origin: 'https://keepme.co.uk',
+        previewMode: {
+          enable: '/.netlify/functions/preview-enable',
+          disable: '/.netlify/functions/preview-disable',
+        },
       },
       resolve: resolveProductionUrl,
     })
@@ -34,10 +38,5 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
-  },
-
-  cors: {
-    allowOrigins: ['https://keepme.co.uk', 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
-    allowCredentials: true,
   },
 })

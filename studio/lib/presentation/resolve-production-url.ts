@@ -1,22 +1,14 @@
 import { defineLocations } from 'sanity/presentation';
 
-const postLocations = defineLocations({
-  select: {
-    title: 'title',
-    slug: 'slug.current',
-  },
-  resolve: (doc) => ({
-    locations: [
-      {
-        title: doc?.title || 'Untitled',
-        href: `/post/${doc?.slug}`,
-      },
-    ],
-  }),
-});
-
 export default {
-  locations: {
-    post: postLocations,
-  },
+  post: defineLocations({
+    select: { title: 'title', slug: 'slug.current' },
+    resolve: (doc) => ({
+      locations: [
+        { title: doc?.title || 'Untitled', href: `/post/${doc?.slug}` },
+        { title: 'Blog Index', href: '/blog' },
+      ],
+    }),
+  }),
+  // Add other types as needed
 };
