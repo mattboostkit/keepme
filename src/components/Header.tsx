@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react'; // Import useState, useEffect, and useRef
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react'; // Import Menu and X icons, removed Droplets
+import { Menu, X, Search } from 'lucide-react'; // Import Menu and X icons, removed Droplets
 import logoUrl from '../assets/images/logos/Logo_Black.svg'; // Import the dark logo
 import SearchBar from './SearchBar';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
 
@@ -55,7 +56,7 @@ function Header() {
     <div className="relative">
       <header className="fixed w-full z-50 py-2 md:py-4 bg-white shadow-sm">
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center h-[5.5rem]">
-          {/* Updated Logo - with responsive sizing */}
+          {/* Logo */}
           <Link to="/" className="flex items-center" onClick={scrollToTop}>
             <img
               src={logoUrl}
@@ -88,12 +89,18 @@ function Header() {
             <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors">Portfolio</Link>
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors">Blog</Link>
           </nav>
-          {/* Contact and SearchBar stacked vertically */}
-          <div className="hidden xl:flex flex-col items-end gap-2 min-w-[180px] ml-6">
-            <Link to="/contact" className="items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors mb-1">
+          {/* Contact and Search icon */}
+          <div className="hidden xl:flex items-center gap-3 min-w-[180px] ml-6">
+            <Link to="/contact" className="items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors">
               Contact
             </Link>
-            <div className="w-64"><SearchBar /></div>
+            <button
+              className="ml-2 p-2 rounded-full hover:bg-brand-peach/30 focus:outline-none focus:ring-2 focus:ring-brand-mauve"
+              aria-label="Open search"
+              onClick={() => setShowSearch(true)}
+            >
+              <Search className="h-6 w-6 text-brand-mauve" />
+            </button>
           </div>
           {/* Hamburger Button */}
           <button
@@ -106,6 +113,17 @@ function Header() {
           </button>
         </div>
       </header>
+      {/* Floating SearchBar Overlay */}
+      {showSearch && (
+        <div className="fixed inset-0 z-[100] flex items-start justify-center bg-black/30 backdrop-blur-sm" onClick={() => setShowSearch(false)}>
+          <div className="mt-28 bg-white rounded-2xl shadow-2xl p-6 w-full max-w-xl mx-auto relative" onClick={e => e.stopPropagation()}>
+            <button className="absolute top-3 right-3 text-brand-mauve hover:text-brand-rose" onClick={() => setShowSearch(false)} aria-label="Close search">
+              <X className="h-6 w-6" />
+            </button>
+            <SearchBar />
+          </div>
+        </div>
+      )}
 
       {/* Mobile Menu - Absolutely positioned relative to the outer div */}
       {isMobileMenuOpen && (
