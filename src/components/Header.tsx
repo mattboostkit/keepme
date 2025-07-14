@@ -67,7 +67,6 @@ function Header() {
           <nav className="hidden xl:flex space-x-8 text-brand-plum items-center">
             <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors" onClick={scrollToTop}>Home</Link>
             <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors">About</Link>
-
             {/* Services dropdown */}
             <div className="relative group">
               <Link to="/services" className="text-brand-plum hover:text-brand-rose transition-colors">Services</Link>
@@ -83,19 +82,19 @@ function Header() {
                 </div>
               </div>
             </div>
-
             <Link to="/glass" className="text-brand-plum hover:text-brand-rose transition-colors">Glass</Link>
             <Link to="/creative" className="text-brand-plum hover:text-brand-rose transition-colors">Creative</Link>
             <Link to="/tools" className="text-brand-plum hover:text-brand-rose transition-colors">Tools</Link>
             <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors">Portfolio</Link>
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors">Blog</Link>
-            {/* Move SearchBar here */}
-            <div className="ml-4 w-64"><SearchBar /></div>
           </nav>
-          <Link to="/contact" className="hidden xl:flex items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors">
-            Contact
-          </Link>
-
+          {/* Contact and SearchBar stacked vertically */}
+          <div className="hidden xl:flex flex-col items-end gap-2 min-w-[180px] ml-6">
+            <Link to="/contact" className="items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors mb-1">
+              Contact
+            </Link>
+            <div className="w-64"><SearchBar /></div>
+          </div>
           {/* Hamburger Button */}
           <button
             ref={hamburgerRef}
