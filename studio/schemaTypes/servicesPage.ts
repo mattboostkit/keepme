@@ -62,6 +62,23 @@ export default defineType({
       initialValue: 'Worldwide Delivery',
       validation: Rule => Rule.required()
     }),
+    defineField({
+      name: 'mainOurServicesImage',
+      title: 'Main "Our Services" Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Important for SEO and accessibility',
+        },
+      ],
+      description: 'Main hero image for the Our Services page',
+    }),
     
     // Service Categories Section
     defineField({
