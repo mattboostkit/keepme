@@ -29,7 +29,7 @@ import SanityPage from './pages/SanityPage'; // Import Sanity pages
 import PostPage from './pages/PostPage';
 import { GalleriesListPage, SingleGalleryPage } from './pages/GalleryPage';
 import { VideosListPage, SingleVideoPage } from './pages/VideoPage';
-import SanityBlog from './pages/SanityBlog'; // Import Sanity-powered blog page
+// import SanityBlog from './pages/SanityBlog'; // Import Sanity-powered blog page
 import TestimonialsDemo from './pages/TestimonialsDemo'; // Import Testimonials demo page
 import PrivacyPolicy from './pages/PrivacyPolicy'; // Import Privacy Policy page
 import TermsAndConditions from './pages/TermsAndConditions'; // Import Terms and Conditions page
@@ -63,7 +63,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/glass" element={<Glass />} />
           <Route path="/creative" element={<Creative />} />
-          <Route path="/blog" element={<SanityBlog />} />
+          <Route path="/blog" element={<SanityPage />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add new routes */}
           <Route path="/tools" element={<Tools />} />
