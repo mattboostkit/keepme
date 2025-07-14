@@ -10,6 +10,7 @@ export interface PortfolioItem {
   imgSrc: string;
   alt: string;
   description?: string;
+  slug: string; // Added slug to the interface
 }
 
 // Define the props for the FilterablePortfolio component
@@ -33,16 +34,19 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
   // State for the selected feature filter
   const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
 
-  // Extract all unique features from the portfolio items
+  // Helper to sanitize feature names
+  const sanitizeFeature = (f: string) => f.replace(/\s+/g, ' ').replace(/[\u200B-\u200D\uFEFF\u00A0]/g, '').trim();
+
+  // Extract all unique features from the portfolio items (deduplicate globally, sanitize names)
   const allFeatures = Array.from(
     new Set(
-      items.flatMap(item => item.features)
+      items.flatMap(item => item.features.map(sanitizeFeature))
     )
-  ).sort();
+  ).filter(f => f.length > 0).sort();
 
-  // Filter the items based on the selected feature
+  // Filter the items based on the selected feature (sanitize for comparison)
   const filteredItems = selectedFeature
-    ? items.filter(item => item.features.includes(selectedFeature))
+    ? items.filter(item => item.features.some(f => sanitizeFeature(f) === selectedFeature))
     : items;
 
   // Limit the number of items if maxItems is provided
@@ -102,7 +106,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
             displayedItems.map((item) => (
               <div key={item.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow group overflow-hidden relative flex flex-col">
                 {/* Make the entire card clickable with an overlay link */}
-                <Link to={`/portfolio/${item.id}`} className="absolute inset-0 z-10">
+                <Link to={`/portfolio/${item.slug}`} className="absolute inset-0 z-10">
                   <span className="sr-only">View {item.title}</span>
                 </Link>
 
@@ -125,7 +129,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
                   )}
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <Link to={`/portfolio/${item.id}`} className="relative z-20 block" onClick={(e) => e.stopPropagation()}>
+                  <Link to={`/portfolio/${item.slug}`} className="relative z-20 block" onClick={(e) => e.stopPropagation()}>
                     <h3 className="text-xl mb-2 group-hover:text-brand-mauve transition-colors hover:text-brand-mauve cursor-pointer">
                       {item.title}
                     </h3>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+// import { Link } from 'react-router-dom'; // Import Link
 import FaqAccordion from '../components/FaqAccordion';
 import FragranceConcentrations from '../components/FragranceConcentrations';
 import { useSanityQuery } from '../lib/useSanity';
@@ -7,6 +7,7 @@ import { urlFor } from '../lib/sanity';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { fetchSanityData } from '../lib/sanityUtils';
+import ServicePageWithSections from '../components/ServicePageWithSections'; // Added import
 
 // Interface for the Sanity image object with alt text
 interface SanityImageObject {
@@ -15,6 +16,13 @@ interface SanityImageObject {
     _type: string;
   };
   alt: string;
+}
+
+// Interface for Service Image document
+interface ServiceImageDoc {
+  _id: string;
+  title: string;
+  image: SanityImageObject;
 }
 
 // Interface for the Services Page Images data from Sanity
@@ -75,22 +83,13 @@ interface FAQItem {
   isActive: boolean;
 }
 
-const SERVICES_PAGE_IMAGES_QUERY = `*[_type == "servicesPageImages"][0]{
-  _id,
-  _type,
-  mainOurServicesImage { asset, alt },
-  fragranceCreationImage { asset, alt },
-  fragranceComponentryImage { asset, alt },
-  skincareComponentryImage { asset, alt },
-  homeFragranceImage { asset, alt },
-  secondaryPackagingImage { asset, alt },
-  giftWithPurchaseImage { asset, alt }
-}`;
+const SERVICE_IMAGES_QUERY = `*[_type == "serviceImage"]{ _id, title, image }`;
 
 function Services() {
   const [pageData, setPageData] = React.useState<ServicesPageData | null>(null);
   const [serviceSections, setServiceSections] = React.useState<ServiceSection[]>([]);
   const [faqItems, setFaqItems] = React.useState<FAQItem[]>([]);
+  const [serviceImages, setServiceImages] = React.useState<ServiceImageDoc[]>([]);
   const [dataLoading, setDataLoading] = React.useState(true);
   
   React.useEffect(() => {
@@ -109,6 +108,12 @@ function Services() {
           '*[_type == "serviceSection"] | order(displayOrder asc)'
         );
         setServiceSections(sectionsResult);
+        // Debug: log section titles
+        console.log('DEBUG: serviceSections titles:', sectionsResult.map(s => s.title));
+        
+        // Fetch all serviceImage docs
+        const serviceImagesResult = await fetchSanityData<ServiceImageDoc[]>(SERVICE_IMAGES_QUERY);
+        setServiceImages(serviceImagesResult);
         
         // Fetch FAQ Items
         const faqResult = await fetchSanityData<FAQItem[]>(
@@ -207,20 +212,10 @@ function Services() {
     }
   });
 
-  const { data: servicesImages, loading, error } = useSanityQuery<ServicesPageImageData>(SERVICES_PAGE_IMAGES_QUERY);
-
-  if (loading) {
-    return <div className="pt-24 text-center">Loading service images...</div>;
-  }
-
-  if (error) {
-    return <div className="pt-24 text-center text-red-500">Error loading service images. Please try again later.</div>;
-  }
-
-  // Fallback if data isn't loaded for some reason, though error state should catch it.
-  // Or if the singleton document doesn't exist yet.
-  if (!servicesImages) {
-    return <div className="pt-24 text-center">Service image configuration not found. Please ensure it's set up in Sanity.</div>;
+  // Build a mapping from serviceImage.title to image
+  const sectionImagesByTitle: Record<string, SanityImageObject | undefined> = {};
+  for (const img of serviceImages) {
+    sectionImagesByTitle[img.title] = img.image;
   }
 
   return (
@@ -245,8 +240,8 @@ function Services() {
             </div>
             <div className="relative">
               <img
-                src={servicesImages.mainOurServicesImage ? urlFor(servicesImages.mainOurServicesImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Main+Service+Image'}
-                alt={servicesImages.mainOurServicesImage?.alt || 'Main Our Services Image'}
+                src={pageData?.mainOurServicesImage ? urlFor(pageData.mainOurServicesImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Main+Service+Image'}
+                alt={pageData?.mainOurServicesImage?.alt || 'Main Our Services Image'}
                 className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
                 loading="lazy"
                 width="600"
@@ -317,212 +312,17 @@ function Services() {
       </section>
 
       {/* Dynamic Service Sections */}
-      {serviceSections.length > 0 ? (
-        serviceSections.map((section) => (
-          <section key={section._id} id={section.slug.current} className={`py-20 ${section.backgroundColor}`}>
-            <div className="container mx-auto px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                {section.imagePosition === 'left' ? (
-                  <>
-                    <div className="order-2 md:order-1">
-                      <img 
-                        src={section.image ? urlFor(section.image).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png'} 
-                        alt={section.image?.alt || section.title} 
-                        className="rounded-2xl shadow-xl w-full object-cover" 
-                        loading="lazy" 
-                        width="600" 
-                        height="400" 
-                      />
-                    </div>
-                    <div className="order-1 md:order-2">
-                      <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
-                        {section.title.split(' ').map((word, index) => {
-                          // Make the last word pink
-                          if (index === section.title.split(' ').length - 1) {
-                            return <span key={index} className="text-brand-rose">{word}</span>;
-                          }
-                          return <span key={index}>{word} </span>;
-                        })}
-                      </h2>
-                      <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                        {section.description}
-                      </p>
-                      <Link to={section.learnMoreLink} className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
-                        {section.learnMoreText} {section.title}
-                      </Link>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div>
-                      <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
-                        {section.title.split(' ').map((word, index) => {
-                          // Make the last word pink
-                          if (index === section.title.split(' ').length - 1) {
-                            return <span key={index} className="text-brand-rose">{word}</span>;
-                          }
-                          return <span key={index}>{word} </span>;
-                        })}
-                      </h2>
-                      <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                        {section.description}
-                      </p>
-                      <Link to={section.learnMoreLink} className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
-                        {section.learnMoreText} {section.title}
-                      </Link>
-                    </div>
-                    <div>
-                      <img 
-                        src={section.image ? urlFor(section.image).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png'} 
-                        alt={section.image?.alt || section.title} 
-                        className="rounded-2xl shadow-xl w-full object-cover" 
-                        loading="lazy" 
-                        width="600" 
-                        height="400" 
-                      />
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-          </section>
-        ))
-      ) : (
-        // Fallback content - static service sections
-        <>
-          {/* 1. Fragrance Componentry Section */}
-          <section id="fragrance-componentry" className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
-                    Fragrance <span className="text-brand-rose">Componentry</span>
-                  </h2>
-                  <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                    Discover our extensive range of fragrance glass and componentry. We manufacture and supply premium bottles, sophisticated caps, precision pumps, vials, and closures, ensuring your fragrance is presented to reflect its quality and your brand's aesthetic.
-                  </p>
-                  <Link to="/services/fragrance-componentry" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
-                    Learn More about Fragrance Componentry
-                  </Link>
-                </div>
-                <div>
-                  <img src={servicesImages.fragranceComponentryImage ? urlFor(servicesImages.fragranceComponentryImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Fragrance+Componentry'} alt={servicesImages.fragranceComponentryImage?.alt || 'Fragrance Componentry'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 2. Home Fragrance Section */}
-          <section id="home-fragrance" className="py-20 bg-brand-pink-light">
-            <div className="container mx-auto px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="order-2 md:order-1">
-                  <img src={servicesImages.homeFragranceImage ? urlFor(servicesImages.homeFragranceImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Home+Fragrance'} alt={servicesImages.homeFragranceImage?.alt || 'Home Fragrance'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
-                </div>
-                <div className="order-1 md:order-2">
-                  <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
-                    Home <span className="text-brand-rose">Fragrance</span>
-                  </h2>
-                  <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                    Expand your brand's presence into the home sector with our bespoke home fragrance solutions. From luxurious scented candles and elegant reed diffusers to room sprays and more, we help you create inviting atmospheres that resonate with your customers.
-                  </p>
-                  <Link to="/services/home-fragrance" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
-                    Learn More about Home Fragrance
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 3. Secondary Packaging Section */}
-          <section id="secondary-packaging" className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
-                    Secondary <span className="text-brand-rose">Packaging</span>
-                  </h2>
-                  <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                    Specialising in secondary packaging for the fragrance industry, we help elevate your brand's value and presence. Our exquisite packaging solutions are meticulously designed to impress consumers, convey exclusivity, and protect the precious contents within.
-                  </p>
-                  <Link to="/services/secondary-packaging" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
-                    Learn More about Secondary Packaging
-                  </Link>
-                </div>
-                <div>
-                  <img src={servicesImages.secondaryPackagingImage ? urlFor(servicesImages.secondaryPackagingImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Secondary+Packaging'} alt={servicesImages.secondaryPackagingImage?.alt || 'Secondary Packaging'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 4. Gift With Purchase Section */}
-          <section id="gift-with-purchase" className="py-20 bg-brand-pink-light">
-            <div className="container mx-auto px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="order-2 md:order-1">
-                  <img src={servicesImages.giftWithPurchaseImage ? urlFor(servicesImages.giftWithPurchaseImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Gift+With+Purchase'} alt={servicesImages.giftWithPurchaseImage?.alt || 'Gift With Purchase'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
-                </div>
-                <div className="order-1 md:order-2">
-                  <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
-                    Gift With <span className="text-brand-rose">Purchase</span>
-                  </h2>
-                  <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                    Boost your marketing campaigns and enhance customer loyalty with compelling Gift With Purchase (GWP). We design and source attractive, relevant items for fragrance and lifestyle gifting that drive sales and delight your customers.
-                  </p>
-                  <Link to="/services/gift-with-purchase" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
-                    Learn More about Gift With Purchase
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 5. Skincare Componentry Section */}
-          <section id="skincare-componentry" className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
-                    Skincare <span className="text-brand-rose">Componentry</span>
-                  </h2>
-                  <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                    Source high-quality skincare parts through our extensive network. We provide a diverse selection of components for various skincare applications, focusing on functionality, durability, and the aesthetic details that elevate your product presentation.
-                  </p>
-                  <Link to="/services/skincare-componentry" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
-                    Learn More about Skincare Componentry
-                  </Link>
-                </div>
-                <div>
-                  <img src={servicesImages.skincareComponentryImage ? urlFor(servicesImages.skincareComponentryImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Skincare+Componentry'} alt={servicesImages.skincareComponentryImage?.alt || 'Skincare Componentry'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 6. Fragrance Creation Section */}
-          <section id="fragrance-creation" className="py-20 bg-brand-pink-light">
-            <div className="container mx-auto px-6">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="order-2 md:order-1">
-                  <img src={servicesImages.fragranceCreationImage ? urlFor(servicesImages.fragranceCreationImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Fragrance+Creation'} alt={servicesImages.fragranceCreationImage?.alt || 'Fragrance Creation'} className="rounded-2xl shadow-xl w-full object-cover" loading="lazy" width="600" height="400" />
-                </div>
-                <div className="order-1 md:order-2">
-                  <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-6">
-                    Fragrance <span className="text-brand-rose">Creation</span>
-                  </h2>
-                  <p className="text-lg text-brand-mauve leading-relaxed mb-6">
-                    Leverage on the expertise of our partners in the art and science of fragrance creation. We work with the best perfumers in Europe. We collaborate with you to develop unique, captivating scents that embody your brand's essence, guiding the journey from initial concept through meticulous refinement to the final, signature masterpiece.
-                  </p>
-                  <Link to="/services/fragrance-creation" className="inline-block mt-6 bg-brand-mauve text-white px-6 py-3 rounded-full hover:bg-brand-rose transition-colors">
-                    Learn More about Fragrance Creation
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
-        </>
-      )}
+      <ServicePageWithSections
+        title={pageData?.serviceCategoriesTitle ?? 'Our Service Categories'}
+        description={pageData?.heroDescription ?? ''}
+        sections={serviceSections.map(section => ({
+          title: section.title,
+          content: <p>{section.description}</p>,
+          imageLeft: section.imagePosition === 'left',
+        }))}
+        faqItems={faqItems.map(faq => ({ question: faq.question, answer: faq.answer }))}
+        sectionImagesByTitle={sectionImagesByTitle}
+      />
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">

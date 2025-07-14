@@ -35,8 +35,8 @@ export const convertSanityPortfolioBrands = (brands: SanityPortfolioBrand[]): Po
     const urlFriendlyId = brand.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
 
     return {
-      id: urlFriendlyId, // Use URL-friendly ID that matches our routes
-      _id: brand._id, // Keep the original ID for reference
+      id: brand._id, // Use Sanity _id for uniqueness
+      slug: urlFriendlyId, // Keep the slug for routing
       title: brand.name,
       features: brand.features,
       imgSrc: imageUrl,

@@ -1,4 +1,17 @@
 import ServicePageWithSections from '../components/ServicePageWithSections';
+import { useEffect, useState } from 'react';
+import { fetchSanityData } from '../lib/sanityUtils';
+
+// Define the type for a Sanity image object (should match the one in ServicePageWithSections)
+interface SanityImageObject {
+  asset: {
+    _id: string;
+    _ref?: string;
+    url?: string;
+    _type: string;
+  };
+  alt?: string;
+}
 
 // Dummy FAQ data specific to Fragrance Componentry
 const faqItems = [
@@ -11,7 +24,60 @@ const faqItems = [
   { question: "What is the most critical part of the production process?", answer: "The most critical aspects are the quality of raw materials, our team’s expertise, and rigorous quality control. Together, they ensure each glass component meets the exacting standards required for luxury fragrance packaging." },
 ];
 
+// Utility to clean section names for robust mapping
+function cleanKey(str: string) {
+  // Normalize to NFKC, remove all but a-z, A-Z, 0-9, space, and &
+  return str
+    .normalize('NFKC')
+    .replace(/[^a-zA-Z0-9 &]/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+// Recursively clean all string fields in an object
+function deepCleanStrings(obj: unknown): unknown {
+  if (typeof obj === 'string') {
+    return obj
+      .normalize('NFKC')
+      .replace(/[^\x20-\x7E]/g, '') // keep only printable ASCII
+      .trim();
+  } else if (Array.isArray(obj)) {
+    return obj.map(deepCleanStrings);
+  } else if (obj && typeof obj === 'object') {
+    const cleaned: Record<string, unknown> = {};
+    for (const key in obj as Record<string, unknown>) {
+      cleaned[key] = deepCleanStrings((obj as Record<string, unknown>)[key]);
+    }
+    return cleaned;
+  }
+  return obj;
+}
+
 function FragranceComponentry() {
+  const [sectionImagesByTitle, setSectionImagesByTitle] = useState<Record<string, SanityImageObject | undefined>>({});
+
+  useEffect(() => {
+    async function fetchSectionImages() {
+      const results: { sectionName: string; image: SanityImageObject }[] = await fetchSanityData(
+        `*[_type == "servicePageSection" && serviceName == "Fragrance Componentry"]{sectionName, image{..., asset->, alt}}`
+      );
+      console.log('Full Sanity response:', results);
+      // Map images by cleaned section name
+      const imagesByKey: Record<string, SanityImageObject> = {};
+      results.forEach((section) => {
+        const cleaned = cleanKey(section.sectionName || '');
+        // Deep clean the entire image object, or use a default empty object
+        const image: SanityImageObject = section.image
+          ? (deepCleanStrings(section.image) as SanityImageObject)
+          : { asset: { _type: '', _id: '' } };
+        imagesByKey[cleaned] = image;
+      });
+      console.log('Final imagesByKey mapping:', JSON.stringify(imagesByKey, null, 2));
+      setSectionImagesByTitle(imagesByKey);
+    }
+    fetchSectionImages();
+  }, []);
+
   const sections = [
     {
       title: "Fragrance Bottles",
@@ -55,13 +121,22 @@ function FragranceComponentry() {
     }
   ];
 
+  // Normalize section titles for lookup and log them
+  const normalizedSectionImages: Record<string, SanityImageObject | undefined> = {};
+  sections.forEach(section => {
+    const cleaned = cleanKey(section.title);
+    normalizedSectionImages[cleaned] = sectionImagesByTitle[cleaned];
+    // Log each normalized key from the frontend
+    console.log(`Frontend section title: '${section.title}' | Cleaned: '${cleaned}'`);
+  });
+
   return (
     <ServicePageWithSections
       title="Fragrance Componentry"
       description="Find the perfect housing for your signature scent with our extensive selection of high-quality fragrance components."
-      serviceName="Fragrance Componentry"
       sections={sections}
       faqItems={faqItems}
+      sectionImagesByTitle={normalizedSectionImages}
     />
   );
 }

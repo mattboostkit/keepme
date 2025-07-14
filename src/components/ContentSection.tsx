@@ -25,7 +25,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
           {/* Text Content */}
           <div className={`space-y-4 ${imageLeft ? 'md:order-2' : 'md:order-1'}`}>
             <h2 className="text-3xl font-semibold text-gray-800">{title}</h2>
-            <p className="text-gray-600 leading-relaxed">{text}</p>
+            <div className="text-gray-600 leading-relaxed">{text}</div>
             {/* Optional: Add more elements like bullet points or buttons here */}
           </div>
 

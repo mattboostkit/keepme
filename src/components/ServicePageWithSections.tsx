@@ -1,64 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ContentSection from './ContentSection';
 import FaqAccordion from './FaqAccordion';
-import { fetchSanityData } from '../lib/sanityUtils';
 import { urlFor } from '../lib/sanity';
 
-// Define the ServicePageSection interface
-interface ServicePageSection {
-  _id: string;
-  serviceName: string;
-  sectionName: string;
-  image: {
-    asset: {
-      _ref: string;
-    };
-  }; // Sanity image reference
-  order: number;
+// Define the type for a Sanity image object
+interface SanityImageObject {
+  asset: {
+    _ref?: string;
+    _type: string;
+    _id?: string;
+    url?: string;
+  };
+  alt?: string;
 }
 
 interface ServicePageWithSectionsProps {
   title: string;
   description: string;
-  serviceName: string;
   sections: {
     title: string;
     content: React.ReactNode;
     imageLeft: boolean;
+    image?: SanityImageObject; // Optional image per section
   }[];
   faqItems: { question: string; answer: string }[];
+  sectionImagesByTitle?: Record<string, SanityImageObject | undefined>; // Map of section title to image (can be undefined)
+}
+
+// Utility to clean section names for robust mapping (must match FragranceComponentry)
+function cleanKey(str: string) {
+  return str
+    .normalize('NFKC')
+    .replace(/[^a-zA-Z0-9 &]/g, '')
+    .trim()
+    .toLowerCase();
 }
 
 const ServicePageWithSections: React.FC<ServicePageWithSectionsProps> = ({
   title,
   description,
-  serviceName,
   sections,
   faqItems,
+  sectionImagesByTitle = {},
 }) => {
-  // State for section images
-  const [sectionImages, setSectionImages] = useState<ServicePageSection[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // Fetch section images from Sanity
-  useEffect(() => {
-    const fetchSectionImages = async () => {
-      try {
-        setLoading(true);
-        const result = await fetchSanityData<ServicePageSection[]>(
-          `*[_type == "servicePageSection" && serviceName == "${serviceName}"] | order(order asc)`
-        );
-        setSectionImages(result);
-      } catch (error) {
-        console.error(`Error fetching ${serviceName} section images:`, error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSectionImages();
-  }, [serviceName]);
-
   return (
     <div>
       {/* Hero Section with brand background */}
@@ -73,27 +57,26 @@ const ServicePageWithSections: React.FC<ServicePageWithSectionsProps> = ({
         </div>
       </section>
 
-      {/* Loading indicator */}
-      {loading && (
-        <div className="flex justify-center items-center py-8 bg-white">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-peach"></div>
-        </div>
-      )}
-
       {/* Render each section */}
       {sections.map((section, index) => {
-        // Find the matching image from Sanity
-        const sectionImage = sectionImages.find(img => img.sectionName === section.title);
-
+        const lookupKey = cleanKey(section.title);
+        const image = sectionImagesByTitle[lookupKey];
+        console.log(`ServicePageWithSections: lookupKey='${lookupKey}', found image:`, !!image, image);
+        let imageUrl = '';
+        if (image && image.asset && (image.asset._id || image.asset.url)) {
+          imageUrl = urlFor(image).width(600).height(400).fit('crop').crop('center').format('webp').url();
+        } else {
+          imageUrl = `https://via.placeholder.com/600x400.png?text=${encodeURIComponent(section.title)}`;
+        }
+        if (!image || !image.asset || !(image.asset._id || image.asset.url)) {
+          console.warn(`No Sanity image found for section: '${section.title}'. Using placeholder.`);
+        }
         return (
           <ContentSection
             key={index}
             title={section.title}
             text={section.content}
-            imageUrl={sectionImage?.image
-              ? urlFor(sectionImage.image).width(600).height(400).fit('crop').crop('center').format('webp').url()
-              : `https://via.placeholder.com/600x400.png?text=${encodeURIComponent(section.title)}`
-            }
+            imageUrl={imageUrl}
             imageLeft={section.imageLeft}
             index={index}
           />

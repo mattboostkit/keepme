@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ServicePageWithSections from '../components/ServicePageWithSections';
+import { fetchSanityData } from '../lib/sanityUtils';
 
 // Dummy FAQ data specific to Home Fragrance
 const faqItems = [
@@ -9,7 +10,67 @@ const faqItems = [
   { question: "Do you handle filling and assembly for home fragrance products?", answer: "Yes, we provide full-service manufacturing, including fragrance development, component sourcing, filling, assembly, and packaging." },
 ];
 
+// Define the type for a Sanity image object
+interface SanityImageObject {
+  asset: {
+    _id: string;
+    _ref?: string;
+    url?: string;
+    _type: string;
+  };
+  alt?: string;
+}
+
+// Utility to clean section names for robust mapping
+function cleanKey(str: string) {
+  return str
+    .normalize('NFKC')
+    .replace(/[^a-zA-Z0-9 &]/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+// Recursively clean all string fields in an object
+function deepCleanStrings(obj: unknown): unknown {
+  if (typeof obj === 'string') {
+    return obj
+      .normalize('NFKC')
+      .replace(/[^\x20-\x7E]/g, '') // keep only printable ASCII
+      .trim();
+  } else if (Array.isArray(obj)) {
+    return obj.map(deepCleanStrings);
+  } else if (obj && typeof obj === 'object') {
+    const cleaned: Record<string, unknown> = {};
+    for (const key in obj as Record<string, unknown>) {
+      cleaned[key] = deepCleanStrings((obj as Record<string, unknown>)[key]);
+    }
+    return cleaned;
+  }
+  return obj;
+}
+
 function HomeFragrance() {
+  const [sectionImagesByTitle, setSectionImagesByTitle] = useState<Record<string, SanityImageObject | undefined>>({});
+
+  useEffect(() => {
+    async function fetchSectionImages() {
+      const results: { sectionName: string; image: SanityImageObject }[] = await fetchSanityData(
+        `*[_type == "servicePageSection" && serviceName == "Home Fragrance"]{sectionName, image{..., asset->, alt}}`
+      );
+      // Map images by cleaned section name
+      const imagesByKey: Record<string, SanityImageObject> = {};
+      results.forEach((section) => {
+        const cleaned = cleanKey(section.sectionName || '');
+        const image: SanityImageObject = section.image
+          ? (deepCleanStrings(section.image) as SanityImageObject)
+          : { asset: { _type: '', _id: '' } };
+        imagesByKey[cleaned] = image;
+      });
+      setSectionImagesByTitle(imagesByKey);
+    }
+    fetchSectionImages();
+  }, []);
+
   const sections = [
     {
       title: "Candles",
@@ -43,13 +104,20 @@ function HomeFragrance() {
     }
   ];
 
+  // Normalize section titles for lookup
+  const normalizedSectionImages: Record<string, SanityImageObject | undefined> = {};
+  sections.forEach(section => {
+    const cleaned = cleanKey(section.title);
+    normalizedSectionImages[cleaned] = sectionImagesByTitle[cleaned];
+  });
+
   return (
     <ServicePageWithSections
       title="Home Fragrance"
       description="Our extensive Lifestyle portfolio offers a beautiful selection of Home and Lifestyle products, including diffusers and luxury candles. Combining quality and style to create exquisite products."
-      serviceName="Home Fragrance"
       sections={sections}
       faqItems={faqItems}
+      sectionImagesByTitle={normalizedSectionImages}
     />
   );
 }

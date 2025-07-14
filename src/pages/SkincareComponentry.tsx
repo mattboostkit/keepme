@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ServicePageWithSections from '../components/ServicePageWithSections';
+import { fetchSanityData } from '../lib/sanityUtils';
 
 // Dummy FAQ data specific to Skincare Componentry
 const faqItems = [
@@ -9,7 +10,67 @@ const faqItems = [
   { question: "What decoration options are available for skincare components?", answer: "We offer various decoration techniques, including silk screening, hot stamping, heat transfer labelling, metallisation, and custom colour matching." },
 ];
 
+// Define the type for a Sanity image object
+interface SanityImageObject {
+  asset: {
+    _id: string;
+    _ref?: string;
+    url?: string;
+    _type: string;
+  };
+  alt?: string;
+}
+
+// Utility to clean section names for robust mapping
+function cleanKey(str: string) {
+  return str
+    .normalize('NFKC')
+    .replace(/[^a-zA-Z0-9 &]/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+// Recursively clean all string fields in an object
+function deepCleanStrings(obj: unknown): unknown {
+  if (typeof obj === 'string') {
+    return obj
+      .normalize('NFKC')
+      .replace(/[^\x20-\x7E]/g, '') // keep only printable ASCII
+      .trim();
+  } else if (Array.isArray(obj)) {
+    return obj.map(deepCleanStrings);
+  } else if (obj && typeof obj === 'object') {
+    const cleaned: Record<string, unknown> = {};
+    for (const key in obj as Record<string, unknown>) {
+      cleaned[key] = deepCleanStrings((obj as Record<string, unknown>)[key]);
+    }
+    return cleaned;
+  }
+  return obj;
+}
+
 function SkincareComponentry() {
+  const [sectionImagesByTitle, setSectionImagesByTitle] = useState<Record<string, SanityImageObject | undefined>>({});
+
+  useEffect(() => {
+    async function fetchSectionImages() {
+      const results: { sectionName: string; image: SanityImageObject }[] = await fetchSanityData(
+        `*[_type == "servicePageSection" && serviceName == "Skincare Componentry"]{sectionName, image{..., asset->, alt}}`
+      );
+      // Map images by cleaned section name
+      const imagesByKey: Record<string, SanityImageObject> = {};
+      results.forEach((section) => {
+        const cleaned = cleanKey(section.sectionName || '');
+        const image: SanityImageObject = section.image
+          ? (deepCleanStrings(section.image) as SanityImageObject)
+          : { asset: { _type: '', _id: '' } };
+        imagesByKey[cleaned] = image;
+      });
+      setSectionImagesByTitle(imagesByKey);
+    }
+    fetchSectionImages();
+  }, []);
+
   const sections = [
     {
       title: "Jars",
@@ -81,13 +142,20 @@ function SkincareComponentry() {
     }
   ];
 
+  // Normalize section titles for lookup
+  const normalizedSectionImages: Record<string, SanityImageObject | undefined> = {};
+  sections.forEach(section => {
+    const cleaned = cleanKey(section.title);
+    normalizedSectionImages[cleaned] = sectionImagesByTitle[cleaned];
+  });
+
   return (
     <ServicePageWithSections
       title="Skincare Componentry"
       description="We supply fully tested, certified skincare products trusted by some of the most well-known skincare brands in the UK and Europe. We have a reliable supply chain of jars, tubes, lids, applicators, droppers & spatulas, available to order as standalone products or as part of a bespoke product range."
-      serviceName="Skincare Componentry"
       sections={sections}
       faqItems={faqItems}
+      sectionImagesByTitle={normalizedSectionImages}
     />
   );
 }

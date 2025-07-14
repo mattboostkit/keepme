@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'; // Import useState, useEffe
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'; // Import Menu and X icons, removed Droplets
 import logoUrl from '../assets/images/logos/Logo_Black.svg'; // Import the dark logo
+import SearchBar from './SearchBar';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -63,14 +64,13 @@ function Header() {
             />
           </Link>
           {/* Desktop Menu */}
-          <nav className="hidden xl:flex space-x-8 text-brand-plum">
+          <nav className="hidden xl:flex space-x-8 text-brand-plum items-center">
             <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors" onClick={scrollToTop}>Home</Link>
             <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors">About</Link>
 
             {/* Services dropdown */}
             <div className="relative group">
               <Link to="/services" className="text-brand-plum hover:text-brand-rose transition-colors">Services</Link>
-
               {/* Dropdown menu */}
               <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden transform scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-200 origin-top z-50">
                 <div className="py-2">
@@ -89,6 +89,8 @@ function Header() {
             <Link to="/tools" className="text-brand-plum hover:text-brand-rose transition-colors">Tools</Link>
             <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors">Portfolio</Link>
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors">Blog</Link>
+            {/* Move SearchBar here */}
+            <div className="ml-4 w-64"><SearchBar /></div>
           </nav>
           <Link to="/contact" className="hidden xl:flex items-center bg-brand-mauve text-white px-4 py-2 text-sm rounded-full hover:bg-brand-rose transition-colors">
             Contact
@@ -112,16 +114,11 @@ function Header() {
           ref={mobileMenuRef}
           className="xl:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
-          <div className="container mx-auto px-6 flex justify-end mb-2">
-            <button
-              onClick={closeMobileMenu}
-              className="text-brand-mauve hover:text-brand-plum focus:outline-none"
-              aria-label="Close menu"
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-          <nav className="container mx-auto px-6 flex flex-col space-y-3">
+          <div className="container mx-auto px-6 flex flex-col space-y-3">
+            {/* Search Bar - Mobile */}
+            <div className="mb-4">
+              <SearchBar />
+            </div>
             <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={() => { closeMobileMenu(); scrollToTop(); }}>Home</Link>
             <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>About</Link>
 
@@ -144,11 +141,11 @@ function Header() {
             <Link to="/portfolio" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Portfolio</Link>
             <Link to="/blog" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Blog</Link>
             <Link to="/contact" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Contact</Link>
-          </nav>
+          </div>
         </div>
       )}
-    </div> // Close the relative wrapper div
-  ); // Correctly placed closing parenthesis
+    </div>
+  );
 }
 
 export default Header;

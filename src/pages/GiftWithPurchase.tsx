@@ -1,4 +1,6 @@
 import ServicePageWithSections from '../components/ServicePageWithSections';
+import { useEffect, useState } from 'react';
+import { fetchSanityData } from '../lib/sanityUtils';
 
 // Dummy FAQ data specific to Gift With Purchase
 const faqItems = [
@@ -8,7 +10,67 @@ const faqItems = [
   { question: "What are the typical lead times for GWP sourcing?", answer: "Lead times depend heavily on the item, customisation, and quantity. We recommend planning GWP campaigns several months in advance." },
 ];
 
+// Define the type for a Sanity image object
+interface SanityImageObject {
+  asset: {
+    _id: string;
+    _ref?: string;
+    url?: string;
+    _type: string;
+  };
+  alt?: string;
+}
+
+// Utility to clean section names for robust mapping
+function cleanKey(str: string) {
+  return str
+    .normalize('NFKC')
+    .replace(/[^a-zA-Z0-9 &]/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+// Recursively clean all string fields in an object
+function deepCleanStrings(obj: unknown): unknown {
+  if (typeof obj === 'string') {
+    return obj
+      .normalize('NFKC')
+      .replace(/[^\x20-\x7E]/g, '') // keep only printable ASCII
+      .trim();
+  } else if (Array.isArray(obj)) {
+    return obj.map(deepCleanStrings);
+  } else if (obj && typeof obj === 'object') {
+    const cleaned: Record<string, unknown> = {};
+    for (const key in obj as Record<string, unknown>) {
+      cleaned[key] = deepCleanStrings((obj as Record<string, unknown>)[key]);
+    }
+    return cleaned;
+  }
+  return obj;
+}
+
 function GiftWithPurchase() {
+  const [sectionImagesByTitle, setSectionImagesByTitle] = useState<Record<string, SanityImageObject | undefined>>({});
+
+  useEffect(() => {
+    async function fetchSectionImages() {
+      const results: { sectionName: string; image: SanityImageObject }[] = await fetchSanityData(
+        `*[_type == "servicePageSection" && serviceName == "Gift With Purchase"]{sectionName, image{..., asset->, alt}}`
+      );
+      // Map images by cleaned section name
+      const imagesByKey: Record<string, SanityImageObject> = {};
+      results.forEach((section) => {
+        const cleaned = cleanKey(section.sectionName || '');
+        const image: SanityImageObject = section.image
+          ? (deepCleanStrings(section.image) as SanityImageObject)
+          : { asset: { _type: '', _id: '' } };
+        imagesByKey[cleaned] = image;
+      });
+      setSectionImagesByTitle(imagesByKey);
+    }
+    fetchSectionImages();
+  }, []);
+
   const sections = [
     {
       title: "Branded Goods",
@@ -65,13 +127,20 @@ function GiftWithPurchase() {
     }
   ];
 
+  // Normalize section titles for lookup
+  const normalizedSectionImages: Record<string, SanityImageObject | undefined> = {};
+  sections.forEach(section => {
+    const cleaned = cleanKey(section.title);
+    normalizedSectionImages[cleaned] = sectionImagesByTitle[cleaned];
+  });
+
   return (
     <ServicePageWithSections
       title="Gift With Purchase"
       description="Offering a gift with purchase is a powerful way to reward loyal customers, attract new ones, and showcase new products. Complimentary items make customers feel appreciated while increasing perceived value. From branded goods and travel-sized products to skincare kits, robes, and samples, we offer a wide range of options to help elevate your brand and engage buyers."
-      serviceName="Gift With Purchase"
       sections={sections}
       faqItems={faqItems}
+      sectionImagesByTitle={normalizedSectionImages}
     />
   );
 }

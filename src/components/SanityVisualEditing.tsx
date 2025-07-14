@@ -8,7 +8,15 @@ export default function SanityVisualEditing() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Only enable visual editing for logged-in users or in development
   useEffect(() => {
+    // Check for Sanity session cookie or development environment
+    const isDev = import.meta.env.MODE === 'development' || import.meta.env.NODE_ENV === 'development';
+    const hasSanitySession = document.cookie.includes('sanitySession=');
+    if (!isDev && !hasSanitySession) {
+      // Do not enable Presentation Tool UI for anonymous/incognito users in production
+      return;
+    }
     const disable = enableVisualEditing({
       history: {
         subscribe: (navigateFn) => {
@@ -31,7 +39,7 @@ export default function SanityVisualEditing() {
       zIndex: 1000,
       refresh: () => Promise.resolve(),
     });
-    return () => disable();
+    return () => disable && disable();
   }, [location, navigate]);
 
   useLiveMode({ client });
