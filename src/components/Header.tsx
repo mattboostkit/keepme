@@ -129,16 +129,32 @@ function Header() {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="xl:hidden fixed top-[calc(3rem+1px)] sm:top-[calc(4rem+1px)] md:top-[calc(5rem+1px)] left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200 z-[60] max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="xl:hidden fixed inset-0 bg-white z-[100] flex flex-col"
         >
-          <div className="container mx-auto px-6 flex flex-col space-y-3">
+          {/* Mobile menu header with logo and close button */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white shadow-sm z-10">
+            <Link to="/" className="flex items-center" onClick={() => { closeMobileMenu(); scrollToTop(); }}>
+              <img
+                src={logoUrl}
+                alt="KeepMe Logo"
+                className="h-6 w-auto object-contain"
+              />
+            </Link>
+            <button
+              className="p-2 rounded-full hover:bg-brand-peach/30 focus:outline-none focus:ring-2 focus:ring-brand-mauve"
+              onClick={closeMobileMenu}
+              aria-label="Close menu"
+            >
+              <X className="h-6 w-6 text-brand-plum" />
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto px-6 pt-4 pb-8 flex flex-col space-y-3">
             {/* Search Bar - Mobile */}
             <div className="mb-4">
               <SearchBar />
             </div>
             <Link to="/" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={() => { closeMobileMenu(); scrollToTop(); }}>Home</Link>
             <Link to="/about" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>About</Link>
-
             {/* Services section */}
             <div className="py-1">
               <Link to="/services" className="text-brand-plum hover:text-brand-rose transition-colors font-normal" onClick={closeMobileMenu}>Services</Link>
@@ -151,7 +167,6 @@ function Header() {
                 <Link to="/services/fragrance-creation" className="block text-brand-mauve hover:text-brand-rose transition-colors py-1 text-sm" onClick={closeMobileMenu}>Fragrance Creation</Link>
               </div>
             </div>
-
             <Link to="/glass" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Glass</Link>
             <Link to="/creative" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Creative</Link>
             <Link to="/tools" className="text-brand-plum hover:text-brand-rose transition-colors py-1" onClick={closeMobileMenu}>Tools</Link>
