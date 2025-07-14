@@ -9,7 +9,7 @@ const previewToken = import.meta.env.VITE_SANITY_PREVIEW_TOKEN || '';
 // Use Vite environment variables for Sanity config
 const projectId = import.meta.env.VITE_SANITY_PROJECT_ID || 'tyzs5imn';
 const dataset = import.meta.env.VITE_SANITY_DATASET || 'production';
-const studioUrl = import.meta.env.VITE_SANITY_STUDIO_URL || '';
+const studioUrl = import.meta.env.VITE_SANITY_STUDIO_URL || 'https://keepmeadmin.sanity.studio';
 
 export const client = createClient({
   projectId,
