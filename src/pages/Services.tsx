@@ -23,6 +23,9 @@ interface ServiceImageDoc {
   _id: string;
   title: string;
   image: SanityImageObject;
+  shortDescription: string;
+  slug: { current: string };
+  displayOrder: number;
 }
 
 // Update ServicesPageData interface to include mainOurServicesImage
@@ -73,7 +76,7 @@ interface FAQItem {
   isActive: boolean;
 }
 
-const SERVICE_IMAGES_QUERY = `*[_type == "serviceImage"]{ _id, title, image }`;
+const SERVICE_IMAGES_QUERY = `*[_type == "serviceImage"] | order(displayOrder asc) { _id, title, image, shortDescription, slug, displayOrder }`;
 
 function Services() {
   const [pageData, setPageData] = React.useState<ServicesPageData | null>(null);
@@ -262,7 +265,7 @@ function Services() {
         </div>
       </section>
       {/* Service Pages Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white relative z-10">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
@@ -272,9 +275,10 @@ function Services() {
               {pageData?.heroDescription || ''}
             </p>
           </div>
-          <FlickityCarousel
-            className="services-carousel"
-            options={{
+          <div className="bg-white">
+            <FlickityCarousel
+              className="services-carousel"
+              options={{
               freeScroll: true,
               contain: true,
               prevNextButtons: true,
@@ -288,27 +292,28 @@ function Services() {
               watchCSS: false
             }}
           >
-            {serviceSections.map(section => (
-              <div key={section._id} className="px-3 pb-4">
-                <Link to={`/services/${section.slug.current}`} className="text-brand-mauve hover:text-brand-rose font-medium flex flex-col group">
-                  {section.image?.asset && (
+            {serviceImages.map((service) => (
+              <div key={service._id} className="px-3 pb-4 bg-white">
+                <Link to={`/services/${service.slug.current}`} className="text-brand-mauve hover:text-brand-rose font-medium flex flex-col group">
+                  {service.image?.asset && (
                     <div className="w-full h-80 overflow-hidden mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
                       <img
-                        src={urlFor(section.image).width(600).height(400).fit('crop').crop('center').format('webp').url()}
-                        alt={section.image.alt || `${section.title} image`}
+                        src={urlFor(service.image).width(600).height(400).fit('crop').crop('center').format('webp').url()}
+                        alt={service.image.alt || `${service.title} image`}
                         className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>
                   )}
                   <div className="mt-4">
-                    <h3 className="text-xl font-sans font-normal mb-2 group-hover:text-brand-plum transition-colors">{section.title}</h3>
-                    <p className="text-gray-600 text-sm mb-3">{section.description}</p>
+                    <h3 className="text-xl font-sans font-normal mb-2 group-hover:text-brand-plum transition-colors">{service.title}</h3>
+                    <p className="text-gray-600 text-sm mb-3">{service.shortDescription}</p>
                   </div>
                 </Link>
               </div>
             ))}
           </FlickityCarousel>
+          </div>
         </div>
       </section>
 
