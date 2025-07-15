@@ -1,13 +1,13 @@
 import * as React from 'react';
-// import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 import FaqAccordion from '../components/FaqAccordion';
 import FragranceConcentrations from '../components/FragranceConcentrations';
 import { urlFor } from '../lib/sanity';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { fetchSanityData } from '../lib/sanityUtils';
-// Remove unused ServicePageWithSections import
-// import ServicePageWithSections from '../components/ServicePageWithSections';
+import FlickityCarousel from '../components/FlickityCarousel';
+import '../components/FlickityCarousel.css';
 
 // Interface for the Sanity image object with alt text
 interface SanityImageObject {
@@ -237,43 +237,14 @@ function Services() {
               </div>
             </div>
             <div className="relative">
-              {(() => {
-                console.log('DEBUG mainOurServicesImage:', pageData?.mainOurServicesImage);
-                if (pageData?.mainOurServicesImage) {
-                  try {
-                    const url = urlFor(pageData.mainOurServicesImage).width(600).height(400).fit('crop').crop('center').format('webp').url();
-                    console.log('DEBUG mainOurServicesImage url:', url);
-                    if (pageData.mainOurServicesImage.asset && pageData.mainOurServicesImage.asset._ref) {
-                      return (
-                        <img
-                          src={url}
-                          alt={pageData.mainOurServicesImage.alt || 'Main Our Services Image'}
-                          className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
-                          loading="lazy"
-                          width="600"
-                          height="400"
-                        />
-                      );
-                    } else {
-                      return <div className="text-red-500">Image asset missing _ref</div>;
-                    }
-                  } catch (e) {
-                    console.error('Error building image URL:', e);
-                    return <div className="text-red-500">Error rendering image</div>;
-                  }
-                } else {
-                  return (
-                    <img
-                      src="https://via.placeholder.com/600x400.png?text=Main+Service+Image"
-                      alt="Main Our Services Image"
-                      className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
-                      loading="lazy"
-                      width="600"
-                      height="400"
-                    />
-                  );
-                }
-              })()}
+              <img
+                src="https://cdn.sanity.io/images/tyzs5imn/production/8a3a72b0890df5639bc57145cb6a2e3814a03a5c-1200x800.webp"
+                alt="Our Services"
+                className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
+                loading="lazy"
+                width="1200"
+                height="800"
+              />
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
                   <p className="text-xl font-semibold">{pageData?.heroBadge1Title || 'Full Service'}</p>
@@ -301,25 +272,43 @@ function Services() {
               {pageData?.heroDescription || ''}
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <FlickityCarousel
+            className="services-carousel"
+            options={{
+              freeScroll: true,
+              contain: true,
+              prevNextButtons: true,
+              pageDots: false,
+              cellAlign: 'left',
+              groupCells: true,
+              draggable: true,
+              friction: 0.2,
+              selectedAttraction: 0.01,
+              adaptiveHeight: false,
+              watchCSS: false
+            }}
+          >
             {serviceSections.map(section => (
-              <div key={section._id} className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center">
-                <a href={`/services/${section.slug.current}`} className="text-2xl font-semibold text-brand-plum hover:text-brand-rose mb-2 block">
-                  {section.title}
-                </a>
-                <p className="text-gray-600 mb-4 text-center">{section.description}</p>
-                {section.image && (
-                  <img
-                    src={section.image.asset ? urlFor(section.image).width(400).height(250).fit('crop').crop('center').format('webp').url() : ''}
-                    alt={section.image.alt || section.title}
-                    className="rounded-lg shadow w-full object-cover"
-                    style={{ maxWidth: 400, maxHeight: 250 }}
-                  />
-                )}
-                <a href={`/services/${section.slug.current}`} className="mt-4 text-brand-mauve hover:text-brand-rose font-medium">Learn More</a>
+              <div key={section._id} className="px-3 pb-4">
+                <Link to={`/services/${section.slug.current}`} className="text-brand-mauve hover:text-brand-rose font-medium flex flex-col group">
+                  {section.image?.asset && (
+                    <div className="w-full h-80 overflow-hidden mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
+                      <img
+                        src={urlFor(section.image).width(600).height(400).fit('crop').crop('center').format('webp').url()}
+                        alt={section.image.alt || `${section.title} image`}
+                        className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="mt-4">
+                    <h3 className="text-xl font-sans font-normal mb-2 group-hover:text-brand-plum transition-colors">{section.title}</h3>
+                    <p className="text-gray-600 text-sm mb-3">{section.description}</p>
+                  </div>
+                </Link>
               </div>
             ))}
-          </div>
+          </FlickityCarousel>
         </div>
       </section>
 
