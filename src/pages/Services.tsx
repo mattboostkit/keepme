@@ -87,17 +87,25 @@ function Services() {
       try {
         setDataLoading(true);
         
-        // Fetch Services Page data
+        // Fetch Services Page data (including drafts)
         const pageResult = await fetchSanityData<ServicesPageData>(
+          '*[_type == "servicesPage" && !(_id in path("drafts.**"))][0]'
+        );
+        // If no published version, try draft
+        const finalPageResult = pageResult || await fetchSanityData<ServicesPageData>(
           '*[_type == "servicesPage"][0]'
         );
-        setPageData(pageResult);
+        setPageData(finalPageResult);
         
-        // Fetch Service Sections
+        // Fetch Service Sections (including drafts)
         const sectionsResult = await fetchSanityData<ServiceSection[]>(
+          '*[_type == "serviceSection" && !(_id in path("drafts.**"))] | order(displayOrder asc)'
+        );
+        // If no published sections, try drafts
+        const finalSectionsResult = sectionsResult.length > 0 ? sectionsResult : await fetchSanityData<ServiceSection[]>(
           '*[_type == "serviceSection"] | order(displayOrder asc)'
         );
-        setServiceSections(sectionsResult);
+        setServiceSections(finalSectionsResult);
         // Debug: log section titles
         console.log('DEBUG: serviceSections titles:', sectionsResult.map(s => s.title));
         

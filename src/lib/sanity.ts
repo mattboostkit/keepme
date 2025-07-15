@@ -14,7 +14,7 @@ const studioUrl = import.meta.env.VITE_SANITY_STUDIO_URL || 'https://keepmeadmin
 export const client = createClient({
   projectId,
   dataset,
-  useCdn: !isPreviewMode(), // Disable CDN in preview mode for fresh content
+  useCdn: false, // Disable CDN to avoid CORS issues
   apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
   token: isPreviewMode() ? previewToken : undefined, // Use token for draft access in preview mode
   stega: {

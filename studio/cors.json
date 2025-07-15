@@ -3,7 +3,11 @@
     "http://localhost:3333",
     "http://localhost:5173",
     "http://localhost:5174",
-    "http://localhost:5175"
+    "http://localhost:5175",
+    "https://keepmenew.netlify.app",
+    "https://*.keepmenew.netlify.app",
+    "https://keepme.co.uk",
+    "https://www.keepme.co.uk"
   ],
   "allowCredentials": true
 }
