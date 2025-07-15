@@ -26,7 +26,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
             <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
               <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <h3 className="text-xl font-semibold text-[#f4cfd9] mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 mb-3">{item.year}</p>
+                <p className="text-sm text-gray-700 mb-3">{item.year}</p>
                 <p className="text-gray-600 leading-relaxed">{item.description}</p>
               </div>
             </div>

@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HDTCHSL0KS"></script>
-    <script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HDTCHSL0KS"></script>
+    <script defer>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-HDTCHSL0KS');
+      window.addEventListener('load', function() {
+        gtag('js', new Date());
+        gtag('config', 'G-HDTCHSL0KS');
+      });
     </script>
     <!-- Favicon references -->
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
@@ -39,6 +40,9 @@
     <title>KeepMe | Expert Fragrance Manufacturer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="preconnect" href="https://beta.leadconnectorhq.com">
+    <link rel="preconnect" href="https://services.leadconnectorhq.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -57,6 +61,7 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script 
+      defer
       src="https://beta.leadconnectorhq.com/loader.js"  
       data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="66c340776967357a03a94f9f">

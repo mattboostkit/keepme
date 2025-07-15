@@ -80,7 +80,7 @@ const SERVICE_IMAGES_QUERY = `*[_type == "serviceImage"] | order(displayOrder as
 
 function Services() {
   const [pageData, setPageData] = React.useState<ServicesPageData | null>(null);
-  const [serviceSections, setServiceSections] = React.useState<ServiceSection[]>([]);
+  // const [serviceSections, setServiceSections] = React.useState<ServiceSection[]>([]);
   const [faqItems, setFaqItems] = React.useState<FAQItem[]>([]);
   const [serviceImages, setServiceImages] = React.useState<ServiceImageDoc[]>([]);
   const [dataLoading, setDataLoading] = React.useState(true);
@@ -100,17 +100,15 @@ function Services() {
         );
         setPageData(finalPageResult);
         
-        // Fetch Service Sections (including drafts)
-        const sectionsResult = await fetchSanityData<ServiceSection[]>(
-          '*[_type == "serviceSection" && !(_id in path("drafts.**"))] | order(displayOrder asc)'
-        );
-        // If no published sections, try drafts
-        const finalSectionsResult = sectionsResult.length > 0 ? sectionsResult : await fetchSanityData<ServiceSection[]>(
-          '*[_type == "serviceSection"] | order(displayOrder asc)'
-        );
-        setServiceSections(finalSectionsResult);
-        // Debug: log section titles
-        console.log('DEBUG: serviceSections titles:', sectionsResult.map(s => s.title));
+        // Service sections fetching commented out - now using serviceImages
+        // const sectionsResult = await fetchSanityData<ServiceSection[]>(
+        //   '*[_type == "serviceSection" && !(_id in path("drafts.**"))] | order(displayOrder asc)'
+        // );
+        // const finalSectionsResult = sectionsResult.length > 0 ? sectionsResult : await fetchSanityData<ServiceSection[]>(
+        //   '*[_type == "serviceSection"] | order(displayOrder asc)'
+        // );
+        // setServiceSections(finalSectionsResult);
+        // console.log('DEBUG: serviceSections titles:', sectionsResult.map(s => s.title));
         
         // Fetch all serviceImage docs
         const serviceImagesResult = await fetchSanityData<ServiceImageDoc[]>(SERVICE_IMAGES_QUERY);

@@ -136,7 +136,7 @@ const Team: React.FC<TeamProps> = ({
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-500">No team members available.</p>
+            <p className="text-gray-700">No team members available.</p>
           </div>
         )}
       </div>

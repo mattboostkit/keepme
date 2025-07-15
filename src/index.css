@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* High contrast text utilities for better accessibility */
+@layer utilities {
+  /* Use darker rose for better contrast on peach background */
+  .text-brand-rose-contrast {
+    @apply text-brand-plum;
+  }
+  
+  /* Use darker gray for better contrast */
+  .text-gray-contrast {
+    @apply text-gray-700;
+  }
+  
+  /* Use darker mauve for better contrast on pink-light background */
+  .text-brand-mauve-contrast {
+    @apply text-brand-plum;
+  }
+}
+
 @layer base {
   :root {
     /* Gold to black gradient text utility */

@@ -81,7 +81,7 @@ const SearchBar: React.FC = () => {
       {showDropdown && (
         <div className="absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto">
           {loading ? (
-            <div className="p-4 text-center text-gray-500">Searching...</div>
+            <div className="p-4 text-center text-gray-700">Searching...</div>
           ) : results.length > 0 ? (
             <ul>
               {results.map((item) => (
@@ -125,7 +125,7 @@ const SearchBar: React.FC = () => {
                     )}
                     <div>
                       <div className="font-medium text-brand-plum">{item.title}</div>
-                      <div className="text-xs text-gray-500">{typeLabels[item._type] || item._type}</div>
+                      <div className="text-xs text-gray-700">{typeLabels[item._type] || item._type}</div>
                       <div className="text-xs text-gray-400 truncate max-w-xs">
                         {item.excerpt || item.description || ''}
                       </div>

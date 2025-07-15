@@ -142,7 +142,7 @@ const FilterablePortfolio: React.FC<FilterablePortfolioProps> = ({
             ))
           ) : (
             <div className="col-span-1 md:col-span-2 lg:col-span-3 text-center py-12">
-              <p className="text-gray-500">No portfolio items match the selected filter.</p>
+              <p className="text-gray-700">No portfolio items match the selected filter.</p>
             </div>
           )}
         </div>

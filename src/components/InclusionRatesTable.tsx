@@ -35,7 +35,7 @@ const InclusionRatesTable: React.FC = () => {
                 <td className="py-3 px-4 text-gray-700">
                   {rate.application}
                   {rate.note && (
-                    <span className="block text-sm text-brand-rose font-medium mt-1">
+                    <span className="block text-sm text-brand-plum font-medium mt-1">
                       {rate.note}
                     </span>
                   )}

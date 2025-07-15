@@ -265,7 +265,7 @@ const InclusionRatesCalculator: React.FC = () => {
                   </div>
                 </div>
                 {currentProduct.note && (
-                  <p className="text-sm text-brand-rose mt-2 font-medium">{currentProduct.note}</p>
+                  <p className="text-sm text-brand-plum mt-2 font-medium">{currentProduct.note}</p>
                 )}
               </div>
 

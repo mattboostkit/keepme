@@ -50,7 +50,7 @@ const ResultCard = ({ title, value, isCurrency = false, isHighlighted = false }:
   isHighlighted?: boolean;
 }) => (
   <div className={`p-4 rounded-lg ${isHighlighted ? 'bg-brand-pink-light border border-brand-peach' : 'bg-brand-plum/10'}`}>
-    <p className="text-sm text-brand-mauve mb-1">{title}</p>
+    <p className="text-sm text-brand-plum mb-1">{title}</p>
     <p className={`text-2xl font-bold ${isHighlighted ? 'text-brand-plum' : 'text-brand-plum'}`}>
       {isCurrency ? formatCurrency(value) : formatNumber(value)}
     </p>
@@ -260,7 +260,7 @@ function FragranceCalculator() {
         </div>
 
         {/* Simple Footer */}
-        <footer className="text-center mt-10 text-xs text-gray-500">
+        <footer className="text-center mt-10 text-xs text-gray-700">
           {new Date().getFullYear()} Fragrance Calculator. All rights reserved.
         </footer>
       </div>
@@ -449,7 +449,7 @@ Additional notes:
             className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-mauve focus:border-brand-mauve sm:text-sm bg-gray-50"
             placeholder="Click 'Update with Calculator Results' to populate this field, then add any additional project details..."
           />
-          <p className="text-xs text-gray-500 mt-1">Click the button above to populate with calculator results, then add any additional project details</p>
+          <p className="text-xs text-gray-700 mt-1">Click the button above to populate with calculator results, then add any additional project details</p>
         </div>
 
         {/* Simple Contact Fields */}

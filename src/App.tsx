@@ -1,63 +1,69 @@
-// React import removed - not needed in modern React
+import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ReturnToTop from './components/ReturnToTop';
-import CookieBanner from './components/CookieBanner'; // Import CookieBanner
+import CookieBanner from './components/CookieBanner';
 import SEOManager from './components/SEOManager';
+
+// Eager load Home page as it's the landing page
 import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Glass from './pages/Glass';
-// Blog import removed - using SanityBlog instead
-import Contact from './pages/Contact';
-import Tools from './pages/Tools'; // Import new page
-import CostCalculator from './pages/CostCalculator'; // Import new page
-import FragranceCalculator from './pages/FragranceCalculator'; // Import new page
-import FreightCalculator from './pages/FreightCalculator'; // Import Freight Calculator page
-import InclusionRatesCalculator from './pages/InclusionRatesCalculator'; // Import Inclusion Rates Calculator
-import DevelopmentProcess from './pages/DevelopmentProcess'; // Import Development Process page
-import PortfolioPage from './pages/Portfolio'; // Import Portfolio page
-import FragranceCreation from './pages/FragranceCreation';
-import FragranceComponentry from './pages/FragranceComponentry';
-import SkincareComponentry from './pages/SkincareComponentry';
-import HomeFragrance from './pages/HomeFragrance';
-import SecondaryPackaging from './pages/SecondaryPackaging';
-import GiftWithPurchase from './pages/GiftWithPurchase';
-// DeliveryAndLogistics removed as it's no longer needed
-import SanityPage from './pages/SanityPage'; // Import Sanity pages
-import PostPage from './pages/PostPage';
-import { GalleriesListPage, SingleGalleryPage } from './pages/GalleryPage';
-import { VideosListPage, SingleVideoPage } from './pages/VideoPage';
-// import SanityBlog from './pages/SanityBlog'; // Import Sanity-powered blog page
-import TestimonialsDemo from './pages/TestimonialsDemo'; // Import Testimonials demo page
-import PrivacyPolicy from './pages/PrivacyPolicy'; // Import Privacy Policy page
-import TermsAndConditions from './pages/TermsAndConditions'; // Import Terms and Conditions page
-import QualityPolicy from './pages/QualityPolicy'; // Import Quality Policy page
-import NotFoundPage from './pages/NotFoundPage'; // Import Not Found page
-import Creative from './pages/Creative'; // Import Creative page
-// Import client pages
-import {
-  RojaParfumsPage,
-  OrmondeJaynePage,
-  HouseOfVisionPage,
-  BoadiceaPage,
-  BDXYPage,
-  StephaneHumbertLucasPage,
-  HouseOfBrandtPage, // Add import
-  FragranceDuBoisPage, // Add import
-  FlannelsPage // Add import
-} from './pages/clients';
+
+// Lazy load all other pages
+const About = lazy(() => import('./pages/About'));
+const Services = lazy(() => import('./pages/Services'));
+const Glass = lazy(() => import('./pages/Glass'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Tools = lazy(() => import('./pages/Tools'));
+const CostCalculator = lazy(() => import('./pages/CostCalculator'));
+const FragranceCalculator = lazy(() => import('./pages/FragranceCalculator'));
+const FreightCalculator = lazy(() => import('./pages/FreightCalculator'));
+const InclusionRatesCalculator = lazy(() => import('./pages/InclusionRatesCalculator'));
+const DevelopmentProcess = lazy(() => import('./pages/DevelopmentProcess'));
+const PortfolioPage = lazy(() => import('./pages/Portfolio'));
+const FragranceCreation = lazy(() => import('./pages/FragranceCreation'));
+const FragranceComponentry = lazy(() => import('./pages/FragranceComponentry'));
+const SkincareComponentry = lazy(() => import('./pages/SkincareComponentry'));
+const HomeFragrance = lazy(() => import('./pages/HomeFragrance'));
+const SecondaryPackaging = lazy(() => import('./pages/SecondaryPackaging'));
+const GiftWithPurchase = lazy(() => import('./pages/GiftWithPurchase'));
+const SanityPage = lazy(() => import('./pages/SanityPage'));
+const PostPage = lazy(() => import('./pages/PostPage'));
+const TestimonialsDemo = lazy(() => import('./pages/TestimonialsDemo'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
+const QualityPolicy = lazy(() => import('./pages/QualityPolicy'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const Creative = lazy(() => import('./pages/Creative'));
+
+// Lazy load gallery and video pages
+const GalleriesListPage = lazy(() => import('./pages/GalleryPage').then(module => ({ default: module.GalleriesListPage })));
+const SingleGalleryPage = lazy(() => import('./pages/GalleryPage').then(module => ({ default: module.SingleGalleryPage })));
+const VideosListPage = lazy(() => import('./pages/VideoPage').then(module => ({ default: module.VideosListPage })));
+const SingleVideoPage = lazy(() => import('./pages/VideoPage').then(module => ({ default: module.SingleVideoPage })));
+
+// Lazy load client pages
+const RojaParfumsPage = lazy(() => import('./pages/clients').then(module => ({ default: module.RojaParfumsPage })));
+const OrmondeJaynePage = lazy(() => import('./pages/clients').then(module => ({ default: module.OrmondeJaynePage })));
+const HouseOfVisionPage = lazy(() => import('./pages/clients').then(module => ({ default: module.HouseOfVisionPage })));
+const BoadiceaPage = lazy(() => import('./pages/clients').then(module => ({ default: module.BoadiceaPage })));
+const BDXYPage = lazy(() => import('./pages/clients').then(module => ({ default: module.BDXYPage })));
+const StephaneHumbertLucasPage = lazy(() => import('./pages/clients').then(module => ({ default: module.StephaneHumbertLucasPage })));
+const HouseOfBrandtPage = lazy(() => import('./pages/clients').then(module => ({ default: module.HouseOfBrandtPage })));
+const FragranceDuBoisPage = lazy(() => import('./pages/clients').then(module => ({ default: module.FragranceDuBoisPage })));
+const FlannelsPage = lazy(() => import('./pages/clients').then(module => ({ default: module.FlannelsPage })));
 import SanityVisualEditing from './components/SanityVisualEditing';
+import LoadingSpinner from './components/LoadingSpinner';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col"> {/* Updated to use new brand background color */}
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col">
       <SanityVisualEditing />
       <SEOManager />
       <Header />
-      <main className="flex-grow pt-16 sm:pt-20 md:pt-24"> {/* Responsive padding for different screen sizes */}
-        <Routes>
+      <main className="flex-grow pt-16 sm:pt-20 md:pt-24">
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
@@ -115,7 +121,8 @@ function App() {
           <Route path="/portfolio/flannels" element={<FlannelsPage />} />
           {/* Catch-all route for 404 Not Found page - MUST BE LAST */}
           <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
       <ReturnToTop />

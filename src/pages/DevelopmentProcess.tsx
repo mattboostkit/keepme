@@ -120,7 +120,7 @@ function DevelopmentProcess() {
                           </h3>
                           <div className="flex items-center mt-2">
                             <div className="w-8 h-1 bg-gradient-to-r from-brand-rose to-brand-mauve rounded-full"></div>
-                            <span className="ml-2 text-sm text-gray-500">Step {index + 1} of {processFlowchartData.length}</span>
+                            <span className="ml-2 text-sm text-gray-700">Step {index + 1} of {processFlowchartData.length}</span>
                           </div>
                         </div>
                         <div className={`w-10 h-10 rounded-full bg-gradient-to-r from-brand-rose to-brand-mauve flex items-center justify-center text-white font-bold transform transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : 'group-hover:rotate-45'}`}>

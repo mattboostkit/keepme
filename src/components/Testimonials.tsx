@@ -107,14 +107,14 @@ const Testimonials: React.FC<TestimonialsProps> = ({
                   )}
                   <div>
                     <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.title}, {testimonial.company}</p>
+                    <p className="text-sm text-gray-700">{testimonial.title}, {testimonial.company}</p>
                   </div>
                 </div>
               </div>
             ))
           ) : (
             <div className="col-span-3 text-center py-8">
-              <p className="text-gray-500">No testimonials available.</p>
+              <p className="text-gray-700">No testimonials available.</p>
             </div>
           )}
         </div>

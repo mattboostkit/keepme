@@ -258,7 +258,7 @@ function FreightCalculator() {
                           className="sr-only"
                         />
                         <div className="text-sm font-medium">Standard</div>
-                        <div className="text-xs text-gray-500">3-7 days</div>
+                        <div className="text-xs text-gray-700">3-7 days</div>
                       </label>
                       <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
@@ -274,7 +274,7 @@ function FreightCalculator() {
                           className="sr-only"
                         />
                         <div className="text-sm font-medium">Express</div>
-                        <div className="text-xs text-gray-500">1-3 days</div>
+                        <div className="text-xs text-gray-700">1-3 days</div>
                       </label>
                       <label
                         className={`border rounded-lg p-4 text-center cursor-pointer transition-colors ${
@@ -290,7 +290,7 @@ function FreightCalculator() {
                           className="sr-only"
                         />
                         <div className="text-sm font-medium">Priority</div>
-                        <div className="text-xs text-gray-500">Next day</div>
+                        <div className="text-xs text-gray-700">Next day</div>
                       </label>
                     </div>
                   </div>
@@ -388,25 +388,25 @@ function FreightCalculator() {
                   <div className="space-y-4 text-sm text-brand-mauve">
                     <div className="flex items-start">
                       <div className="bg-gray-100 rounded-full p-1 mr-3 mt-0.5">
-                        <div className="w-4 h-4 flex items-center justify-center text-gray-500 font-bold text-xs">1</div>
+                        <div className="w-4 h-4 flex items-center justify-center text-gray-700 font-bold text-xs">1</div>
                       </div>
                       <p>Enter the origin and destination countries for your shipment</p>
                     </div>
                     <div className="flex items-start">
                       <div className="bg-gray-100 rounded-full p-1 mr-3 mt-0.5">
-                        <div className="w-4 h-4 flex items-center justify-center text-gray-500 font-bold text-xs">2</div>
+                        <div className="w-4 h-4 flex items-center justify-center text-gray-700 font-bold text-xs">2</div>
                       </div>
                       <p>Specify the package type, weight, and dimensions</p>
                     </div>
                     <div className="flex items-start">
                       <div className="bg-gray-100 rounded-full p-1 mr-3 mt-0.5">
-                        <div className="w-4 h-4 flex items-center justify-center text-gray-500 font-bold text-xs">3</div>
+                        <div className="w-4 h-4 flex items-center justify-center text-gray-700 font-bold text-xs">3</div>
                       </div>
                       <p>Select your preferred shipping method</p>
                     </div>
                     <div className="flex items-start">
                       <div className="bg-gray-100 rounded-full p-1 mr-3 mt-0.5">
-                        <div className="w-4 h-4 flex items-center justify-center text-gray-500 font-bold text-xs">4</div>
+                        <div className="w-4 h-4 flex items-center justify-center text-gray-700 font-bold text-xs">4</div>
                       </div>
                       <p>Click "Calculate Shipping" to see your estimate</p>
                     </div>

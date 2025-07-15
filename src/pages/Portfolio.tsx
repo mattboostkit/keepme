@@ -427,7 +427,7 @@ function PortfolioBrandsSection() {
                     {brand.features.slice(0, 3).map((feature: string, index: number) => (
                       <span
                         key={index}
-                        className="bg-brand-pink-light text-brand-rose px-3 py-1 rounded-full text-xs font-medium"
+                        className="bg-brand-pink-light text-brand-plum px-3 py-1 rounded-full text-xs font-medium"
                       >
                         {feature}
                       </span>

@@ -44,7 +44,7 @@ const SanityPage: React.FC = () => {
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                    <span className="text-gray-500">No image available</span>
+                    <span className="text-gray-700">No image available</span>
                   </div>
                 )}
               </div>
@@ -54,7 +54,7 @@ const SanityPage: React.FC = () => {
                 <h2 className="text-xl font-semibold mb-3 group-hover:text-brand-mauve transition-colors">{post.title}</h2>
               </Link>
               {post.publishedAt && (
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-700">
                   Published: {new Date(post.publishedAt).toLocaleDateString()}
                 </p>
               )}

@@ -81,7 +81,7 @@ const ClientLogos: React.FC<ClientLogosProps> = ({
             <h2 className="text-2xl font-serif font-bold text-center mb-10">{title}</h2>
           )}
           <div className="text-center py-8">
-            <p className="text-gray-500">No client logos available.</p>
+            <p className="text-gray-700">No client logos available.</p>
           </div>
         </div>
       </section>

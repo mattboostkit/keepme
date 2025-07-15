@@ -130,13 +130,13 @@ function Tools() { // Renamed from ToolsLanding
                   <div key={tool._id} className="max-w-md w-full">
                     <Link to={`/tools/${tool.slug.current}`} className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
                       <div className="bg-brand-pink-light p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-mauve transition-colors">
-                        <IconComponent className="h-8 w-8 text-brand-rose group-hover:text-brand-plum transition-colors" />
+                        <IconComponent className="h-8 w-8 text-brand-plum group-hover:text-white transition-colors" />
                       </div>
                       <h3 className="text-xl font-semibold text-brand-plum mb-3">{tool.title}</h3>
                       <p className="text-base text-brand-mauve leading-relaxed mb-4">
                         {tool.description}
                       </p>
-                      <span className="text-brand-rose font-medium flex items-center">
+                      <span className="text-brand-plum font-medium flex items-center group-hover:text-brand-rose transition-colors">
                         {tool.linkText}
                         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                       </span>
@@ -151,13 +151,13 @@ function Tools() { // Renamed from ToolsLanding
                 <div className="max-w-md w-full">
                   <Link to="/tools/fragrance-calculator" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
                     <div className="bg-brand-pink-light p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-mauve transition-colors">
-                      <FlaskConical className="h-8 w-8 text-brand-rose group-hover:text-brand-plum transition-colors" />
+                      <FlaskConical className="h-8 w-8 text-brand-plum group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="text-xl font-semibold text-brand-plum mb-3">Fragrance Calculator</h3>
                     <p className="text-base text-brand-mauve leading-relaxed mb-4">
                       Experiment with fragrance notes and concentrations to refine your formulations.
                     </p>
-                    <span className="text-brand-rose font-medium flex items-center">
+                    <span className="text-brand-plum font-medium flex items-center group-hover:text-brand-rose transition-colors">
                       Go to Calculator
                       <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </span>
@@ -167,13 +167,13 @@ function Tools() { // Renamed from ToolsLanding
                 <div className="max-w-md w-full">
                   <Link to="/tools/inclusion-rates" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
                     <div className="bg-brand-pink-light p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-mauve transition-colors">
-                      <Calculator className="h-8 w-8 text-brand-rose group-hover:text-brand-plum transition-colors" />
+                      <Calculator className="h-8 w-8 text-brand-plum group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="text-xl font-semibold text-brand-plum mb-3">Inclusion Rates Guide</h3>
                     <p className="text-base text-brand-mauve leading-relaxed mb-4">
                       Calculate optimal fragrance oil amounts for different product types using industry standards.
                     </p>
-                    <span className="text-brand-rose font-medium flex items-center">
+                    <span className="text-brand-plum font-medium flex items-center group-hover:text-brand-rose transition-colors">
                       Calculate Rates
                       <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </span>
@@ -184,13 +184,13 @@ function Tools() { // Renamed from ToolsLanding
                   <Link to="/tools/development-process" className="block bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow group">
                     <div className="bg-brand-pink-light p-4 rounded-xl inline-block mb-6 group-hover:bg-brand-mauve transition-colors">
                       {/* Settings Lucide icon for process */}
-                      <Settings className="h-8 w-8 text-brand-rose group-hover:text-brand-plum transition-colors" />
+                      <Settings className="h-8 w-8 text-brand-plum group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="text-xl font-semibold text-brand-plum mb-3">Development Process</h3>
                     <p className="text-base text-brand-mauve leading-relaxed mb-4">
                       See how we bring your ideas to life, from concept to completion.
                     </p>
-                    <span className="text-brand-rose font-medium flex items-center">
+                    <span className="text-brand-plum font-medium flex items-center group-hover:text-brand-rose transition-colors">
                       Explore Process
                       <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </span>
