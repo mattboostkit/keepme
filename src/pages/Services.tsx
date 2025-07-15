@@ -2,12 +2,12 @@ import * as React from 'react';
 // import { Link } from 'react-router-dom'; // Import Link
 import FaqAccordion from '../components/FaqAccordion';
 import FragranceConcentrations from '../components/FragranceConcentrations';
-import { useSanityQuery } from '../lib/useSanity';
 import { urlFor } from '../lib/sanity';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { fetchSanityData } from '../lib/sanityUtils';
-import ServicePageWithSections from '../components/ServicePageWithSections'; // Added import
+// Remove unused ServicePageWithSections import
+// import ServicePageWithSections from '../components/ServicePageWithSections';
 
 // Interface for the Sanity image object with alt text
 interface SanityImageObject {
@@ -25,38 +25,28 @@ interface ServiceImageDoc {
   image: SanityImageObject;
 }
 
-// Interface for the Services Page Images data from Sanity
-interface ServicesPageImageData {
+// Update ServicesPageData interface to include mainOurServicesImage
+interface ServicesPageData {
   _id: string;
   _type: string;
-  mainOurServicesImage?: SanityImageObject;
-  fragranceCreationImage?: SanityImageObject;
-  fragranceComponentryImage?: SanityImageObject;
-  skincareComponentryImage?: SanityImageObject;
-  homeFragranceImage?: SanityImageObject;
-  secondaryPackagingImage?: SanityImageObject;
-  giftWithPurchaseImage?: SanityImageObject;
-}
-
-// Interface for Services Page data
-interface ServicesPageData {
-  heroTitle: string;
-  heroDescription: string;
-  heroBoxTitle: string;
-  heroBoxDescription: string;
-  heroBadge1Title: string;
-  heroBadge1Subtitle: string;
-  heroBadge2Title: string;
-  heroBadge2Subtitle: string;
-  serviceCategoriesTitle: string;
-  ctaTitle: string;
-  ctaDescription: string;
-  ctaButtonText: string;
-  ctaButtonLink: string;
-  faqTitle: string;
-  faqSubtitle: string;
+  heroTitle?: string;
+  heroDescription?: string;
+  heroBoxTitle?: string;
+  heroBoxDescription?: string;
+  heroBadge1Title?: string;
+  heroBadge1Subtitle?: string;
+  heroBadge2Title?: string;
+  heroBadge2Subtitle?: string;
+  serviceCategoriesTitle?: string;
+  ctaTitle?: string;
+  ctaDescription?: string;
+  ctaButtonText?: string;
+  ctaButtonLink?: string;
+  faqTitle?: string;
+  faqSubtitle?: string;
   seoTitle?: string;
   seoDescription?: string;
+  mainOurServicesImage?: SanityImageObject;
 }
 
 // Interface for Service Section
@@ -239,14 +229,43 @@ function Services() {
               </div>
             </div>
             <div className="relative">
-              <img
-                src={pageData?.mainOurServicesImage ? urlFor(pageData.mainOurServicesImage).width(600).height(400).fit('crop').crop('center').format('webp').url() : 'https://via.placeholder.com/600x400.png?text=Main+Service+Image'}
-                alt={pageData?.mainOurServicesImage?.alt || 'Main Our Services Image'}
-                className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
-                loading="lazy"
-                width="600"
-                height="400"
-              />
+              {(() => {
+                console.log('DEBUG mainOurServicesImage:', pageData?.mainOurServicesImage);
+                if (pageData?.mainOurServicesImage) {
+                  try {
+                    const url = urlFor(pageData.mainOurServicesImage).width(600).height(400).fit('crop').crop('center').format('webp').url();
+                    console.log('DEBUG mainOurServicesImage url:', url);
+                    if (pageData.mainOurServicesImage.asset && pageData.mainOurServicesImage.asset._ref) {
+                      return (
+                        <img
+                          src={url}
+                          alt={pageData.mainOurServicesImage.alt || 'Main Our Services Image'}
+                          className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
+                          loading="lazy"
+                          width="600"
+                          height="400"
+                        />
+                      );
+                    } else {
+                      return <div className="text-red-500">Image asset missing _ref</div>;
+                    }
+                  } catch (e) {
+                    console.error('Error building image URL:', e);
+                    return <div className="text-red-500">Error rendering image</div>;
+                  }
+                } else {
+                  return (
+                    <img
+                      src="https://via.placeholder.com/600x400.png?text=Main+Service+Image"
+                      alt="Main Our Services Image"
+                      className="rounded-2xl shadow-xl w-full h-[300px] md:h-[500px] object-cover"
+                      loading="lazy"
+                      width="600"
+                      height="400"
+                    />
+                  );
+                }
+              })()}
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
                   <p className="text-xl font-semibold">{pageData?.heroBadge1Title || 'Full Service'}</p>
@@ -261,68 +280,40 @@ function Services() {
               </div>
             </div>
           </div>
-
-          <div className="mt-16">
-            <h3 className="text-2xl font-sans font-normal text-brand-plum mb-6 text-center">
-              {pageData?.serviceCategoriesTitle?.split('Categories').length > 1 ? (
-                <>
-                  {pageData.serviceCategoriesTitle.split('Categories')[0]}<span className="text-brand-rose">Categories{pageData.serviceCategoriesTitle.split('Categories')[1]}</span>
-                </>
-              ) : (
-                <>Our Service <span className="text-brand-rose">Categories</span></>
-              )}
-            </h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {serviceSections.length > 0 ? (
-                serviceSections.map((section) => (
-                  <a 
-                    key={section._id}
-                    href={`#${section.slug.current}`} 
-                    className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-pink-light transition-all text-gray-700 font-normal"
-                  >
-                    {section.title}
-                  </a>
-                ))
-              ) : (
-                // Fallback links
-                <>
-                  <a href="#fragrance-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-pink-light transition-all text-gray-700 font-normal">
-                    Fragrance Componentry
-                  </a>
-                  <a href="#home-fragrance" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-pink-light transition-all text-gray-700 font-normal">
-                    Home Fragrance
-                  </a>
-                  <a href="#secondary-packaging" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-pink-light transition-all text-gray-700 font-normal">
-                    Secondary Packaging
-                  </a>
-                  <a href="#gift-with-purchase" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-pink-light transition-all text-gray-700 font-normal">
-                    Gift With Purchase
-                  </a>
-                  <a href="#skincare-componentry" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-pink-light transition-all text-gray-700 font-normal">
-                    Skincare Componentry
-                  </a>
-                  <a href="#fragrance-creation" className="bg-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:bg-brand-pink-light transition-all text-gray-700 font-normal">
-                    Fragrance Creation
-                  </a>
-                </>
-              )}
-            </div>
+        </div>
+      </section>
+      {/* Service Pages Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-4">
+              {pageData?.serviceCategoriesTitle ? pageData.serviceCategoriesTitle.replace('Categories', 'Pages') : 'Our Service Pages'}
+            </h2>
+            <p className="text-lg text-brand-mauve leading-relaxed">
+              {pageData?.heroDescription || ''}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceSections.map(section => (
+              <div key={section._id} className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center">
+                <a href={`/services/${section.slug.current}`} className="text-2xl font-semibold text-brand-plum hover:text-brand-rose mb-2 block">
+                  {section.title}
+                </a>
+                <p className="text-gray-600 mb-4 text-center">{section.description}</p>
+                {section.image && (
+                  <img
+                    src={section.image.asset ? urlFor(section.image).width(400).height(250).fit('crop').crop('center').format('webp').url() : ''}
+                    alt={section.image.alt || section.title}
+                    className="rounded-lg shadow w-full object-cover"
+                    style={{ maxWidth: 400, maxHeight: 250 }}
+                  />
+                )}
+                <a href={`/services/${section.slug.current}`} className="mt-4 text-brand-mauve hover:text-brand-rose font-medium">Learn More</a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-
-      {/* Dynamic Service Sections */}
-      <ServicePageWithSections
-        title={pageData?.serviceCategoriesTitle ?? 'Our Service Categories'}
-        description={pageData?.heroDescription ?? ''}
-        sections={serviceSections.map(section => ({
-          title: section.title,
-          content: <p>{section.description}</p>,
-          imageLeft: section.imagePosition === 'left',
-        }))}
-        faqItems={faqItems.map(faq => ({ question: faq.question, answer: faq.answer }))}
-        sectionImagesByTitle={sectionImagesByTitle}
-      />
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">

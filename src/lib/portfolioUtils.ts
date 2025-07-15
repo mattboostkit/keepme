@@ -71,12 +71,13 @@ export const fetchPortfolioBrandByName = async (name: string): Promise<SanityPor
       `*[_type == "portfolioBrand" && slug.current == "${normalizedName}"][0]`
     );
 
-    if (brands) {
-      return brands;
+    if (brands && typeof brands === 'object' && Object.keys(brands).length > 0) {
+      // brands is expected to be a single object (because of [0] in GROQ query)
+      return brands as SanityPortfolioBrand;
     }
 
     // If no match by slug, try matching by name (case insensitive)
-    const brandsByName = await fetchSanityData<SanityPortfolioBrand[]>(
+    const brandsByName = await fetchSanityData<SanityPortfolioBrand>(
       `*[_type == "portfolioBrand" && lower(name) == "${name.toLowerCase()}"][0]`
     );
 
