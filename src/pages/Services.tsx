@@ -52,19 +52,19 @@ interface ServicesPageData {
   mainOurServicesImage?: SanityImageObject;
 }
 
-// Interface for Service Section
-interface ServiceSection {
-  _id: string;
-  title: string;
-  slug: { current: string };
-  description: string;
-  learnMoreLink: string;
-  learnMoreText: string;
-  image: SanityImageObject;
-  displayOrder: number;
-  backgroundColor: string;
-  imagePosition: string;
-}
+// Interface for Service Section - commented out as we're now using serviceImages
+// interface ServiceSection {
+//   _id: string;
+//   title: string;
+//   slug: { current: string };
+//   description: string;
+//   learnMoreLink: string;
+//   learnMoreText: string;
+//   image: SanityImageObject;
+//   displayOrder: number;
+//   backgroundColor: string;
+//   imagePosition: string;
+// }
 
 // Interface for FAQ Item
 interface FAQItem {

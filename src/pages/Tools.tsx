@@ -83,14 +83,14 @@ function Tools() { // Renamed from ToolsLanding
               <h1 className="text-4xl md:text-5xl font-sans font-semibold text-brand-plum mb-6">
                 {pageData?.heroTitle?.split(' ').slice(0, -1).join(' ') || 'Our'} <span className="text-brand-rose">{pageData?.heroTitle?.split(' ').slice(-1).join(' ') || 'Tools'}</span>
               </h1>
-              <p className="text-lg text-brand-mauve leading-relaxed mb-12">
+              <p className="text-lg text-gray-700 leading-relaxed mb-12">
                 {pageData?.heroDescription || 'Discover a suite of digital tools designed to streamline your fragrance and packaging journey. From calculators to interactive guides, each tool is crafted to empower you at every stage of the process.'}
               </p>
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
                   {pageData?.whyToolsTitle?.split(' ').slice(0, -1).join(' ') || 'Why'} <span className="text-brand-rose">{pageData?.whyToolsTitle?.split(' ').slice(-1).join(' ') || 'Tools?'}</span>
                 </h2>
-                <p className="text-lg text-brand-mauve leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed">
                   {pageData?.whyToolsDescription || 'We believe in making complex processes simple and accessible. Our tools are designed to give you clarity, confidence, and control—whether you\'re formulating a fragrance, designing packaging, or planning logistics.'}
                 </p>
               </div>
@@ -133,7 +133,7 @@ function Tools() { // Renamed from ToolsLanding
                         <IconComponent className="h-8 w-8 text-brand-plum group-hover:text-white transition-colors" />
                       </div>
                       <h3 className="text-xl font-semibold text-brand-plum mb-3">{tool.title}</h3>
-                      <p className="text-base text-brand-mauve leading-relaxed mb-4">
+                      <p className="text-base text-gray-700 leading-relaxed mb-4">
                         {tool.description}
                       </p>
                       <span className="text-brand-plum font-medium flex items-center group-hover:text-brand-rose transition-colors">
@@ -154,7 +154,7 @@ function Tools() { // Renamed from ToolsLanding
                       <FlaskConical className="h-8 w-8 text-brand-plum group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="text-xl font-semibold text-brand-plum mb-3">Fragrance Calculator</h3>
-                    <p className="text-base text-brand-mauve leading-relaxed mb-4">
+                    <p className="text-base text-gray-700 leading-relaxed mb-4">
                       Experiment with fragrance notes and concentrations to refine your formulations.
                     </p>
                     <span className="text-brand-plum font-medium flex items-center group-hover:text-brand-rose transition-colors">
@@ -170,7 +170,7 @@ function Tools() { // Renamed from ToolsLanding
                       <Calculator className="h-8 w-8 text-brand-plum group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="text-xl font-semibold text-brand-plum mb-3">Inclusion Rates Guide</h3>
-                    <p className="text-base text-brand-mauve leading-relaxed mb-4">
+                    <p className="text-base text-gray-700 leading-relaxed mb-4">
                       Calculate optimal fragrance oil amounts for different product types using industry standards.
                     </p>
                     <span className="text-brand-plum font-medium flex items-center group-hover:text-brand-rose transition-colors">
@@ -187,7 +187,7 @@ function Tools() { // Renamed from ToolsLanding
                       <Settings className="h-8 w-8 text-brand-plum group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="text-xl font-semibold text-brand-plum mb-3">Development Process</h3>
-                    <p className="text-base text-brand-mauve leading-relaxed mb-4">
+                    <p className="text-base text-gray-700 leading-relaxed mb-4">
                       See how we bring your ideas to life, from concept to completion.
                     </p>
                     <span className="text-brand-plum font-medium flex items-center group-hover:text-brand-rose transition-colors">

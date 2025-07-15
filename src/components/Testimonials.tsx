@@ -62,12 +62,12 @@ const Testimonials: React.FC<TestimonialsProps> = ({
             {title.split(' ').map((word, index, array) =>
               index === array.length - 1 ?
                 <span key={index}>
-                  <span className="text-brand-rose">{word}</span>
+                  <span className="text-brand-plum">{word}</span>
                 </span> :
                 <span key={index}>{word} </span>
             )}
           </h2>
-          <p className="text-lg text-brand-mauve leading-relaxed">
+          <p className="text-lg text-brand-plum/80 leading-relaxed">
             {subtitle}
           </p>
         </div>

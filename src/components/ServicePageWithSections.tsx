@@ -107,7 +107,7 @@ const ServicePageWithSections: React.FC<ServicePageWithSectionsProps> = ({
         <div className="container mx-auto px-6">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Contact <span className="text-brand-mauve">Us</span>
+              Contact <span className="text-brand-plum">Us</span>
             </h2>
             <p className="text-lg text-gray-600">Get in touch to discuss your project requirements</p>
             <a href="/contact" className="inline-block mt-8 px-8 py-3 bg-brand-mauve text-white font-bold rounded-full hover:bg-brand-rose transition-colors">

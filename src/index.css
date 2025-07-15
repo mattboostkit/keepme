@@ -20,6 +20,11 @@
   }
 }
 
+/* Force font-display: swap for all fonts including third-party */
+@font-face {
+  font-display: swap !important;
+}
+
 @layer base {
   :root {
     /* Gold to black gradient text utility */

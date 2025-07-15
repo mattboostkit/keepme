@@ -310,7 +310,7 @@ function Creative() {
                   </li>
                 ))}
               </ul>
-              <p className="text-lg text-brand-mauve leading-relaxed mt-6">
+              <p className="text-lg text-gray-700 leading-relaxed mt-6">
                 {pageData?.brandGuidelinesFooter || "We ensure your brand looks and feels seamless everywhere."}
               </p>
             </div>
@@ -323,7 +323,7 @@ function Creative() {
         <div className="container mx-auto px-6">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
-              Ready to Start Your <span className="text-brand-mauve">Creative Journey?</span>
+              Ready to Start Your <span className="text-brand-plum">Creative Journey?</span>
             </h2>
             <p className="text-lg text-gray-600 mb-8">Get in touch to discuss your creative project requirements</p>
             <a href="/contact" className="inline-block px-8 py-3 bg-brand-mauve text-white font-bold rounded-full hover:bg-brand-rose transition-colors">

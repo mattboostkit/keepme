@@ -203,7 +203,7 @@ function Home() { // Component name is Home
               <div className="absolute -bottom-8 -right-8 bg-white rounded-xl p-6 shadow-lg">
                 <div>
                   <p className="text-xl font-semibold text-brand-plum">Manufacturing</p>
-                  <p className="text-brand-mauve">made simple</p>
+                  <p className="text-gray-700">made simple</p>
                 </div>
               </div>
             </div>
@@ -211,7 +211,7 @@ function Home() { // Component name is Home
               <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum">
                 About <span className="text-brand-rose">KeepMe</span>
               </h2>
-              <p className="text-lg text-brand-mauve leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed">
                 {aboutData?.description || 'We design and manufacture an extensive range of expertly created products from signature scents to home fragrances, each meticulously crafted from the finest raw materials. Beautifully designed packaging showcases each bespoke product, tailored to complement and enhance your brand.'}
               </p>
 
@@ -227,7 +227,7 @@ function Home() { // Component name is Home
             <h2 className="text-3xl md:text-4xl font-sans font-semibold text-brand-plum mb-4">
               {homePageData?.servicesTitle?.split(' ').slice(0, -1).join(' ') || 'Our'} <span className="text-brand-rose">{homePageData?.servicesTitle?.split(' ').slice(-1).join(' ') || 'Services'}</span>
             </h2>
-            <p className="text-lg text-brand-mauve leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
               {homePageData?.servicesDescription || 'We combine creativity with technical expertise to support our clients\' projects from concept to completion.'}
             </p>
           </div>
@@ -256,7 +256,7 @@ function Home() { // Component name is Home
               {serviceImages.map((service) => (
                  // Each child of FlickityCarousel is a cell
                 <div key={service._id} className="px-3 pb-4"> {/* Cell container */}
-                  <Link to={`/services/${service.slug.current}`} className="text-brand-mauve hover:text-brand-rose font-medium flex flex-col group">
+                  <Link to={`/services/${service.slug.current}`} className="text-gray-700 hover:text-brand-rose font-medium flex flex-col group">
                     {/* Image Container - Now acts as the main visual block */}
                     {service.image?.asset && (
                       <div className="w-full h-80 overflow-hidden mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
@@ -308,7 +308,7 @@ function Home() { // Component name is Home
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
           {homePageData?.contactCtaTitle || 'Ready to Start Your Project?'}
         </h2>
-        <p className="text-xl text-brand-mauve max-w-3xl mx-auto mb-10">
+        <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
           {homePageData?.contactCtaDescription || 'Let\'s discuss how we can bring your fragrance vision to life with our expertise in design, manufacturing, and delivery.'}
         </p>
         <div className="flex justify-center">

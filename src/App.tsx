@@ -54,8 +54,17 @@ const FragranceDuBoisPage = lazy(() => import('./pages/clients').then(module => 
 const FlannelsPage = lazy(() => import('./pages/clients').then(module => ({ default: module.FlannelsPage })));
 import SanityVisualEditing from './components/SanityVisualEditing';
 import LoadingSpinner from './components/LoadingSpinner';
+import { useEffect } from 'react';
+import { fixChatWidgetAccessibility } from './utils/chatWidgetAccessibility';
+import { fixFontDisplay } from './utils/fontDisplayFix';
 
 function App() {
+  useEffect(() => {
+    // Fix accessibility for third-party chat widget
+    fixChatWidgetAccessibility();
+    // Fix font-display for third-party fonts
+    fixFontDisplay();
+  }, []);
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col">
       <SanityVisualEditing />

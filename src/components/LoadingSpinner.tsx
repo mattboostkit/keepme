@@ -1,4 +1,6 @@
-const LoadingSpinner = () => {
+import { memo } from 'react';
+
+const LoadingSpinner = memo(() => {
   return (
     <div className="flex items-center justify-center min-h-[400px]">
       <div className="relative">
@@ -7,6 +9,8 @@ const LoadingSpinner = () => {
       </div>
     </div>
   );
-};
+});
+
+LoadingSpinner.displayName = 'LoadingSpinner';
 
 export default LoadingSpinner;

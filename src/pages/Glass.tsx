@@ -525,7 +525,7 @@ function Glass() {
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-plum mb-6">
             {pageData?.ctaTitle || 'Elevate Your Fragrance with Premium Glass'}
           </h2>
-          <p className="text-xl text-brand-mauve max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
             {pageData?.ctaDescription || 'Contact our glass specialists today to discover how our exceptional glass components can enhance your fragrance products.'}
           </p>
           <div className="flex justify-center">
