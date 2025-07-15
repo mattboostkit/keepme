@@ -29,7 +29,7 @@
     "@netlify/functions": "^4.1.6",
     "@sanity/eslint-config-studio": "^5.0.2",
     "@types/react": "^18.0.25",
-    "eslint": "^9.9.0",
+    "eslint": "^9.31.0",
     "prettier": "^3.0.2",
     "typescript": "^5.1.6"
   },
