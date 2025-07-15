@@ -146,7 +146,7 @@ exports.handler = async function(event, context) {
   </url>`).join('')}
   ${posts.map(post => `
   <url>
-    <loc>https://keepme.co.uk/post/${post.slug.current}</loc>
+    <loc>https://keepme.co.uk/blog/${post.slug.current}</loc>
     <lastmod>${new Date(post._updatedAt || post.publishedAt).toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

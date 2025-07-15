@@ -62,7 +62,7 @@ const PostPage: React.FC = () => {
   useSEO({
     title: seoTitle,
     description: seoDescription,
-    canonical: `https://keepme.co.uk/post/${slug}`,
+    canonical: `https://keepme.co.uk/blog/${slug}`,
     image: seoImage,
   });
 
@@ -89,7 +89,7 @@ const PostPage: React.FC = () => {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://keepme.co.uk/post/${slug}`
+      '@id': `https://keepme.co.uk/blog/${slug}`
     }
   });
 

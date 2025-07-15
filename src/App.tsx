@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ReturnToTop from './components/ReturnToTop';
@@ -58,6 +58,12 @@ import { useEffect } from 'react';
 import { fixChatWidgetAccessibility } from './utils/chatWidgetAccessibility';
 import { fixFontDisplay } from './utils/fontDisplayFix';
 
+// Redirect component for old /post/ URLs
+function RedirectPostToBlog() {
+  const { slug } = useParams<{ slug: string }>();
+  return <Navigate to={`/blog/${slug}`} replace />;
+}
+
 function App() {
   useEffect(() => {
     // Fix accessibility for third-party chat widget
@@ -107,7 +113,9 @@ function App() {
           {/* DeliveryAndLogistics route removed as it's no longer needed */}
           {/* Sanity Routes */}
           <Route path="/posts" element={<SanityPage />} />
-          <Route path="/post/:slug" element={<PostPage />} />
+          <Route path="/blog/:slug" element={<PostPage />} />
+          {/* Redirect old /post/ URLs to new /blog/ URLs */}
+          <Route path="/post/:slug" element={<RedirectPostToBlog />} />
           <Route path="/galleries" element={<GalleriesListPage />} />
           <Route path="/gallery/:slug" element={<SingleGalleryPage />} />
           <Route path="/videos" element={<VideosListPage />} />

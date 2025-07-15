@@ -89,7 +89,7 @@ const SearchBar: React.FC = () => {
                   <Link
                     to={
                       item._type === 'post'
-                        ? `/post/${item.slug?.current}`
+                        ? `/blog/${item.slug?.current}`
                         : item._type === 'portfolioItem'
                         ? `/portfolio/${item.slug?.current}`
                         : item._type === 'portfolioBrand'

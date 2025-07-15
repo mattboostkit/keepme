@@ -34,7 +34,7 @@ const SanityPage: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
           <div key={post._id} className="bg-white rounded-2xl shadow-md overflow-hidden group">
-            <Link to={`/post/${post.slug?.current}`} className="block">
+            <Link to={`/blog/${post.slug?.current}`} className="block">
               <div className="h-64 overflow-hidden">
                 {post.mainImage ? (
                   <img
@@ -50,7 +50,7 @@ const SanityPage: React.FC = () => {
               </div>
             </Link>
             <div className="p-6">
-              <Link to={`/post/${post.slug?.current}`} className="block">
+              <Link to={`/blog/${post.slug?.current}`} className="block">
                 <h2 className="text-xl font-semibold mb-3 group-hover:text-brand-mauve transition-colors">{post.title}</h2>
               </Link>
               {post.publishedAt && (
@@ -60,7 +60,7 @@ const SanityPage: React.FC = () => {
               )}
               {post.slug && (
                 <Link
-                  to={`/post/${post.slug.current}`}
+                  to={`/blog/${post.slug.current}`}
                   className="mt-4 inline-flex items-center px-5 py-2 bg-brand-rose text-white rounded-full hover:bg-brand-mauve transition-colors"
                 >
                   <span>Read more</span>
