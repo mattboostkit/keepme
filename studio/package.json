@@ -15,7 +15,7 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/cli": "^3.88.2",
+    "@sanity/cli": "^4.3.0",
     "@sanity/dashboard": "^4.1.3",
     "@sanity/vision": "^3.99.0",
     "node-fetch": "^3.3.2",
