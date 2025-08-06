@@ -136,8 +136,20 @@ formData.append('g-recaptcha-response', token);
 
 5. Update the HTML form in `index.html` to include the hidden field
 
-## Badge Positioning
+## Badge Loading and Positioning
 
+### Selective Loading
+The reCAPTCHA badge now **only loads on Tools-related pages** to improve performance and avoid showing it unnecessarily on other pages. This includes:
+- `/tools` - Main tools page
+- `/tools/fragrance-calculator` - Fragrance calculator with form protection
+- `/tools/cost-calculator` - Cost calculator
+- `/tools/freight-calculator` - Freight calculator
+- `/tools/inclusion-rates` - Inclusion rates calculator
+- `/tools/development-process` - Development process
+
+The reCAPTCHA script and badge will NOT load on other pages like Home, About, Services, etc.
+
+### Badge Position
 The reCAPTCHA badge has been repositioned to the **bottom-left corner** to avoid conflict with the chat widget in the bottom-right corner.
 
 ### Current Implementation

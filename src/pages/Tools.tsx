@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FlaskConical, Settings, Calculator } from 'lucide-react';
 import { fetchSanityData } from '../lib/sanityUtils';
 import { urlFor } from '../lib/sanity';
+import RecaptchaWrapper from '../components/RecaptchaWrapper';
 
 // Types
 interface SanityImageReference {
@@ -205,4 +206,11 @@ function Tools() { // Renamed from ToolsLanding
   );
 }
 
-export default Tools; // Renamed from ToolsLanding
+// Wrap the component with RecaptchaWrapper to load reCAPTCHA on Tools page
+const ToolsWithRecaptcha = () => (
+  <RecaptchaWrapper>
+    <Tools />
+  </RecaptchaWrapper>
+);
+
+export default ToolsWithRecaptcha; // Export wrapped component

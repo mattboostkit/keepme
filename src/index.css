@@ -26,6 +26,7 @@
 }
 
 /* Reposition reCAPTCHA badge to bottom-left to avoid chat widget conflict */
+/* Badge only loads on Tools pages now, so it won't appear elsewhere */
 .grecaptcha-badge {
   bottom: 14px !important;
   left: 14px !important;

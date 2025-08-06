@@ -3,6 +3,7 @@ import { Droplets, Percent, Package, AlertTriangle, PoundSterling, Info, Calcula
 import debounce from 'lodash/debounce'; // Import debounce
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { RECAPTCHA_ACTION } from '../config/recaptcha';
+import RecaptchaWrapper from '../components/RecaptchaWrapper';
 
 
 // Helper function to format currency
@@ -591,4 +592,11 @@ Additional notes:
 };
 
 
-export default FragranceCalculator; // Ensure export is at the top level
+// Wrap the component with RecaptchaWrapper to load reCAPTCHA only on this page
+const FragranceCalculatorWithRecaptcha = () => (
+  <RecaptchaWrapper>
+    <FragranceCalculator />
+  </RecaptchaWrapper>
+);
+
+export default FragranceCalculatorWithRecaptcha; // Export wrapped component
