@@ -136,6 +136,42 @@ formData.append('g-recaptcha-response', token);
 
 5. Update the HTML form in `index.html` to include the hidden field
 
+## Badge Positioning
+
+The reCAPTCHA badge has been repositioned to the **bottom-left corner** to avoid conflict with the chat widget in the bottom-right corner.
+
+### Current Implementation
+The badge is moved via CSS in `/src/index.css`:
+```css
+.grecaptcha-badge {
+  bottom: 14px !important;
+  left: 14px !important;
+  right: auto !important;
+}
+```
+
+### Alternative Options
+
+#### Option 1: Hide the Badge Completely
+If you prefer to hide the badge entirely, you can:
+
+1. Uncomment the hiding CSS in `/src/index.css`:
+```css
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+```
+
+2. Uncomment the required privacy text in `/src/pages/FragranceCalculator.tsx` (lines 557-568)
+
+**Important**: Google requires you to display the privacy text if you hide the badge.
+
+#### Option 2: Other Positions
+You can adjust the badge position by modifying the CSS:
+- **Top-right**: `top: 14px; right: 14px;`
+- **Top-left**: `top: 14px; left: 14px;`
+- **Center-bottom**: `bottom: 14px; left: 50%; transform: translateX(-50%);`
+
 ## Troubleshooting
 
 ### "Execute recaptcha not yet available"

@@ -16,3 +16,10 @@ export const RECAPTCHA_ACTION = {
 // Score threshold (0.0 to 1.0)
 // 0.5 is recommended default, adjust based on your needs
 export const RECAPTCHA_THRESHOLD = 0.5;
+
+// Badge visibility options:
+// 'bottomright' - Default position (conflicts with chat widget)
+// 'bottomleft' - Moved via CSS to avoid chat widget
+// 'inline' - Shows badge inline with the form
+// 'hidden' - Hides badge (requires privacy policy text)
+export const RECAPTCHA_BADGE_POSITION = 'bottomleft'; // Changed from default to avoid chat widget

@@ -552,6 +552,22 @@ Additional notes:
           </div>
         )}
 
+        {/* Optional: reCAPTCHA branding text (only needed if badge is hidden) */}
+        {/* Uncomment the following if you hide the reCAPTCHA badge in CSS */}
+        {/* 
+        <div className="text-xs text-gray-500 text-center mb-4">
+          This site is protected by reCAPTCHA and the Google{' '}
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">
+            Privacy Policy
+          </a>{' '}
+          and{' '}
+          <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">
+            Terms of Service
+          </a>{' '}
+          apply.
+        </div>
+        */}
+
         <button
           type="submit"
           disabled={isSubmitting || !contactName.trim() || !contactEmail.trim()}

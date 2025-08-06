@@ -25,6 +25,21 @@
   font-display: swap !important;
 }
 
+/* Reposition reCAPTCHA badge to bottom-left to avoid chat widget conflict */
+.grecaptcha-badge {
+  bottom: 14px !important;
+  left: 14px !important;
+  right: auto !important;
+}
+
+/* Optional: Completely hide reCAPTCHA badge (uncomment to use) */
+/* Note: If you hide the badge, you MUST include the reCAPTCHA branding text in your form */
+/* 
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+*/
+
 @layer base {
   :root {
     /* Gold to black gradient text utility */
