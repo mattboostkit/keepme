@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'; // Add useCallback
 import { Droplets, Percent, Package, AlertTriangle, PoundSterling, Info, Calculator } from 'lucide-react';
 import debounce from 'lodash/debounce'; // Import debounce
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { RECAPTCHA_ACTION } from '../config/recaptcha';
 
 
 // Helper function to format currency
@@ -307,9 +309,12 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({
   setContactEmail,
   setShowEnquiryForm
 }) => {
+  // Hook for reCAPTCHA v3
+  const { executeRecaptcha } = useGoogleReCaptcha();
   // State for form submission status
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'copied'>('idle');
+  const [recaptchaError, setRecaptchaError] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -320,8 +325,70 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({
       return;
     }
 
+    // Check if reCAPTCHA is available
+    if (!executeRecaptcha) {
+      console.log('Execute recaptcha not yet available');
+      setSubmitStatus('error');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setRecaptchaError('');
+
+    // Execute reCAPTCHA v3
+    let recaptchaToken = '';
+    try {
+      recaptchaToken = await executeRecaptcha(RECAPTCHA_ACTION.FRAGRANCE_CALCULATOR);
+    } catch (error) {
+      console.error('reCAPTCHA execution failed:', error);
+      setRecaptchaError('Unable to verify reCAPTCHA. Please try again.');
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validate reCAPTCHA token with Netlify Function
+    try {
+      const validationResponse = await fetch('/.netlify/functions/validate-recaptcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token: recaptchaToken,
+          action: RECAPTCHA_ACTION.FRAGRANCE_CALCULATOR
+        })
+      });
+
+      const validationResult = await validationResponse.json();
+
+      if (!validationResult.success) {
+        console.error('reCAPTCHA validation failed:', validationResult);
+        
+        // Provide user-friendly error messages
+        if (validationResult.score !== undefined && validationResult.score < 0.5) {
+          setRecaptchaError('Your submission was flagged as potentially automated. Please try again or contact us directly.');
+        } else {
+          setRecaptchaError('Security verification failed. Please refresh the page and try again.');
+        }
+        
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Log successful validation (can be removed in production)
+      console.log('reCAPTCHA validation successful:', {
+        score: validationResult.score,
+        action: validationResult.action
+      });
+
+    } catch (error) {
+      console.error('Error validating reCAPTCHA:', error);
+      // Continue with form submission even if validation fails (graceful degradation)
+      console.warn('reCAPTCHA validation error - continuing with form submission');
+    }
 
     // Prepare comprehensive data for submission
     const calculatorSummary = `
@@ -354,6 +421,7 @@ ${additionalInfo}
     formData.append('inclusion_rate', inputs.inclusionRateInput);
     formData.append('order_quantity', inputs.orderQuantityInput);
     formData.append('total_cost', formatCurrency(outputs.totalCost));
+    formData.append('g-recaptcha-response', recaptchaToken); // Add reCAPTCHA token
     
     try {
       const response = await fetch('/', {
@@ -479,7 +547,7 @@ Additional notes:
         {submitStatus === 'error' && (
           <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
             <p className="text-red-800 text-sm font-medium">
-              ✗ There was an error submitting your enquiry. Please ensure all required fields are filled in and try again.
+              ✗ {recaptchaError || 'There was an error submitting your enquiry. Please ensure all required fields are filled in and try again.'}
             </p>
           </div>
         )}

@@ -1,10 +1,12 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ReturnToTop from './components/ReturnToTop';
 import CookieBanner from './components/CookieBanner';
 import SEOManager from './components/SEOManager';
+import { RECAPTCHA_SITE_KEY } from './config/recaptcha';
 
 // Eager load Home page as it's the landing page
 import Home from './pages/Home';
@@ -72,7 +74,17 @@ function App() {
     fixFontDisplay();
   }, []);
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col">
+    <GoogleReCaptchaProvider
+      reCaptchaKey={RECAPTCHA_SITE_KEY}
+      scriptProps={{
+        async: true,
+        defer: true,
+        appendTo: 'head',
+        nonce: undefined,
+      }}
+      container={{ parameters: { theme: 'light' } }}
+    >
+      <div className="min-h-screen bg-white text-gray-900 flex flex-col">
       <SanityVisualEditing />
       <SEOManager />
       <Header />
@@ -144,7 +156,8 @@ function App() {
       <Footer />
       <ReturnToTop />
       <CookieBanner /> {/* Add CookieBanner here */}
-    </div>
+      </div>
+    </GoogleReCaptchaProvider>
   );
 }
 
